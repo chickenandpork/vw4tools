@@ -1,0 +1,5 @@
+#build scripts: automake
+Makefile.in
+
+# build scripts: configure-time generated
+Makefile

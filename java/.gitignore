@@ -1,0 +1,6 @@
+#build scripts: automake
+Makefile.in
+
+# build scripts: configure-time generated
+Makefile
+VirtualWisdom4ClientTool.java

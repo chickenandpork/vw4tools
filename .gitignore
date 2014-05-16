@@ -1,3 +1,24 @@
+#build scripts: autotools
+Makefile.in
+aclocal.m4
+config.sub
+configure
+
+# build scripts: configure-time generated
+Makefile
+autom4te.cache/
+config.guess
+config.log
+config.status
+install-sh
+missing
+
+# documentation on gh-pages branch
+Doxyfile
+htdocs
+
+
+#added by GH
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -10,6 +31,3 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-# documentation on gh-pages branch
-htdocs
