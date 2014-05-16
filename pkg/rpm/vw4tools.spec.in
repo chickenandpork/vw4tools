@@ -1,0 +1,56 @@
+Summary: VirtualWisdom4 Unofficial Tools
+Name: @PACKAGE@
+Version: @VERSION@
+Release: @BUILDID@
+License: GPL2
+Group: Utilities
+URL: http://tech.chickenandporn.com/
+Source0: http://chickenandporn.com/r/%{name}-%{version}.tar.bz2
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildArchitectures: noarch
+#BuildRequires: 
+#dammit, I hate the debug packages -- they even makes no sense in a non-executable payload
+%define debug_package %nil
+
+%description
+Tools and Resources similar to my "fctools" project (nee "vitools") to reduce the friction of certain tasks with VirtualWisdom4.
+
+
+%package java
+Summary: VirtualWisdom4 Unofficial Resources in Java
+Group: Utilities
+
+%description java
+Tools and Resources similar to my "fctools" project (nee "vitools") to reduce the friction of certain tasks with VirtualWisdom4.  This is the portion offering capabilities implemented in Java.
+
+
+%prep
+%setup
+
+%build
+%configure %{?configure_additional:%{configure_additional}} && make
+
+%install
+make install DESTDIR=%{buildroot}
+rm %{buildroot}/%{_datadir}/@PACKAGE@/java.class
+rm %{buildroot}/%{_datadir}/@PACKAGE@/java.jar
+rm -fr %{buildroot}/%{_datadir}/@PACKAGE@/jars
+
+%clean
+%{__rm} -rf %{buildroot}
+
+%check
+%{!?skipcheck:make check}
+
+
+%files
+%defattr(-, root, root, 0644)
+
+%files java
+# exported in java/Makefile.am
+%{_datadir}/@PACKAGE@/@PACKAGE@.jar
+
+
+%changelog
+* Thu May 1 2014 Allan Clark <allanc@chickenandporn.com> - 0.3-1
+- Initial package
