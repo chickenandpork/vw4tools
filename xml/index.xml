@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" kind="class"><name>org::smallfoot::vw4::VirtualWisdom4ClientTool</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad25ef6220eb54575157ab063bc63a0f0" kind="variable"><name>xmlDocument</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" kind="function"><name>VirtualWisdom4ClientTool</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" kind="function"><name>VirtualWisdom4ClientTool</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a06e5248d8619f00173d9794f30966dc3" kind="function"><name>load</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9370fe3a8b0b2d5b91a76190c1599e0" kind="function"><name>save</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1af1af4b7f062c6dd322b7e7a81209afb6" kind="function"><name>search</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adc3a8f6eb0246c78615de6cc346d4f99" kind="function"><name>_load</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adb7f600accd4a29f376ce8e52edff11a" kind="function"><name>_save</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef43485334ab87e6db498fe403162255" kind="function"><name>setAttr</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2e34675797f629121c1b2a74a19ebd34" kind="function"><name>subAttr</name></member>
+  </compound>
+  <compound refid="namespaceorg" kind="namespace"><name>org</name>
+  </compound>
+  <compound refid="namespaceorg_1_1smallfoot" kind="namespace"><name>org::smallfoot</name>
+  </compound>
+  <compound refid="namespaceorg_1_1smallfoot_1_1vw4" kind="namespace"><name>org::smallfoot::vw4</name>
+  </compound>
+  <compound refid="README_8dox" kind="file"><name>README.dox</name>
+  </compound>
+  <compound refid="VirtualWisdom4ClientTool_8java" kind="file"><name>VirtualWisdom4ClientTool.java</name>
+  </compound>
+  <compound refid="md_htdocs_README" kind="page"><name>md_htdocs_README</name>
+  </compound>
+  <compound refid="dir_93c6ba7fb77bae0709fae89c9c13b44a" kind="dir"><name>java</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>
