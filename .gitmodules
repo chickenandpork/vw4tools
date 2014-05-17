@@ -1,0 +1,3 @@
+[submodule "json-java"]
+	path = json-java
+	url = git@github.com:chickenandpork/JSON-java.git
