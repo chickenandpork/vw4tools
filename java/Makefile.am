@@ -1,10 +1,10 @@
-nodist_java_JAVA = VirtualWisdom4ClientTool.java.in
+nodist_java_JAVA = VirtualWisdom4ClientTool.java
 nodist_java_DATA = $(subdir).jar
 javadir = $(pkgdir)
 faejavadir = @faehome@/@PACKAGE@
 faejava_DATA = $(subdir).jar
 
-EXTRA_DIST = $(nodist_java_JAVA) 
+EXTRA_DIST = $(nodist_java_JAVA) VirtualWisdom4ClientTool.java.in
 CONFIG_CLEAN_FILES = $(subdir).jar
 
 JAVAROOT = bld
@@ -13,7 +13,7 @@ BUILT_SOURCES = javaroot.stamp
 javaroot.stamp: $(nodist_java_JAVA)
 	mkdir -p $(JAVAROOT) && touch $@
 
-AM_JAVACFLAGS= @JAVAC_FLAGS@ -cp $(JAVAROOT):@GETOPTJAR@
+AM_JAVACFLAGS= @JAVAC_FLAGS@ -cp $(JAVAROOT):@GETOPTJAR@:@JSON_JARS@
 
 @PACKAGE@.jar: classjava.stamp
 	awk -v BUILDTOP="bld" '/^package / {gsub (";$$",""); gsub ("\\.","/",$$2); SUBS[$$2]=$$2 } END { FIRST=0; for (n in SUBS) { if (0 == FIRST++) printf "jar cvf $@"; printf " -C %s %s",BUILDTOP,n }; printf "\n"; }' $(nodist_java_JAVA) | $(SHELL)

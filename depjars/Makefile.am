@@ -3,6 +3,13 @@ dist_depjar_DATA = $(JARS)
 
 JARS := java-getopt-1.0.13.jar
 
+if DO_JSON_JACKSON
+dnl http://repo1.maven.org/maven2/com/fasterxml/jackson/
+JARS += jackson-core-2.3.1.jar jackson-databind-2.3.1.jar jackson-annotations-2.3.1.jar
+http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.3.1/jackson-core-2.3.1.jar
+endif
+
+
 EXTRA_DIST = $(nodist_pkgdata_JAVA)
 CONFIG_CLEAN_FILES = $(JARS)
 BUILT_SOURCES := $(JARS)
@@ -15,5 +22,5 @@ java-getopt-1.0.13.jar:
 # catch that case of downloading content, the website claims it's sending content, but it's really sending a "hi, the content is over here, behind this ad..." webpage
 
 check-local: $(JARS)
-	for i in $<; do jar tf $$i >/dev/null || exit 1; done
+	for i in $^; do jar tf $$i >/dev/null || exit 1; done
 

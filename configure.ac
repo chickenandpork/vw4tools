@@ -64,6 +64,36 @@ AC_PATH_PROGS(TIDY, [tidy], [missing tidy])
 AC_PATH_PROGS(BZCAT, [bzcat], [missing bzcat])
 AC_PATH_PROGS(SEVENZIP, [7za 7z keka7z], [missing 7za], $PATH:/Applications/Keka.app/Contents/Resources)
 AC_PATH_PROGS(FILE, [file], [missing file])
+
+AC_ARG_WITH(json,
+[AS_HELP_STRING([--with-json],[Indicate which JSON library (json-java, jackson) to use (default=json-java)])],
+[
+    JSON_JAVA=no;
+    JSON_JACKSON=no;
+
+    case "$withval" in
+	"no")  JSON_JARS="" ;
+		;;
+	"jackson") 
+		JSON_JARS=${ac_pwd}/depjars/jackson-core-2.3.1.jar:${ac_pwd}/depjars/jackson-databind-2.3.1.jar:${ac_pwd}/depjars/jackson-annotations-2.3.1.jar ;
+    		JSON_JACKSON=yes ;
+		;;
+
+	*)
+		JSON_JARS=json-java.jar ;
+    		JSON_JAVA=yes ;
+		;;
+    esac
+],
+[
+    JSON_JAVA=yes;
+    JSON_JACKSON=no;
+    JSON_JARS=json-java.jar ;
+])
+AM_CONDITIONAL(DO_JSON_JACKSON, test "x$JSON_JACKSON" = "xyes")
+AM_CONDITIONAL(DO_JSON_JAVA, test "x$JSON_JAVA" = "xyes")
+AC_SUBST([JSON_JARS])
+
 AC_ARG_WITH(doxygen,
 [AS_HELP_STRING([--with-doxygen],[Indicate Doxygen allowing a without-; (default=search)])],
 [
@@ -167,24 +197,11 @@ AM_CONDITIONAL(DO_GETOPTJAR, test "$WITH_GETOPTJAR" != no)
 AC_SUBST([GETOPTJAR], ${WITH_GETOPTJAR})
 
 
-AC_MSG_CHECKING([for user-defined bna testcase])
-AC_ARG_WITH(userbnatestcase,
-[AS_HELP_STRING([--with-userbnatestcase],[Enable a one-off test using a user-defined testcase; default=ignore])],
-[
-    USERBNATESTCASE="$withval"
-    AC_MSG_RESULT([${USERBNATESTCASE}])
-],
-[
-    USERBNATESTCASE="missing"
-    AC_MSG_RESULT([not given])
-])
-AC_SUBST([USERBNATESTCASE], ${USERBNATESTCASE})
-
-
 AC_CONFIG_FILES(Makefile
   convjars/Makefile 
   depjars/Makefile 
   java/Makefile java/VirtualWisdom4ClientTool.java
+  json-java/Makefile
   tests-autotest/Makefile tests-autotest/testsuite.at
 )
 

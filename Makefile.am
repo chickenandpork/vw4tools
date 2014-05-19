@@ -1,6 +1,9 @@
-DIST_SUBDIRS =	depjars java convjars tests-autotest
+DIST_SUBDIRS =	depjars json-java java convjars tests-autotest
 SUBDIRS =	depjars
 if DO_JAVA
+if DO_JSON_JAVA
+SUBDIRS +=	json-java
+endif
 SUBDIRS +=	java convjars
 endif
 SUBDIRS +=	tests-autotest
@@ -41,7 +44,7 @@ endif
 
 
 if DO_ASTYLE
-formatting: java/Alias4Parser.java.in java/NicknameParser.java.in java/ParserTee.java java/ZoneParser.java java/ZPAliasEntry.java java/ZPFCAliasEntry.java java/ZPZoneEntry.java
+formatting: java/VirtualWisdom4ClientTool.java.in
 if DO_GITFORMATTING
 	@git ls-files --other --exclude-standard --directory || { echo "###################### unignored local files: git add, git commit ?"; }
 	@git diff --exit-code || { echo "###################### unstaged changes: git commit -a"; exit 1; }
