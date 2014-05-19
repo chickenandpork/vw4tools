@@ -79,16 +79,21 @@ AC_ARG_WITH(json,
     		JSON_JACKSON=yes ;
 		;;
 
-	*)
-		JSON_JARS=json-java.jar ;
+	"json-java") 
+		JSON_JARS=${ac_pwd}/json-java/vw4tools.jar ;
     		JSON_JAVA=yes ;
+		;;
+
+	*)
+		JSON_JARS=${ac_pwd}/depjars/jackson-core-2.3.1.jar:${ac_pwd}/depjars/jackson-databind-2.3.1.jar:${ac_pwd}/depjars/jackson-annotations-2.3.1.jar ;
+    		JSON_JACKSON=yes ;
 		;;
     esac
 ],
 [
-    JSON_JAVA=yes;
-    JSON_JACKSON=no;
-    JSON_JARS=json-java.jar ;
+    JSON_JARS=${ac_pwd}/depjars/jackson-core-2.3.1.jar:${ac_pwd}/depjars/jackson-databind-2.3.1.jar:${ac_pwd}/depjars/jackson-annotations-2.3.1.jar ;
+    JSON_JAVA=no ;
+    JSON_JACKSON=yes ;
 ])
 AM_CONDITIONAL(DO_JSON_JACKSON, test "x$JSON_JACKSON" = "xyes")
 AM_CONDITIONAL(DO_JSON_JAVA, test "x$JSON_JAVA" = "xyes")
