@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
   <compounddef id="VirtualWisdom4ClientTool_8java" kind="file">
     <compoundname>VirtualWisdom4ClientTool.java</compoundname>
-    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" prot="public">org::smallfoot::vw4::VirtualWisdom4ClientTool</innerclass>
     <innernamespace refid="namespaceorg_1_1smallfoot_1_1vw4">org::smallfoot::vw4</innernamespace>
     <briefdescription>
     </briefdescription>
