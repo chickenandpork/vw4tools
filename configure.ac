@@ -202,6 +202,21 @@ AM_CONDITIONAL(DO_GETOPTJAR, test "$WITH_GETOPTJAR" != no)
 AC_SUBST([GETOPTJAR], ${WITH_GETOPTJAR})
 
 
+AC_MSG_CHECKING([for user-defined specific testcase])
+AC_ARG_WITH(usertestcase,
+[AS_HELP_STRING([--with-usertestcase],[Enable a one-off test using a user-defined testcase; default=ignore])],
+[
+    USERTESTCASE="$withval"
+    AC_MSG_RESULT([${USERTESTCASE}])
+],
+[
+    USERTESTCASE="missing"
+    AC_MSG_RESULT([not given])
+])
+AC_SUBST([USERTESTCASE], ${USERTESTCASE})
+
+
+
 AC_CONFIG_FILES(Makefile
   convjars/Makefile 
   depjars/Makefile 
