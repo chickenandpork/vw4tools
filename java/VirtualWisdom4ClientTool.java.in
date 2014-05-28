@@ -1,13 +1,16 @@
 package org.smallfoot.vw4 ;
 
+import java.util.Vector;
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
-//import javax.xml.xpath.XPathConstants;
+import gnu.getopt.Getopt;
+import gnu.getopt.LongOpt;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 
 /* The following is conditionally permitted based on the mutually-exclusive choice at ./configure time.  --with-json= chooses exactly one of the following, causing one of the following comment blocks pairs to be butchered */
 /* *@DO_JSON_JAVA_TRUE@/	import org.json.*;				/*@DO_JSON_JAVA_TRUE@* */
@@ -101,5 +104,70 @@ public class VirtualWisdom4ClientTool
 	{
             e.printStackTrace();
 	}
+    }
+
+
+    /** usage messages are useful to those of us with short memories as well (hey, I just need to add swap!) */
+    void usage(String progname)
+    {
+        System.out.println("Usage: "+progname+" -V|--version|-H|--help");
+        //System.out.println("     : "+progname+" --checksum <name>");
+
+        //System.out.println("   ie: "+progname+" --authtriple=v1/public -a v2c/2cool --authtriple=v3/scott/tiger -a v3/mrnopriv//md5/somepassword --ip=192.168.0.1 -i 10.0.0.1");
+        //System.out.println("   ie: "+progname+" -A -a=v1/Br0c4d3 -i 192.168.0.1 -a v2/public -a 2/s3cr3t -a 1/community -i 10.0.0.1 -C https://10.0.0.44");
+    }
+
+
+    /**
+     * Main function, as you can tell.
+     *
+     * this function merely parses the command-line to dispatch actions to the meat of the meal above.
+     * I'm using an actual GetOpt because, yes, I'm a UNIX/C hack, re-using 3-decades-old knowledge,
+     * but this also preserves both extensibility and the ability to use longopts in scripts as a
+     * way to self-document what the tool's doing.
+     *
+     * No real intelligence herein except the parse-and-redirect action.
+     */
+    public static void main(String args[])
+    {
+        VirtualWisdom4ClientTool m = new VirtualWisdom4ClientTool();
+
+        Vector<LongOpt> options = new Vector(20,2);
+
+        /* Always always ALWAYS provide a quick reference and a version output */
+        options.add(new LongOpt("help", LongOpt.NO_ARGUMENT, null, 'H'));
+        options.add(new LongOpt("version", LongOpt.NO_ARGUMENT, null, 'V'));
+
+        //options.add(new LongOpt("check", LongOpt.NO_ARGUMENT, null, '^'));
+
+        /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /*@DO_GETOPTJAR_TRUE@ */
+        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HV", options);        /@DO_GETOPTJAR_FALSE@* */
+
+
+        int c;
+        while ((c = g.getopt()) != -1)
+        {
+            switch(c)
+            {
+
+
+
+
+                /*
+                 * Follows is the "house-keeping": versions, usage, and the catch-all for bad options.
+                 */
+            case 'V':   // print the version and quit
+	    {
+                System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")+"\n");
+                return;
+	    }
+
+            default:
+            case '?':
+            case 'H':
+                m.usage(g.progname());
+                break;
+            }
+        }
     }
 }
