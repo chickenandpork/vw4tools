@@ -59,9 +59,10 @@ endif DO_GITFORMATTING
 
 endif DO_ASTYLE
 
+# in 1.0 use "tag -a 1.0" and remove the --tags below
 if DO_GITFORMATTING
 gitdescribe: .git/ORIG_HEAD
-	git describe > $@
+	git describe --tags > $@
 endif DO_GITFORMATTING
 
 if HAVE_RPMBUILD
