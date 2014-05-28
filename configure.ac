@@ -2,7 +2,7 @@ dnl ***********************************************************************
 dnl Process this file with autoconf to produce a configure script.
 dnl ***********************************************************************
 #AC_INIT(install-sh)
-AC_INIT(fcparsers, 0.3)
+AC_INIT(vw4tools, 0.9)
 AC_CONFIG_MACRO_DIR([m4])
 
 AC_CANONICAL_HOST
