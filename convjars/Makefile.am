@@ -7,7 +7,7 @@ BUILDTMP=$(shell date +%s)
 JAVAROOT = bld
 
 
-@PACKAGE@.jar: ../java/@PACKAGE@.jar @GETOPTJAR@
+@PACKAGE@.jar: ../java/@PACKAGE@.jar @GETOPTJAR@ /Users/allan.clark/src/vw4tools/depjars/jackson-core-2.3.1.jar /Users/allan.clark/src/vw4tools/depjars/jackson-databind-2.3.1.jar /Users/allan.clark/src/vw4tools/depjars/jackson-annotations-2.3.1.jar
 	@-rm -fr $(@D)/.workdir
 	@mkdir -p $(@D)/.workdir
 	@echo "Manifest-Version: 1.0" > $(@D)/.workdir/MANIFEST.MF
@@ -16,6 +16,6 @@ JAVAROOT = bld
 	ln -f $^ $(@D)/.workdir/
 	for i in $(^F) ; do (cd $(@D)/.workdir  && jar xf $$i) ; done
 	find $(@D)/.workdir '(' -name \*.java -o -name COPYING.LIB -o -name \*.html -o -name README -o -name Makefile -o -name ChangeLog -o -name GetoptDemo.class -o -name LANGUAGES -o -name \*.xml ')' -exec rm {} \;
-	(cd $(@D)/.workdir && jar cm MANIFEST.MF gnu org) > $@
+	(cd $(@D)/.workdir && jar cm MANIFEST.MF com gnu org) > $@
 	rm -fr $(@D)/.workdir
 	touch $@

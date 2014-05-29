@@ -1,5 +1,6 @@
 package org.smallfoot.vw4 ;
 
+import java.io.File;
 import java.util.Vector;
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
@@ -8,6 +9,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
+import org.smallfoot.vw4.VWImport;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -15,6 +17,7 @@ import org.w3c.dom.NodeList;
 /* The following is conditionally permitted based on the mutually-exclusive choice at ./configure time.  --with-json= chooses exactly one of the following, causing one of the following comment blocks pairs to be butchered */
 /* *@DO_JSON_JAVA_TRUE@/	import org.json.*;				/*@DO_JSON_JAVA_TRUE@* */
 /* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.core.json.*;	/*@DO_JSON_JACKSON_TRUE@* */
+/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.databind.*;	/*@DO_JSON_JACKSON_TRUE@* */
 
 
 /**
@@ -111,10 +114,10 @@ public class VirtualWisdom4ClientTool
     void usage(String progname)
     {
         System.out.println("Usage: "+progname+" -V|--version|-H|--help");
-        //System.out.println("     : "+progname+" --checksum <name>");
+        System.out.println("     : "+progname+" --read <filename>|--input <filename> | -r <filename> | -i <filename>");
 
-        //System.out.println("   ie: "+progname+" --authtriple=v1/public -a v2c/2cool --authtriple=v3/scott/tiger -a v3/mrnopriv//md5/somepassword --ip=192.168.0.1 -i 10.0.0.1");
-        //System.out.println("   ie: "+progname+" -A -a=v1/Br0c4d3 -i 192.168.0.1 -a v2/public -a 2/s3cr3t -a 1/community -i 10.0.0.1 -C https://10.0.0.44");
+        System.out.println("   ie: "+progname+" --read import.json");
+        System.out.println("   ie: "+progname+" -r import.json");
     }
 
 
@@ -138,7 +141,8 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("help", LongOpt.NO_ARGUMENT, null, 'H'));
         options.add(new LongOpt("version", LongOpt.NO_ARGUMENT, null, 'V'));
 
-        //options.add(new LongOpt("check", LongOpt.NO_ARGUMENT, null, '^'));
+        options.add(new LongOpt("read", LongOpt.REQUIRED_ARGUMENT, null, 'r'));
+        options.add(new LongOpt("input", LongOpt.REQUIRED_ARGUMENT, null, 'i'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /*@DO_GETOPTJAR_TRUE@ */
         /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HV", options);        /@DO_GETOPTJAR_FALSE@* */
@@ -149,8 +153,17 @@ public class VirtualWisdom4ClientTool
         {
             switch(c)
             {
-
-
+            case 'i':	/* fall-thru */
+            case 'r':   // Read in a config file
+	    {
+                com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+		try {
+   		VWImport vwimport = mapper.readValue(new File(g.getOptarg()), VWImport.class);
+		}
+		catch (java.io.IOException ioe) { System.out.println("IO Exception reading from "+g.getOptarg()+": "+ioe.getMessage()); }
+                   //JsonParseException,
+                   //JsonMappingException
+	    }
 
 
                 /*
