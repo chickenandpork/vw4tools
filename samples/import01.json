@@ -1,0 +1,24 @@
+{
+  "entities": [
+    {
+      "description": "ITL app for -- apparently -- two Brocade HBAs: 200000051e961234 and 200100051e961235"
+      "tags": [
+        "import"
+      ], 
+      "itl_patterns": [
+        {
+          "edit_type": "add", 
+          "initiator": "200000051e961234"
+        }, 
+        {
+          "edit_type": "add", 
+          "initiator": "200100051e961235"
+        }
+      ], 
+      "edit_type": "add", 
+      "type": "application", 
+      "name": "app123x"
+    }
+  ], 
+  "version": "1"
+}
