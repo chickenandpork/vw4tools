@@ -72,32 +72,27 @@ AC_ARG_WITH(json,
     JSON_JACKSON=no;
 
     case "$withval" in
-	"no")  JSON_JARS="" ;
+	"no") 
 		;;
 	"jackson") 
-		JSON_JARS=${ac_pwd}/depjars/jackson-core-2.3.1.jar:${ac_pwd}/depjars/jackson-databind-2.3.1.jar:${ac_pwd}/depjars/jackson-annotations-2.3.1.jar ;
     		JSON_JACKSON=yes ;
 		;;
 
 	"json-java") 
-		JSON_JARS=${ac_pwd}/json-java/vw4tools.jar ;
     		JSON_JAVA=yes ;
 		;;
 
 	*)
-		JSON_JARS=${ac_pwd}/depjars/jackson-core-2.3.1.jar:${ac_pwd}/depjars/jackson-databind-2.3.1.jar:${ac_pwd}/depjars/jackson-annotations-2.3.1.jar ;
     		JSON_JACKSON=yes ;
 		;;
     esac
 ],
 [
-    JSON_JARS=${ac_pwd}/depjars/jackson-core-2.3.1.jar:${ac_pwd}/depjars/jackson-databind-2.3.1.jar:${ac_pwd}/depjars/jackson-annotations-2.3.1.jar ;
     JSON_JAVA=no ;
     JSON_JACKSON=yes ;
 ])
 AM_CONDITIONAL(DO_JSON_JACKSON, test "x$JSON_JACKSON" = "xyes")
 AM_CONDITIONAL(DO_JSON_JAVA, test "x$JSON_JAVA" = "xyes")
-AC_SUBST([JSON_JARS])
 
 AC_ARG_WITH(doxygen,
 [AS_HELP_STRING([--with-doxygen],[Indicate Doxygen allowing a without-; (default=search)])],
