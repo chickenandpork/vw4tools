@@ -1,5 +1,26 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" kind="enum"><name>org::smallfoot::vw4::VWImport::Edit_Type</name>
+    <member refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type_1a393e4cd5187ecf30d2db2129a73f3c05" kind="variable"><name>add</name></member>
+    <member refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type_1afa21b51665d4dc82669bba18a62d8b58" kind="variable"><name>modify</name></member>
+  </compound>
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kind="class"><name>org::smallfoot::vw4::VWImport::Entity</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" kind="variable"><name>description</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a76dab48266f34c941c947433ae14176d" kind="variable"><name>edit_type</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a88540be4d74409418ead7a4a7bdc8cee" kind="variable"><name>itl_patterns</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a9a2326f35466e54c36c070829245c557" kind="variable"><name>name</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1aa96ebc81ca3bd65e0d7c5e67e96bb973" kind="variable"><name>tags</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a0b86e44425dbe3c9d866aa273f87828a" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kind="class"><name>org::smallfoot::vw4::VWImport::ITLPattern</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" kind="variable"><name>edit_type</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1aecf64895f45b5dc828bdf693933ab6a7" kind="variable"><name>initiator</name></member>
+  </compound>
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport" kind="class"><name>org::smallfoot::vw4::VWImport</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a9a3cd7caed5bd4b81c9383fc0e3c6e6f" kind="variable"><name>entities</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a647cd1252795280f192c7eefbde080e0" kind="variable"><name>version</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" kind="function"><name>entities</name></member>
+  </compound>
   <compound refid="namespaceorg" kind="namespace"><name>org</name>
   </compound>
   <compound refid="namespaceorg_1_1smallfoot" kind="namespace"><name>org::smallfoot</name>
@@ -9,6 +30,8 @@
   <compound refid="README_8dox" kind="file"><name>README.dox</name>
   </compound>
   <compound refid="VirtualWisdom4ClientTool_8java" kind="file"><name>VirtualWisdom4ClientTool.java</name>
+  </compound>
+  <compound refid="VWImport_8java" kind="file"><name>VWImport.java</name>
   </compound>
   <compound refid="md_htdocs_README" kind="page"><name>md_htdocs_README</name>
   </compound>

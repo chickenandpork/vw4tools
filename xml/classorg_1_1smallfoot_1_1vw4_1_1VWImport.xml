@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1VWImport" kind="class" prot="public">
+    <compoundname>org::smallfoot::vw4::VWImport</compoundname>
+    <innerclass refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" prot="public">org::smallfoot::vw4::VWImport::Edit_Type</innerclass>
+    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" prot="public">org::smallfoot::vw4::VWImport::Entity</innerclass>
+    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" prot="public">org::smallfoot::vw4::VWImport::ITLPattern</innerclass>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a9a3cd7caed5bd4b81c9383fc0e3c6e6f" prot="protected" static="no" mutable="no">
+        <type>Vector&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> &gt;</type>
+        <definition>Vector&lt;Entity&gt; entities</definition>
+        <argsstring></argsstring>
+        <name>entities</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>the entities in the single Import action </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="50" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a647cd1252795280f192c7eefbde080e0" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <initializer>= &quot;1&quot;</initializer>
+        <briefdescription>
+<para>it&apos;s great that the import format is versioned hence extensible, perhaps when some real-life-testing highlights concerns we&apos;ve discussed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="56" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Vector&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> &gt;</type>
+        <definition>Vector&lt;Entity&gt; entities</definition>
+        <argsstring>()</argsstring>
+        <name>entities</name>
+        <briefdescription>
+<para>singleton to provide an entity vector without having to check whether it&apos;s been created yet </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="55" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="55" bodyend="55"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" compoundref="VWImport_8java" startline="55" endline="55">VWImport.entities</references>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" compoundref="VWImport_8java" startline="55" endline="55">VWImport.entities</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport" kindref="compound">VWImport</ref> is a single idempotent import for the VirtualWisdom4 product. </para>    </briefdescription>
+    <detaileddescription>
+<para>It&apos;s basically a wrapper for a number of entities and a version to define the format of the enclosed entities for import.</para><para>As a convention, Product Management recommends tagging all imported entities with &quot;import&quot; so that a select group can be dropped in case of errors rather than deleting all entities in the entire VirtualWisdom product. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="25">
+        <label>Vector&lt; org.smallfoot.vw4.VWImport.Entity &gt;</label>
+      </node>
+      <node id="24">
+        <label>VWImport</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>entities</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="17" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="16" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a9a3cd7caed5bd4b81c9383fc0e3c6e6f" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport</scope><name>entities</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport</scope><name>entities</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a647cd1252795280f192c7eefbde080e0" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

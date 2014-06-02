@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" kind="enum" prot="public">
+    <compoundname>org::smallfoot::vw4::VWImport::Edit_Type</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type_1a393e4cd5187ecf30d2db2129a73f3c05" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>add</definition>
+        <argsstring></argsstring>
+        <name>add</name>
+        <briefdescription>
+<para>add this element: no current element exists with the same name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="24" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type_1afa21b51665d4dc82669bba18a62d8b58" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modify</definition>
+        <argsstring></argsstring>
+        <name>modify</name>
+        <briefdescription>
+<para>use this value to modify an existing element with the same name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="26" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The edit type of a JSON for VW4 Import can be either &quot;add&quot; or &quot;modify&quot;; the creator needs to know ahead of time whether an entry of the same name currently exists. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="23" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="23" bodyend="26"/>
+    <listofallmembers>
+      <member refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type_1a393e4cd5187ecf30d2db2129a73f3c05" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Edit_Type</scope><name>add</name></member>
+      <member refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type_1afa21b51665d4dc82669bba18a62d8b58" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Edit_Type</scope><name>modify</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

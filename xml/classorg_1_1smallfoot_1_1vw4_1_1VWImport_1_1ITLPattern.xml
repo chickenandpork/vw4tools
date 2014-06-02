@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kind="class" prot="public">
+    <compoundname>org::smallfoot::vw4::VWImport::ITLPattern</compoundname>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" prot="package" static="no" mutable="no">
+        <type><ref refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" kindref="compound">Edit_Type</ref></type>
+        <definition>Edit_Type edit_type</definition>
+        <argsstring></argsstring>
+        <name>edit_type</name>
+        <briefdescription>
+<para>What kind of edit are we doing? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="35" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1aecf64895f45b5dc828bdf693933ab6a7" prot="package" static="no" mutable="no">
+        <type>String</type>
+        <definition>String initiator</definition>
+        <argsstring></argsstring>
+        <name>initiator</name>
+        <briefdescription>
+<para><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kindref="compound">ITLPattern</ref> can have values defined for Initiators, Targets, and LUNs, or all three (T/L to come later) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="36" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>An <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kindref="compound">ITLPattern</ref> is udes to define an application <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> based on the ITLs it requires. </para>    </briefdescription>
+    <detaileddescription>
+<para>For example an &quot;UberDatabase&quot; application may define certain servers using certain LUNs on certain storage targets </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="22">
+        <label>VWImport.Edit_Type</label>
+        <link refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type"/>
+      </node>
+      <node id="21">
+        <label>VWImport.ITLPattern</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern"/>
+        <childnode refid="22" relation="usage">
+          <edgelabel>edit_type</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="34" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="33" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>edit_type</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1aecf64895f45b5dc828bdf693933ab6a7" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>initiator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

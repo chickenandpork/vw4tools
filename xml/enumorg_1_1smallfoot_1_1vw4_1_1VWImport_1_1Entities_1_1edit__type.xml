@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entities_1_1edit__type" kind="enum" prot="public">
+    <compoundname>org::smallfoot::vw4::VWImport::Entities::edit_type</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entities_1_1edit__type_1a393e4cd5187ecf30d2db2129a73f3c05" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>add</definition>
+        <argsstring></argsstring>
+        <name>add</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="20" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="20" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="20" bodyend="20"/>
+    <listofallmembers>
+      <member refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entities_1_1edit__type_1a393e4cd5187ecf30d2db2129a73f3c05" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entities::edit_type</scope><name>add</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

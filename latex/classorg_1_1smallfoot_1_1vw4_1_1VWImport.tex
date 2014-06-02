@@ -1,0 +1,59 @@
+\section{V\-W\-Import Class Reference}
+\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport}\index{V\-W\-Import@{V\-W\-Import}}
+
+
+A \doxyref{V\-W\-Import}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport} is a single idempotent import for the Virtual\-Wisdom4 product.  
+
+
+
+
+Collaboration diagram for V\-W\-Import\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classorg_1_1smallfoot_1_1vw4_1_1VWImport__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf Edit\-\_\-\-Type}
+\begin{DoxyCompactList}\small\item\em The edit type of a J\-S\-O\-N for V\-W4 Import can be either \char`\"{}add\char`\"{} or \char`\"{}modify\char`\"{}; the creator needs to know ahead of time whether an entry of the same name currently exists. \end{DoxyCompactList}\item 
+class {\bf Entity}
+\begin{DoxyCompactList}\small\item\em An entity for import. \end{DoxyCompactList}\item 
+class {\bf I\-T\-L\-Pattern}
+\begin{DoxyCompactList}\small\item\em An \doxyref{I\-T\-L\-Pattern}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern} is udes to define an application \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} based on the I\-T\-Ls it requires. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector$<$ {\bf Entity} $>$ {\bf entities} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a66e795032db830396eddba947597ac21}
+
+\begin{DoxyCompactList}\small\item\em singleton to provide an entity vector without having to check whether it's been created yet \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+String {\bf version} = \char`\"{}1\char`\"{}\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a647cd1252795280f192c7eefbde080e0}
+
+\begin{DoxyCompactList}\small\item\em it's great that the import format is versioned hence extensible, perhaps when some real-\/life-\/testing highlights concerns we've discussed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector$<$ {\bf Entity} $>$ {\bf entities} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a9a3cd7caed5bd4b81c9383fc0e3c6e6f}
+
+\begin{DoxyCompactList}\small\item\em the entities in the single Import action \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \doxyref{V\-W\-Import}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport} is a single idempotent import for the Virtual\-Wisdom4 product. 
+
+It's basically a wrapper for a number of entities and a version to define the format of the enclosed entities for import.
+
+As a convention, Product Management recommends tagging all imported entities with \char`\"{}import\char`\"{} so that a select group can be dropped in case of errors rather than deleting all entities in the entire Virtual\-Wisdom product. 
+
+Definition at line 16 of file V\-W\-Import.\-java.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+java/{\bf V\-W\-Import.\-java}\end{DoxyCompactItemize}

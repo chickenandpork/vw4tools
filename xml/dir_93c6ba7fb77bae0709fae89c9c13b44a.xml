@@ -3,6 +3,7 @@
   <compounddef id="dir_93c6ba7fb77bae0709fae89c9c13b44a" kind="dir">
     <compoundname>java</compoundname>
     <innerfile refid="VirtualWisdom4ClientTool_8java">VirtualWisdom4ClientTool.java</innerfile>
+    <innerfile refid="VWImport_8java">VWImport.java</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

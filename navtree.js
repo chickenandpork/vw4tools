@@ -3,6 +3,14 @@ var NAVTREE =
   [ "vw4tools", "index.html", [
     [ "JavaDoc API Markup for vw4tools", "index.html", null ],
     [ "README", "md_htdocs_README.html", null ],
+    [ "Data Structures", null, [
+      [ "Data Structures", "annotated.html", "annotated" ],
+      [ "Data Fields", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Files", null, [
       [ "File List", "files.html", "files" ]
     ] ]
@@ -11,7 +19,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"VirtualWisdom4ClientTool_8java_source.html"
+".html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
