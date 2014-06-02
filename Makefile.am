@@ -6,6 +6,7 @@ SUBDIRS +=	json-java
 endif
 SUBDIRS +=	java convjars
 endif
+SUBDIRS +=	scripts
 SUBDIRS +=	tests-autotest
 
 ACLOCAL_AMFLAGS = -I m4

@@ -216,7 +216,7 @@ AC_CONFIG_FILES(Makefile
   convjars/Makefile 
   depjars/Makefile 
   java/Makefile java/VirtualWisdom4ClientTool.java
-  json-java/Makefile
+  scripts/Makefile scripts/csv-to-json.awk
   tests-autotest/Makefile tests-autotest/testsuite.at
 )
 
@@ -228,6 +228,11 @@ fi
 if test "x$DOXYGEN" != "xmissing"
 then
   AC_CONFIG_FILES(Doxyfile:pkg/Doxyfile.in)
+fi
+
+if test "x$JSON_JAVA" = "xyes"
+then
+  AC_CONFIG_FILES(json-java/Makefile)
 fi
 
 AC_OUTPUT

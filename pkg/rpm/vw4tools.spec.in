@@ -24,6 +24,14 @@ Group: Utilities
 Tools and Resources similar to my "fctools" project (nee "vitools") to reduce the friction of certain tasks with VirtualWisdom4.  This is the portion offering capabilities implemented in Java.
 
 
+%package scripts
+Summary: VirtualWisdom4 Unofficial Resources in AWK Scripts
+Group: Utilities
+
+%description scripts
+Tools and Resources similar to my "fctools" project (nee "vitools") to reduce the friction of certain tasks with VirtualWisdom4.  This is the portion offering capabilities implemented in AWK and Bash
+
+
 %prep
 %setup
 
@@ -49,6 +57,10 @@ rm -fr %{buildroot}/%{_datadir}/@PACKAGE@/jars
 %files java
 # exported in java/Makefile.am
 %{_datadir}/@PACKAGE@/@PACKAGE@.jar
+
+%files scripts
+# exported in scripts/Makefile.am
+%{_datadir}/@PACKAGE@/csv-to-json.awk
 
 
 %changelog

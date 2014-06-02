@@ -10,6 +10,53 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(csv-to-json awk script)
+dnl      ----------------------
+
+dnl 50:0A:09:85:98:D2:6B:D5 NetApp-d26bd5-iGrp1-0e
+AT_DATA([c2v01.csv], [NetApp-123456,array,50:0A:09:85:98:12:34:56
+NetApp-123456,array,50:0A:09:86:98:12:34:56
+Oracle01,host,10:00:00:00:c9:12:34:56
+Oracle01,host,10:00:00:00:c9:12:34:57
+])
+
+AT_CHECK([@AWK@ -f $abs_top_builddir/scripts/csv-to-json.awk c2v01.csv], 0, [[{
+  "version" : 1,
+   "entities" : [
+   {
+      "name" : "NetApp-123456",
+      "type" : "storagearray",
+      "tags" : [ "csv2json Import" ],
+      "edit_type" : "add",
+      "child_entities" : { "add" : [ "50:0A:09:86:98:12:34:56", "50:0A:09:85:98:12:34:56" ] }
+   },
+   {
+      "name" : "Oracle01",
+      "type" : "host",
+      "tags" : [ "csv2json Import" ],
+      "edit_type" : "add",
+      "child_entities" : { "add" : [ "Oracle01-00", "Oracle01-01" ] }
+   },
+   {
+      "name" : "Oracle01-00",
+      "type" : "hba",
+      "edit_type" : "add", 
+      "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:56" ] }
+   },
+   {
+      "name" : "Oracle01-01",
+      "type" : "hba",
+      "edit_type" : "add", 
+      "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:57" ] }
+   }
+]
+}
+]], [])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(local testcase)
 dnl      --------------
 

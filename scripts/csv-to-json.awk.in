@@ -1,0 +1,64 @@
+BEGIN { ecount = 0; FS=","; HOLDNAME=""; HOLDTYPE=""; printf "{\n  \"version\" : 1,\n   \"entities\" : [\n"; }
+
+func dumpAccum()
+{
+	if (0 < ecount) printf ",\n";
+	ecount++;
+
+	printf "   {\n";
+	printf "      \"name\" : \"%s\",\n",HOLDNAME;
+	if ("array" == HOLDTYPE)
+	    printf "      \"type\" : \"storagearray\",\n";
+	else if ("host" == HOLDTYPE)
+	    printf "      \"type\" : \"host\",\n";
+	else
+	    printf "      \"type\" : \"unknown\",\n";
+
+	printf "      \"tags\" : [ \"csv2json Import\" ],\n";
+	printf "      \"edit_type\" : \"add\",\n";
+	printf "      \"child_entities\" : { \"add\" : [ ";
+
+	cecount = 0;
+	if ("host" == HOLDTYPE)
+	  for (a in ACCUM)
+	  {
+		if (0 == cecount) printf "\"%s-%02d\"", HOLDNAME, cecount;
+		else printf ", \"%s-%02d\"", HOLDNAME, cecount;
+		cecount++;
+	  }
+	else
+	  for (a in ACCUM)
+	  {
+		if (0 == cecount) printf "\"%s\"", a;
+		else printf ", \"%s\"", a;
+		cecount++;
+	  };
+	printf " ] }\n";
+
+	cecount = 0;
+	if ("host" == HOLDTYPE)
+	  for (a in ACCUM)
+	  {
+	printf "   },\n   {\n      \"name\" : \"%s-%02d\",\n",HOLDNAME, cecount;
+	printf "      \"type\" : \"hba\",\n";
+	printf "      \"edit_type\" : \"add\",\n";
+	printf "      \"child_entities\" : { \"add\" : [ \"%s\" ] }\n", a;
+		cecount++;
+	  }
+
+
+	printf "   }";
+
+	HOLDNAME=$1;
+	HOLDTYPE=$2;
+	delete ACCUM;
+	ACCUM[$3]=$1;
+}
+
+(("" == HOLDNAME) && ("" == HOLDTYPE)) { HOLDNAME=$1; HOLDTYPE=$2; }
+(($1 == HOLDNAME) && ($2 == HOLDTYPE)) { ACCUM[$3]=$1; next; }
+
+{ dumpAccum() }
+
+END { dumpAccum(); printf "\n]\n}\n"; }
+
