@@ -53,6 +53,36 @@ AT_CHECK([@AWK@ -f $abs_top_builddir/scripts/csv-to-json.awk c2v01.csv], 0, [[{
 }
 ]], [])
 
+AT_DATA([c2v02.csv], [Oracle01,host,10:00:00:00:c9:12:34:56,Oracle01-A
+Oracle01,host,10:00:00:00:c9:12:34:57,Oracle01-B
+])
+
+AT_CHECK([@AWK@ -f $abs_top_builddir/scripts/csv-to-json.awk c2v02.csv], 0, [[{
+  "version" : 1,
+   "entities" : [
+   {
+      "name" : "Oracle01",
+      "type" : "host",
+      "tags" : [ "csv2json Import" ],
+      "edit_type" : "add",
+      "child_entities" : { "add" : [ "Oracle01-A", "Oracle01-B" ] }
+   },
+   {
+      "name" : "Oracle01-A",
+      "type" : "hba",
+      "edit_type" : "add", 
+      "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:56" ] }
+   },
+   {
+      "name" : "Oracle01-B",
+      "type" : "hba",
+      "edit_type" : "add", 
+      "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:57" ] }
+   }
+]
+}
+]], [])
+
 AT_CLEANUP()
 
 

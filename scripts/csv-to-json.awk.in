@@ -22,8 +22,9 @@ func dumpAccum()
 	if ("host" == HOLDTYPE)
 	  for (a in ACCUM)
 	  {
-		if (0 == cecount) printf "\"%s-%02d\"", HOLDNAME, cecount;
-		else printf ", \"%s-%02d\"", HOLDNAME, cecount;
+		if (0 < cecount) printf ", ";
+		if (ACCUM[a] == HOLDNAME) printf "\"%s-%02d\"", HOLDNAME, cecount;
+		else printf "\"%s\"", ACCUM[a];
 		cecount++;
 	  }
 	else
@@ -39,7 +40,8 @@ func dumpAccum()
 	if ("host" == HOLDTYPE)
 	  for (a in ACCUM)
 	  {
-	printf "   },\n   {\n      \"name\" : \"%s-%02d\",\n",HOLDNAME, cecount;
+	if (ACCUM[a] == HOLDNAME) printf "   },\n   {\n      \"name\" : \"%s-%02d\",\n",HOLDNAME, cecount;
+	else printf "   },\n   {\n      \"name\" : \"%s\",\n", ACCUM[a];
 	printf "      \"type\" : \"hba\",\n";
 	printf "      \"edit_type\" : \"add\",\n";
 	printf "      \"child_entities\" : { \"add\" : [ \"%s\" ] }\n", a;
@@ -52,11 +54,11 @@ func dumpAccum()
 	HOLDNAME=$1;
 	HOLDTYPE=$2;
 	delete ACCUM;
-	ACCUM[$3]=$1;
+	if ("" == $4) ACCUM[$3]=$1; else ACCUM[$3]=$4;
 }
 
 (("" == HOLDNAME) && ("" == HOLDTYPE)) { HOLDNAME=$1; HOLDTYPE=$2; }
-(($1 == HOLDNAME) && ($2 == HOLDTYPE)) { ACCUM[$3]=$1; next; }
+(($1 == HOLDNAME) && ($2 == HOLDTYPE)) { if ("" == $4) ACCUM[$3]=$1; else ACCUM[$3]=$4; next; }
 
 { dumpAccum() }
 
