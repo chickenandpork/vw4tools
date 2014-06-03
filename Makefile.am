@@ -47,7 +47,7 @@ endif
 
 if DO_MAKE_JSONSCHEMA2POJO
 schema.json: @SCHEMASAMPLE@
-	@JAVA@ -jar jsonschema2pojo/jsonschema2pojo.jar  --source @SCHEMASAMPLE@ --source-type JSON --target schema
+	@JAVA@ -jar jsonschema2pojo/jsonschema2pojo.jar  --source @SCHEMASAMPLE@ --package org.smallfoot.vw4.pojo --source-type JSON --target schema
 endif
 
 

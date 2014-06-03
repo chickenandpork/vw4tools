@@ -32,13 +32,15 @@ AT_CHECK([@AWK@ -f $abs_top_builddir/scripts/csv-to-json.awk c2v01.csv], 0, [[{
    },
    {
       "name" : "NetApp-123456-00",
-      "type" : "storagecontroller",
+      "type" : "iomodule",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add",
       "child_entities" : { "add" : [ "50:0A:09:86:98:12:34:56" ] }
    },
    {
       "name" : "NetApp-123456-01",
-      "type" : "storagecontroller",
+      "type" : "iomodule",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add",
       "child_entities" : { "add" : [ "50:0A:09:85:98:12:34:56" ] }
    },
@@ -52,12 +54,14 @@ AT_CHECK([@AWK@ -f $abs_top_builddir/scripts/csv-to-json.awk c2v01.csv], 0, [[{
    {
       "name" : "Oracle01-00",
       "type" : "hba",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add", 
       "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:56" ] }
    },
    {
       "name" : "Oracle01-01",
       "type" : "hba",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add", 
       "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:57" ] }
    }
@@ -82,12 +86,14 @@ AT_CHECK([@AWK@ -f $abs_top_builddir/scripts/csv-to-json.awk c2v02.csv], 0, [[{
    {
       "name" : "Oracle01-A",
       "type" : "hba",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add", 
       "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:56" ] }
    },
    {
       "name" : "Oracle01-B",
       "type" : "hba",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add", 
       "child_entities" : { "add" : [ "10:00:00:00:c9:12:34:57" ] }
    }
@@ -111,13 +117,36 @@ AT_CHECK([@AWK@ -f $abs_top_builddir/scripts/csv-to-json.awk c2v03.csv], 0, [[{
    },
    {
       "name" : "NetApp-Blue-iGrp1-0f",
-      "type" : "storagecontroller",
+      "type" : "iomodule",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add", 
       "child_entities" : { "add" : [ "50:0A:09:86:98:12:34:56" ] }
    },
    {
       "name" : "NetApp-Blue-iGrp1-0e",
-      "type" : "storagecontroller",
+      "type" : "iomodule",
+      "tags" : [ "csv2json Import" ],
+      "edit_type" : "add", 
+      "child_entities" : { "add" : [ "50:0A:09:85:98:12:34:56" ] }
+   }
+]
+}
+]], [])
+
+AT_CHECK([@AWK@ -v SKIPARRAY="barkbark" -f $abs_top_builddir/scripts/csv-to-json.awk c2v03.csv], 0, [[{
+  "version" : 1,
+   "entities" : [
+   {
+      "name" : "NetApp-Blue-iGrp1-0f",
+      "type" : "iomodule",
+      "tags" : [ "csv2json Import" ],
+      "edit_type" : "add", 
+      "child_entities" : { "add" : [ "50:0A:09:86:98:12:34:56" ] }
+   },
+   {
+      "name" : "NetApp-Blue-iGrp1-0e",
+      "type" : "iomodule",
+      "tags" : [ "csv2json Import" ],
       "edit_type" : "add", 
       "child_entities" : { "add" : [ "50:0A:09:85:98:12:34:56" ] }
    }

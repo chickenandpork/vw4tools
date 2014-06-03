@@ -3,8 +3,15 @@ BEGIN { ecount = 0; FS=","; HOLDNAME=""; HOLDTYPE=""; printf "{\n  \"version\" :
 func dumpAccum()
 {
 	if (0 < ecount) printf ",\n";
-	ecount++;
 
+	if ("" != SKIPARRAY)
+	    SKIP["array"] = "array";
+	if ("" != SKIPHOST)
+	    SKIP["host"] = "host";
+
+	if (! SKIP[HOLDTYPE])		# for gary: if "SKIParray" is defined, and HOLDTYPE==array, skip showing that block
+	{
+	ecount++;
 	printf "   {\n";
 	printf "      \"name\" : \"%s\",\n",HOLDNAME;
 	if ("array" == HOLDTYPE)
@@ -27,25 +34,29 @@ func dumpAccum()
 		else printf "\"%s\"", ACCUM[a];
 		cecount++;
 	  };
-	printf " ] }\n";
+	printf " ] }\n   }";
+	}
 
 	cecount = 0;
 	if ( ("host" == HOLDTYPE) || ("array" == HOLDTYPE) )
+	{
 	  for (a in ACCUM)
 	  {
-	if (ACCUM[a] == HOLDNAME) printf "   },\n   {\n      \"name\" : \"%s-%02d\",\n",HOLDNAME, cecount;
-	else printf "   },\n   {\n      \"name\" : \"%s\",\n", ACCUM[a];
+	    if ( (0 < ecount) || (0 < cecount) ) printf ",\n";
+	if (ACCUM[a] == HOLDNAME) printf "   {\n      \"name\" : \"%s-%02d\",\n",HOLDNAME, cecount;
+	else printf "   {\n      \"name\" : \"%s\",\n", ACCUM[a];
 	if ("host" == HOLDTYPE)
 	  printf "      \"type\" : \"hba\",\n";
 	else
-	  printf "      \"type\" : \"storagecontroller\",\n";
+	  printf "      \"type\" : \"iomodule\",\n";
+	printf "      \"tags\" : [ \"csv2json Import\" ],\n";
 	printf "      \"edit_type\" : \"add\",\n";
 	printf "      \"child_entities\" : { \"add\" : [ \"%s\" ] }\n", a;
 		cecount++;
-	  }
-
-
 	printf "   }";
+	  }
+	}
+
 
 	HOLDNAME=$1;
 	HOLDTYPE=$2;
