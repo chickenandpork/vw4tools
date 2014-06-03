@@ -1,6 +1,9 @@
-DIST_SUBDIRS =	depjars json-java java convjars tests-autotest
+DIST_SUBDIRS =	depjars jsonschema2pojo json-java java convjars tests-autotest
 SUBDIRS =	depjars
 if DO_JAVA
+if DO_JAVA_JSONSCHEMA2POJO
+SUBDIRS +=	jsonschema2pojo
+endif
 if DO_JSON_JAVA
 SUBDIRS +=	json-java
 endif

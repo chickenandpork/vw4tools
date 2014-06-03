@@ -179,6 +179,21 @@ AC_ARG_ENABLE(autotest,
 AM_CONDITIONAL(DO_AUTOTEST, test "$ENAB" = yes)
 
 
+AC_ARG_ENABLE(jsonschema2pojo,
+[AS_HELP_STRING([--enable-jsonschema2pojo],[Enable jsonschema2pojo run to create POJO classes; default=disabled])],
+[
+    case "$enableval" in
+	"yes") ENABJS2P=yes ;;
+	"no")  ENABJS2P=no  ;;
+	*) ENABJS2P=no ;;
+    esac
+],
+[
+    ENABJS2P=no
+])
+AM_CONDITIONAL(DO_JAVA_JSONSCHEMA2POJO, test "$ENABJS2P" = yes)
+
+
 AC_ARG_WITH(getoptplus,
 [AS_HELP_STRING([--with-getoptplus],[Enable inclusion of an improved getopt .jar; default=search])],
 [
@@ -228,6 +243,11 @@ fi
 if test "x$DOXYGEN" != "xmissing"
 then
   AC_CONFIG_FILES(Doxyfile:pkg/Doxyfile.in)
+fi
+
+if test "x$ENABJS2P" = "xyes"
+then
+  AC_CONFIG_FILES(jsonschema2pojo/Makefile)
 fi
 
 if test "x$JSON_JAVA" = "xyes"
