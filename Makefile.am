@@ -45,6 +45,10 @@ endif DO_DOXYGEN_MD_FALSE
 endif
 
 
+if DO_MAKE_JSONSCHEMA2POJO
+schema.json: @SCHEMASAMPLE@
+	@JAVA@ -jar jsonschema2pojo/jsonschema2pojo.jar  --source @SCHEMASAMPLE@ --source-type JSON --target schema
+endif
 
 
 if DO_ASTYLE

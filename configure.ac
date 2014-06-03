@@ -179,19 +179,22 @@ AC_ARG_ENABLE(autotest,
 AM_CONDITIONAL(DO_AUTOTEST, test "$ENAB" = yes)
 
 
+SCHEMASAMPLE=
 AC_ARG_ENABLE(jsonschema2pojo,
 [AS_HELP_STRING([--enable-jsonschema2pojo],[Enable jsonschema2pojo run to create POJO classes; default=disabled])],
 [
     case "$enableval" in
 	"yes") ENABJS2P=yes ;;
 	"no")  ENABJS2P=no  ;;
-	*) ENABJS2P=no ;;
+	*) ENABJS2P=yes ; SCHEMASAMPLE="$enableval";;
     esac
 ],
 [
     ENABJS2P=no
 ])
 AM_CONDITIONAL(DO_JAVA_JSONSCHEMA2POJO, test "$ENABJS2P" = yes)
+AM_CONDITIONAL(DO_MAKE_JSONSCHEMA2POJO, test "x$SCHEMASAMPLE" != x)
+AC_SUBST([SCHEMASAMPLE])
 
 
 AC_ARG_WITH(getoptplus,
