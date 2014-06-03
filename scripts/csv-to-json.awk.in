@@ -19,30 +19,26 @@ func dumpAccum()
 	printf "      \"child_entities\" : { \"add\" : [ ";
 
 	cecount = 0;
-	if ("host" == HOLDTYPE)
+	if ( ("host" == HOLDTYPE) || ("array" == HOLDTYPE) )
 	  for (a in ACCUM)
 	  {
 		if (0 < cecount) printf ", ";
 		if (ACCUM[a] == HOLDNAME) printf "\"%s-%02d\"", HOLDNAME, cecount;
 		else printf "\"%s\"", ACCUM[a];
 		cecount++;
-	  }
-	else
-	  for (a in ACCUM)
-	  {
-		if (0 == cecount) printf "\"%s\"", a;
-		else printf ", \"%s\"", a;
-		cecount++;
 	  };
 	printf " ] }\n";
 
 	cecount = 0;
-	if ("host" == HOLDTYPE)
+	if ( ("host" == HOLDTYPE) || ("array" == HOLDTYPE) )
 	  for (a in ACCUM)
 	  {
 	if (ACCUM[a] == HOLDNAME) printf "   },\n   {\n      \"name\" : \"%s-%02d\",\n",HOLDNAME, cecount;
 	else printf "   },\n   {\n      \"name\" : \"%s\",\n", ACCUM[a];
-	printf "      \"type\" : \"hba\",\n";
+	if ("host" == HOLDTYPE)
+	  printf "      \"type\" : \"hba\",\n";
+	else
+	  printf "      \"type\" : \"storagecontroller\",\n";
 	printf "      \"edit_type\" : \"add\",\n";
 	printf "      \"child_entities\" : { \"add\" : [ \"%s\" ] }\n", a;
 		cecount++;
