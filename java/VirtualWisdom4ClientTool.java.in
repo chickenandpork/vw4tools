@@ -17,13 +17,19 @@ import org.w3c.dom.NodeList;
 /* The following is conditionally permitted based on the mutually-exclusive choice at ./configure time.  --with-json= chooses exactly one of the following, causing one of the following comment blocks pairs to be butchered */
 /* *@DO_JSON_JAVA_TRUE@/	import org.json.*;				/*@DO_JSON_JAVA_TRUE@* */
 /* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.core.json.*;	/*@DO_JSON_JACKSON_TRUE@* */
+/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.core.*;		/*@DO_JSON_JACKSON_TRUE@* */
 /* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.databind.*;	/*@DO_JSON_JACKSON_TRUE@* */
-
+/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.databind.jsonschema.*;	/*@DO_JSON_JACKSON_TRUE@* */
 
 /**
- * VirtualWisdom4ClientTool is a "Swiss Army Knife" of tools used when working with VirtualWisdom4.  The existence of these tools is not a judgement on VirtualWisdom4's proper Engineering; rather, an acceptance that a faster-response solution for the longer-tail of the normal curve is often helpful swapping QA delay for reduced customer friction.
+ * VirtualWisdom4ClientTool is a "Swiss Army Knife" of tools used when working with
+ * VirtualWisdom4.  The existence of these tools is not a judgement on VirtualWisdom4's
+ * proper Engineering; rather, an acceptance that a faster-response solution for the
+ * longer-tail of the normal curve is often helpful swapping QA delay for reduced customer
+ * friction.
  *
- * As you'd expect, there is no support for this.  If it breaks, you may choose to keep both pieces :)
+ * As you'd expect, there is no support for this.  If it breaks, you may choose to keep both
+ * pieces :)
  *
  * Ad-Hoc content for this utility-stack may appear at http://fcfae.com/
  */
@@ -134,6 +140,7 @@ public class VirtualWisdom4ClientTool
     public static void main(String args[])
     {
         VirtualWisdom4ClientTool m = new VirtualWisdom4ClientTool();
+	VWImport vwimport = null;
 
         Vector<LongOpt> options = new Vector(20,2);
 
@@ -143,6 +150,9 @@ public class VirtualWisdom4ClientTool
 
         options.add(new LongOpt("read", LongOpt.REQUIRED_ARGUMENT, null, 'r'));
         options.add(new LongOpt("input", LongOpt.REQUIRED_ARGUMENT, null, 'i'));
+	options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
+
+	options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /*@DO_GETOPTJAR_TRUE@ */
         /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HV", options);        /@DO_GETOPTJAR_FALSE@* */
@@ -157,14 +167,99 @@ public class VirtualWisdom4ClientTool
             case 'r':   // Read in a config file
 	    {
                 com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-		try {
-   		VWImport vwimport = mapper.readValue(new File(g.getOptarg()), VWImport.class);
+		//mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+		try
+		{
+   		    vwimport = mapper.readValue(new File(g.getOptarg()), VWImport.class);
 		}
 		catch (java.io.IOException ioe) { System.out.println("IO Exception reading from "+g.getOptarg()+": "+ioe.getMessage()); }
                    //JsonParseException,
                    //JsonMappingException
 	    }
+	    	break;
 
+	    case 'o':   // Write a config file out
+	    {
+		/*
+		   XmlMapper mapper = new XmlMapper() 
+		   MyBean bean = new MyBean();
+
+		   String xml = mapper.writeValueAsString(bean);
+		   // System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user));
+
+		   // we get something like "<MyBean><property>value</property>....</MyBean>"
+		   MyBean beanFromXml = mapper.readValue(xml, MyBean.class);
+		 */
+
+
+		System.err.println("NOTE: writing");
+		try
+		{
+		    if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("schema.json")) )
+		    {
+			JsonSchema schema = (new com.fasterxml.jackson.databind.ObjectMapper()).generateJsonSchema(VWImport.class);
+			System.out.println(schema.toString());
+		    }
+		    else if (null == vwimport)
+		    {
+			System.err.println("ERROR: no content loaded");
+			return;
+		    }
+		    else if (
+			( null == g.getOptarg() ) || 
+			(g.getOptarg().equalsIgnoreCase("")) || 
+			(g.getOptarg().equalsIgnoreCase("-"))  )
+		    {
+			System.err.println("NOTE: writing to stdout");
+			String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
+			System.out.println(o);
+		    }
+		    else
+		    {
+			com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+			try {
+			mapper.writeValue(new File(g.getOptarg()), vwimport);
+			}
+			catch (java.io.IOException ioe) { System.out.println("IO Exception writing to "+g.getOptarg()+": "+ioe.getMessage()); }
+			//JsonParseException,
+			//JsonMappingException
+		    }
+		}
+		catch (JsonMappingException jme) { System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services"); }
+		catch (JsonProcessingException jpe) { System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services"); }
+	    }
+		break;
+
+		/*
+		 * Testcase generation -- internal use only, used to create bogus internal content to test output format
+		 */
+	    case 'T':   // create internal content for export
+	    {
+		if (g.getOptarg().equalsIgnoreCase ("sample01"))
+		{
+		    vwimport = new VWImport();
+		    VWImport.Entity e = new VWImport.Entity();
+		    e.description = "sample01 test entity";
+		    e.edit_type = VWImport.Edit_Type.add;
+		    e.type = "application";
+		    e.name = "sample01_itl";
+		    e.itl_patterns = new Vector<VWImport.ITLPattern>();
+		    VWImport.ITLPattern i = new VWImport.ITLPattern();
+		    i.edit_type = VWImport.Edit_Type.add;
+		    i.initiator = "1000002590123456";
+		    e.itl_patterns.add(i);
+		    vwimport.entities().add(e);
+		    System.err.println(vwimport.entities().size() + " entities defined");
+		}
+		else
+		{
+		    System.err.println("testcase generation: Testcase \""+g.getOptarg()+"\" is not understood");
+		    System.err.println("testcases include: sample01");
+		    return;
+		}
+	    }
+	    break;
 
                 /*
                  * Follows is the "house-keeping": versions, usage, and the catch-all for bad options.
