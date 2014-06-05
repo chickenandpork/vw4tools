@@ -2,7 +2,7 @@
 \label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool}\index{Virtual\-Wisdom4\-Client\-Tool@{Virtual\-Wisdom4\-Client\-Tool}}
 
 
-X\-Path\-Tool is a relatively uncomplicated wrapper for an X\-Path action\-: it doesn't know what you're doing, and doesn't assume you'll do things in a specific order, but tries to stop you from making really silly errors like saving or searching an unloaded file.  
+\doxyref{Virtual\-Wisdom4\-Client\-Tool}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool} is a \char`\"{}\-Swiss Army Knife\char`\"{} of tools used when working with Virtual\-Wisdom4.  
 
 
 \subsection*{Public Member Functions}
@@ -13,38 +13,42 @@ X\-Path\-Tool is a relatively uncomplicated wrapper for an X\-Path action\-: it 
 {\bf Virtual\-Wisdom4\-Client\-Tool} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a7991b30b52ad4d408df3575abc9b57ae}
 
 \begin{DoxyCompactList}\small\item\em Class Constructor with no initial file. \end{DoxyCompactList}\item 
-void {\bf load} (String xml\-File)
+void {\bf load} (String filename)
 \begin{DoxyCompactList}\small\item\em Wrapper to just load the file, spitting out exceptions and stacks as they occur. \end{DoxyCompactList}\item 
-void {\bf save} (String out)
-\begin{DoxyCompactList}\small\item\em Wrapper to just save the file, spitting out exceptions and stacks as they occur. \end{DoxyCompactList}\item 
-Object {\bf search} (String expression, Q\-Name return\-Type)  throws org.\-smallfoot.\-xpath.\-No\-Document\-Exception     
-\begin{DoxyCompactList}\small\item\em Search the current X\-M\-L Document for a match, returning a list of matching nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+String {\bf pretty\-J\-S\-O\-N} ({\bf V\-W\-Import} v)
+\begin{DoxyCompactList}\small\item\em Convenience function to generate a pretty-\/printed J\-S\-O\-N text string. \end{DoxyCompactList}\item 
+void {\bf save} (String filename)
+\begin{DoxyCompactList}\small\item\em Wrapper to just save the file, spitting out exceptions and stacks as they occur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static int {\bf set\-Attr} (Node\-List nodelist, String replacement)
-\begin{DoxyCompactList}\small\item\em Consume a list of matches, and for each node (entity or attribute) replace the current value. \end{DoxyCompactList}\item 
-static int {\bf sub\-Attr} (Node\-List nodelist, String edit\-Match, String edit\-Replace, boolean global)
-\begin{DoxyCompactList}\small\item\em Consume a list of matches, and for each node (entity or attribute) make a Strong.\-replace\-First() or a String.\-replace\-All() \end{DoxyCompactList}\end{DoxyCompactItemize}
+static void {\bf main} (String args[$\,$])
+\begin{DoxyCompactList}\small\item\em Main function, as you can tell. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void {\bf \-\_\-load} (String xml\-File)  throws javax.\-xml.\-parsers.\-Parser\-Configuration\-Exception, org.\-xml.\-sax.\-S\-A\-X\-Exception, java.\-io.\-I\-O\-Exception     
+void {\bf \-\_\-load} (String filename)  throws java.\-lang.\-Exception     
 \begin{DoxyCompactList}\small\item\em Open a file. \end{DoxyCompactList}\item 
-void {\bf \-\_\-save} (String xml\-File)  throws javax.\-xml.\-transform.\-Transformer\-Configuration\-Exception, java.\-io.\-File\-Not\-Found\-Exception, javax.\-xml.\-transform.\-Transformer\-Exception, org.\-smallfoot.\-xpath.\-No\-Document\-Exception     
+void {\bf \-\_\-save} (String filename)  throws java.\-lang.\-Exception     
 \begin{DoxyCompactList}\small\item\em Save the current X\-M\-L Document to a new file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-org.\-w3c.\-dom.\-Document {\bfseries xml\-Document}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ad25ef6220eb54575157ab063bc63a0f0}
+org.\-w3c.\-dom.\-Document {\bf xml\-Document}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ad25ef6220eb54575157ab063bc63a0f0}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em eventually used to hold an X\-M\-L document when converting X\-M\-L$<$--$>$J\-S\-O\-N$<$--$>$X\-M\-L \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-X\-Path\-Tool is a relatively uncomplicated wrapper for an X\-Path action\-: it doesn't know what you're doing, and doesn't assume you'll do things in a specific order, but tries to stop you from making really silly errors like saving or searching an unloaded file. 
+\doxyref{Virtual\-Wisdom4\-Client\-Tool}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool} is a \char`\"{}\-Swiss Army Knife\char`\"{} of tools used when working with Virtual\-Wisdom4. 
 
-Definition at line 17 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+The existence of these tools is not a judgement on Virtual\-Wisdom4's proper Engineering; rather, an acceptance that a faster-\/response solution for the longer-\/tail of the normal curve is often helpful swapping Q\-A delay for reduced customer friction.
+
+As you'd expect, there is no support for this. If it breaks, you may choose to keep both pieces \-:)
+
+Ad-\/\-Hoc content for this utility-\/stack may appear at {\tt http\-://fcfae.\-com/} 
+
+Definition at line 38 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -66,11 +70,11 @@ Class Constructor to create with an initial file to load.
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See Also}
-\doxyref{load(\-String)}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a06e5248d8619f00173d9794f30966dc3} 
+\doxyref{load(\-String)}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f} 
 \end{DoxySeeAlso}
 
 
-Definition at line 28 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 49 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -94,32 +98,23 @@ Here is the call graph for this function\-:\nopagebreak
 \index{\-\_\-load@{\-\_\-load}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
 \subsubsection[{\-\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-load (
 \begin{DoxyParamCaption}
-\item[{String}]{xml\-File}
+\item[{String}]{filename}
 \end{DoxyParamCaption}
-) throws javax.\-xml.\-parsers.\-Parser\-Configuration\-Exception, org.\-xml.\-sax.\-S\-A\-X\-Exception, java.\-io.\-I\-O\-Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_adc3a8f6eb0246c78615de6cc346d4f99}
+) throws java.\-lang.\-Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ad9a051ba608e7fcb9adac39bc3946058}
 
 
 Open a file. 
 
-This is actually a wrapper for the complex usage of javax.\-xml.\-parsers.\-Document\-Builder\-Factory to find a singleton to instantiate a document from a file.
+This is actually a wrapper for the underlying file load
 
 
 \begin{DoxyParams}{Parameters}
-{\em xml\-File} & file to load \\
+{\em filename} & file to load \\
 \hline
 \end{DoxyParams}
 
-\begin{DoxyExceptions}{Exceptions}
-{\em java.\-io.\-I\-O\-Exception} & on issues loading the file given as a parameter \\
-\hline
-{\em javax.\-xml.\-parsers.\-Parser\-Configuration\-Exception} & when the javax.\-xml.\-parsers.\-Document\-Builder\-Factory is butchered \\
-\hline
-{\em org.\-xml.\-sax.\-S\-A\-X\-Exception} & on parsing issues \\
-\hline
-\end{DoxyExceptions}
 
-
-Definition at line 50 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 68 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -129,34 +124,21 @@ Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load().
 \index{\-\_\-save@{\-\_\-save}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
 \subsubsection[{\-\_\-save}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-save (
 \begin{DoxyParamCaption}
-\item[{String}]{xml\-File}
+\item[{String}]{filename}
 \end{DoxyParamCaption}
-) throws javax.\-xml.\-transform.\-Transformer\-Configuration\-Exception, java.\-io.\-File\-Not\-Found\-Exception, javax.\-xml.\-transform.\-Transformer\-Exception, org.\-smallfoot.\-xpath.\-No\-Document\-Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_adb7f600accd4a29f376ce8e52edff11a}
+) throws java.\-lang.\-Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a36a7decd28b5e191bfe43c5562462785}
 
 
 Save the current X\-M\-L Document to a new file. 
 
-based partially on {\tt Document\-Builder\-Factory.\-java} and influenced by {\tt Writing X\-M\-L on Android}
-
 
 \begin{DoxyParams}{Parameters}
-{\em xml\-File} & filename to save into \\
+{\em filename} & filename to save into \\
 \hline
 \end{DoxyParams}
 
-\begin{DoxyExceptions}{Exceptions}
-{\em java.\-io.\-File\-Not\-Found\-Exception} & on issues creating the output filestream on xml\-File (ie missing interposing directory or permissions) \\
-\hline
-{\em javax.\-xml.\-transform.\-Transformer\-Configuration\-Exception} & when the javax.\-xml.\-transform.\-Transformer\-Factory is butchered \\
-\hline
-{\em javax.\-xml.\-transform.\-Transformer\-Exception} & for exceptions on the final step, the transformation itself \\
-\hline
-{\em org.\-smallfoot.\-xpath.\-No\-Document\-Exception} & if the user has tried to search before a document is loaded \\
-\hline
-\end{DoxyExceptions}
 
-
-Definition at line 87 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 96 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -166,21 +148,21 @@ Referenced by Virtual\-Wisdom4\-Client\-Tool.\-save().
 \index{load@{load}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
 \subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}void load (
 \begin{DoxyParamCaption}
-\item[{String}]{xml\-File}
+\item[{String}]{filename}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a06e5248d8619f00173d9794f30966dc3}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f}
 
 
 Wrapper to just load the file, spitting out exceptions and stacks as they occur. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em xml\-File} & file to load \\
+{\em filename} & file to load \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 61 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 79 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -196,30 +178,92 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=156pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a06e5248d8619f00173d9794f30966dc3_cgraph}
+\includegraphics[width=156pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph}
 \end{center}
 \end{figure}
 
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!main@{main}}
+\index{main@{main}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}static void main (
+\begin{DoxyParamCaption}
+\item[{String}]{args[$\,$]}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a75988cf84fc6ee7a2ebff36e363021aa}
+
+
+Main function, as you can tell. 
+
+this function merely parses the command-\/line to dispatch actions to the meat of the meal above. I'm using an actual Get\-Opt because, yes, I'm a U\-N\-I\-X/\-C hack, re-\/using 3-\/decades-\/old knowledge, but this also preserves both extensibility and the ability to use longopts in scripts as a way to self-\/document what the tool's doing.
+
+No real intelligence herein except the parse-\/and-\/redirect action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & as you'd expect, these are commandline arguments given when the jar is activated \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+References Virtual\-Wisdom4\-Client\-Tool.\-Virtual\-Wisdom4\-Client\-Tool().
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a75988cf84fc6ee7a2ebff36e363021aa_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!pretty\-J\-S\-O\-N@{pretty\-J\-S\-O\-N}}
+\index{pretty\-J\-S\-O\-N@{pretty\-J\-S\-O\-N}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{pretty\-J\-S\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}String pretty\-J\-S\-O\-N (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-W\-Import}}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_afc3ee9b897e0757b6cd5c8289c9d4cc4}
+
+
+Convenience function to generate a pretty-\/printed J\-S\-O\-N text string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \doxyref{V\-W\-Import}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport} object to markup \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pretty-\/printed J\-S\-O\-N using Object\-Writer.\-with\-Default\-Pretty\-Printer() or null if an exception occurs 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!save@{save}}
 \index{save@{save}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
 \subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}void save (
 \begin{DoxyParamCaption}
-\item[{String}]{out}
+\item[{String}]{filename}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9370fe3a8b0b2d5b91a76190c1599e0}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a119573b242d96a5e64a7d340bcf14aa8}
 
 
 Wrapper to just save the file, spitting out exceptions and stacks as they occur. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em out} & filename to save into \\
+{\em filename} & filename to save into \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 106 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 107 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -231,103 +275,13 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=162pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9370fe3a8b0b2d5b91a76190c1599e0_cgraph}
+\includegraphics[width=162pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a119573b242d96a5e64a7d340bcf14aa8_cgraph}
 \end{center}
 \end{figure}
 
-
-\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!search@{search}}
-\index{search@{search}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
-\subsubsection[{search}]{\setlength{\rightskip}{0pt plus 5cm}Object search (
-\begin{DoxyParamCaption}
-\item[{String}]{expression, }
-\item[{Q\-Name}]{return\-Type}
-\end{DoxyParamCaption}
-) throws org.\-smallfoot.\-xpath.\-No\-Document\-Exception\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_af1af4b7f062c6dd322b7e7a81209afb6}
-
-
-Search the current X\-M\-L Document for a match, returning a list of matching nodes. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em expression} & X\-Path expression to search for \\
-\hline
-{\em return\-Type} & namespace context against which the expression is evaluated \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em org.\-smallfoot.\-xpath.\-No\-Document\-Exception} & if the user has tried to search before a document is loaded \\
-\hline
-\end{DoxyExceptions}
-
-
-Definition at line 129 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
-
-\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!set\-Attr@{set\-Attr}}
-\index{set\-Attr@{set\-Attr}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
-\subsubsection[{set\-Attr}]{\setlength{\rightskip}{0pt plus 5cm}static int set\-Attr (
-\begin{DoxyParamCaption}
-\item[{Node\-List}]{nodelist, }
-\item[{String}]{replacement}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aef43485334ab87e6db498fe403162255}
-
-
-Consume a list of matches, and for each node (entity or attribute) replace the current value. 
-
-This function allows specific programmatic replacement of string values in X\-M\-L to reduce the chance of user error and typos creating erroneous X\-M\-L.
-
-
-\begin{DoxyParams}{Parameters}
-{\em nodelist} & list of nodes containing targets/matches to alter \\
-\hline
-{\em replacement} & string to replace for matches \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-number of matches made 
-\end{DoxyReturn}
-
-
-Definition at line 202 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
-
-\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!sub\-Attr@{sub\-Attr}}
-\index{sub\-Attr@{sub\-Attr}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
-\subsubsection[{sub\-Attr}]{\setlength{\rightskip}{0pt plus 5cm}static int sub\-Attr (
-\begin{DoxyParamCaption}
-\item[{Node\-List}]{nodelist, }
-\item[{String}]{edit\-Match, }
-\item[{String}]{edit\-Replace, }
-\item[{boolean}]{global}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a2e34675797f629121c1b2a74a19ebd34}
-
-
-Consume a list of matches, and for each node (entity or attribute) make a Strong.\-replace\-First() or a String.\-replace\-All() 
-
-This function is added as a convenience function to allow semi-\/contextual replacement of strings when converting other X\-M\-L content -- this allows single atomic commands to rename components to avoid name-\/clashes and unintended replacements.
-
-
-\begin{DoxyParams}{Parameters}
-{\em nodelist} & list of nodes containing targets/matches to alter \\
-\hline
-{\em edit\-Match} & string to match for replacement \\
-\hline
-{\em edit\-Replace} & string to replace for matches \\
-\hline
-{\em global} & whether to replace globally (like sed -\/e 's/\-X/y/g' -- the 'g' at the end) -- which is whether to use a Strong.\-replace\-First() or a String.\-replace\-All() \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-number of matches made 
-\end{DoxyReturn}
-
-
-Definition at line 158 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-java/Virtual\-Wisdom4\-Client\-Tool.\-java\end{DoxyCompactItemize}
+java/{\bf Virtual\-Wisdom4\-Client\-Tool.\-java}\end{DoxyCompactItemize}

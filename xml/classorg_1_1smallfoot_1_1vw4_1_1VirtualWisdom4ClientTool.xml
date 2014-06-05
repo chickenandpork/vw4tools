@@ -9,12 +9,12 @@
         <argsstring></argsstring>
         <name>xmlDocument</name>
         <briefdescription>
-        </briefdescription>
+<para>eventually used to hold an XML document when converting XML&lt;<ndash/>&gt;JSON&lt;<ndash/>&gt;XML </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="19" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="19" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="40" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="40" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,12 +38,12 @@
 <para>File to load at start</para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a06e5248d8619f00173d9794f30966dc3" kindref="member">load(String)</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" kindref="member">load(String)</ref> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="28" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="28" bodyend="31"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a06e5248d8619f00173d9794f30966dc3" compoundref="VirtualWisdom4ClientTool_8java" startline="61" endline="73">VirtualWisdom4ClientTool.load</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="49" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="49" bodyend="52"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="79" endline="89">VirtualWisdom4ClientTool.load</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -56,23 +56,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="36" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="36" bodyend="38"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="57" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="57" bodyend="59"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="178" endline="327">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a06e5248d8619f00173d9794f30966dc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void load</definition>
-        <argsstring>(String xmlFile)</argsstring>
+        <argsstring>(String filename)</argsstring>
         <name>load</name>
         <param>
           <type>String</type>
-          <declname>xmlFile</declname>
+          <declname>filename</declname>
         </param>
         <briefdescription>
 <para>Wrapper to just load the file, spitting out exceptions and stacks as they occur. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>xmlFile</parametername>
+<parametername>filename</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>file to load </para></parameterdescription>
@@ -81,25 +82,51 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="61" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="61" bodyend="73"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adc3a8f6eb0246c78615de6cc346d4f99" compoundref="VirtualWisdom4ClientTool_8java" startline="50" endline="54">VirtualWisdom4ClientTool._load</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" compoundref="VirtualWisdom4ClientTool_8java" startline="28" endline="31">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="79" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="79" bodyend="89"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" compoundref="VirtualWisdom4ClientTool_8java" startline="68" endline="72">VirtualWisdom4ClientTool._load</references>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" compoundref="VirtualWisdom4ClientTool_8java" startline="49" endline="52">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool</referencedby>
       </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9370fe3a8b0b2d5b91a76190c1599e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String prettyJSON</definition>
+        <argsstring>(VWImport v)</argsstring>
+        <name>prettyJSON</name>
+        <param>
+          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport" kindref="compound">VWImport</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Convenience function to generate a pretty-printed JSON text string. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport" kindref="compound">VWImport</ref> object to markup </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a pretty-printed JSON using ObjectWriter.withDefaultPrettyPrinter() or null if an exception occurs </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="126" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="126" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void save</definition>
-        <argsstring>(String out)</argsstring>
+        <argsstring>(String filename)</argsstring>
         <name>save</name>
         <param>
           <type>String</type>
-          <declname>out</declname>
+          <declname>filename</declname>
         </param>
         <briefdescription>
 <para>Wrapper to just save the file, spitting out exceptions and stacks as they occur. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>out</parametername>
+<parametername>filename</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>filename to save into </para></parameterdescription>
@@ -108,273 +135,135 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="106" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="106" bodyend="119"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adb7f600accd4a29f376ce8e52edff11a" compoundref="VirtualWisdom4ClientTool_8java" startline="87" endline="99">VirtualWisdom4ClientTool._save</references>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1af1af4b7f062c6dd322b7e7a81209afb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>Object</type>
-        <definition>Object search</definition>
-        <argsstring>(String expression, QName returnType)</argsstring>
-        <name>search</name>
-        <param>
-          <type>String</type>
-          <declname>expression</declname>
-        </param>
-        <param>
-          <type>QName</type>
-          <declname>returnType</declname>
-        </param>
-        <exceptions> throws org.smallfoot.xpath.NoDocumentException     </exceptions>
-        <briefdescription>
-<para>Search the current XML Document for a match, returning a list of matching nodes. </para>        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>expression</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>XPath expression to search for </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>returnType</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>namespace context against which the expression is evaluated </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<parameterlist kind="exception"><parameteritem>
-<parameternamelist>
-<parametername>org.smallfoot.xpath.NoDocumentException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>if the user has tried to search before a document is loaded </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="129" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="129" bodyend="143"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="107" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="107" bodyend="117"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" compoundref="VirtualWisdom4ClientTool_8java" startline="96" endline="100">VirtualWisdom4ClientTool._save</references>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adc3a8f6eb0246c78615de6cc346d4f99" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void _load</definition>
-        <argsstring>(String xmlFile)</argsstring>
+        <argsstring>(String filename)</argsstring>
         <name>_load</name>
         <param>
           <type>String</type>
-          <declname>xmlFile</declname>
+          <declname>filename</declname>
         </param>
-        <exceptions> throws javax.xml.parsers.ParserConfigurationException, org.xml.sax.SAXException, java.io.IOException     </exceptions>
+        <exceptions> throws java.lang.Exception     </exceptions>
         <briefdescription>
 <para>Open a file. </para>        </briefdescription>
         <detaileddescription>
-<para>This is actually a wrapper for the complex usage of javax.xml.parsers.DocumentBuilderFactory to find a singleton to instantiate a document from a file.</para><para><parameterlist kind="param"><parameteritem>
+<para>This is actually a wrapper for the underlying file load</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>xmlFile</parametername>
+<parametername>filename</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>file to load </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<parameterlist kind="exception"><parameteritem>
-<parameternamelist>
-<parametername>java.io.IOException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>on issues loading the file given as a parameter </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>javax.xml.parsers.ParserConfigurationException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>when the javax.xml.parsers.DocumentBuilderFactory is butchered </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>org.xml.sax.SAXException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>on parsing issues </para></parameterdescription>
-</parameteritem>
-</parameterlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="50" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="50" bodyend="54"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a06e5248d8619f00173d9794f30966dc3" compoundref="VirtualWisdom4ClientTool_8java" startline="61" endline="73">VirtualWisdom4ClientTool.load</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="68" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="68" bodyend="72"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="79" endline="89">VirtualWisdom4ClientTool.load</referencedby>
       </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adb7f600accd4a29f376ce8e52edff11a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void _save</definition>
-        <argsstring>(String xmlFile)</argsstring>
+        <argsstring>(String filename)</argsstring>
         <name>_save</name>
         <param>
           <type>String</type>
-          <declname>xmlFile</declname>
+          <declname>filename</declname>
         </param>
-        <exceptions> throws javax.xml.transform.TransformerConfigurationException, java.io.FileNotFoundException, javax.xml.transform.TransformerException, org.smallfoot.xpath.NoDocumentException     </exceptions>
+        <exceptions> throws java.lang.Exception     </exceptions>
         <briefdescription>
 <para>Save the current XML Document to a new file. </para>        </briefdescription>
         <detaileddescription>
-<para>based partially on <ulink url="http://download.oracle.com/javase/1.5.0/docs/api/javax/xml/parsers/DocumentBuilderFactory.html">DocumentBuilderFactory.java</ulink> and influenced by <ulink url="http://stackoverflow.com/questions/2290945/writing-xml-on-android/3551691#3551691">Writing XML on Android</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>xmlFile</parametername>
+<parametername>filename</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>filename to save into </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<parameterlist kind="exception"><parameteritem>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="96" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="96" bodyend="100"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" compoundref="VirtualWisdom4ClientTool_8java" startline="107" endline="117">VirtualWisdom4ClientTool.save</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void usage</definition>
+        <argsstring>(String progname)</argsstring>
+        <name>usage</name>
+        <param>
+          <type>String</type>
+          <declname>progname</declname>
+        </param>
+        <briefdescription>
+<para>Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>java.io.FileNotFoundException</parametername>
+<parametername>progname</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>on issues creating the output filestream on xmlFile (ie missing interposing directory or permissions) </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>javax.xml.transform.TransformerConfigurationException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>when the javax.xml.transform.TransformerFactory is butchered </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>javax.xml.transform.TransformerException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>for exceptions on the final step, the transformation itself </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>org.smallfoot.xpath.NoDocumentException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>if the user has tried to search before a document is loaded </para></parameterdescription>
+<para>the name of the program (args[0]) to print on a usage message </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="87" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="87" bodyend="99"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9370fe3a8b0b2d5b91a76190c1599e0" compoundref="VirtualWisdom4ClientTool_8java" startline="106" endline="119">VirtualWisdom4ClientTool.save</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="156" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="156" bodyend="163"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef43485334ab87e6db498fe403162255" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>int</type>
-        <definition>static int setAttr</definition>
-        <argsstring>(NodeList nodelist, String replacement)</argsstring>
-        <name>setAttr</name>
-        <param>
-          <type>NodeList</type>
-          <declname>nodelist</declname>
-        </param>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void main</definition>
+        <argsstring>(String args[])</argsstring>
+        <name>main</name>
         <param>
           <type>String</type>
-          <declname>replacement</declname>
+          <declname>args</declname>
+          <array>[]</array>
         </param>
         <briefdescription>
-<para>Consume a list of matches, and for each node (entity or attribute) replace the current value. </para>        </briefdescription>
+<para>Main function, as you can tell. </para>        </briefdescription>
         <detaileddescription>
-<para>This function allows specific programmatic replacement of string values in XML to reduce the chance of user error and typos creating erroneous XML.</para><para><parameterlist kind="param"><parameteritem>
+<para>this function merely parses the command-line to dispatch actions to the meat of the meal above. I&apos;m using an actual GetOpt because, yes, I&apos;m a UNIX/C hack, re-using 3-decades-old knowledge, but this also preserves both extensibility and the ability to use longopts in scripts as a way to self-document what the tool&apos;s doing.</para><para>No real intelligence herein except the parse-and-redirect action.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>nodelist</parametername>
+<parametername>args</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>list of nodes containing targets/matches to alter </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>replacement</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>string to replace for matches </para></parameterdescription>
+<para>as you&apos;d expect, these are commandline arguments given when the jar is activated </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>number of matches made </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="202" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="202" bodyend="228"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2e34675797f629121c1b2a74a19ebd34" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>int</type>
-        <definition>static int subAttr</definition>
-        <argsstring>(NodeList nodelist, String editMatch, String editReplace, boolean global)</argsstring>
-        <name>subAttr</name>
-        <param>
-          <type>NodeList</type>
-          <declname>nodelist</declname>
-        </param>
-        <param>
-          <type>String</type>
-          <declname>editMatch</declname>
-        </param>
-        <param>
-          <type>String</type>
-          <declname>editReplace</declname>
-        </param>
-        <param>
-          <type>boolean</type>
-          <declname>global</declname>
-        </param>
-        <briefdescription>
-<para>Consume a list of matches, and for each node (entity or attribute) make a Strong.replaceFirst() or a String.replaceAll() </para>        </briefdescription>
-        <detaileddescription>
-<para>This function is added as a convenience function to allow semi-contextual replacement of strings when converting other XML content <ndash/> this allows single atomic commands to rename components to avoid name-clashes and unintended replacements.</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>nodelist</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>list of nodes containing targets/matches to alter </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>editMatch</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>string to match for replacement </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>editReplace</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>string to replace for matches </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>global</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>whether to replace globally (like sed -e &apos;s/X/y/g&apos; <ndash/> the &apos;g&apos; at the end) <ndash/> which is whether to use a Strong.replaceFirst() or a String.replaceAll() </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>number of matches made </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="158" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="158" bodyend="191"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="178" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="178" bodyend="327"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" compoundref="VirtualWisdom4ClientTool_8java" startline="57" endline="59">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>XPathTool is a relatively uncomplicated wrapper for an XPath action: it doesn&apos;t know what you&apos;re doing, and doesn&apos;t assume you&apos;ll do things in a specific order, but tries to stop you from making really silly errors like saving or searching an unloaded file. </para>    </briefdescription>
+<para><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" kindref="compound">VirtualWisdom4ClientTool</ref> is a &quot;Swiss Army Knife&quot; of tools used when working with VirtualWisdom4. </para>    </briefdescription>
     <detaileddescription>
-    </detaileddescription>
-    <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="18" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="17" bodyend="230"/>
+<para>The existence of these tools is not a judgement on VirtualWisdom4&apos;s proper Engineering; rather, an acceptance that a faster-response solution for the longer-tail of the normal curve is often helpful swapping QA delay for reduced customer friction.</para><para>As you&apos;d expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</para><para>Ad-Hoc content for this utility-stack may appear at <ulink url="http://fcfae.com/">http://fcfae.com/</ulink> </para>    </detaileddescription>
+    <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="39" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="38" bodyend="328"/>
     <listofallmembers>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adc3a8f6eb0246c78615de6cc346d4f99" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>_load</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adb7f600accd4a29f376ce8e52edff11a" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>_save</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a06e5248d8619f00173d9794f30966dc3" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>load</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9370fe3a8b0b2d5b91a76190c1599e0" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>save</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1af1af4b7f062c6dd322b7e7a81209afb6" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>search</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef43485334ab87e6db498fe403162255" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>setAttr</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2e34675797f629121c1b2a74a19ebd34" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>subAttr</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>_load</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>_save</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>load</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>main</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>prettyJSON</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>save</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>usage</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>VirtualWisdom4ClientTool</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>VirtualWisdom4ClientTool</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad25ef6220eb54575157ab063bc63a0f0" prot="private" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>xmlDocument</name></member>

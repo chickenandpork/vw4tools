@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>fcparsers: VirtualWisdom4ClientTool Class Reference</title>
+<title>vw4tools: VirtualWisdom4ClientTool Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,8 +24,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">fcparsers
-   &#160;<span id="projectnumber">0.3-</span>
+   <div id="projectname">vw4tools
+   &#160;<span id="projectnumber">0.9-1</span>
    </div>
   </td>
  </tr>
@@ -74,7 +74,7 @@ $(document).ready(function(){initNavTree('classorg_1_1smallfoot_1_1vw4_1_1Virtua
 </div><!--header-->
 <div class="contents">
 
-<p>XPathTool is a relatively uncomplicated wrapper for an XPath action: it doesn't know what you're doing, and doesn't assume you'll do things in a specific order, but tries to stop you from making really silly errors like saving or searching an unloaded file.  
+<p><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html" title="VirtualWisdom4ClientTool is a &quot;Swiss Army Knife&quot; of tools used when working with VirtualWisdom4. ">VirtualWisdom4ClientTool</a> is a "Swiss Army Knife" of tools used when working with VirtualWisdom4.  
  <a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -86,44 +86,45 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a7991b30b52ad4d408df3575abc9b57ae">VirtualWisdom4ClientTool</a> ()</td></tr>
 <tr class="memdesc:a7991b30b52ad4d408df3575abc9b57ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class Constructor with no initial file. <br/></td></tr>
 <tr class="separator:a7991b30b52ad4d408df3575abc9b57ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06e5248d8619f00173d9794f30966dc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a06e5248d8619f00173d9794f30966dc3">load</a> (String xmlFile)</td></tr>
-<tr class="memdesc:a06e5248d8619f00173d9794f30966dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to just load the file, spitting out exceptions and stacks as they occur.  <a href="#a06e5248d8619f00173d9794f30966dc3">More...</a><br/></td></tr>
-<tr class="separator:a06e5248d8619f00173d9794f30966dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9370fe3a8b0b2d5b91a76190c1599e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9370fe3a8b0b2d5b91a76190c1599e0">save</a> (String out)</td></tr>
-<tr class="memdesc:aa9370fe3a8b0b2d5b91a76190c1599e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to just save the file, spitting out exceptions and stacks as they occur.  <a href="#aa9370fe3a8b0b2d5b91a76190c1599e0">More...</a><br/></td></tr>
-<tr class="separator:aa9370fe3a8b0b2d5b91a76190c1599e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1af4b7f062c6dd322b7e7a81209afb6"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#af1af4b7f062c6dd322b7e7a81209afb6">search</a> (String expression, QName returnType)  throws org.smallfoot.xpath.NoDocumentException     </td></tr>
-<tr class="memdesc:af1af4b7f062c6dd322b7e7a81209afb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search the current XML Document for a match, returning a list of matching nodes.  <a href="#af1af4b7f062c6dd322b7e7a81209afb6">More...</a><br/></td></tr>
-<tr class="separator:af1af4b7f062c6dd322b7e7a81209afb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d686f1044a2e8727b12e6e4921e0e8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f">load</a> (String filename)</td></tr>
+<tr class="memdesc:a0d686f1044a2e8727b12e6e4921e0e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to just load the file, spitting out exceptions and stacks as they occur.  <a href="#a0d686f1044a2e8727b12e6e4921e0e8f">More...</a><br/></td></tr>
+<tr class="separator:a0d686f1044a2e8727b12e6e4921e0e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3ee9b897e0757b6cd5c8289c9d4cc4"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#afc3ee9b897e0757b6cd5c8289c9d4cc4">prettyJSON</a> (<a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a> v)</td></tr>
+<tr class="memdesc:afc3ee9b897e0757b6cd5c8289c9d4cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience function to generate a pretty-printed JSON text string.  <a href="#afc3ee9b897e0757b6cd5c8289c9d4cc4">More...</a><br/></td></tr>
+<tr class="separator:afc3ee9b897e0757b6cd5c8289c9d4cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119573b242d96a5e64a7d340bcf14aa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a119573b242d96a5e64a7d340bcf14aa8">save</a> (String filename)</td></tr>
+<tr class="memdesc:a119573b242d96a5e64a7d340bcf14aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to just save the file, spitting out exceptions and stacks as they occur.  <a href="#a119573b242d96a5e64a7d340bcf14aa8">More...</a><br/></td></tr>
+<tr class="separator:a119573b242d96a5e64a7d340bcf14aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aef43485334ab87e6db498fe403162255"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aef43485334ab87e6db498fe403162255">setAttr</a> (NodeList nodelist, String replacement)</td></tr>
-<tr class="memdesc:aef43485334ab87e6db498fe403162255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consume a list of matches, and for each node (entity or attribute) replace the current value.  <a href="#aef43485334ab87e6db498fe403162255">More...</a><br/></td></tr>
-<tr class="separator:aef43485334ab87e6db498fe403162255"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e34675797f629121c1b2a74a19ebd34"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a2e34675797f629121c1b2a74a19ebd34">subAttr</a> (NodeList nodelist, String editMatch, String editReplace, boolean global)</td></tr>
-<tr class="memdesc:a2e34675797f629121c1b2a74a19ebd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consume a list of matches, and for each node (entity or attribute) make a Strong.replaceFirst() or a String.replaceAll()  <a href="#a2e34675797f629121c1b2a74a19ebd34">More...</a><br/></td></tr>
-<tr class="separator:a2e34675797f629121c1b2a74a19ebd34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75988cf84fc6ee7a2ebff36e363021aa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">main</a> (String args[])</td></tr>
+<tr class="memdesc:a75988cf84fc6ee7a2ebff36e363021aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function, as you can tell.  <a href="#a75988cf84fc6ee7a2ebff36e363021aa">More...</a><br/></td></tr>
+<tr class="separator:a75988cf84fc6ee7a2ebff36e363021aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:adc3a8f6eb0246c78615de6cc346d4f99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#adc3a8f6eb0246c78615de6cc346d4f99">_load</a> (String xmlFile)  throws javax.xml.parsers.ParserConfigurationException, org.xml.sax.SAXException, java.io.IOException     </td></tr>
-<tr class="memdesc:adc3a8f6eb0246c78615de6cc346d4f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file.  <a href="#adc3a8f6eb0246c78615de6cc346d4f99">More...</a><br/></td></tr>
-<tr class="separator:adc3a8f6eb0246c78615de6cc346d4f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb7f600accd4a29f376ce8e52edff11a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#adb7f600accd4a29f376ce8e52edff11a">_save</a> (String xmlFile)  throws javax.xml.transform.TransformerConfigurationException, java.io.FileNotFoundException, javax.xml.transform.TransformerException, org.smallfoot.xpath.NoDocumentException     </td></tr>
-<tr class="memdesc:adb7f600accd4a29f376ce8e52edff11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the current XML Document to a new file.  <a href="#adb7f600accd4a29f376ce8e52edff11a">More...</a><br/></td></tr>
-<tr class="separator:adb7f600accd4a29f376ce8e52edff11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a051ba608e7fcb9adac39bc3946058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058">_load</a> (String filename)  throws java.lang.Exception     </td></tr>
+<tr class="memdesc:ad9a051ba608e7fcb9adac39bc3946058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file.  <a href="#ad9a051ba608e7fcb9adac39bc3946058">More...</a><br/></td></tr>
+<tr class="separator:ad9a051ba608e7fcb9adac39bc3946058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36a7decd28b5e191bfe43c5562462785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a36a7decd28b5e191bfe43c5562462785">_save</a> (String filename)  throws java.lang.Exception     </td></tr>
+<tr class="memdesc:a36a7decd28b5e191bfe43c5562462785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the current XML Document to a new file.  <a href="#a36a7decd28b5e191bfe43c5562462785">More...</a><br/></td></tr>
+<tr class="separator:a36a7decd28b5e191bfe43c5562462785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ad25ef6220eb54575157ab063bc63a0f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad25ef6220eb54575157ab063bc63a0f0"></a>
-org.w3c.dom.Document&#160;</td><td class="memItemRight" valign="bottom"><b>xmlDocument</b></td></tr>
+org.w3c.dom.Document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad25ef6220eb54575157ab063bc63a0f0">xmlDocument</a></td></tr>
+<tr class="memdesc:ad25ef6220eb54575157ab063bc63a0f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">eventually used to hold an XML document when converting XML&lt;&ndash;&gt;JSON&lt;&ndash;&gt;XML <br/></td></tr>
 <tr class="separator:ad25ef6220eb54575157ab063bc63a0f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>XPathTool is a relatively uncomplicated wrapper for an XPath action: it doesn't know what you're doing, and doesn't assume you'll do things in a specific order, but tries to stop you from making really silly errors like saving or searching an unloaded file. </p>
+<div class="textblock"><p><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html" title="VirtualWisdom4ClientTool is a &quot;Swiss Army Knife&quot; of tools used when working with VirtualWisdom4. ">VirtualWisdom4ClientTool</a> is a "Swiss Army Knife" of tools used when working with VirtualWisdom4. </p>
+<p>The existence of these tools is not a judgement on VirtualWisdom4's proper Engineering; rather, an acceptance that a faster-response solution for the longer-tail of the normal curve is often helpful swapping QA delay for reduced customer friction.</p>
+<p>As you'd expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</p>
+<p>Ad-Hoc content for this utility-stack may appear at <a href="http://fcfae.com/">http://fcfae.com/</a> </p>
 
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00017">17</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00038">38</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0f1b4c518fafff8a296bb632e57655ca"></a>
 <div class="memitem">
@@ -154,25 +155,25 @@ org.w3c.dom.Document&#160;</td><td class="memItemRight" valign="bottom"><b>xmlDo
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a06e5248d8619f00173d9794f30966dc3" title="Wrapper to just load the file, spitting out exceptions and stacks as they occur. ">load(String)</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f" title="Wrapper to just load the file, spitting out exceptions and stacks as they occur. ">load(String)</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00028">28</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00049">49</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
 
-<p>References <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00061">VirtualWisdom4ClientTool.load()</a>.</p>
+<p>References <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00079">VirtualWisdom4ClientTool.load()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0f1b4c518fafff8a296bb632e57655ca_cgraph.png" border="0" usemap="#classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0f1b4c518fafff8a296bb632e57655ca_cgraph" alt=""/></div>
 <map name="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0f1b4c518fafff8a296bb632e57655ca_cgraph" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0f1b4c518fafff8a296bb632e57655ca_cgraph">
-<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a06e5248d8619f00173d9794f30966dc3" title="Wrapper to just load the file, spitting out exceptions and stacks as they occur. " alt="" coords="227,5,274,30"/><area shape="rect" id="node3" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#adc3a8f6eb0246c78615de6cc346d4f99" title="Open a file. " alt="" coords="322,5,376,30"/></map>
+<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f" title="Wrapper to just load the file, spitting out exceptions and stacks as they occur. " alt="" coords="227,5,274,30"/><area shape="rect" id="node3" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058" title="Open a file. " alt="" coords="322,5,376,30"/></map>
 </div>
 </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="adc3a8f6eb0246c78615de6cc346d4f99"></a>
+<a class="anchor" id="ad9a051ba608e7fcb9adac39bc3946058"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -183,8 +184,8 @@ Here is the call graph for this function:</div>
           <td class="memname">void _load </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>xmlFile</em></td><td>)</td>
-          <td> throws javax.xml.parsers.ParserConfigurationException, org.xml.sax.SAXException, java.io.IOException</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td> throws java.lang.Exception</td>
         </tr>
       </table>
   </td>
@@ -195,29 +196,21 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Open a file. </p>
-<p>This is actually a wrapper for the complex usage of javax.xml.parsers.DocumentBuilderFactory to find a singleton to instantiate a document from a file.</p>
+<p>This is actually a wrapper for the underlying file load</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">xmlFile</td><td>file to load </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">java.io.IOException</td><td>on issues loading the file given as a parameter </td></tr>
-    <tr><td class="paramname">javax.xml.parsers.ParserConfigurationException</td><td>when the javax.xml.parsers.DocumentBuilderFactory is butchered </td></tr>
-    <tr><td class="paramname">org.xml.sax.SAXException</td><td>on parsing issues </td></tr>
+    <tr><td class="paramname">filename</td><td>file to load </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00050">50</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00068">68</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
 
-<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00061">VirtualWisdom4ClientTool.load()</a>.</p>
+<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00079">VirtualWisdom4ClientTool.load()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adb7f600accd4a29f376ce8e52edff11a"></a>
+<a class="anchor" id="a36a7decd28b5e191bfe43c5562462785"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -228,8 +221,8 @@ Here is the call graph for this function:</div>
           <td class="memname">void _save </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>xmlFile</em></td><td>)</td>
-          <td> throws javax.xml.transform.TransformerConfigurationException, java.io.FileNotFoundException, javax.xml.transform.TransformerException, org.smallfoot.xpath.NoDocumentException</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td> throws java.lang.Exception</td>
         </tr>
       </table>
   </td>
@@ -240,30 +233,20 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Save the current XML Document to a new file. </p>
-<p>based partially on <a href="http://download.oracle.com/javase/1.5.0/docs/api/javax/xml/parsers/DocumentBuilderFactory.html">DocumentBuilderFactory.java</a> and influenced by <a href="http://stackoverflow.com/questions/2290945/writing-xml-on-android/3551691#3551691">Writing XML on Android</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">xmlFile</td><td>filename to save into </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">java.io.FileNotFoundException</td><td>on issues creating the output filestream on xmlFile (ie missing interposing directory or permissions) </td></tr>
-    <tr><td class="paramname">javax.xml.transform.TransformerConfigurationException</td><td>when the javax.xml.transform.TransformerFactory is butchered </td></tr>
-    <tr><td class="paramname">javax.xml.transform.TransformerException</td><td>for exceptions on the final step, the transformation itself </td></tr>
-    <tr><td class="paramname">org.smallfoot.xpath.NoDocumentException</td><td>if the user has tried to search before a document is loaded </td></tr>
+    <tr><td class="paramname">filename</td><td>filename to save into </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00087">87</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00096">96</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
 
-<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00106">VirtualWisdom4ClientTool.save()</a>.</p>
+<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00107">VirtualWisdom4ClientTool.save()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a06e5248d8619f00173d9794f30966dc3"></a>
+<a class="anchor" id="a0d686f1044a2e8727b12e6e4921e0e8f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -274,7 +257,7 @@ Here is the call graph for this function:</div>
           <td class="memname">void load </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>xmlFile</em></td><td>)</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -288,29 +271,111 @@ Here is the call graph for this function:</div>
 <p>Wrapper to just load the file, spitting out exceptions and stacks as they occur. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">xmlFile</td><td>file to load </td></tr>
+    <tr><td class="paramname">filename</td><td>file to load </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00061">61</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00079">79</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
 
-<p>References <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00050">VirtualWisdom4ClientTool._load()</a>.</p>
+<p>References <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00068">VirtualWisdom4ClientTool._load()</a>.</p>
 
-<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00028">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool()</a>.</p>
+<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00049">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a06e5248d8619f00173d9794f30966dc3_cgraph.png" border="0" usemap="#classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a06e5248d8619f00173d9794f30966dc3_cgraph" alt=""/></div>
-<map name="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a06e5248d8619f00173d9794f30966dc3_cgraph" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a06e5248d8619f00173d9794f30966dc3_cgraph">
-<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#adc3a8f6eb0246c78615de6cc346d4f99" title="Open a file. " alt="" coords="101,5,155,30"/></map>
+<div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph.png" border="0" usemap="#classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph" alt=""/></div>
+<map name="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph">
+<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058" title="Open a file. " alt="" coords="101,5,155,30"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aa9370fe3a8b0b2d5b91a76190c1599e0"></a>
+<a class="anchor" id="a75988cf84fc6ee7a2ebff36e363021aa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void main </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>args</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Main function, as you can tell. </p>
+<p>this function merely parses the command-line to dispatch actions to the meat of the meal above. I'm using an actual GetOpt because, yes, I'm a UNIX/C hack, re-using 3-decades-old knowledge, but this also preserves both extensibility and the ability to use longopts in scripts as a way to self-document what the tool's doing.</p>
+<p>No real intelligence herein except the parse-and-redirect action.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>as you'd expect, these are commandline arguments given when the jar is activated </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00178">178</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+
+<p>References <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00057">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a75988cf84fc6ee7a2ebff36e363021aa_cgraph.png" border="0" usemap="#classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a75988cf84fc6ee7a2ebff36e363021aa_cgraph" alt=""/></div>
+<map name="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a75988cf84fc6ee7a2ebff36e363021aa_cgraph" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a75988cf84fc6ee7a2ebff36e363021aa_cgraph">
+<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a7991b30b52ad4d408df3575abc9b57ae" title="Class Constructor with no initial file. " alt="" coords="104,5,277,30"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afc3ee9b897e0757b6cd5c8289c9d4cc4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String prettyJSON </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convenience function to generate a pretty-printed JSON text string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html" title="A VWImport is a single idempotent import for the VirtualWisdom4 product. ">VWImport</a> object to markup </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a pretty-printed JSON using ObjectWriter.withDefaultPrettyPrinter() or null if an exception occurs </dd></dl>
+
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00126">126</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a119573b242d96a5e64a7d340bcf14aa8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -321,7 +386,7 @@ Here is the call graph for this function:</div>
           <td class="memname">void save </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -335,182 +400,23 @@ Here is the call graph for this function:</div>
 <p>Wrapper to just save the file, spitting out exceptions and stacks as they occur. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">out</td><td>filename to save into </td></tr>
+    <tr><td class="paramname">filename</td><td>filename to save into </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00106">106</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
+<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00107">107</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
 
-<p>References <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00087">VirtualWisdom4ClientTool._save()</a>.</p>
+<p>References <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00096">VirtualWisdom4ClientTool._save()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9370fe3a8b0b2d5b91a76190c1599e0_cgraph.png" border="0" usemap="#classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9370fe3a8b0b2d5b91a76190c1599e0_cgraph" alt=""/></div>
-<map name="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9370fe3a8b0b2d5b91a76190c1599e0_cgraph" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9370fe3a8b0b2d5b91a76190c1599e0_cgraph">
-<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#adb7f600accd4a29f376ce8e52edff11a" title="Save the current XML Document to a new file. " alt="" coords="105,5,162,30"/></map>
+<div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a119573b242d96a5e64a7d340bcf14aa8_cgraph.png" border="0" usemap="#classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a119573b242d96a5e64a7d340bcf14aa8_cgraph" alt=""/></div>
+<map name="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a119573b242d96a5e64a7d340bcf14aa8_cgraph" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a119573b242d96a5e64a7d340bcf14aa8_cgraph">
+<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a36a7decd28b5e191bfe43c5562462785" title="Save the current XML Document to a new file. " alt="" coords="105,5,162,30"/></map>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="af1af4b7f062c6dd322b7e7a81209afb6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Object search </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>expression</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QName&#160;</td>
-          <td class="paramname"><em>returnType</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> throws org.smallfoot.xpath.NoDocumentException</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Search the current XML Document for a match, returning a list of matching nodes. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">expression</td><td>XPath expression to search for </td></tr>
-    <tr><td class="paramname">returnType</td><td>namespace context against which the expression is evaluated </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">org.smallfoot.xpath.NoDocumentException</td><td>if the user has tried to search before a document is loaded </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00129">129</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aef43485334ab87e6db498fe403162255"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int setAttr </td>
-          <td>(</td>
-          <td class="paramtype">NodeList&#160;</td>
-          <td class="paramname"><em>nodelist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>replacement</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Consume a list of matches, and for each node (entity or attribute) replace the current value. </p>
-<p>This function allows specific programmatic replacement of string values in XML to reduce the chance of user error and typos creating erroneous XML.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">nodelist</td><td>list of nodes containing targets/matches to alter </td></tr>
-    <tr><td class="paramname">replacement</td><td>string to replace for matches </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>number of matches made </dd></dl>
-
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00202">202</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2e34675797f629121c1b2a74a19ebd34"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int subAttr </td>
-          <td>(</td>
-          <td class="paramtype">NodeList&#160;</td>
-          <td class="paramname"><em>nodelist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>editMatch</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>editReplace</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">boolean&#160;</td>
-          <td class="paramname"><em>global</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Consume a list of matches, and for each node (entity or attribute) make a Strong.replaceFirst() or a String.replaceAll() </p>
-<p>This function is added as a convenience function to allow semi-contextual replacement of strings when converting other XML content &ndash; this allows single atomic commands to rename components to avoid name-clashes and unintended replacements.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">nodelist</td><td>list of nodes containing targets/matches to alter </td></tr>
-    <tr><td class="paramname">editMatch</td><td>string to match for replacement </td></tr>
-    <tr><td class="paramname">editReplace</td><td>string to replace for matches </td></tr>
-    <tr><td class="paramname">global</td><td>whether to replace globally (like sed -e 's/X/y/g' &ndash; the 'g' at the end) &ndash; which is whether to use a Strong.replaceFirst() or a String.replaceAll() </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>number of matches made </dd></dl>
-
-<p>Definition at line <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00158">158</a> of file <a class="el" href="VirtualWisdom4ClientTool_8java_source.html">VirtualWisdom4ClientTool.java</a>.</p>
 
 </div>
 </div>
@@ -523,7 +429,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>org</b></li><li class="navelem"><b>smallfoot</b></li><li class="navelem"><b>vw4</b></li><li class="navelem"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html">VirtualWisdom4ClientTool</a></li>
-    <li class="footer">Generated on Fri May 16 2014 16:49:59 for fcparsers by
+    <li class="footer">Generated on Thu Jun 5 2014 14:16:40 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

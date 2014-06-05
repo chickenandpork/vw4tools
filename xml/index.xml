@@ -11,9 +11,8 @@
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1aa96ebc81ca3bd65e0d7c5e67e96bb973" kind="variable"><name>tags</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a0b86e44425dbe3c9d866aa273f87828a" kind="variable"><name>type</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a88540be4d74409418ead7a4a7bdc8cee" kind="variable"><name>itl_patterns</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1ad56904318d0b6b82c74f21c180c20c86" kind="function"><name>getitl_patterns</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a7bd476e2ab1263de941e590ea1e6e97c" kind="function"><name>gettags</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abf0e0c927e408646f190445003c49a60" kind="function"><name>itl_patterns</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abd918c8d92bd34f633ea27e3f5d43b3c" kind="function"><name>tags</name></member>
   </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kind="class"><name>org::smallfoot::vw4::VWImport::ITLPattern</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" kind="variable"><name>edit_type</name></member>
@@ -21,11 +20,30 @@
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1ac6e080e7b7901a16bffc99d2ba56da3b" kind="variable"><name>lun</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1abeaebe344002fdda7a413305f5382548" kind="variable"><name>target</name></member>
   </compound>
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" kind="class"><name>org::smallfoot::vw4::VirtualWisdom4ClientTool</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad25ef6220eb54575157ab063bc63a0f0" kind="variable"><name>xmlDocument</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" kind="function"><name>VirtualWisdom4ClientTool</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" kind="function"><name>VirtualWisdom4ClientTool</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" kind="function"><name>load</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4" kind="function"><name>prettyJSON</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" kind="function"><name>save</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" kind="function"><name>_load</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" kind="function"><name>_save</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" kind="function"><name>usage</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" kind="function"><name>main</name></member>
+  </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport" kind="class"><name>org::smallfoot::vw4::VWImport</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a9a3cd7caed5bd4b81c9383fc0e3c6e6f" kind="variable"><name>entities</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" kind="function"><name>entities</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a08219dbdecb12a48301bbc6ed0b87fb6" kind="function"><name>getEntities</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a12b5671e8920e8ce5c4457ea8d0d9fb2" kind="function"><name>getVersion</name></member>
+  </compound>
+  <compound refid="namespacecom_1_1fasterxml_1_1jackson_1_1core" kind="namespace"><name>com::fasterxml::jackson::core</name>
+  </compound>
+  <compound refid="namespacecom_1_1fasterxml_1_1jackson_1_1core_1_1json" kind="namespace"><name>com::fasterxml::jackson::core::json</name>
+  </compound>
+  <compound refid="namespacecom_1_1fasterxml_1_1jackson_1_1databind" kind="namespace"><name>com::fasterxml::jackson::databind</name>
+  </compound>
+  <compound refid="namespacecom_1_1fasterxml_1_1jackson_1_1databind_1_1jsonschema" kind="namespace"><name>com::fasterxml::jackson::databind::jsonschema</name>
   </compound>
   <compound refid="namespaceorg" kind="namespace"><name>org</name>
   </compound>

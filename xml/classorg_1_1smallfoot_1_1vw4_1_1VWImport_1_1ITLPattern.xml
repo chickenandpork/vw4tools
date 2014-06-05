@@ -57,18 +57,18 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>An <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kindref="compound">ITLPattern</ref> is udes to define an application <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> based on the ITLs it requires. </para>    </briefdescription>
+<para>An <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kindref="compound">ITLPattern</ref> is used to define an application <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> based on the ITLs it requires. </para>    </briefdescription>
     <detaileddescription>
 <para>For example an &quot;UberDatabase&quot; application may define certain servers using certain LUNs on certain storage targets </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="22">
+      <node id="24">
         <label>VWImport.Edit_Type</label>
         <link refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type"/>
       </node>
-      <node id="21">
+      <node id="23">
         <label>VWImport.ITLPattern</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern"/>
-        <childnode refid="22" relation="usage">
+        <childnode refid="24" relation="usage">
           <edgelabel>edit_type</edgelabel>
         </childnode>
       </node>

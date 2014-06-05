@@ -1,9 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
-  <compounddef id="namespaceorg_1_1smallfoot_1_1vw4" kind="namespace">
-    <compoundname>org::smallfoot::vw4</compoundname>
-    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" prot="public">org::smallfoot::vw4::VirtualWisdom4ClientTool</innerclass>
-    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport" prot="public">org::smallfoot::vw4::VWImport</innerclass>
+  <compounddef id="namespacecom_1_1fasterxml_1_1jackson_1_1databind" kind="namespace">
+    <compoundname>com::fasterxml::jackson::databind</compoundname>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
