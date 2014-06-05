@@ -64,6 +64,11 @@ func dumpAccum()
 	if ("" == $4) ACCUM[$3]=$1; else ACCUM[$3]=$4;
 }
 
+{ gsub ("\"", "", $1); gsub ("^ ", "", $1); gsub (" $", "", $1); }
+{ gsub ("\"", "", $2); gsub ("^ ", "", $2); gsub (" $", "", $2); }
+{ gsub ("\"", "", $3); gsub ("^ ", "", $3); gsub (" $", "", $3); }
+{ gsub ("\"", "", $4); gsub ("^ ", "", $4); gsub (" $", "", $4); }
+
 (("" == HOLDNAME) && ("" == HOLDTYPE)) { HOLDNAME=$1; HOLDTYPE=$2; }
 (($1 == HOLDNAME) && ($2 == HOLDTYPE)) { if ("" == $4) ACCUM[$3]=$1; else ACCUM[$3]=$4; next; }
 
