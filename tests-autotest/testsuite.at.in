@@ -204,6 +204,29 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(write json sample sample01)
+dnl      --------------------------
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -Tsample01 -o], 0, [[{
+  "entities" : [ {
+    "description" : "sample01 test entity",
+    "edit_type" : "add",
+    "itl_patterns" : [ {
+      "edit_type" : "add",
+      "initiator" : "1000002590123456"
+    } ],
+    "name" : "sample01_itl",
+    "tags" : [ ],
+    "type" : "application"
+  } ],
+  "version" : "1"
+}
+]],[stderr])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(local testcase)
 dnl      --------------
 

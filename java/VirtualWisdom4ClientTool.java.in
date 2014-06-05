@@ -116,6 +116,31 @@ public class VirtualWisdom4ClientTool
     }
 
 
+    public String prettyJSON(VWImport v)
+    {
+      ObjectMapper mapper = new ObjectMapper();
+      mapper.setSerializationInclusion(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL);
+
+	try
+	{
+	    ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+	    return ow.writeValueAsString(v);
+	}
+	catch (JsonMappingException jme)
+	{
+	    System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+	    return null;
+	}
+	catch (JsonProcessingException jpe)
+	{
+	    System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+	    return null;
+	}
+	
+   }
+
+
+
     /** usage messages are useful to those of us with short memories as well (hey, I just need to add swap!) */
     void usage(String progname)
     {
@@ -198,8 +223,17 @@ public class VirtualWisdom4ClientTool
 		{
 		    if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("schema.json")) )
 		    {
-			JsonSchema schema = (new com.fasterxml.jackson.databind.ObjectMapper()).generateJsonSchema(VWImport.class);
-			System.out.println(schema.toString());
+			com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+			JsonSchema schema = mapper.generateJsonSchema(vwimport.getClass());
+
+
+			//ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+			/*
+			ObjectWriter ow = mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter());
+      			System.out.println(ow.writeValueAsString(schema)); */
+      			System.out.println("blah" + m.prettyJSON(vwimport)+"blah");
+			
+			//System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));
 		    }
 		    else if (null == vwimport)
 		    {

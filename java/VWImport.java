@@ -13,6 +13,7 @@ import java.util.Vector;
  * "import" so that a select group can be dropped in case of errors rather than deleting
  * all entities in the entire VirtualWisdom product.
  */
+@com.fasterxml.jackson.annotation.JsonPropertyOrder(alphabetic=true)
 public class VWImport
 {
     /**
@@ -30,21 +31,30 @@ public class VWImport
      * requires.  For example an "UberDatabase" application may define certain servers
      * using certain LUNs on certain storage targets
      */
+    @com.fasterxml.jackson.annotation.JsonPropertyOrder(alphabetic=true)
+    @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
     public static class ITLPattern
     {
-	Edit_Type edit_type;		/**< What kind of edit are we doing? */
-	String initiator; 		/**< ITLPattern can have values defined for Initiators, Targets, and LUNs, or all three (T/L to come later) */
+	public Edit_Type edit_type;		/**< What kind of edit are we doing? */
+	public String initiator; 		/**< initiator portion of the ITL pattern */
+	public String target; 			/**< target portion of the ITL pattern */
+	public String lun; 			/**< lun portion of the ITL pattern */
     };
 
     /** An entity for import */
+    @com.fasterxml.jackson.annotation.JsonPropertyOrder(alphabetic=true)
     public static class Entity
     {
-	String description;		/**< user-readable description f the entity; constraints unknown */
-	Vector<String> tags;		/**< tags for the entity which can be used to define multiple groupings for a given entity.  Better than folders: if folders were used, an entity might have only one hierarchical "folder" in which it exists, but any number of tags may be applied to an entity at a time */
-	Vector<ITLPattern> itl_patterns;	/**< is an Entity is defined by ITLPatterns, they would be listed herein */
-	Edit_Type edit_type;		/**< What kind of edit are we doing?  Add or Modify? */
-	String type;			/**< What type of Entity is this?  (full range of values unknown) */
-	String name;			/*<< What unique name does this entity have? */
+	public String description;		/**< user-readable description f the entity; constraints unknown */
+	public Vector<String> tags;		/**< tags for the entity which can be used to define multiple groupings for a given entity.  Better than folders: if folders were used, an entity might have only one hierarchical "folder" in which it exists, but any number of tags may be applied to an entity at a time */
+	public Vector<String> gettags() { if (null == tags) tags = new Vector<String>(); return tags; }
+	protected Vector<ITLPattern> itl_patterns;	/**< is an Entity is defined by ITLPatterns, they would be listed herein */
+	/** singleton access to itl_patterns */
+	public Vector<ITLPattern> itl_patterns() {if (null == itl_patterns) itl_patterns = new Vector<ITLPattern>(); return itl_patterns; }
+	public Vector<ITLPattern> getitl_patterns() { return itl_patterns(); }
+	public Edit_Type edit_type;		/**< What kind of edit are we doing?  Add or Modify? */
+	public String type;			/**< What type of Entity is this?  (full range of values unknown) */
+	public String name;			/*<< What unique name does this entity have? */
     };
 
     protected Vector<Entity> entities = null;		/**< the entities in the single Import action */
@@ -53,6 +63,7 @@ public class VWImport
      * created yet
      */
     public Vector<Entity> entities() { if (null == entities) entities = new Vector<Entity>(); return entities; }
-    public String version = "1";		/**< it's great that the import format is versioned hence extensible, perhaps when some real-life-testing highlights concerns we've discussed */
+    public Vector<Entity> getEntities() { return entities(); }
+    public String getVersion() { return "1"; };		/**< it's great that the import format is versioned hence extensible, perhaps when some real-life-testing highlights concerns we've discussed */
 }
 
