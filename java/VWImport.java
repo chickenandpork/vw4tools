@@ -27,7 +27,7 @@ public class VWImport
     };
     
     /**
-     * An ITLPattern is udes to define an application Entity based on the ITLs it
+     * An ITLPattern is used to define an application Entity based on the ITLs it
      * requires.  For example an "UberDatabase" application may define certain servers
      * using certain LUNs on certain storage targets
      */
@@ -45,16 +45,17 @@ public class VWImport
     @com.fasterxml.jackson.annotation.JsonPropertyOrder(alphabetic=true)
     public static class Entity
     {
-	public String description;		/**< user-readable description f the entity; constraints unknown */
+	public String description;		/**< user-readable description of the entity; constraints unknown */
 	public Vector<String> tags;		/**< tags for the entity which can be used to define multiple groupings for a given entity.  Better than folders: if folders were used, an entity might have only one hierarchical "folder" in which it exists, but any number of tags may be applied to an entity at a time */
-	public Vector<String> gettags() { if (null == tags) tags = new Vector<String>(); return tags; }
+        @com.fasterxml.jackson.annotation.JsonGetter("tags")
+	public Vector<String> tags() { if (null == tags) tags = new Vector<String>(); return tags; }		/**< singleton access to tags */
 	protected Vector<ITLPattern> itl_patterns;	/**< is an Entity is defined by ITLPatterns, they would be listed herein */
 	/** singleton access to itl_patterns */
+        @com.fasterxml.jackson.annotation.JsonGetter("itl_patterns")
 	public Vector<ITLPattern> itl_patterns() {if (null == itl_patterns) itl_patterns = new Vector<ITLPattern>(); return itl_patterns; }
-	public Vector<ITLPattern> getitl_patterns() { return itl_patterns(); }
 	public Edit_Type edit_type;		/**< What kind of edit are we doing?  Add or Modify? */
 	public String type;			/**< What type of Entity is this?  (full range of values unknown) */
-	public String name;			/*<< What unique name does this entity have? */
+	public String name;			/**< What unique name does this entity have? */
     };
 
     protected Vector<Entity> entities = null;		/**< the entities in the single Import action */
@@ -62,8 +63,8 @@ public class VWImport
      * singleton to provide an entity vector without having to check whether it's been
      * created yet
      */
+    @com.fasterxml.jackson.annotation.JsonGetter("entities")
     public Vector<Entity> entities() { if (null == entities) entities = new Vector<Entity>(); return entities; }
-    public Vector<Entity> getEntities() { return entities(); }
-    public String getVersion() { return "1"; };		/**< it's great that the import format is versioned hence extensible, perhaps when some real-life-testing highlights concerns we've discussed */
+    public String getVersion() { return "1"; }		/**< it's great that the import format is versioned hence extensible, perhaps when some real-life-testing highlights concerns we've discussed */
 }
 

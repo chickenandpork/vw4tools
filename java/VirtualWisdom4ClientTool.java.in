@@ -1,5 +1,7 @@
 package org.smallfoot.vw4 ;
 
+/** @file */
+
 import java.io.File;
 import java.util.Vector;
 import javax.xml.XMLConstants;
@@ -15,11 +17,11 @@ import org.w3c.dom.NodeList;
 
 
 /* The following is conditionally permitted based on the mutually-exclusive choice at ./configure time.  --with-json= chooses exactly one of the following, causing one of the following comment blocks pairs to be butchered */
-/* *@DO_JSON_JAVA_TRUE@/	import org.json.*;				/*@DO_JSON_JAVA_TRUE@* */
-/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.core.json.*;	/*@DO_JSON_JACKSON_TRUE@* */
-/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.core.*;		/*@DO_JSON_JACKSON_TRUE@* */
-/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.databind.*;	/*@DO_JSON_JACKSON_TRUE@* */
-/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.databind.jsonschema.*;	/*@DO_JSON_JACKSON_TRUE@* */
+/* *@DO_JSON_JAVA_TRUE@/	import org.json.*;				/@DO_JSON_JAVA_TRUE@* */
+/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.core.json.*;	/@DO_JSON_JACKSON_TRUE@* */
+/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.core.*;		/@DO_JSON_JACKSON_TRUE@* */
+/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.databind.*;	/@DO_JSON_JACKSON_TRUE@* */
+/* *@DO_JSON_JACKSON_TRUE@/	import com.fasterxml.jackson.databind.jsonschema.*;	/@DO_JSON_JACKSON_TRUE@* */
 
 /**
  * VirtualWisdom4ClientTool is a "Swiss Army Knife" of tools used when working with
@@ -33,10 +35,9 @@ import org.w3c.dom.NodeList;
  *
  * Ad-Hoc content for this utility-stack may appear at http://fcfae.com/
  */
-
 public class VirtualWisdom4ClientTool
 {
-    private org.w3c.dom.Document xmlDocument;
+    private org.w3c.dom.Document xmlDocument;		/**< eventually used to hold an XML document when converting XML<-->JSON<-->XML */
 
     /**
      * Class Constructor to create with an initial file to load.
@@ -116,6 +117,12 @@ public class VirtualWisdom4ClientTool
     }
 
 
+    /**
+     * Convenience function to generate a pretty-printed JSON text string
+     *
+     * @param v VWImport object to markup
+     * @return a pretty-printed JSON using ObjectWriter.withDefaultPrettyPrinter() or null if an exception occurs
+     */
     public String prettyJSON(VWImport v)
     {
       ObjectMapper mapper = new ObjectMapper();
@@ -141,7 +148,11 @@ public class VirtualWisdom4ClientTool
 
 
 
-    /** usage messages are useful to those of us with short memories as well (hey, I just need to add swap!) */
+    /**
+     * Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)
+     *
+     * @param progname the name of the program (args[0]) to print on a usage message
+     */
     void usage(String progname)
     {
         System.out.println("Usage: "+progname+" -V|--version|-H|--help");
@@ -161,6 +172,8 @@ public class VirtualWisdom4ClientTool
      * way to self-document what the tool's doing.
      *
      * No real intelligence herein except the parse-and-redirect action.
+     *
+     * @param args as you'd expect, these are commandline arguments given when the jar is activated
      */
     public static void main(String args[])
     {
