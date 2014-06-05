@@ -28,13 +28,13 @@ class {\bf I\-T\-L\-Pattern}
 \item 
 Vector$<$ {\bf Entity} $>$ {\bf entities} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a66e795032db830396eddba947597ac21}
 
-\begin{DoxyCompactList}\small\item\em singleton to provide an entity vector without having to check whether it's been created yet \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Data Fields}
-\begin{DoxyCompactItemize}
-\item 
-String {\bf version} = \char`\"{}1\char`\"{}\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a647cd1252795280f192c7eefbde080e0}
+\begin{DoxyCompactList}\small\item\em singleton to provide an entity vector without having to check whether it's been created yet \end{DoxyCompactList}\item 
+Vector$<$ {\bf Entity} $>$ {\bfseries get\-Entities} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a08219dbdecb12a48301bbc6ed0b87fb6}
 
-\begin{DoxyCompactList}\small\item\em it's great that the import format is versioned hence extensible, perhaps when some real-\/life-\/testing highlights concerns we've discussed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+String {\bfseries get\-Version} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a12b5671e8920e8ce5c4457ea8d0d9fb2}
+
+\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,7 +50,7 @@ It's basically a wrapper for a number of entities and a version to define the fo
 
 As a convention, Product Management recommends tagging all imported entities with \char`\"{}import\char`\"{} so that a select group can be dropped in case of errors rather than deleting all entities in the entire Virtual\-Wisdom product. 
 
-Definition at line 16 of file V\-W\-Import.\-java.
+Definition at line 17 of file V\-W\-Import.\-java.
 
 
 

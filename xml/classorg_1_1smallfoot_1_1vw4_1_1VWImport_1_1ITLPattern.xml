@@ -2,8 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
   <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kind="class" prot="public">
     <compoundname>org::smallfoot::vw4::VWImport::ITLPattern</compoundname>
-      <sectiondef kind="package-attrib">
-      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" prot="package" static="no" mutable="no">
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" prot="public" static="no" mutable="no">
         <type><ref refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" kindref="compound">Edit_Type</ref></type>
         <definition>Edit_Type edit_type</definition>
         <argsstring></argsstring>
@@ -14,20 +14,46 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="35" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="35" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="38" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="38" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1aecf64895f45b5dc828bdf693933ab6a7" prot="package" static="no" mutable="no">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1aecf64895f45b5dc828bdf693933ab6a7" prot="public" static="no" mutable="no">
         <type>String</type>
         <definition>String initiator</definition>
         <argsstring></argsstring>
         <name>initiator</name>
         <briefdescription>
-<para><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kindref="compound">ITLPattern</ref> can have values defined for Initiators, Targets, and LUNs, or all three (T/L to come later) </para>        </briefdescription>
+<para>initiator portion of the ITL pattern </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="36" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="36" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="39" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1ac6e080e7b7901a16bffc99d2ba56da3b" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String lun</definition>
+        <argsstring></argsstring>
+        <name>lun</name>
+        <briefdescription>
+<para>lun portion of the ITL pattern </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="41" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1abeaebe344002fdda7a413305f5382548" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <briefdescription>
+<para>target portion of the ITL pattern </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="40" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="40" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -47,10 +73,12 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="34" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="33" bodyend="37"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="37" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="36" bodyend="42"/>
     <listofallmembers>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>edit_type</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1aecf64895f45b5dc828bdf693933ab6a7" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>initiator</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1a76dab48266f34c941c947433ae14176d" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>edit_type</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1aecf64895f45b5dc828bdf693933ab6a7" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>initiator</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1ac6e080e7b7901a16bffc99d2ba56da3b" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>lun</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern_1abeaebe344002fdda7a413305f5382548" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::ITLPattern</scope><name>target</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>
