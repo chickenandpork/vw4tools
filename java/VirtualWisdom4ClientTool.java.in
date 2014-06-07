@@ -2,8 +2,14 @@ package org.smallfoot.vw4 ;
 
 /** @file */
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Vector;
+import javax.activation.DataSource;
+import javax.activation.URLDataSource;
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.xpath.XPath;
@@ -11,6 +17,15 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
+import org.smallfoot.parser.ParserTee;
+import org.smallfoot.parser.zone.AliShowZoneParser;
+import org.smallfoot.parser.zone.Alias4Parser;
+import org.smallfoot.parser.zone.BNAZoneParser;
+import org.smallfoot.parser.zone.DeviceAliasParser;
+import org.smallfoot.parser.zone.NicknameParser;
+import org.smallfoot.parser.zone.ShowZoneParser;
+import org.smallfoot.parser.zone.ZPAliasEntry;
+import org.smallfoot.parser.zone.ZoneParser;
 import org.smallfoot.vw4.VWImport;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -118,6 +133,184 @@ public class VirtualWisdom4ClientTool
 
 
     /**
+     * Produce an InputStream for the given uri in a way that corresponds to the url protocol
+     *
+     * @return InputStream ready to offer back the data
+     * @param uri the file:// resource of a file, ie "file:///sample.csv"
+     */
+    protected java.io.InputStream openStream(String uri) throws java.io.FileNotFoundException, java.net.MalformedURLException, java.io.IOException
+    {
+        // http://www.roseindia.net/java/beginners/construct_file_name_path.shtml ?
+        if (uri.toLowerCase().startsWith("file://"))
+        {
+            InputStream rr = new FileInputStream(uri.substring(7));
+            return rr;
+        }
+        else   //if (uri.toLowerCase().startsWith("http://"))
+        {
+            DataSource ds = new URLDataSource(new java.net.URL(uri));
+
+            /* documented above */
+            if (true == new Boolean (System.getProperties().getProperty("debug.showURLOpener")))
+                System.out.println("using discovered URL opener: DataSource open to "+uri);
+
+            return ds.getInputStream();
+        }
+    }
+
+
+    /**
+     * Load a file from the resource given to a WWN/Nickname vector
+     *
+     * @return the number of things loaded (used to trigger obsessive retries to get around choking org.apache.commons.io.input.TeeInputStream )
+     * @param url the file:// resource of a file, ie "file://sample.csv;wwn=1;nickname=2"
+     * @param verbose if true, parser results will be shown to stdout
+     */
+    public ZoneParser loadFile(String url, boolean verbose)
+    {
+        String[] params = url.split(";");
+        int colWWN=0;
+        int colNickname=1;
+
+        java.util.Properties prop = new java.util.Properties();
+
+        for (int i = 1; i < params.length; i++)
+        {
+            String eq[] = params[i].split("=");
+            if (eq.length > 1) prop.setProperty(eq[0].toLowerCase(),eq[1]);
+        }
+
+        java.io.InputStream is = null;
+        try
+        {
+            is	= openStream(params[0]);
+        }
+        catch (Exception e)
+        {
+            /*
+             * In the case of a bad URL, we could check to see if there's a missing protocol or whatnot,
+             * but hey, why not just try to read it?  I could do a lot of work to accommodate
+             * Windows/DOS only, but then some change to the OS might come along.  Simply trying to
+             * read it as an exception-handler might be the most straight-forward path here.
+             */
+            java.io.File nf = new File(params[0]);
+            if (nf.canRead())
+                try
+                {
+                    is = new FileInputStream(nf);
+                }
+                catch (java.io.FileNotFoundException fnfe)
+                {
+                    /* OK, workaround failed, but this shouldn't happen after a canRead() */
+                    if (verbose) System.out.println("Failure to open "+params[0]+": " + e.getMessage() + " was followed by a File Not Found exception trying to open "+nf.getAbsolutePath()+" as a workaround");
+                    return null;
+                }
+            else
+            {
+                /* OK, workaround failed.  Wap wap waaaaap */
+                if (verbose) System.out.println("Failure to open "+params[0]+": " + e.getMessage());
+                return null;
+            }
+        }
+
+        Vector<ZoneParser> zpl = new Vector();
+
+        /* tried 2013-04-23 with 18 ParserTees feeding a NicknameParser, a AliShowZoneParser, and 16 Alias4Parsers */
+        /* tried 2013-04-23 with 17 ParserTees feeding a NicknameParser, 2 AliShowZoneParser, and 14 Alias4Parsers */
+        zpl.add( new NicknameParser(prop, false));
+        zpl.add( new AliShowZoneParser(prop, false));
+        zpl.add( new Alias4Parser(prop, false));
+
+        zpl.add( new BNAZoneParser(prop, false));
+        zpl.add( new DeviceAliasParser(prop, false));
+        zpl.add( new ShowZoneParser(prop, false));
+
+        try
+        {
+for (ZoneParser zp:zpl)
+                is = new ParserTee (is, zp);
+        }
+        catch (java.io.IOException ioe)
+        {
+            if (verbose) System.out.println("Failure to seam a pipe for parsing "+params[0]+": " + ioe.getMessage());
+            return null;
+        }
+
+        /*
+         * It would be more elegant to hold one of the ZoneParsers, and to cap it onto the end of
+         * the ParserTee pipe, but there's a certain simplicity in merely draining the pipe herein
+         * to cause the dupes ot all run.  It's a bit wasteful, but works, and makes the code
+         * above lack any exceptions that can be difficult to explain.
+         */
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+        //read each line of text file
+        try
+        {
+            while (-1 < br.read()) ;
+        }
+        catch (java.io.IOException ioe)
+        {
+            if (verbose) System.out.println("I/O Error: " + ioe.getMessage());
+        }
+
+        /*
+         * OK, the entire pipe is drained, but we need to close it to signal that the stream ends
+         * to all the Tees
+         */
+        //close the file
+        try
+        {
+            br.close();
+        }
+        catch (java.io.IOException ioe)
+        {
+            if (verbose) System.out.println("I/O Error: " + ioe.getMessage());
+        }
+
+        /*
+         * Now that it's closed, we may need to give some thread-time to each parser to get them
+         * to finish parsing the stream
+         */
+for (ZoneParser zp:zpl)
+            try
+            {
+                if (java.lang.Thread.State.TERMINATED != zp.getState())
+                    zp.join (10);
+
+                for (int i = 10; i > 0 && java.lang.Thread.State.TERMINATED != zp.getState() ; i--)
+                {
+                    if (verbose) System.out.println("waiting for parser to drain: "+i+" "+zp.getClass().getName());
+                    zp.join (100);
+                }
+            }
+            catch (java.lang.InterruptedException ie) {}
+
+        /*
+         * Great, we have a closed stream, only read once, and we have Parsers all loaded up with content.
+         *
+         * Shall we tally-the-votes to see who wins?
+         */
+
+        ZoneParser winningzp = null;
+for (ZoneParser zp:zpl)
+        {
+            if (verbose)
+                System.out.println("(vict) parsed " + zp.zoneSize() + " zones, " + zp.aliasSize() + " aliases via "+zp.getClass().getName().replaceAll(".*\\.",""));
+
+            if (null == winningzp)
+                winningzp = zp;
+            else if (zp.aliasSize() > winningzp.aliasSize())
+                winningzp = zp;
+            else if (zp.zoneSize() > winningzp.zoneSize())
+                winningzp = zp;
+        }
+
+	return winningzp;
+    }
+
+
+    /**
      * Convenience function to generate a pretty-printed JSON text string
      *
      * @param v VWImport object to markup
@@ -188,6 +381,7 @@ public class VirtualWisdom4ClientTool
 
         options.add(new LongOpt("read", LongOpt.REQUIRED_ARGUMENT, null, 'r'));
         options.add(new LongOpt("input", LongOpt.REQUIRED_ARGUMENT, null, 'i'));
+        options.add(new LongOpt("nickname", LongOpt.REQUIRED_ARGUMENT, null, 'N'));
 	options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
 
 	options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
@@ -216,6 +410,17 @@ public class VirtualWisdom4ClientTool
                    //JsonMappingException
 	    }
 	    	break;
+
+            case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
+            {
+                String f = g.getOptarg();
+		ZoneParser p = null;
+
+                for (int x = 3; (0 < x ) && (null == (p = m.loadFile(f, true))); x--)
+                    System.out.println("retrying: reading "+f);
+            }
+            break;
+
 
 	    case 'o':   // Write a config file out
 	    {

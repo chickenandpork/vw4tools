@@ -10,6 +10,21 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(alias4file to json via java)
+dnl      ---------------------------
+
+AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
+"WWN",50:0A:09:86:98:12:34:56,NetApp-123456,Storage
+"WWN",10:00:00:00:c9:12:34:56,Oracle01,Server
+"WWN",10:00:00:00:c9:12:34:57,Oracle01,Server
+])
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv], 0, [stdout], [])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(csv-to-json awk script)
 dnl      ----------------------
 

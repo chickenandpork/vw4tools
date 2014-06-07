@@ -215,6 +215,28 @@ AM_CONDITIONAL(DO_GETOPTJAR, test "$WITH_GETOPTJAR" != no)
 AC_SUBST([GETOPTJAR], ${WITH_GETOPTJAR})
 
 
+AC_ARG_WITH(fcparsers,
+[AS_HELP_STRING([--with-fcparsers],[Enable autodecompression of a built fcparsers.jar; default=search])],
+[
+    case "$withval" in
+        "yes") WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null ; locate fcparsers.jar) | grep -v .workdir| head -1) ;;
+        "no")  WITH_FCPARSERS=no  ;;
+        *) WITH_FCPARSERS="$withval" ;;
+    esac
+],
+[
+AC_MSG_CHECKING([for fcparsers.jar])
+    WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null; locate fcparsers.jar) | grep -v .workdir| head -1) ;
+AC_MSG_RESULT([${WITH_FCPARSERS}])
+])
+AM_CONDITIONAL(DO_FCPARSERSJAR, test "$WITH_FCPARSERS" != no)
+AC_SUBST([FCPARSERSJAR], ${WITH_FCPARSERS})
+AC_MSG_CHECKING([fcparsers.jar version])
+VER_FCPARSERS=$(java -cp ${FCPARSERSJAR} org.smallfoot.parser.version)
+AC_MSG_RESULT([${VER_FCPARSERS}])
+AC_SUBST([VER_FCPARSERS], ${VER_FCPARSERS})
+
+
 AC_MSG_CHECKING([for user-defined specific testcase])
 AC_ARG_WITH(usertestcase,
 [AS_HELP_STRING([--with-usertestcase],[Enable a one-off test using a user-defined testcase; default=ignore])],

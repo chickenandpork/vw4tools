@@ -13,7 +13,7 @@ BUILT_SOURCES = javaroot.stamp
 javaroot.stamp: $(nodist_java_JAVA)
 	mkdir -p $(JAVAROOT) && touch $@
 
-AM_JAVACFLAGS= @JAVAC_FLAGS@ -cp $(JAVAROOT):@GETOPTJAR@:$(top_builddir)/depjars/json.jar
+AM_JAVACFLAGS= @JAVAC_FLAGS@ -cp $(JAVAROOT):@GETOPTJAR@:@FCPARSERSJAR@:$(top_builddir)/depjars/json.jar
 
 @PACKAGE@.jar: classjava.stamp
 	awk -v BUILDTOP="bld" '/^package / {gsub (";$$",""); gsub ("\\.","/",$$2); SUBS[$$2]=$$2 } END { FIRST=0; for (n in SUBS) { if (0 == FIRST++) printf "jar cvf $@"; printf " -C %s %s",BUILDTOP,n }; printf "\n"; }' $(nodist_java_JAVA) | $(SHELL)
