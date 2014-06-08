@@ -65,7 +65,7 @@ public class VirtualWisdom4ClientTool
     {
         load(xmlFile);
     }
-	    
+
     /**
      * Class Constructor with no initial file.
      */
@@ -81,9 +81,9 @@ public class VirtualWisdom4ClientTool
      * @param filename file to load
      */
     protected void _load(String filename)
-	throws java.lang.Exception
+    throws java.lang.Exception
     {
-	throw new java.lang.Exception ("unimplemented");
+        throw new java.lang.Exception ("unimplemented");
     }
 
     /**
@@ -93,12 +93,12 @@ public class VirtualWisdom4ClientTool
      */
     public void load(String filename)
     {
-	try
-	{
-	    _load (filename);
-	}
-	catch (java.lang.Exception e)
-	{
+        try
+        {
+            _load (filename);
+        }
+        catch (java.lang.Exception e)
+        {
             e.printStackTrace();
         }
     }
@@ -109,9 +109,9 @@ public class VirtualWisdom4ClientTool
      * @param filename filename to save into
      */
     protected void _save(String filename)
-	throws java.lang.Exception
+    throws java.lang.Exception
     {
-	throw new java.lang.Exception ("unimplemented");
+        throw new java.lang.Exception ("unimplemented");
     }
 
     /**
@@ -121,14 +121,14 @@ public class VirtualWisdom4ClientTool
      */
     public void save (String filename)
     {
-	try
-	{
-	    _save (filename);
-	}
-	catch (java.lang.Exception e)
-	{
+        try
+        {
+            _save (filename);
+        }
+        catch (java.lang.Exception e)
+        {
             e.printStackTrace();
-	}
+        }
     }
 
 
@@ -227,7 +227,7 @@ public class VirtualWisdom4ClientTool
 
         try
         {
-for (ZoneParser zp:zpl)
+            for (ZoneParser zp:zpl)
                 is = new ParserTee (is, zp);
         }
         catch (java.io.IOException ioe)
@@ -272,7 +272,7 @@ for (ZoneParser zp:zpl)
          * Now that it's closed, we may need to give some thread-time to each parser to get them
          * to finish parsing the stream
          */
-for (ZoneParser zp:zpl)
+        for (ZoneParser zp:zpl)
             try
             {
                 if (java.lang.Thread.State.TERMINATED != zp.getState())
@@ -293,7 +293,7 @@ for (ZoneParser zp:zpl)
          */
 
         ZoneParser winningzp = null;
-for (ZoneParser zp:zpl)
+        for (ZoneParser zp:zpl)
         {
             if (verbose)
                 System.out.println("(vict) parsed " + zp.zoneSize() + " zones, " + zp.aliasSize() + " aliases via "+zp.getClass().getName().replaceAll(".*\\.",""));
@@ -306,7 +306,7 @@ for (ZoneParser zp:zpl)
                 winningzp = zp;
         }
 
-	return winningzp;
+        return winningzp;
     }
 
 
@@ -318,26 +318,26 @@ for (ZoneParser zp:zpl)
      */
     public String prettyJSON(VWImport v)
     {
-      ObjectMapper mapper = new ObjectMapper();
-      mapper.setSerializationInclusion(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL);
 
-	try
-	{
-	    ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
-	    return ow.writeValueAsString(v);
-	}
-	catch (JsonMappingException jme)
-	{
-	    System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
-	    return null;
-	}
-	catch (JsonProcessingException jpe)
-	{
-	    System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
-	    return null;
-	}
-	
-   }
+        try
+        {
+            ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+            return ow.writeValueAsString(v);
+        }
+        catch (JsonMappingException jme)
+        {
+            System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+            return null;
+        }
+        catch (JsonProcessingException jpe)
+        {
+            System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+            return null;
+        }
+
+    }
 
 
 
@@ -371,7 +371,7 @@ for (ZoneParser zp:zpl)
     public static void main(String args[])
     {
         VirtualWisdom4ClientTool m = new VirtualWisdom4ClientTool();
-	VWImport vwimport = null;
+        VWImport vwimport = null;
 
         Vector<LongOpt> options = new Vector(20,2);
 
@@ -382,9 +382,9 @@ for (ZoneParser zp:zpl)
         options.add(new LongOpt("read", LongOpt.REQUIRED_ARGUMENT, null, 'r'));
         options.add(new LongOpt("input", LongOpt.REQUIRED_ARGUMENT, null, 'i'));
         options.add(new LongOpt("nickname", LongOpt.REQUIRED_ARGUMENT, null, 'N'));
-	options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
+        options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
 
-	options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
+        options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /*@DO_GETOPTJAR_TRUE@ */
         /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HV", options);        /@DO_GETOPTJAR_FALSE@* */
@@ -397,24 +397,27 @@ for (ZoneParser zp:zpl)
             {
             case 'i':	/* fall-thru */
             case 'r':   // Read in a config file
-	    {
+            {
                 com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-		//mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                //mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-		try
-		{
-   		    vwimport = mapper.readValue(new File(g.getOptarg()), VWImport.class);
-		}
-		catch (java.io.IOException ioe) { System.out.println("IO Exception reading from "+g.getOptarg()+": "+ioe.getMessage()); }
-                   //JsonParseException,
-                   //JsonMappingException
-	    }
-	    	break;
+                try
+                {
+                    vwimport = mapper.readValue(new File(g.getOptarg()), VWImport.class);
+                }
+                catch (java.io.IOException ioe)
+                {
+                    System.out.println("IO Exception reading from "+g.getOptarg()+": "+ioe.getMessage());
+                }
+                //JsonParseException,
+                //JsonMappingException
+            }
+            break;
 
             case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
             {
                 String f = g.getOptarg();
-		ZoneParser p = null;
+                ZoneParser p = null;
 
                 for (int x = 3; (0 < x ) && (null == (p = m.loadFile(f, true))); x--)
                     System.out.println("retrying: reading "+f);
@@ -422,105 +425,115 @@ for (ZoneParser zp:zpl)
             break;
 
 
-	    case 'o':   // Write a config file out
-	    {
-		/*
-		   XmlMapper mapper = new XmlMapper() 
-		   MyBean bean = new MyBean();
-
-		   String xml = mapper.writeValueAsString(bean);
-		   // System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user));
-
-		   // we get something like "<MyBean><property>value</property>....</MyBean>"
-		   MyBean beanFromXml = mapper.readValue(xml, MyBean.class);
-		 */
-
-
-		System.err.println("NOTE: writing");
-		try
-		{
-		    if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("schema.json")) )
-		    {
-			com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-			JsonSchema schema = mapper.generateJsonSchema(vwimport.getClass());
-
-
-			//ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
-			/*
-			ObjectWriter ow = mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter());
-      			System.out.println(ow.writeValueAsString(schema)); */
-      			System.out.println("blah" + m.prettyJSON(vwimport)+"blah");
-			
-			//System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));
-		    }
-		    else if (null == vwimport)
-		    {
-			System.err.println("ERROR: no content loaded");
-			return;
-		    }
-		    else if (
-			( null == g.getOptarg() ) || 
-			(g.getOptarg().equalsIgnoreCase("")) || 
-			(g.getOptarg().equalsIgnoreCase("-"))  )
-		    {
-			System.err.println("NOTE: writing to stdout");
-			String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
-			System.out.println(o);
-		    }
-		    else
-		    {
-			com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-			try {
-			mapper.writeValue(new File(g.getOptarg()), vwimport);
-			}
-			catch (java.io.IOException ioe) { System.out.println("IO Exception writing to "+g.getOptarg()+": "+ioe.getMessage()); }
-			//JsonParseException,
-			//JsonMappingException
-		    }
-		}
-		catch (JsonMappingException jme) { System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services"); }
-		catch (JsonProcessingException jpe) { System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services"); }
-	    }
-		break;
-
-		/*
-		 * Testcase generation -- internal use only, used to create bogus internal content to test output format
-		 */
-	    case 'T':   // create internal content for export
-	    {
-		if (g.getOptarg().equalsIgnoreCase ("sample01"))
-		{
-		    vwimport = new VWImport();
-		    VWImport.Entity e = new VWImport.Entity();
-		    e.description = "sample01 test entity";
-		    e.edit_type = VWImport.Edit_Type.add;
-		    e.type = "application";
-		    e.name = "sample01_itl";
-		    e.itl_patterns = new Vector<VWImport.ITLPattern>();
-		    VWImport.ITLPattern i = new VWImport.ITLPattern();
-		    i.edit_type = VWImport.Edit_Type.add;
-		    i.initiator = "1000002590123456";
-		    e.itl_patterns.add(i);
-		    vwimport.entities().add(e);
-		    System.err.println(vwimport.entities().size() + " entities defined");
-		}
-		else
-		{
-		    System.err.println("testcase generation: Testcase \""+g.getOptarg()+"\" is not understood");
-		    System.err.println("testcases include: sample01");
-		    return;
-		}
-	    }
-	    break;
-
+            case 'o':   // Write a config file out
+            {
                 /*
-                 * Follows is the "house-keeping": versions, usage, and the catch-all for bad options.
+                   XmlMapper mapper = new XmlMapper()
+                   MyBean bean = new MyBean();
+
+                   String xml = mapper.writeValueAsString(bean);
+                   // System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user));
+
+                   // we get something like "<MyBean><property>value</property>....</MyBean>"
+                   MyBean beanFromXml = mapper.readValue(xml, MyBean.class);
                  */
+
+
+                System.err.println("NOTE: writing");
+                try
+                {
+                    if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("schema.json")) )
+                    {
+                        com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+                        JsonSchema schema = mapper.generateJsonSchema(vwimport.getClass());
+
+
+                        //ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+                        /*
+                        ObjectWriter ow = mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter());
+                        	System.out.println(ow.writeValueAsString(schema)); */
+                        System.out.println("blah" + m.prettyJSON(vwimport)+"blah");
+
+                        //System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));
+                    }
+                    else if (null == vwimport)
+                    {
+                        System.err.println("ERROR: no content loaded");
+                        return;
+                    }
+                    else if (
+                        ( null == g.getOptarg() ) ||
+                        (g.getOptarg().equalsIgnoreCase("")) ||
+                        (g.getOptarg().equalsIgnoreCase("-"))  )
+                    {
+                        System.err.println("NOTE: writing to stdout");
+                        String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
+                        System.out.println(o);
+                    }
+                    else
+                    {
+                        com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+                        try
+                        {
+                            mapper.writeValue(new File(g.getOptarg()), vwimport);
+                        }
+                        catch (java.io.IOException ioe)
+                        {
+                            System.out.println("IO Exception writing to "+g.getOptarg()+": "+ioe.getMessage());
+                        }
+                        //JsonParseException,
+                        //JsonMappingException
+                    }
+                }
+                catch (JsonMappingException jme)
+                {
+                    System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+                }
+                catch (JsonProcessingException jpe)
+                {
+                    System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+                }
+            }
+            break;
+
+            /*
+             * Testcase generation -- internal use only, used to create bogus internal content to test output format
+             */
+            case 'T':   // create internal content for export
+            {
+                if (g.getOptarg().equalsIgnoreCase ("sample01"))
+                {
+                    vwimport = new VWImport();
+                    VWImport.Entity e = new VWImport.Entity();
+                    e.description = "sample01 test entity";
+                    e.edit_type = VWImport.Edit_Type.add;
+                    e.type = "application";
+                    e.name = "sample01_itl";
+                    e.itl_patterns = new Vector<VWImport.ITLPattern>();
+                    VWImport.ITLPattern i = new VWImport.ITLPattern();
+                    i.edit_type = VWImport.Edit_Type.add;
+                    i.initiator = "1000002590123456";
+                    e.itl_patterns.add(i);
+                    vwimport.entities().add(e);
+                    System.err.println(vwimport.entities().size() + " entities defined");
+                }
+                else
+                {
+                    System.err.println("testcase generation: Testcase \""+g.getOptarg()+"\" is not understood");
+                    System.err.println("testcases include: sample01");
+                    return;
+                }
+            }
+            break;
+
+            /*
+             * Follows is the "house-keeping": versions, usage, and the catch-all for bad options.
+             */
             case 'V':   // print the version and quit
-	    {
+            {
                 System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")+"\n");
                 return;
-	    }
+            }
 
             default:
             case '?':
