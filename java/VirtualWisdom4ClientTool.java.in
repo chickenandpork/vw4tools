@@ -202,13 +202,13 @@ public class VirtualWisdom4ClientTool
                 catch (java.io.FileNotFoundException fnfe)
                 {
                     /* OK, workaround failed, but this shouldn't happen after a canRead() */
-                    if (verbose) System.out.println("Failure to open "+params[0]+": " + e.getMessage() + " was followed by a File Not Found exception trying to open "+nf.getAbsolutePath()+" as a workaround");
+                    if (verbose) System.err.println("Failure to open "+params[0]+": " + e.getMessage() + " was followed by a File Not Found exception trying to open "+nf.getAbsolutePath()+" as a workaround");
                     return null;
                 }
             else
             {
                 /* OK, workaround failed.  Wap wap waaaaap */
-                if (verbose) System.out.println("Failure to open "+params[0]+": " + e.getMessage());
+                if (verbose) System.err.println("Failure to open "+params[0]+": " + e.getMessage());
                 return null;
             }
         }
@@ -232,7 +232,7 @@ public class VirtualWisdom4ClientTool
         }
         catch (java.io.IOException ioe)
         {
-            if (verbose) System.out.println("Failure to seam a pipe for parsing "+params[0]+": " + ioe.getMessage());
+            if (verbose) System.err.println("Failure to seam a pipe for parsing "+params[0]+": " + ioe.getMessage());
             return null;
         }
 
@@ -382,6 +382,7 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("read", LongOpt.REQUIRED_ARGUMENT, null, 'r'));
         options.add(new LongOpt("input", LongOpt.REQUIRED_ARGUMENT, null, 'i'));
         options.add(new LongOpt("nickname", LongOpt.REQUIRED_ARGUMENT, null, 'N'));
+        options.add(new LongOpt("nicknameout", LongOpt.REQUIRED_ARGUMENT, null, 'n'));
         options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
 
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
@@ -425,6 +426,9 @@ public class VirtualWisdom4ClientTool
             break;
 
 
+
+            case 'n': /* output Nicknames as Entities to the given file */
+		/* fall-thru */
             case 'o':   // Write a config file out
             {
                 /*
@@ -439,7 +443,7 @@ public class VirtualWisdom4ClientTool
                  */
 
 
-                System.err.println("NOTE: writing");
+                //System.err.println("NOTE: writing");
                 try
                 {
                     if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("schema.json")) )
