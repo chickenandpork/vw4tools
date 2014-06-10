@@ -1,0 +1,103 @@
+{
+  "description": "Sample SVC Entities import based on 2014-06-10 FAE/PA meeting.  NOTE that SVCs, despite their individual ports each having both Initiator and Target behavior, are detected as Targets, hence are defined as Array herein"
+
+  "version" : "1",
+  "entities": [
+    {
+      "name" : "SVC_01",
+      "description" : "SVC Cluster # 01, with two nodes",
+      "type" : "storagearray",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "SVC_01-1" ]
+    },
+    {
+      "name" : "SVC_01-1",
+      "description" : "SVC Cluster #01, IOGroup # 1, with two nodes",
+      "type" : "storagecontroller",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "SVC_22", "SVC_41" ]
+    },
+    {
+      "name" : "SVC_22",
+      "description" : "SVC Cluster #01, IOGroup # 1, first node happens to be 22 internally",
+      "type" : "iomodule",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "SVC_22_p1", "SVC_22_p2", "SVC_22_p3", "SVC_22_p4" ]
+    },
+    {
+      "name" : "SVC_22_p1",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 22 port 1",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801102201" ]
+    },
+    {
+      "name" : "SVC_22_p2",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 22 port 2",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801202201" ]
+    },
+    {
+      "name" : "SVC_22_p3",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 22 port 3",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801302201" ]
+    },
+    {
+      "name" : "SVC_22_p4",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 22 port 4",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801402201" ]
+    },
+    {
+      "name" : "SVC_41",
+      "description" : "SVC Cluster #01, IOGroup # 1, second node happens to be 41 internally",
+      "type" : "iomodule",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "SVC_41_p1", "SVC_41_p2", "SVC_41_p3", "SVC_41_p4" ]
+    },
+    {
+      "name" : "SVC_41_p1",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 41 port 1",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801104101" ]
+    },
+    {
+      "name" : "SVC_41_p2",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 41 port 2",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801204101" ]
+    },
+    {
+      "name" : "SVC_41_p3",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 41 port 3",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801304101" ]
+    },
+    {
+      "name" : "SVC_41_p4",
+      "description" : "SVC Cluster #01, IOGroup # 1, Node 41 port 4",
+      "type" : "storageport",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "5005076801404101" ]
+    }
+  ]
+}

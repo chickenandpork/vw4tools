@@ -1,0 +1,29 @@
+{
+  "description": "Sample Host/Server/Initiator Entities import showing a basic server with HBA ports connecting to each of two fabrics.  Content based on 2014-06-10 FAE/PA meeting.  NOTE that the HBA may or may not have sequential WWPNs, may have 2xxx -style grouping, and some QLogic HBAs are actually storage (early DataDomain, more recently some flash vendors)",
+
+  "version" : "1",
+  "entities": [
+    {
+      "name" : "Server44",
+      "description" : "Server #44 connects to fabrics A and B",
+      "type" : "host",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "Server44_HBA0", "Server44_HBA1" ]
+    },
+    {
+      "name" : "Server44_HBA0",
+      "type" : "hba",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "10000000c9123456" ]
+    },
+    {
+      "name" : "Server44_HBA1",
+      "type" : "hba",
+      "tags": [ "vw4tools-sample" ], 
+      "edit_type": "add", 
+      "child_entities": [ "10000000c9890123" ]
+    }
+  ]
+}
