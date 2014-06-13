@@ -11,7 +11,7 @@ http://www.opensource.org/licenses/gpl-2.0.php and
 http://www.opensource.org/licenses/lgpl-2.1.php
 switch44a# show device-alias database
 device-alias name server44_hba0 pwwn 10:00:00:00:c9:12:34:56
-device-alias name server44_hba1 pwwn 19:00:00:00:c9:12:34:57
+device-alias name server44_hba1 pwwn 10:00:00:00:c9:12:34:57
 device-alias name oracle10_hba0 pwwn 21:00:00:24:ff:12:34:56
 device-alias name oracle10_hba1 pwwn 22:00:00:24:ff:12:34:56
 device-alias name vmax-18641-fa06a0 pwwn 50:00:09:72:01:23:45:54

@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.Vector;
 import javax.activation.DataSource;
 import javax.activation.URLDataSource;
@@ -27,6 +28,8 @@ import org.smallfoot.parser.zone.ShowZoneParser;
 import org.smallfoot.parser.zone.ZPAliasEntry;
 import org.smallfoot.parser.zone.ZoneParser;
 import org.smallfoot.vw4.VWImport;
+import org.smallfoot.wwn.WWNDesc;
+import org.smallfoot.wwn.WWNDescription;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -296,7 +299,7 @@ public class VirtualWisdom4ClientTool
         for (ZoneParser zp:zpl)
         {
             if (verbose)
-                System.out.println("(vict) parsed " + zp.zoneSize() + " zones, " + zp.aliasSize() + " aliases via "+zp.getClass().getName().replaceAll(".*\\.",""));
+                System.out.println("(@PACKAGE@) parsed " + zp.zoneSize() + " zones, " + zp.aliasSize() + " aliases via "+zp.getClass().getName().replaceAll(".*\\.",""));
 
             if (null == winningzp)
                 winningzp = zp;
@@ -354,6 +357,13 @@ public class VirtualWisdom4ClientTool
         return entities;
     }
 
+    protected WWNDescription wwndesc = null;		/**< local singleton array accessed from wwndesc() */
+    public WWNDescription wwndesc()
+    {
+        if (null == wwndesc) wwndesc = new WWNDescription();    /**< singleton access for wwndesc @return wwndesc */
+        return wwndesc;
+    }
+
     /**
      * Absorb a pattern for chunking together nickname patterns.  Hosts will absorb new
      * matches at a top-level (host->hba); storage will absorb a pattern by force into a
@@ -368,9 +378,8 @@ public class VirtualWisdom4ClientTool
         patterns().add(pattern);
     }
 
-    Entity entityAccepting (String wwn, String name)
+    Entity entityAccepting (Entity newguy)
     {
-System.out.println("check pattern "+name+" for acceptance of "+wwn+","+name);
         return null;
     }
 
@@ -396,13 +405,53 @@ System.out.println("check pattern "+name+" for acceptance of "+wwn+","+name);
         if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
                 if (null != zpa) for (String wwn: zpa.getWWNArray())
                 {
-                    if (null != (e = entityAccepting(wwn, zpa.name().replaceAll("\"",""))))
+		    Entity newguy;
+		    WWNDesc d = wwndesc().getWWNDescriptor(wwn, false);
+		    if (null == d)
+		        newguy = new EntityHBA (zpa.name(), wwn);
+		    else
+		        newguy = new EntityFA (zpa.name(), wwn);
+
+                    if (null != (e = entityAccepting(newguy)))
                         System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
                     else
                         for (String s: patterns().toArray(new String[0]))
                             System.out.println("check pattern "+s+" for acceptance of "+wwn+", "+zpa.name());
+
+		    entities().add(newguy);
                     //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
                 }
+    }
+
+
+    /**
+     * Export an "OrderedTuples.csv" file as a stopgap measure until proper JSON processing can be completed
+     *
+     * @param name filename to write
+     * @throws java.io.IOException when PrintStream throws an exception
+     */
+    void writeOrderedTuples(String name) throws java.io.IOException
+    {
+        PrintStream fos = new PrintStream(name);
+
+	for (Entity e: entities())
+	    if (null != e)
+	    {
+		if (e instanceof EntityHBA)
+		{
+		    EntityHBA h = (EntityHBA) e;
+
+		    /* name,type,WWPN[,customname] */
+		    fos.println(String.format("%s,%s,%s",h.name(),"host",h.wwn()));
+		}
+		else if (e instanceof EntityFA)
+		{
+		    EntityFA h = (EntityFA) e;
+
+		    /* name,type,WWPN[,customname] */
+		    fos.println(String.format("%s,%s,%s",h.name(),"array",h.wwn()));
+		}
+	    }
     }
 
 
@@ -523,6 +572,18 @@ System.out.println("check pattern "+name+" for acceptance of "+wwn+","+name);
                         System.out.println("blah" + m.prettyJSON(vwimport)+"blah");
 
                         //System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));
+                    }
+                    else if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("orderedtuples.csv")) )
+                    {
+System.out.println("writing ordered tuples");
+                        try
+                        {
+			m.writeOrderedTuples(g.getOptarg());
+                        }
+                        catch (java.io.IOException ioe)
+                        {
+                            System.out.println("IO Exception writing to "+g.getOptarg()+": "+ioe.getMessage());
+                        }
                     }
                     else if (null == vwimport)
                     {

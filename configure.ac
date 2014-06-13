@@ -237,6 +237,28 @@ AC_MSG_RESULT([${VER_FCPARSERS}])
 AC_SUBST([VER_FCPARSERS], ${VER_FCPARSERS})
 
 
+AC_ARG_WITH(wwndesc,
+[AS_HELP_STRING([--with-wwndesc],[Enable autodecompression of a built wwndesc.jar; default=search])],
+[
+    case "$withval" in
+        "yes") WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null ; locate wwndesc.jar) | grep -v .workdir| head -1) ;;
+        "no")  WITH_WWNDESC=no  ;;
+        *) WITH_WWNDESC="$withval" ;;
+    esac
+],
+[
+AC_MSG_CHECKING([for wwndesc.jar])
+    WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null; locate wwndesc.jar) | grep -v .workdir| head -1) ;
+AC_MSG_RESULT([${WITH_WWNDESC}])
+])
+AM_CONDITIONAL(DO_WWNDESCJAR, test "$WITH_WWNDESC" != no)
+AC_SUBST([WWNDESCJAR], ${WITH_WWNDESC})
+AC_MSG_CHECKING([wwndesc.jar version])
+VER_WWNDESC=$(java -cp ${WWNDESCJAR} org.smallfoot.wwn.version)
+AC_MSG_RESULT([${VER_WWNDESC}])
+AC_SUBST([VER_FCPARSERS], ${VER_FCPARSERS})
+
+
 AC_MSG_CHECKING([for user-defined specific testcase])
 AC_ARG_WITH(usertestcase,
 [AS_HELP_STRING([--with-usertestcase],[Enable a one-off test using a user-defined testcase; default=ignore])],

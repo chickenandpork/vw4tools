@@ -227,7 +227,23 @@ AT_CLEANUP()
 AT_SETUP(read sample DAD to create JSON)
 dnl      ------------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N abs_top_srcdir/samples/simple.devicealias], 0, [], [])
+AT_CHECK([java -Ddebug.consistentVersion -jar $abs_top_builddir/convjars/vw4tools.jar -N abs_top_srcdir/samples/simple.devicealias], 0, [stdout], [stderr])
+
+dnl "|| true" to ignore the aberrant unpredictable error code
+AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+
+AT_CHECK([grep -c ' 6 aliases via DeviceAliasParser' stdout], 0, [1
+], [])
+
+AT_CHECK([java -Ddebug.consistentVersion -jar $abs_top_builddir/convjars/vw4tools.jar --pattern="([[^_]]+)_hba[[0-9]]+$" -N abs_top_srcdir/samples/simple.devicealias -oOrderedTuples.csv], 0, [stdout], [])
+
+AT_CHECK([cat OrderedTuples.csv], 0, [server44_hba0,host,10:00:00:00:c9:12:34:56
+server44_hba1,host,10:00:00:00:c9:12:34:57
+oracle10_hba0,host,21:00:00:24:ff:12:34:56
+oracle10_hba1,host,22:00:00:24:ff:12:34:56
+vmax-18641-fa06a0,array,50:00:09:72:01:23:45:54
+vmax-18641-fa07a0,array,50:00:09:72:01:23:45:58
+], [])
 
 AT_CLEANUP()
 

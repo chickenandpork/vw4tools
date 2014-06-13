@@ -7,7 +7,7 @@ BUILDTMP=$(shell date +%s)
 JAVAROOT = bld
 
 
-@PACKAGE@.jar: ../java/@PACKAGE@.jar @GETOPTJAR@ $(top_builddir)/depjars/json.jar @FCPARSERSJAR@
+@PACKAGE@.jar: ../java/@PACKAGE@.jar @GETOPTJAR@ $(top_builddir)/depjars/json.jar @FCPARSERSJAR@ @WWNDESCJAR@
 	@-rm -fr $(@D)/.workdir
 	@mkdir -p $(@D)/.workdir
 	@echo "Manifest-Version: 1.0" > $(@D)/.workdir/MANIFEST.MF
