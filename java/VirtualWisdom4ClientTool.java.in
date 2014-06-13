@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.Vector;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
 import javax.activation.DataSource;
 import javax.activation.URLDataSource;
 import javax.xml.XMLConstants;
@@ -344,10 +345,10 @@ public class VirtualWisdom4ClientTool
     }
 
 
-    protected Vector<String> patterns = null;		/**< local singleton array accessed from patterns() */
-    public Vector<String> patterns()
+    protected Vector<Pattern> patterns = null;		/**< local singleton array accessed from patterns() */
+    public Vector<Pattern> patterns()
     {
-        if (null == patterns) patterns = new Vector<String>();    /**< singleton access for patterns @return collection of patterns */
+        if (null == patterns) patterns = new Vector<Pattern>();    /**< singleton access for patterns @return collection of patterns */
         return patterns;
     }
 
@@ -376,7 +377,47 @@ public class VirtualWisdom4ClientTool
      */
     void absorbPattern (String pattern)
     {
-        patterns().add(pattern);
+        patterns().add(Pattern.compile(pattern));
+    }
+
+    /**
+     * Exercise all current chunking patterns against a given nickname.  Given a string
+     * assumed to be a hostname or alias, all patterns currently absorbed will be
+     * exercised to show the possible results in order they would be attempted.  This
+     * is intended to allow in-situ pattern editing and verification rather than
+     * perfect knowledge of the regex system used.
+     *
+     * As is assumed in the VW4 product, the regex is performed as:   s/{pattern}/\1/
+     * such that for a given pattern, the first capturing group is the result
+     * For example, given a pattern of "^(.*).{5}$", the ".{5}$" matches the final 5
+     * characters (5 wildcards before end-of-line), leaving the remainder within
+     * "^(.*)".  All but the final 5 characters are contained in that capture-grouping,
+     * so the result is all but the final 5 characters.
+     *
+     * param alias a String nickname to exercise all patterns against
+     */
+    String[] exercisePattern (String alias)
+    {
+	String r[] = new String[patterns().size()];
+	int rc = 0;
+
+	for (Pattern p: patterns())
+	try {
+	    java.util.regex.Matcher m = p.matcher(alias);
+	    if (m.find())
+	    {
+                if (true == new Boolean (System.getProperties().getProperty("debug.showPattern")))
+		    for (int i = 0; i <= m.groupCount(); i++)
+			System.out.println("match alias "+alias+" with "+p.toString()+" match #"+i+" --> "+m.group(i)); 
+
+		r[rc++] = m.group(1);
+	    }
+	    else
+		r[rc++] = alias;
+	}
+	catch (java.lang.IllegalStateException ise) { r[rc++] = alias; System.out.println("Internal Error: ISE during match.  Skipping "+p.toString()+" with "+alias); }
+
+	return r;
     }
 
     Entity entityAccepting (Entity newguy)
@@ -416,7 +457,7 @@ public class VirtualWisdom4ClientTool
                     if (null != (e = entityAccepting(newguy)))
                         System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
                     else
-                        for (String s: patterns().toArray(new String[0]))
+                        for (Pattern s: patterns())
                             System.out.println("check pattern "+s+" for acceptance of "+wwn+", "+zpa.name());
 
 		    if (null == entities().get(newguy.name()))
@@ -513,6 +554,7 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("nicknameout", LongOpt.REQUIRED_ARGUMENT, null, 'n'));
         options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
         options.add(new LongOpt("pattern", LongOpt.REQUIRED_ARGUMENT, null, 'P'));
+        options.add(new LongOpt("checkpattern", LongOpt.REQUIRED_ARGUMENT, null, 'p'));
 
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
@@ -546,6 +588,12 @@ public class VirtualWisdom4ClientTool
 
             case 'P': /* input chunking-pattern for host-combination and storage-combination */
                 m.absorbPattern(g.getOptarg());
+                break;
+
+            case 'p': /* exercise chunking-pattern for given alias */
+                for (String s: m.exercisePattern(g.getOptarg()))
+		    if (null != s)
+                	System.out.println("\""+g.getOptarg()+"\" --> \""+s+"\"");
                 break;
 
             case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */

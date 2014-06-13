@@ -10,6 +10,25 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(verify pattern behavior)
+dnl      -----------------------
+
+AT_CHECK([java -Ddebug.showPattern=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="^(.*)_hba(\\d+)$" --checkpattern=NetApp-123456 --checkpattern=Oracle01 --checkpattern=Oracle01_hba0], 0, [stdout], [stderr])
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="^(.*)_hba(\\d+)$" --checkpattern=NetApp-123456 --checkpattern=Oracle01 --checkpattern=Oracle01_hba0], 0, ["NetApp-123456" --> "NetApp-123456"
+"Oracle01" --> "Oracle01"
+"Oracle01_hba0" --> "Oracle01"
+], [stderr])
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="^(.*)_(hba|fc|fa|fab)(\\d+)$" --checkpattern=NetApp-123456 --checkpattern=Oracle01 --checkpattern=Oracle01_hba0], 0, ["NetApp-123456" --> "NetApp-123456"
+"Oracle01" --> "Oracle01"
+"Oracle01_hba0" --> "Oracle01"
+], [stderr])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(alias4file to json via java)
 dnl      ---------------------------
 
