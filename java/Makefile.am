@@ -1,4 +1,4 @@
-nodist_java_JAVA = VirtualWisdom4ClientTool.java VWImport.java
+nodist_java_JAVA = VirtualWisdom4ClientTool.java VWImport.java Entity.java
 nodist_java_DATA = $(subdir).jar
 javadir = $(pkgdir)
 faejavadir = @faehome@/@PACKAGE@

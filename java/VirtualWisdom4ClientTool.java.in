@@ -340,6 +340,72 @@ public class VirtualWisdom4ClientTool
     }
 
 
+    protected Vector<String> patterns = null;		/**< local singleton array accessed from patterns() */
+    public Vector<String> patterns()
+    {
+        if (null == patterns) patterns = new Vector<String>();    /**< singleton access for patterns @return collection of patterns */
+        return patterns;
+    }
+
+    protected Vector<Entity> entities = null;		/**< local singleton array accessed from entities() */
+    public Vector<Entity> entities()
+    {
+        if (null == entities) entities = new Vector<Entity>();    /**< singleton access for entities @return collection of entities */
+        return entities;
+    }
+
+    /**
+     * Absorb a pattern for chunking together nickname patterns.  Hosts will absorb new
+     * matches at a top-level (host->hba); storage will absorb a pattern by force into a
+     * second-tier (storagearray -> storagecontroller).  This will let devices with
+     * non-intuitive combinations (ie SVC nodes in an iogroup don't have any matching WWPN
+     * parts).  Not sure how far this will snowball.
+     *
+     * param pattern a String pattern to absorb (into an internal array for use later)
+     */
+    void absorbPattern (String pattern)
+    {
+        patterns().add(pattern);
+    }
+
+    Entity entityAccepting (String wwn, String name)
+    {
+System.out.println("check pattern "+name+" for acceptance of "+wwn+","+name);
+        return null;
+    }
+
+
+    /**
+     * one-shot load a new file and absorb the contents: open the file and stream the
+     * contents at an array of parsers, the one with the best results wins; using that
+     * result, absorb all alias information, attempting to create parent
+     * storagecontroller(s) or hosts as resulting from absorbtion patterns
+     *
+     * @param f name of file to open
+     *
+     * @see https://github.com/chickenandpork/fibrechannel-parsers/
+     */
+    protected void loadAndAbsorbFile(String f)
+    {
+        ZoneParser p = null;
+
+        for (int x = 3; (0 < x ) && (null == (p = loadFile(f, true))); x--)
+            System.out.println("retrying: reading "+f);
+
+        Entity e = null;
+        if (null != p)
+            for (ZPAliasEntry zpa: p.aliasArray())
+                for (String wwn: zpa.getWWNArray())
+                {
+                    if (null != (e = entityAccepting(wwn, zpa.name().replaceAll("\"",""))))
+                        System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
+                    else
+                        for (String s: patterns().toArray(new String[0]))
+                            System.out.println("check pattern "+s+" for acceptance of "+wwn+", "+zpa.name());
+                    //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
+                }
+    }
+
 
     /**
      * Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)
@@ -384,6 +450,7 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("nickname", LongOpt.REQUIRED_ARGUMENT, null, 'N'));
         options.add(new LongOpt("nicknameout", LongOpt.REQUIRED_ARGUMENT, null, 'n'));
         options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
+        options.add(new LongOpt("pattern", LongOpt.REQUIRED_ARGUMENT, null, 'P'));
 
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
@@ -415,20 +482,18 @@ public class VirtualWisdom4ClientTool
             }
             break;
 
-            case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
-            {
-                String f = g.getOptarg();
-                ZoneParser p = null;
+            case 'P': /* input chunking-pattern for host-combination and storage-combination */
+                m.absorbPattern(g.getOptarg());
+                break;
 
-                for (int x = 3; (0 < x ) && (null == (p = m.loadFile(f, true))); x--)
-                    System.out.println("retrying: reading "+f);
-            }
-            break;
+            case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
+                m.loadAndAbsorbFile(g.getOptarg());
+                break;
 
 
 
             case 'n': /* output Nicknames as Entities to the given file */
-		/* fall-thru */
+            /* fall-thru */
             case 'o':   // Write a config file out
             {
                 /*
