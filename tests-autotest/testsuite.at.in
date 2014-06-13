@@ -240,12 +240,44 @@ AT_CHECK([java -Ddebug.consistentVersion -jar $abs_top_builddir/convjars/vw4tool
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 
-AT_CHECK([cat OrderedTuples.csv], 0, [server44_hba0,host,10:00:00:00:c9:12:34:56
-server44_hba1,host,10:00:00:00:c9:12:34:57
-oracle10_hba0,host,21:00:00:24:ff:12:34:56
-oracle10_hba1,host,22:00:00:24:ff:12:34:56
-vmax-18641-fa06a0,array,50:00:09:72:01:23:45:54
-vmax-18641-fa07a0,array,50:00:09:72:01:23:45:58
+AT_CHECK([cat OrderedTuples.csv], 0, [oracle10_hba0,host,21000024ff123456
+oracle10_hba1,host,22000024ff123456
+server44_hba0,host,10000000c9123456
+server44_hba1,host,10000000c9123457
+vmax-18641-fa06a0,array,5000097201234554
+vmax-18641-fa07a0,array,5000097201234558
+], [])
+
+AT_CLEANUP()
+
+
+
+AT_SETUP(dupe name in nicknames)
+dnl      ----------------------
+
+AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
+"WWN",50:0A:09:86:98:12:34:56,NetApp-123456,Storage
+"WWN",10:00:00:00:c9:12:34:56,Oracle01,Server
+"WWN",10:00:00:00:c9:12:34:57,Oracle01,Server
+])
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N alias4file.csv], 0, [stdout], [stderr])
+
+dnl "|| true" to ignore the aberrant unpredictable error code
+AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+
+AT_CHECK([grep -c ' 4 aliases via Alias4Parser' stdout], 0, [1
+], [])
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N alias4file.csv -oOrderedTuples.csv], 0, [stdout], [stderr])
+
+dnl "|| true" to ignore the aberrant unpredictable error code
+AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+
+AT_CHECK([cat OrderedTuples.csv], 0, [NetApp-123456,array,500a098598123456
+NetApp-123456_456,array,500a098698123456
+Oracle01,host,10000000c9123456
+Oracle01_457,host,10000000c9123457
 ], [])
 
 AT_CLEANUP()

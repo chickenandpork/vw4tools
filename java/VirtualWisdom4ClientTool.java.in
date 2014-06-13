@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.Vector;
+import java.util.TreeMap;
 import javax.activation.DataSource;
 import javax.activation.URLDataSource;
 import javax.xml.XMLConstants;
@@ -350,10 +351,10 @@ public class VirtualWisdom4ClientTool
         return patterns;
     }
 
-    protected Vector<Entity> entities = null;		/**< local singleton array accessed from entities() */
-    public Vector<Entity> entities()
+    protected TreeMap<String,Entity> entities = null;		/**< local singleton array accessed from entities() */
+    public TreeMap<String,Entity> entities()
     {
-        if (null == entities) entities = new Vector<Entity>();    /**< singleton access for entities @return collection of entities */
+        if (null == entities) entities = new TreeMap<String,Entity>();    /**< singleton access for entities @return collection of entities */
         return entities;
     }
 
@@ -418,7 +419,18 @@ public class VirtualWisdom4ClientTool
                         for (String s: patterns().toArray(new String[0]))
                             System.out.println("check pattern "+s+" for acceptance of "+wwn+", "+zpa.name());
 
-		    entities().add(newguy);
+		    if (null == entities().get(newguy.name()))
+			entities().put(newguy.name(), newguy);
+		    else if (null == entities().get(newguy.name()+"_"+wwn.substring(wwn.length()-4)))
+		    {
+			newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-3));
+			entities().put(newguy.name(), newguy);
+		    }
+		    else if (null == entities().get(String.format("%s_%05d",newguy.name(), wwn.hashCode())))
+		    {
+			newguy.setname(String.format("%s_%05d",newguy.name(), wwn.hashCode()));
+			entities().put(newguy.name(), newguy);
+		    }
                     //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
                 }
     }
@@ -434,8 +446,10 @@ public class VirtualWisdom4ClientTool
     {
         PrintStream fos = new PrintStream(name);
 
-	for (Entity e: entities())
-	    if (null != e)
+	Entity e;
+
+	for (String s: entities().keySet())
+	    if (null != (e = entities.get(s)))
 	    {
 		if (e instanceof EntityHBA)
 		{
