@@ -65,32 +65,8 @@ AC_PATH_PROGS(BZCAT, [bzcat], [missing bzcat])
 AC_PATH_PROGS(SEVENZIP, [7za 7z keka7z], [missing 7za], $PATH:/Applications/Keka.app/Contents/Resources)
 AC_PATH_PROGS(FILE, [file], [missing file])
 
-AC_ARG_WITH(json,
-[AS_HELP_STRING([--with-json],[Indicate which JSON library (json-java, jackson) to use (default=json-java)])],
-[
-    JSON_JAVA=no;
-    JSON_JACKSON=no;
-
-    case "$withval" in
-	"no") 
-		;;
-	"jackson") 
-    		JSON_JACKSON=yes ;
-		;;
-
-	"json-java") 
-    		JSON_JAVA=yes ;
-		;;
-
-	*)
-    		JSON_JACKSON=yes ;
-		;;
-    esac
-],
-[
-    JSON_JAVA=no ;
-    JSON_JACKSON=yes ;
-])
+JSON_JAVA=no ;
+JSON_JACKSON=yes ;
 AM_CONDITIONAL(DO_JSON_JACKSON, test "x$JSON_JACKSON" = "xyes")
 AM_CONDITIONAL(DO_JSON_JAVA, test "x$JSON_JAVA" = "xyes")
 
@@ -159,6 +135,7 @@ AC_PATH_PROGS(N2A, [native2ascii])
 
 AC_SUBST(yumrepos, [$sysconfdir/yum.repos.d])
 AC_SUBST(faebase, [/home/services])
+AC_SUBST(faehome, [/home/.fae])
 AC_SUBST(emaildest, [ftpupdates])
 AC_SUBST(httpconfd, [/etc/httpd/conf.d])
 AC_SUBST(localreposroot, [/var/ftp])
@@ -295,11 +272,6 @@ fi
 if test "x$ENABJS2P" = "xyes"
 then
   AC_CONFIG_FILES(jsonschema2pojo/Makefile)
-fi
-
-if test "x$JSON_JAVA" = "xyes"
-then
-  AC_CONFIG_FILES(json-java/Makefile)
 fi
 
 AC_OUTPUT
