@@ -462,226 +462,225 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            System.out.println(<span class="stringliteral">&quot;retrying: reading &quot;</span>+f);</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a> e = null;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">if</span> (null != p)</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            <span class="keywordflow">for</span> (ZPAliasEntry zpa: p.aliasArray())</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                <span class="keywordflow">for</span> (String wwn: zpa.getWWNArray())</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                {</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                    <span class="keywordflow">if</span> (null != (e = entityAccepting(wwn, zpa.name().replaceAll(<span class="stringliteral">&quot;\&quot;&quot;</span>,<span class="stringliteral">&quot;&quot;</span>))))</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                        System.out.println(<span class="stringliteral">&quot;object &quot;</span>+e.toString()+<span class="stringliteral">&quot; accepts &quot;</span>+wwn+<span class="stringliteral">&quot;, &quot;</span>+zpa.name());</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                        <span class="keywordflow">for</span> (String s: <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae02047a8c65611b9470268a74d4d25b5">patterns</a>().toArray(<span class="keyword">new</span> String[0]))</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                            System.out.println(<span class="stringliteral">&quot;check pattern &quot;</span>+s+<span class="stringliteral">&quot; for acceptance of &quot;</span>+wwn+<span class="stringliteral">&quot;, &quot;</span>+zpa.name());</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                    <span class="comment">//ports.put(wwn.toLowerCase().replaceAll(&quot;[^a-f0-9]&quot;,&quot;&quot;), zpa.name().replaceAll(&quot;\&quot;&quot;,&quot;&quot;));</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                }</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    }</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">     * Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">     * @param progname the name of the program (args[0]) to print on a usage message</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keywordtype">void</span> usage(String progname)</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    {</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        System.out.println(<span class="stringliteral">&quot;Usage: &quot;</span>+progname+<span class="stringliteral">&quot; -V|--version|-H|--help&quot;</span>);</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --read &lt;filename&gt;|--input &lt;filename&gt; | -r &lt;filename&gt; | -i &lt;filename&gt;&quot;</span>);</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        System.out.println(<span class="stringliteral">&quot;   ie: &quot;</span>+progname+<span class="stringliteral">&quot; --read import.json&quot;</span>);</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        System.out.println(<span class="stringliteral">&quot;   ie: &quot;</span>+progname+<span class="stringliteral">&quot; -r import.json&quot;</span>);</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    }</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">     * Main function, as you can tell.</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">     * this function merely parses the command-line to dispatch actions to the meat of the meal above.</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment">     * I&#39;m using an actual GetOpt because, yes, I&#39;m a UNIX/C hack, re-using 3-decades-old knowledge,</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment">     * but this also preserves both extensibility and the ability to use longopts in scripts as a</span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">     * way to self-document what the tool&#39;s doing.</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">     * No real intelligence herein except the parse-and-redirect action.</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">     * @param args as you&#39;d expect, these are commandline arguments given when the jar is activated</span></div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno"><a class="line" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">  437</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">main</a>(String args[])</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    {</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html">VirtualWisdom4ClientTool</a> m = <span class="keyword">new</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a7991b30b52ad4d408df3575abc9b57ae">VirtualWisdom4ClientTool</a>();</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a> vwimport = null;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        Vector&lt;LongOpt&gt; options = <span class="keyword">new</span> Vector(20,2);</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <span class="comment">/* Always always ALWAYS provide a quick reference and a version output */</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;help&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;H&#39;</span>));</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;version&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;V&#39;</span>));</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;read&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;r&#39;</span>));</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;input&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;i&#39;</span>));</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nickname&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;N&#39;</span>));</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nicknameout&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;n&#39;</span>));</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;output&quot;</span>, LongOpt.OPTIONAL_ARGUMENT, null, <span class="charliteral">&#39;o&#39;</span>));</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;pattern&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;P&#39;</span>));</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;test&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;T&#39;</span>));</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="comment">/* */</span>        org.smallfoot.getopt.GetOpt        g = <span class="keyword">new</span> org.smallfoot.getopt.GetOpt(<span class="stringliteral">&quot;vw4tool&quot;</span>, args, options);        <span class="comment">/* */</span></div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="comment">/* *#/       gnu.getopt.Getopt          g = new gnu.getopt.Getopt(&quot;vw4tool&quot;, args, &quot;HV&quot;, options);        /#* */</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">if</span> (null != p) <span class="keywordflow">for</span> (ZPAliasEntry zpa: p.aliasArray())</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                <span class="keywordflow">if</span> (null != zpa) <span class="keywordflow">for</span> (String wwn: zpa.getWWNArray())</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                {</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                    <span class="keywordflow">if</span> (null != (e = entityAccepting(wwn, zpa.name().replaceAll(<span class="stringliteral">&quot;\&quot;&quot;</span>,<span class="stringliteral">&quot;&quot;</span>))))</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                        System.out.println(<span class="stringliteral">&quot;object &quot;</span>+e.toString()+<span class="stringliteral">&quot; accepts &quot;</span>+wwn+<span class="stringliteral">&quot;, &quot;</span>+zpa.name());</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                        <span class="keywordflow">for</span> (String s: <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae02047a8c65611b9470268a74d4d25b5">patterns</a>().toArray(<span class="keyword">new</span> String[0]))</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                            System.out.println(<span class="stringliteral">&quot;check pattern &quot;</span>+s+<span class="stringliteral">&quot; for acceptance of &quot;</span>+wwn+<span class="stringliteral">&quot;, &quot;</span>+zpa.name());</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                    <span class="comment">//ports.put(wwn.toLowerCase().replaceAll(&quot;[^a-f0-9]&quot;,&quot;&quot;), zpa.name().replaceAll(&quot;\&quot;&quot;,&quot;&quot;));</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                }</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    }</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">     * Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">     * @param progname the name of the program (args[0]) to print on a usage message</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keywordtype">void</span> usage(String progname)</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    {</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        System.out.println(<span class="stringliteral">&quot;Usage: &quot;</span>+progname+<span class="stringliteral">&quot; -V|--version|-H|--help&quot;</span>);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --read &lt;filename&gt;|--input &lt;filename&gt; | -r &lt;filename&gt; | -i &lt;filename&gt;&quot;</span>);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        System.out.println(<span class="stringliteral">&quot;   ie: &quot;</span>+progname+<span class="stringliteral">&quot; --read import.json&quot;</span>);</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        System.out.println(<span class="stringliteral">&quot;   ie: &quot;</span>+progname+<span class="stringliteral">&quot; -r import.json&quot;</span>);</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    }</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">     * Main function, as you can tell.</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     * this function merely parses the command-line to dispatch actions to the meat of the meal above.</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">     * I&#39;m using an actual GetOpt because, yes, I&#39;m a UNIX/C hack, re-using 3-decades-old knowledge,</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment">     * but this also preserves both extensibility and the ability to use longopts in scripts as a</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment">     * way to self-document what the tool&#39;s doing.</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">     * No real intelligence herein except the parse-and-redirect action.</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">     * @param args as you&#39;d expect, these are commandline arguments given when the jar is activated</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno"><a class="line" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">  436</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">main</a>(String args[])</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    {</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html">VirtualWisdom4ClientTool</a> m = <span class="keyword">new</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a7991b30b52ad4d408df3575abc9b57ae">VirtualWisdom4ClientTool</a>();</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a> vwimport = null;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        Vector&lt;LongOpt&gt; options = <span class="keyword">new</span> Vector(20,2);</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="comment">/* Always always ALWAYS provide a quick reference and a version output */</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;help&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;H&#39;</span>));</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;version&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;V&#39;</span>));</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;read&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;r&#39;</span>));</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;input&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;i&#39;</span>));</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nickname&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;N&#39;</span>));</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nicknameout&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;n&#39;</span>));</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;output&quot;</span>, LongOpt.OPTIONAL_ARGUMENT, null, <span class="charliteral">&#39;o&#39;</span>));</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;pattern&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;P&#39;</span>));</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;test&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;T&#39;</span>));</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <span class="comment">/* */</span>        org.smallfoot.getopt.GetOpt        g = <span class="keyword">new</span> org.smallfoot.getopt.GetOpt(<span class="stringliteral">&quot;vw4tool&quot;</span>, args, options);        <span class="comment">/* */</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="comment">/* *#/       gnu.getopt.Getopt          g = new gnu.getopt.Getopt(&quot;vw4tool&quot;, args, &quot;HV&quot;, options);        /#* */</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        <span class="keywordtype">int</span> c;</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        <span class="keywordflow">while</span> ((c = g.getopt()) != -1)</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        {</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;            <span class="keywordflow">switch</span>(c)</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;            {</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;i&#39;</span>:   <span class="comment">/* fall-thru */</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:   <span class="comment">// Read in a config file</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;            {</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;                <span class="comment">//mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                {</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                    vwimport = mapper.readValue(<span class="keyword">new</span> File(g.getOptarg()), <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a>.class);</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;                }</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                <span class="keywordflow">catch</span> (java.io.IOException ioe)</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                {</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                    System.out.println(<span class="stringliteral">&quot;IO Exception reading from &quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;: &quot;</span>+ioe.getMessage());</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                }</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                <span class="comment">//JsonParseException,</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                <span class="comment">//JsonMappingException</span></div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            }</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;P&#39;</span>: <span class="comment">/* input chunking-pattern for host-combination and storage-combination */</span></div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                m.absorbPattern(g.getOptarg());</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>: <span class="comment">/* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                m.loadAndAbsorbFile(g.getOptarg());</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keywordtype">int</span> c;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        <span class="keywordflow">while</span> ((c = g.getopt()) != -1)</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        {</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;            <span class="keywordflow">switch</span>(c)</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;            {</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;i&#39;</span>:   <span class="comment">/* fall-thru */</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:   <span class="comment">// Read in a config file</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;            {</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;                com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                <span class="comment">//mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                {</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                    vwimport = mapper.readValue(<span class="keyword">new</span> File(g.getOptarg()), <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a>.class);</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                }</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;                <span class="keywordflow">catch</span> (java.io.IOException ioe)</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                {</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                    System.out.println(<span class="stringliteral">&quot;IO Exception reading from &quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;: &quot;</span>+ioe.getMessage());</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                }</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                <span class="comment">//JsonParseException,</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                <span class="comment">//JsonMappingException</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;            }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;P&#39;</span>: <span class="comment">/* input chunking-pattern for host-combination and storage-combination */</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;                m.absorbPattern(g.getOptarg());</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>: <span class="comment">/* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                m.loadAndAbsorbFile(g.getOptarg());</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;</div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>: <span class="comment">/* output Nicknames as Entities to the given file */</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;            <span class="comment">/* fall-thru */</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;o&#39;</span>:   <span class="comment">// Write a config file out</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;            {</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                <span class="comment">/*</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">                   XmlMapper mapper = new XmlMapper()</span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">                   MyBean bean = new MyBean();</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">                   String xml = mapper.writeValueAsString(bean);</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">                   // System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user));</span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">                   // we get something like &quot;&lt;MyBean&gt;&lt;property&gt;value&lt;/property&gt;....&lt;/MyBean&gt;&quot;</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">                   MyBean beanFromXml = mapper.readValue(xml, MyBean.class);</span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">                 */</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>: <span class="comment">/* output Nicknames as Entities to the given file */</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;            <span class="comment">/* fall-thru */</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;o&#39;</span>:   <span class="comment">// Write a config file out</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;            {</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                <span class="comment">/*</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">                   XmlMapper mapper = new XmlMapper()</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">                   MyBean bean = new MyBean();</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">                   String xml = mapper.writeValueAsString(bean);</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">                   // System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user));</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">                   // we get something like &quot;&lt;MyBean&gt;&lt;property&gt;value&lt;/property&gt;....&lt;/MyBean&gt;&quot;</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">                   MyBean beanFromXml = mapper.readValue(xml, MyBean.class);</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">                 */</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                <span class="comment">//System.err.println(&quot;NOTE: writing&quot;);</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                {</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                    <span class="keywordflow">if</span> ( (null != g.getOptarg()) &amp;&amp; (g.getOptarg().equalsIgnoreCase(<span class="stringliteral">&quot;schema.json&quot;</span>)) )</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                    {</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                        com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                        JsonSchema schema = mapper.generateJsonSchema(vwimport.getClass());</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                <span class="comment">//System.err.println(&quot;NOTE: writing&quot;);</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                {</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                    <span class="keywordflow">if</span> ( (null != g.getOptarg()) &amp;&amp; (g.getOptarg().equalsIgnoreCase(<span class="stringliteral">&quot;schema.json&quot;</span>)) )</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                    {</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                        com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                        JsonSchema schema = mapper.generateJsonSchema(vwimport.getClass());</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                        <span class="comment">//ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                        <span class="comment">/*</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">                        ObjectWriter ow = mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter());</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">                                System.out.println(ow.writeValueAsString(schema)); */</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                        System.out.println(<span class="stringliteral">&quot;blah&quot;</span> + m.prettyJSON(vwimport)+<span class="stringliteral">&quot;blah&quot;</span>);</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                        <span class="comment">//System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;                    }</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (null == vwimport)</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                    {</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                        System.err.println(<span class="stringliteral">&quot;ERROR: no content loaded&quot;</span>);</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                    }</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;                        ( null == g.getOptarg() ) ||</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                        (g.getOptarg().equalsIgnoreCase(<span class="stringliteral">&quot;&quot;</span>)) ||</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;                        (g.getOptarg().equalsIgnoreCase(<span class="stringliteral">&quot;-&quot;</span>))  )</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                    {</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;                        System.err.println(<span class="stringliteral">&quot;NOTE: writing to stdout&quot;</span>);</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                        String o = (<span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                        System.out.println(o);</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                    }</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                    {</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                        com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                        <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                        {</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                            mapper.writeValue(<span class="keyword">new</span> File(g.getOptarg()), vwimport);</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                        }</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                        <span class="keywordflow">catch</span> (java.io.IOException ioe)</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                        {</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                            System.out.println(<span class="stringliteral">&quot;IO Exception writing to &quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;: &quot;</span>+ioe.getMessage());</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                        }</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                        <span class="comment">//JsonParseException,</span></div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                        <span class="comment">//JsonMappingException</span></div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                    }</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                }</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                <span class="keywordflow">catch</span> (JsonMappingException jme)</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;                {</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                    System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;                }</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                <span class="keywordflow">catch</span> (JsonProcessingException jpe)</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                {</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                    System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;                }</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;            }</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">             * Testcase generation -- internal use only, used to create bogus internal content to test output format</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>:   <span class="comment">// create internal content for export</span></div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            {</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample01&quot;</span>))</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                {</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                    vwimport = <span class="keyword">new</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a>();</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;                    VWImport.Entity e = <span class="keyword">new</span> VWImport.Entity();</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                    e.description = <span class="stringliteral">&quot;sample01 test entity&quot;</span>;</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                    e.edit_type = VWImport.Edit_Type.add;</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                    e.type = <span class="stringliteral">&quot;application&quot;</span>;</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                    e.name = <span class="stringliteral">&quot;sample01_itl&quot;</span>;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                    e.itl_patterns = <span class="keyword">new</span> Vector&lt;VWImport.ITLPattern&gt;();</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                    VWImport.ITLPattern i = <span class="keyword">new</span> VWImport.ITLPattern();</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                    i.edit_type = VWImport.Edit_Type.add;</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                    i.initiator = <span class="stringliteral">&quot;1000002590123456&quot;</span>;</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                    e.itl_patterns.add(i);</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                    vwimport.entities().add(e);</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                    System.err.println(vwimport.entities().size() + <span class="stringliteral">&quot; entities defined&quot;</span>);</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                }</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                {</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcase generation: Testcase \&quot;&quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;\&quot; is not understood&quot;</span>);</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcases include: sample01&quot;</span>);</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                }</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;            }</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="comment">             * Follows is the &quot;house-keeping&quot;: versions, usage, and the catch-all for bad options.</span></div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;V&#39;</span>:   <span class="comment">// print the version and quit</span></div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            {</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                System.out.println(g.consistentVersion(<span class="stringliteral">&quot;0.9-1&quot;</span>)+<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            }</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;?&#39;</span>:</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;H&#39;</span>:</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                m.usage(g.progname());</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            }</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        }</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    }</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;}</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                        <span class="comment">//ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                        <span class="comment">/*</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">                        ObjectWriter ow = mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter());</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">                                System.out.println(ow.writeValueAsString(schema)); */</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;                        System.out.println(<span class="stringliteral">&quot;blah&quot;</span> + m.prettyJSON(vwimport)+<span class="stringliteral">&quot;blah&quot;</span>);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                        <span class="comment">//System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                    }</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (null == vwimport)</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                    {</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                        System.err.println(<span class="stringliteral">&quot;ERROR: no content loaded&quot;</span>);</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                    }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                        ( null == g.getOptarg() ) ||</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;                        (g.getOptarg().equalsIgnoreCase(<span class="stringliteral">&quot;&quot;</span>)) ||</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                        (g.getOptarg().equalsIgnoreCase(<span class="stringliteral">&quot;-&quot;</span>))  )</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;                    {</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                        System.err.println(<span class="stringliteral">&quot;NOTE: writing to stdout&quot;</span>);</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;                        String o = (<span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                        System.out.println(o);</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                    }</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                    {</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                        com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                        <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                        {</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                            mapper.writeValue(<span class="keyword">new</span> File(g.getOptarg()), vwimport);</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                        }</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                        <span class="keywordflow">catch</span> (java.io.IOException ioe)</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                        {</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                            System.out.println(<span class="stringliteral">&quot;IO Exception writing to &quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;: &quot;</span>+ioe.getMessage());</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                        }</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                        <span class="comment">//JsonParseException,</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                        <span class="comment">//JsonMappingException</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                    }</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                }</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                <span class="keywordflow">catch</span> (JsonMappingException jme)</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                {</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;                    System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                }</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;                <span class="keywordflow">catch</span> (JsonProcessingException jpe)</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                {</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                    System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                }</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;            }</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">             * Testcase generation -- internal use only, used to create bogus internal content to test output format</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>:   <span class="comment">// create internal content for export</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;            {</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample01&quot;</span>))</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                {</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                    vwimport = <span class="keyword">new</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a>();</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                    VWImport.Entity e = <span class="keyword">new</span> VWImport.Entity();</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;                    e.description = <span class="stringliteral">&quot;sample01 test entity&quot;</span>;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                    e.edit_type = VWImport.Edit_Type.add;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                    e.type = <span class="stringliteral">&quot;application&quot;</span>;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                    e.name = <span class="stringliteral">&quot;sample01_itl&quot;</span>;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                    e.itl_patterns = <span class="keyword">new</span> Vector&lt;VWImport.ITLPattern&gt;();</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                    VWImport.ITLPattern i = <span class="keyword">new</span> VWImport.ITLPattern();</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                    i.edit_type = VWImport.Edit_Type.add;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                    i.initiator = <span class="stringliteral">&quot;1000002590123456&quot;</span>;</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                    e.itl_patterns.add(i);</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                    vwimport.entities().add(e);</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                    System.err.println(vwimport.entities().size() + <span class="stringliteral">&quot; entities defined&quot;</span>);</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                }</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                {</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcase generation: Testcase \&quot;&quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;\&quot; is not understood&quot;</span>);</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcases include: sample01&quot;</span>);</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                }</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;            }</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;<span class="comment">             * Follows is the &quot;house-keeping&quot;: versions, usage, and the catch-all for bad options.</span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;V&#39;</span>:   <span class="comment">// print the version and quit</span></div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            {</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                System.out.println(g.consistentVersion(<span class="stringliteral">&quot;0.9-1&quot;</span>)+<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            }</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;?&#39;</span>:</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;H&#39;</span>:</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                m.usage(g.progname());</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            }</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        }</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    }</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;}</div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a36539eb2d98fcdcedd7dc2088acfeef2"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a36539eb2d98fcdcedd7dc2088acfeef2">org.smallfoot.vw4.VirtualWisdom4ClientTool.loadAndAbsorbFile</a></div><div class="ttdeci">void loadAndAbsorbFile(String f)</div><div class="ttdoc">one-shot load a new file and absorb the contents: open the file and stream the contents at an array o...</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00388">VirtualWisdom4ClientTool.java:388</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html">org.smallfoot.vw4.VirtualWisdom4ClientTool</a></div><div class="ttdoc">VirtualWisdom4ClientTool is a &quot;Swiss Army Knife&quot; of tools used when working with VirtualWisdom4. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00053">VirtualWisdom4ClientTool.java:53</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_html"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">org.smallfoot.vw4.Entity</a></div><div class="ttdoc">An Entity is the core mutable object used in the JSON import for VW4. </div><div class="ttdef"><b>Definition:</b> <a href="Entity_8java_source.html#l00044">Entity.java:44</a></div></div>
@@ -690,7 +689,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_afc3ee9b897e0757b6cd5c8289c9d4cc4"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#afc3ee9b897e0757b6cd5c8289c9d4cc4">org.smallfoot.vw4.VirtualWisdom4ClientTool.prettyJSON</a></div><div class="ttdeci">String prettyJSON(VWImport v)</div><div class="ttdoc">Convenience function to generate a pretty-printed JSON text string. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00319">VirtualWisdom4ClientTool.java:319</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_html"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">org.smallfoot.vw4.VWImport</a></div><div class="ttdoc">A VWImport is a single idempotent import for the VirtualWisdom4 product. </div><div class="ttdef"><b>Definition:</b> <a href="VWImport_8java_source.html#l00017">VWImport.java:17</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_ad25ef6220eb54575157ab063bc63a0f0"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad25ef6220eb54575157ab063bc63a0f0">org.smallfoot.vw4.VirtualWisdom4ClientTool.xmlDocument</a></div><div class="ttdeci">org.w3c.dom.Document xmlDocument</div><div class="ttdoc">eventually used to hold an XML document when converting XML&lt;–&gt;JSON&lt;–&gt;XML </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00055">VirtualWisdom4ClientTool.java:55</a></div></div>
-<div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a75988cf84fc6ee7a2ebff36e363021aa"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">org.smallfoot.vw4.VirtualWisdom4ClientTool.main</a></div><div class="ttdeci">static void main(String args[])</div><div class="ttdoc">Main function, as you can tell. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00437">VirtualWisdom4ClientTool.java:437</a></div></div>
+<div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a75988cf84fc6ee7a2ebff36e363021aa"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">org.smallfoot.vw4.VirtualWisdom4ClientTool.main</a></div><div class="ttdeci">static void main(String args[])</div><div class="ttdoc">Main function, as you can tell. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00436">VirtualWisdom4ClientTool.java:436</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_ad9a051ba608e7fcb9adac39bc3946058"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058">org.smallfoot.vw4.VirtualWisdom4ClientTool._load</a></div><div class="ttdeci">void _load(String filename)</div><div class="ttdoc">Open a file. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00083">VirtualWisdom4ClientTool.java:83</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a0d686f1044a2e8727b12e6e4921e0e8f"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f">org.smallfoot.vw4.VirtualWisdom4ClientTool.load</a></div><div class="ttdeci">void load(String filename)</div><div class="ttdoc">Wrapper to just load the file, spitting out exceptions and stacks as they occur. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00094">VirtualWisdom4ClientTool.java:94</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a9e0f542a9a12624390c9a7f7c032789b"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a9e0f542a9a12624390c9a7f7c032789b">org.smallfoot.vw4.VirtualWisdom4ClientTool.loadFile</a></div><div class="ttdeci">ZoneParser loadFile(String url, boolean verbose)</div><div class="ttdoc">Load a file from the resource given to a WWN/Nickname vector. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00169">VirtualWisdom4ClientTool.java:169</a></div></div>
@@ -705,7 +704,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="VirtualWisdom4ClientTool_8java.html">VirtualWisdom4ClientTool.java</a></li>
-    <li class="footer">Generated on Thu Jun 12 2014 21:59:47 for vw4tools by
+    <li class="footer">Generated on Thu Jun 12 2014 22:44:24 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
