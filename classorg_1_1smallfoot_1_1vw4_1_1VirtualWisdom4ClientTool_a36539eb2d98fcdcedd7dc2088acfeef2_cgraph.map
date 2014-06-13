@@ -1,0 +1,5 @@
+<map id="loadAndAbsorbFile" name="loadAndAbsorbFile">
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a9e0f542a9a12624390c9a7f7c032789b" title="Load a file from the resource given to a WWN/Nickname vector. " alt="" coords="187,5,255,30"/>
+<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae02047a8c65611b9470268a74d4d25b5" title="patterns" alt="" coords="187,54,256,79"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a3ac515893512e150892f862b4cce8769" title="Produce an InputStream for the given uri in a way that corresponds to the url protocol. " alt="" coords="304,5,398,30"/>
+</map>

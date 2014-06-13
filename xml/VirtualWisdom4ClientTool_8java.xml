@@ -3,10 +3,6 @@
   <compounddef id="VirtualWisdom4ClientTool_8java" kind="file">
     <compoundname>VirtualWisdom4ClientTool.java</compoundname>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" prot="public">org::smallfoot::vw4::VirtualWisdom4ClientTool</innerclass>
-    <innernamespace refid="namespacecom_1_1fasterxml_1_1jackson_1_1core">com::fasterxml::jackson::core</innernamespace>
-    <innernamespace refid="namespacecom_1_1fasterxml_1_1jackson_1_1core_1_1json">com::fasterxml::jackson::core::json</innernamespace>
-    <innernamespace refid="namespacecom_1_1fasterxml_1_1jackson_1_1databind">com::fasterxml::jackson::databind</innernamespace>
-    <innernamespace refid="namespacecom_1_1fasterxml_1_1jackson_1_1databind_1_1jsonschema">com::fasterxml::jackson::databind::jsonschema</innernamespace>
     <innernamespace refid="namespaceorg_1_1smallfoot_1_1vw4">org::smallfoot::vw4</innernamespace>
     <briefdescription>
     </briefdescription>

@@ -56,13 +56,13 @@
     <detaileddescription>
 <para>It&apos;s basically a wrapper for a number of entities and a version to define the format of the enclosed entities for import.</para><para>As a convention, Product Management recommends tagging all imported entities with &quot;import&quot; so that a select group can be dropped in case of errors rather than deleting all entities in the entire VirtualWisdom product. </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="29">
+      <node id="47">
         <label>Vector&lt; org.smallfoot.vw4.VWImport.Entity &gt;</label>
       </node>
-      <node id="28">
+      <node id="46">
         <label>VWImport</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport"/>
-        <childnode refid="29" relation="usage">
+        <childnode refid="47" relation="usage">
           <edgelabel>entities</edgelabel>
         </childnode>
       </node>

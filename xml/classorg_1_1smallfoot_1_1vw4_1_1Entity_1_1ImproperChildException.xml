@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException" kind="class" prot="public">
+    <compoundname>org::smallfoot::vw4::Entity::ImproperChildException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a5c306b76ca66e2e9744e4e1f637cc991" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ImproperChildException</definition>
+        <argsstring>(String s)</argsstring>
+        <name>ImproperChildException</name>
+        <param>
+          <type>String</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>create a new instance with the given message </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>description to encapsulate </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="50" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a2a8c52dc01b9775f76eab69ebc825638" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ImproperChildException</definition>
+        <argsstring>(Entity e, Entity p)</argsstring>
+        <name>ImproperChildException</name>
+        <param>
+          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>create a new instance with a consistent message based on the entities offered </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>child entity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parent entity </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="53" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="53" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Descendents of <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> should know whether a given entity can be one of their child elements. </para>    </briefdescription>
+    <detaileddescription>
+<para>This exception is intended as a method of signalling <ndash/> and rippling up if necessary <ndash/> than an intended seconding as a child element is not accepted by the would-be parent. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="34">
+        <label>Entity.ImproperChildException</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>Exception</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="36">
+        <label>Entity.ImproperChildException</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException"/>
+        <childnode refid="37" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>Exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="48" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="47" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a5c306b76ca66e2e9744e4e1f637cc991" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::ImproperChildException</scope><name>ImproperChildException</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a2a8c52dc01b9775f76eab69ebc825638" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::ImproperChildException</scope><name>ImproperChildException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

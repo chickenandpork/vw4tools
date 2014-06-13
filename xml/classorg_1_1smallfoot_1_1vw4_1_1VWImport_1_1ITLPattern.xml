@@ -61,14 +61,14 @@
     <detaileddescription>
 <para>For example an &quot;UberDatabase&quot; application may define certain servers using certain LUNs on certain storage targets </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="24">
+      <node id="40">
         <label>VWImport.Edit_Type</label>
         <link refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type"/>
       </node>
-      <node id="23">
+      <node id="39">
         <label>VWImport.ITLPattern</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern"/>
-        <childnode refid="24" relation="usage">
+        <childnode refid="40" relation="usage">
           <edgelabel>edit_type</edgelabel>
         </childnode>
       </node>

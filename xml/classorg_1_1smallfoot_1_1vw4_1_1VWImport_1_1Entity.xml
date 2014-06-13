@@ -121,27 +121,27 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="19">
+      <node id="31">
         <label>VWImport.Edit_Type</label>
         <link refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type"/>
       </node>
-      <node id="21">
+      <node id="33">
         <label>Vector&lt; String &gt;</label>
       </node>
-      <node id="18">
+      <node id="30">
         <label>VWImport.Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity"/>
-        <childnode refid="19" relation="usage">
+        <childnode refid="31" relation="usage">
           <edgelabel>edit_type</edgelabel>
         </childnode>
-        <childnode refid="20" relation="usage">
+        <childnode refid="32" relation="usage">
           <edgelabel>itl_patterns</edgelabel>
         </childnode>
-        <childnode refid="21" relation="usage">
+        <childnode refid="33" relation="usage">
           <edgelabel>tags</edgelabel>
         </childnode>
       </node>
-      <node id="20">
+      <node id="32">
         <label>Vector&lt; org.smallfoot.vw4.VWImport.ITLPattern &gt;</label>
       </node>
     </collaborationgraph>

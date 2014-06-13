@@ -5,6 +5,15 @@
 \doxyref{Virtual\-Wisdom4\-Client\-Tool}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool} is a \char`\"{}\-Swiss Army Knife\char`\"{} of tools used when working with Virtual\-Wisdom4.  
 
 
+
+
+Collaboration diagram for Virtual\-Wisdom4\-Client\-Tool\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,8 +22,14 @@
 {\bf Virtual\-Wisdom4\-Client\-Tool} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a7991b30b52ad4d408df3575abc9b57ae}
 
 \begin{DoxyCompactList}\small\item\em Class Constructor with no initial file. \end{DoxyCompactList}\item 
+Vector$<$ {\bf Entity} $>$ {\bf entities} ()
+\item 
 void {\bf load} (String filename)
 \begin{DoxyCompactList}\small\item\em Wrapper to just load the file, spitting out exceptions and stacks as they occur. \end{DoxyCompactList}\item 
+Zone\-Parser {\bf load\-File} (String url, boolean verbose)
+\begin{DoxyCompactList}\small\item\em Load a file from the resource given to a W\-W\-N/\-Nickname vector. \end{DoxyCompactList}\item 
+Vector$<$ String $>$ {\bf patterns} ()
+\item 
 String {\bf pretty\-J\-S\-O\-N} ({\bf V\-W\-Import} v)
 \begin{DoxyCompactList}\small\item\em Convenience function to generate a pretty-\/printed J\-S\-O\-N text string. \end{DoxyCompactList}\item 
 void {\bf save} (String filename)
@@ -30,7 +45,20 @@ static void {\bf main} (String args[$\,$])
 void {\bf \-\_\-load} (String filename)  throws java.\-lang.\-Exception     
 \begin{DoxyCompactList}\small\item\em Open a file. \end{DoxyCompactList}\item 
 void {\bf \-\_\-save} (String filename)  throws java.\-lang.\-Exception     
-\begin{DoxyCompactList}\small\item\em Save the current X\-M\-L Document to a new file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Save the current X\-M\-L Document to a new file. \end{DoxyCompactList}\item 
+void {\bf load\-And\-Absorb\-File} (String f)
+\begin{DoxyCompactList}\small\item\em one-\/shot load a new file and absorb the contents\-: open the file and stream the contents at an array of parsers, the one with the best results wins; using that result, absorb all alias information, attempting to create parent storagecontroller(s) or hosts as resulting from absorbtion patterns \end{DoxyCompactList}\item 
+java.\-io.\-Input\-Stream {\bf open\-Stream} (String uri)  throws java.\-io.\-File\-Not\-Found\-Exception, java.\-net.\-Malformed\-U\-R\-L\-Exception, java.\-io.\-I\-O\-Exception     
+\begin{DoxyCompactList}\small\item\em Produce an Input\-Stream for the given uri in a way that corresponds to the url protocol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector$<$ {\bf Entity} $>$ {\bf entities} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a9a3cd7caed5bd4b81c9383fc0e3c6e6f}
+
+\begin{DoxyCompactList}\small\item\em local singleton array accessed from \doxyref{entities()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a66e795032db830396eddba947597ac21} \end{DoxyCompactList}\item 
+Vector$<$ String $>$ {\bf patterns} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a774bc03344433229dc33ecdfbbb416a3}
+
+\begin{DoxyCompactList}\small\item\em local singleton array accessed from \doxyref{patterns()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ae02047a8c65611b9470268a74d4d25b5} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,7 +76,7 @@ As you'd expect, there is no support for this. If it breaks, you may choose to k
 
 Ad-\/\-Hoc content for this utility-\/stack may appear at {\tt http\-://fcfae.\-com/} 
 
-Definition at line 38 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 53 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -74,7 +102,7 @@ Class Constructor to create with an initial file to load.
 \end{DoxySeeAlso}
 
 
-Definition at line 49 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 64 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -114,7 +142,7 @@ This is actually a wrapper for the underlying file load
 \end{DoxyParams}
 
 
-Definition at line 68 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 83 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -138,11 +166,25 @@ Save the current X\-M\-L Document to a new file.
 \end{DoxyParams}
 
 
-Definition at line 96 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 111 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
 Referenced by Virtual\-Wisdom4\-Client\-Tool.\-save().
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!entities@{entities}}
+\index{entities@{entities}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{entities}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<${\bf Entity}$>$ entities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a66e795032db830396eddba947597ac21}
+$<$ singleton access for entities \begin{DoxyReturn}{Returns}
+collection of entities 
+\end{DoxyReturn}
+
+
+Definition at line 351 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!load@{load}}
 \index{load@{load}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
@@ -162,7 +204,7 @@ Wrapper to just load the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 79 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 94 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -179,6 +221,89 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=156pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!load\-And\-Absorb\-File@{load\-And\-Absorb\-File}}
+\index{load\-And\-Absorb\-File@{load\-And\-Absorb\-File}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{load\-And\-Absorb\-File}]{\setlength{\rightskip}{0pt plus 5cm}void load\-And\-Absorb\-File (
+\begin{DoxyParamCaption}
+\item[{String}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a36539eb2d98fcdcedd7dc2088acfeef2}
+
+
+one-\/shot load a new file and absorb the contents\-: open the file and stream the contents at an array of parsers, the one with the best results wins; using that result, absorb all alias information, attempting to create parent storagecontroller(s) or hosts as resulting from absorbtion patterns 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & name of file to open\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+{\tt https\-://github.\-com/chickenandpork/fibrechannel-\/parsers/} 
+\end{DoxySeeAlso}
+
+
+Definition at line 388 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+References Virtual\-Wisdom4\-Client\-Tool.\-load\-File(), and Virtual\-Wisdom4\-Client\-Tool.\-patterns().
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a36539eb2d98fcdcedd7dc2088acfeef2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!load\-File@{load\-File}}
+\index{load\-File@{load\-File}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{load\-File}]{\setlength{\rightskip}{0pt plus 5cm}Zone\-Parser load\-File (
+\begin{DoxyParamCaption}
+\item[{String}]{url, }
+\item[{boolean}]{verbose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a9e0f542a9a12624390c9a7f7c032789b}
+
+
+Load a file from the resource given to a W\-W\-N/\-Nickname vector. 
+
+\begin{DoxyReturn}{Returns}
+the number of things loaded (used to trigger obsessive retries to get around choking org.\-apache.\-commons.\-io.\-input.\-Tee\-Input\-Stream ) 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em url} & the {\tt file\-://} resource of a file, ie \char`\"{}file\-://sample.\-csv;wwn=1;nickname=2\char`\"{} \\
+\hline
+{\em verbose} & if true, parser results will be shown to stdout \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 169 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+References Virtual\-Wisdom4\-Client\-Tool.\-open\-Stream().
+
+
+
+Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load\-And\-Absorb\-File().
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a9e0f542a9a12624390c9a7f7c032789b_cgraph}
 \end{center}
 \end{figure}
 
@@ -205,7 +330,7 @@ No real intelligence herein except the parse-\/and-\/redirect action.
 \end{DoxyParams}
 
 
-Definition at line 178 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 437 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -221,6 +346,51 @@ Here is the call graph for this function\-:\nopagebreak
 \end{center}
 \end{figure}
 
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!open\-Stream@{open\-Stream}}
+\index{open\-Stream@{open\-Stream}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{open\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}java.\-io.\-Input\-Stream open\-Stream (
+\begin{DoxyParamCaption}
+\item[{String}]{uri}
+\end{DoxyParamCaption}
+) throws java.\-io.\-File\-Not\-Found\-Exception, java.\-net.\-Malformed\-U\-R\-L\-Exception, java.\-io.\-I\-O\-Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a3ac515893512e150892f862b4cce8769}
+
+
+Produce an Input\-Stream for the given uri in a way that corresponds to the url protocol. 
+
+\begin{DoxyReturn}{Returns}
+Input\-Stream ready to offer back the data 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em uri} & the {\tt file\-://} resource of a file, ie \char`\"{}file\-:///sample.\-csv\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 141 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load\-File().
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!patterns@{patterns}}
+\index{patterns@{patterns}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{patterns}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<$String$>$ patterns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ae02047a8c65611b9470268a74d4d25b5}
+$<$ singleton access for patterns \begin{DoxyReturn}{Returns}
+collection of patterns 
+\end{DoxyReturn}
+
+
+Definition at line 344 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load\-And\-Absorb\-File().
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!pretty\-J\-S\-O\-N@{pretty\-J\-S\-O\-N}}
 \index{pretty\-J\-S\-O\-N@{pretty\-J\-S\-O\-N}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
@@ -243,7 +413,7 @@ a pretty-\/printed J\-S\-O\-N using Object\-Writer.\-with\-Default\-Pretty\-Prin
 \end{DoxyReturn}
 
 
-Definition at line 126 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 319 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!save@{save}}
 \index{save@{save}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
@@ -263,7 +433,7 @@ Wrapper to just save the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 107 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 122 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 

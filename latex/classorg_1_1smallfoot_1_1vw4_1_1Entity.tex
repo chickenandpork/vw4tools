@@ -1,0 +1,87 @@
+\section{Entity Class Reference}
+\label{classorg_1_1smallfoot_1_1vw4_1_1Entity}\index{Entity@{Entity}}
+
+
+An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core mutable object used in the J\-S\-O\-N import for V\-W4.  
+
+
+
+
+Collaboration diagram for Entity\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Improper\-Child\-Exception}
+\begin{DoxyCompactList}\small\item\em Descendents of \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} should know whether a given entity can be one of their child elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Entity} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afc6a43ee8007bcc023a7ebd2bf5ee1ed}
+
+\begin{DoxyCompactList}\small\item\em Class Constructor with no initial child. \end{DoxyCompactList}\item 
+{\bf Entity} (String {\bf name}, {\bf Entity} e)  throws Improper\-Child\-Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1afb3a328033f8f6bf136d8380e712b9}
+
+\begin{DoxyCompactList}\small\item\em Class Constructor with an initial child to absorb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract boolean {\bf can\-Be\-Child} ({\bf Entity} e)
+\begin{DoxyCompactList}\small\item\em whether a given entity can be this entity's child \end{DoxyCompactList}\item 
+Vector$<$ {\bf Entity} $>$ {\bf children} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a63ef33ad49b88027164e49d1916f409c}
+
+\begin{DoxyCompactList}\small\item\em local access to local singleton .children \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector$<$ {\bf Entity} $>$ {\bf children} = null\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_ad315cf5c2790d5a5c8c5169c26647e84}
+
+\begin{DoxyCompactList}\small\item\em local singleton late-\/instantiated as needed by \doxyref{children()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_a63ef33ad49b88027164e49d1916f409c} \end{DoxyCompactList}\item 
+String {\bf name}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a9a2326f35466e54c36c070829245c557}
+
+\begin{DoxyCompactList}\small\item\em the unique name of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core mutable object used in the J\-S\-O\-N import for V\-W4. 
+
+I'm not so sure how it'll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects\-: things that can have children things. In the short term, be very careful\-: there is an \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity}, and a \doxyref{V\-W\-Import\-::\-Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} 
+
+Definition at line 44 of file Entity.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\index{org\-::smallfoot\-::vw4\-::\-Entity@{org\-::smallfoot\-::vw4\-::\-Entity}!can\-Be\-Child@{can\-Be\-Child}}
+\index{can\-Be\-Child@{can\-Be\-Child}!org::smallfoot::vw4::Entity@{org\-::smallfoot\-::vw4\-::\-Entity}}
+\subsubsection[{can\-Be\-Child}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean can\-Be\-Child (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a0a8c67a491e7100ba94f3035bbe62822}
+
+
+whether a given entity can be this entity's child 
+
+\begin{DoxyReturn}{Returns}
+true if accepted, false if refused 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & entity to check for possible descendent-\/hood \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by Entity.\-Entity().
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+java/{\bf Entity.\-java}\end{DoxyCompactItemize}
