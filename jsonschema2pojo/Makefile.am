@@ -25,7 +25,7 @@ jsonschema2pojo-0.4.2.tar.gz:
 endif
 
 
-EXTRA_DIST = $(nodist_pkgdata_JAVA)
+EXTRA_DIST = $(dist_depjar_DATA)
 CONFIG_CLEAN_FILES = $(JARS)
 BUILT_SOURCES := $(JARS)
 

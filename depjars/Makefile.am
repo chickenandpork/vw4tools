@@ -11,7 +11,7 @@ dnl http://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-js
 
 jackson-annotations-2.3.1.jar:
 	test -f $${TMPDIR-/tmp}/$(@F) && cp $${TMPDIR-/tmp}/$(@F) $@ || true
-	test -f $@ || wget -O $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/annotations/jackson-annotations/2.3.1/$(@F) || curl -Lo $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/annotations/jackson-annotations/2.3.1/$(@F)
+	test -f $@ || wget -O $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.3.1/$(@F) || curl -Lo $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.3.1/$(@F)
 	test -f $${TMPDIR-/tmp}/$(@F) || cp $@ $${TMPDIR-/tmp}/$(@F)
 
 jackson-core-2.3.1.jar:
@@ -21,7 +21,7 @@ jackson-core-2.3.1.jar:
 
 jackson-databind-2.3.1.jar:
 	test -f $${TMPDIR-/tmp}/$(@F) && cp $${TMPDIR-/tmp}/$(@F) $@ || true
-	test -f $@ || wget -O $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/databind/jackson-databind/2.3.1/$(@F) || curl -Lo $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/databind/jackson-databind/2.3.1/$(@F)
+	test -f $@ || wget -O $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.3.1/$(@F) || curl -Lo $@ http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.3.1/$(@F)
 	test -f $${TMPDIR-/tmp}/$(@F) || cp $@ $${TMPDIR-/tmp}/$(@F)
 
 jackson-module-jsonSchema-2.3.1.jar:
