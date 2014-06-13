@@ -393,9 +393,8 @@ System.out.println("check pattern "+name+" for acceptance of "+wwn+","+name);
             System.out.println("retrying: reading "+f);
 
         Entity e = null;
-        if (null != p)
-            for (ZPAliasEntry zpa: p.aliasArray())
-                for (String wwn: zpa.getWWNArray())
+        if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
+                if (null != zpa) for (String wwn: zpa.getWWNArray())
                 {
                     if (null != (e = entityAccepting(wwn, zpa.name().replaceAll("\"",""))))
                         System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());

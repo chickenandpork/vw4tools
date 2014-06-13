@@ -224,6 +224,15 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(read sample DAD to create JSON)
+dnl      ------------------------------
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N abs_top_srcdir/samples/simple.devicealias], 0, [], [])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(write json sample sample01)
 dnl      --------------------------
 
