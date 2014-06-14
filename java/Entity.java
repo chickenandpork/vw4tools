@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
+import java.util.TreeMap;
 import java.util.Vector;
 import javax.activation.DataSource;
 import javax.activation.URLDataSource;
@@ -60,6 +62,25 @@ public abstract class Entity
     public String name() { return name; }	/**< getter */
     public void setname(String name) { this.name = name; }	/**< setter */
 
+    protected String description;		/**< the description of the entity showing source */
+    public String description() { return description; }	/**< getter */
+    public void setDescription(String description) { this.description = description; }	/**< setter */
+
+    protected WeakReference<Entity> parent = null;		/**< convenience weak-reference to parent: I want a reference but not one that will block GC */
+    boolean isOrphan() { return (null == parent); }		/**< quick reference whether this object has a parent object already defined */
+    boolean isOrphan(TreeMap<String,Entity> list)
+    {
+	Entity e;
+
+	if (null != parent) return false;
+
+	    for (String k: list.keySet())
+		if ( (null != (e = list.get(k))) && (null != e.children) ) /* extra null==children to avoid unnecessary singleton instantiation via children() */
+		    if (e.children().contains(this))
+			{ parent = new WeakReference<Entity>(e); return false; }
+	return true;
+    }
+
     /**
      * Class Constructor with no initial child
      */
@@ -82,4 +103,31 @@ public abstract class Entity
 
 	/** whether a given entity can be this entity's child @return true if accepted, false if refused @param e entity to check for possible descendent-hood */
     protected abstract boolean canBeChild (Entity e);
+
+	/** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance */
+    protected abstract org.smallfoot.vw4.VWImport.Entity vwentity ();
+
+	/** convenience: add myself and all children to the streamable exporter given as "v" @param v VWImport streamer to add myself and children to @return number of entities written */
+    int addTo (VWImport v)
+	{
+	    int i = 0;
+
+	    if (null == v)
+	    {
+		System.out.println("WARNING: VWImport is null");
+	    }
+	    else
+	    {
+	        v.addEntity(vwentity());
+		i++;
+
+	        for (Object o: children())
+		    if (o instanceof Entity)
+		        i += ((Entity) o).addTo(v);
+		    else
+		        System.out.println("WARNING: child of "+name()+" not written: "+o.toString());
+	    }
+
+	    return i;
+	}
 }

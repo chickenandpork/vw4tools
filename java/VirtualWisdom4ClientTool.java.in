@@ -78,17 +78,24 @@ public class VirtualWisdom4ClientTool
     {
     }
 
+    public VWImport vwimport = null;		/**< singleton list of JSON-writable objects accessed through vwimport() */
+    protected VWImport vwimport() { if (null == vwimport) vwimport = new VWImport(); return vwimport; }	/**< singleton to access vwimport to allow for later post-process */
+
     /**
      * Open a file.
      *
      * This is actually a wrapper for the underlying file load
      *
      * @param filename file to load
+     * @throw IOException when File() encounters an error instaitating (typically path or permissions)
      */
     protected void _load(String filename)
-    throws java.lang.Exception
+    throws java.io.IOException
     {
-        throw new java.lang.Exception ("unimplemented");
+	com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+	/** @todo: evaluate: mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);  */
+
+	vwimport = mapper.readValue(new File(filename), VWImport.class);
     }
 
     /**
@@ -102,6 +109,10 @@ public class VirtualWisdom4ClientTool
         {
             _load (filename);
         }
+                catch (java.io.IOException ioe)
+                {
+                    System.out.println("IO Exception reading from "+filename+": "+ioe.getMessage());
+                }
         catch (java.lang.Exception e)
         {
             e.printStackTrace();
@@ -334,6 +345,7 @@ public class VirtualWisdom4ClientTool
         catch (JsonMappingException jme)
         {
             System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+System.out.println(jme.getMessage());
             return null;
         }
         catch (JsonProcessingException jpe)
@@ -454,6 +466,8 @@ public class VirtualWisdom4ClientTool
 		    else
 		        newguy = new EntityFA (zpa.name(), wwn);
 
+		    newguy.setDescription (wwn+","+zpa.name()+" converted via "+p.getClass().getName().replaceAll("^.*\\.","")+" from "+f);
+
                     if (null != (e = entityAccepting(newguy)))
                         System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
                     else
@@ -474,6 +488,114 @@ public class VirtualWisdom4ClientTool
 		    }
                     //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
                 }
+    }
+
+
+    /**
+     * Write an output file, finalizing from entities() if required
+     *
+     * @param filename name of file to write
+     */
+    void writeOutputfile(String filename)
+    {
+        /*
+           XmlMapper mapper = new XmlMapper()
+           MyBean bean = new MyBean();
+
+           String xml = mapper.writeValueAsString(bean);
+           // System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user));
+
+           // we get something like "<MyBean><property>value</property>....</MyBean>"
+           MyBean beanFromXml = mapper.readValue(xml, MyBean.class);
+         */
+
+
+        try
+        {
+            if ( (null != filename) && (filename.equalsIgnoreCase("schema.json")) )
+            {
+                com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+                JsonSchema schema = mapper.generateJsonSchema(vwimport.getClass());
+
+
+                //ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+                /*
+                ObjectWriter ow = mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter());
+                	System.out.println(ow.writeValueAsString(schema)); */
+                System.out.println(prettyJSON(vwimport));
+
+                //System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));
+            }
+            else if ( (null != filename) && (filename.equalsIgnoreCase("orderedtuples.csv")) )
+            {
+System.out.println("writing ordered tuples to "+filename);
+                try
+                {
+		    writeOrderedTuples(filename);
+                }
+                catch (java.io.IOException ioe)
+                {
+                    System.out.println("IO Exception writing to "+filename+": "+ioe.getMessage());
+                }
+            }
+            else if ( (0 == finalizeEntities()) && (null == vwimport) )
+            {
+                System.err.println("ERROR: no content loaded (finalized)");
+                return;
+            }
+            else if (
+                ( null == filename ) ||
+                (filename.equalsIgnoreCase("")) ||
+                (filename.equalsIgnoreCase("-"))  )
+            {
+                 System.err.println("NOTE: writing to stdout");
+                 String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
+                 System.out.println(o);
+            }
+            else
+            {
+                com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+                try
+                {
+                     mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filename), vwimport);
+                }
+                catch (java.io.IOException ioe)
+                {
+                     System.out.println("IO Exception writing to "+filename+": "+ioe.getMessage());
+                }
+                //JsonParseException,
+                //JsonMappingException
+            }
+        }
+        catch (JsonMappingException jme)
+        {
+            System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+System.out.println(jme.getMessage());
+        }
+        catch (JsonProcessingException jpe)
+        {
+            System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
+        }
+    }
+
+    /**
+     * Finalize absorbed Entities: for each entity, transfer from structured tree of Entities to vwimport array for writing
+     *
+     * @return number of items finalized
+     */
+    int finalizeEntities()
+    {
+	Entity e;
+	int i = 0;
+
+	for (String s: entities().keySet())
+	    if ( (null != s) && (null != (e = entities().get(s))) )
+		if (e.isOrphan())	/* tree-order transversal: having a parent means this entity will be written when the parent writes */
+		    i += e.addTo(vwimport());
+
+	//System.out.println("transferred "+i+" entities from "+entities().size()+" entities, resulting in "+vwimport().entities().size()+" json entities");
+
+	return i;
     }
 
 
@@ -540,7 +662,6 @@ public class VirtualWisdom4ClientTool
     public static void main(String args[])
     {
         VirtualWisdom4ClientTool m = new VirtualWisdom4ClientTool();
-        VWImport vwimport = null;
 
         Vector<LongOpt> options = new Vector(20,2);
 
@@ -570,19 +691,7 @@ public class VirtualWisdom4ClientTool
             case 'i':	/* fall-thru */
             case 'r':   // Read in a config file
             {
-                com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-                //mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-                try
-                {
-                    vwimport = mapper.readValue(new File(g.getOptarg()), VWImport.class);
-                }
-                catch (java.io.IOException ioe)
-                {
-                    System.out.println("IO Exception reading from "+g.getOptarg()+": "+ioe.getMessage());
-                }
-                //JsonParseException,
-                //JsonMappingException
+		m.load(g.getOptarg());
             }
             break;
 
@@ -606,84 +715,7 @@ public class VirtualWisdom4ClientTool
             /* fall-thru */
             case 'o':   // Write a config file out
             {
-                /*
-                   XmlMapper mapper = new XmlMapper()
-                   MyBean bean = new MyBean();
-
-                   String xml = mapper.writeValueAsString(bean);
-                   // System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user));
-
-                   // we get something like "<MyBean><property>value</property>....</MyBean>"
-                   MyBean beanFromXml = mapper.readValue(xml, MyBean.class);
-                 */
-
-
-                //System.err.println("NOTE: writing");
-                try
-                {
-                    if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("schema.json")) )
-                    {
-                        com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-                        JsonSchema schema = mapper.generateJsonSchema(vwimport.getClass());
-
-
-                        //ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
-                        /*
-                        ObjectWriter ow = mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter());
-                        	System.out.println(ow.writeValueAsString(schema)); */
-                        System.out.println("blah" + m.prettyJSON(vwimport)+"blah");
-
-                        //System.out.println(mapper.writer(new com.fasterxml.jackson.core.util.DefaultPrettyPrinter()).writeValueAsString(schema));
-                    }
-                    else if ( (null != g.getOptarg()) && (g.getOptarg().equalsIgnoreCase("orderedtuples.csv")) )
-                    {
-System.out.println("writing ordered tuples");
-                        try
-                        {
-			m.writeOrderedTuples(g.getOptarg());
-                        }
-                        catch (java.io.IOException ioe)
-                        {
-                            System.out.println("IO Exception writing to "+g.getOptarg()+": "+ioe.getMessage());
-                        }
-                    }
-                    else if (null == vwimport)
-                    {
-                        System.err.println("ERROR: no content loaded");
-                        return;
-                    }
-                    else if (
-                        ( null == g.getOptarg() ) ||
-                        (g.getOptarg().equalsIgnoreCase("")) ||
-                        (g.getOptarg().equalsIgnoreCase("-"))  )
-                    {
-                        System.err.println("NOTE: writing to stdout");
-                        String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
-                        System.out.println(o);
-                    }
-                    else
-                    {
-                        com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-                        try
-                        {
-                            mapper.writeValue(new File(g.getOptarg()), vwimport);
-                        }
-                        catch (java.io.IOException ioe)
-                        {
-                            System.out.println("IO Exception writing to "+g.getOptarg()+": "+ioe.getMessage());
-                        }
-                        //JsonParseException,
-                        //JsonMappingException
-                    }
-                }
-                catch (JsonMappingException jme)
-                {
-                    System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
-                }
-                catch (JsonProcessingException jpe)
-                {
-                    System.err.println("INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
-                }
+		m.writeOutputfile(g.getOptarg());
             }
             break;
 
@@ -694,7 +726,7 @@ System.out.println("writing ordered tuples");
             {
                 if (g.getOptarg().equalsIgnoreCase ("sample01"))
                 {
-                    vwimport = new VWImport();
+                    VWImport vwimport = new VWImport();
                     VWImport.Entity e = new VWImport.Entity();
                     e.description = "sample01 test entity";
                     e.edit_type = VWImport.Edit_Type.add;
@@ -707,11 +739,21 @@ System.out.println("writing ordered tuples");
                     e.itl_patterns.add(i);
                     vwimport.entities().add(e);
                     System.err.println(vwimport.entities().size() + " entities defined");
+
+		    m.vwimport = vwimport;
+                }
+                else
+                if (g.getOptarg().equalsIgnoreCase ("sample02"))
+                {
+
+		    Entity n = new EntityFA ("sample_02", "10000000c9123456");
+		    n.description = "sample02 test FA"; 
+		    m.entities().put(n.name(), n);
                 }
                 else
                 {
                     System.err.println("testcase generation: Testcase \""+g.getOptarg()+"\" is not understood");
-                    System.err.println("testcases include: sample01");
+                    System.err.println("testcases include: sample01, sample02");
                     return;
                 }
             }
