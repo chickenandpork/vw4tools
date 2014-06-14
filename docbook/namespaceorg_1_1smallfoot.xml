@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="namespaceorg_1_1smallfoot">
+<title>org::smallfoot</title>
+        <simplesect>
+            <title> Namespaces </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="namespaceorg_1_1smallfoot_1_1vw4">org::smallfoot::vw4</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+</section>

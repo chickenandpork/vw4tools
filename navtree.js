@@ -3,6 +3,7 @@ var NAVTREE =
   [ "vw4tools", "index.html", [
     [ "JavaDoc API Markup for vw4tools", "index.html", null ],
     [ "README", "md_htdocs_README.html", null ],
+    [ "Todo List", "todo.html", null ],
     [ "Data Structures", null, [
       [ "Data Structures", "annotated.html", "annotated" ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern">
+<title>org::smallfoot::vw4::VWImport::ITLPattern class Reference</title>
+        <simplesect>
+            <title>Public Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Edit_Type edit_type<para><emphasis>What kind of edit are we doing?</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String initiator<para><emphasis>initiator portion of the ITL pattern</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String lun<para><emphasis>lun portion of the ITL pattern</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String target<para><emphasis>target portion of the ITL pattern</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Brief Description</title>
+
+<para>An <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern">ITLPattern</link> is used to define an application <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity">Entity</link> based on the ITLs it requires. </para>
+    </simplesect>
+        <simplesect>
+            <title>Detailed Description</title>
+
+<para>For example an &quot;UberDatabase&quot; application may define certain servers using certain LUNs on certain storage targets </para>
+                <para>Definition at line 37 of file VWImport.java</para>
+                <para>The Documentation for this struct was generated from the following file: </para>
+                <para><itemizedlist><listitem><para>VWImport.java</para></listitem></itemizedlist></para>
+        </simplesect>
+</section>

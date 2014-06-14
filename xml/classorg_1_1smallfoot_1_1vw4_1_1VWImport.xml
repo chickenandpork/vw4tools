@@ -5,6 +5,7 @@
     <innerclass refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" prot="public">org::smallfoot::vw4::VWImport::Edit_Type</innerclass>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" prot="public">org::smallfoot::vw4::VWImport::Entity</innerclass>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" prot="public">org::smallfoot::vw4::VWImport::ITLPattern</innerclass>
+    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern" prot="public">org::smallfoot::vw4::VWImport::LeafPattern</innerclass>
       <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a9a3cd7caed5bd4b81c9383fc0e3c6e6f" prot="protected" static="no" mutable="no">
         <type>Vector&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> &gt;</type>
@@ -18,10 +19,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="61" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="61" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="92" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="92" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a20861f6c6a6268428f83e581368540c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void addEntity</definition>
+        <argsstring>(Entity e)</argsstring>
+        <name>addEntity</name>
+        <param>
+          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>somewhat protected access / convenience method to append new entities </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="99" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="99" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Vector&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> &gt;</type>
         <definition>Vector&lt;Entity&gt; entities</definition>
@@ -33,9 +51,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="67" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="67" bodyend="67"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" compoundref="VWImport_8java" startline="67" endline="67">VWImport.entities</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" compoundref="VWImport_8java" startline="67" endline="67">VWImport.entities</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="98" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="98" bodyend="98"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" compoundref="VWImport_8java" startline="98" endline="98">VWImport.entities</references>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" compoundref="VWImport_8java" startline="98" endline="98">VWImport.entities</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a12b5671e8920e8ce5c4457ea8d0d9fb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -48,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="68" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="68" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="100" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="100" bodyend="99"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -56,19 +74,20 @@
     <detaileddescription>
 <para>It&apos;s basically a wrapper for a number of entities and a version to define the format of the enclosed entities for import.</para><para>As a convention, Product Management recommends tagging all imported entities with &quot;import&quot; so that a select group can be dropped in case of errors rather than deleting all entities in the entire VirtualWisdom product. </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="47">
+      <node id="91">
         <label>Vector&lt; org.smallfoot.vw4.VWImport.Entity &gt;</label>
       </node>
-      <node id="46">
+      <node id="90">
         <label>VWImport</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport"/>
-        <childnode refid="47" relation="usage">
+        <childnode refid="91" relation="usage">
           <edgelabel>entities</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="18" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="17" bodyend="69"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="18" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="17" bodyend="101"/>
     <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a20861f6c6a6268428f83e581368540c5" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport</scope><name>addEntity</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a9a3cd7caed5bd4b81c9383fc0e3c6e6f" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport</scope><name>entities</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a66e795032db830396eddba947597ac21" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport</scope><name>entities</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1a12b5671e8920e8ce5c4457ea8d0d9fb2" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport</scope><name>getVersion</name></member>

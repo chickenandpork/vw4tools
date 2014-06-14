@@ -22,10 +22,15 @@ enum {\bf Edit\-\_\-\-Type}
 class {\bf Entity}
 \begin{DoxyCompactList}\small\item\em An entity for import. \end{DoxyCompactList}\item 
 class {\bf I\-T\-L\-Pattern}
-\begin{DoxyCompactList}\small\item\em An \doxyref{I\-T\-L\-Pattern}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern} is used to define an application \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} based on the I\-T\-Ls it requires. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An \doxyref{I\-T\-L\-Pattern}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern} is used to define an application \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} based on the I\-T\-Ls it requires. \end{DoxyCompactList}\item 
+class {\bf Leaf\-Pattern}
+\begin{DoxyCompactList}\small\item\em An \doxyref{Leaf\-Pattern}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern} is used to define an \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} by reference in another entity's child\-\_\-entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void {\bf add\-Entity} ({\bf Entity} e)\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a20861f6c6a6268428f83e581368540c5}
+
+\begin{DoxyCompactList}\small\item\em somewhat protected access / convenience method to append new entities \end{DoxyCompactList}\item 
 Vector$<$ {\bf Entity} $>$ {\bf entities} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VWImport_a66e795032db830396eddba947597ac21}
 
 \begin{DoxyCompactList}\small\item\em singleton to provide an entity vector without having to check whether it's been created yet \end{DoxyCompactList}\item 

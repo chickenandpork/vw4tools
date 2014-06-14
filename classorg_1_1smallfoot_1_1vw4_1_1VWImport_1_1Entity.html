@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">0.9-1</span>
+   &#160;<span id="projectnumber">0.9-37</span>
    </div>
   </td>
  </tr>
@@ -81,15 +81,30 @@ Collaboration diagram for VWImport.Entity:</div>
 <div class="dyncontent">
 <div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity__coll__graph.png" border="0" usemap="#VWImport_8Entity_coll__map" alt="Collaboration graph"/></div>
 <map name="VWImport_8Entity_coll__map" id="VWImport_8Entity_coll__map">
-<area shape="rect" id="node2" href="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type.html" title="The edit type of a JSON for VW4 Import can be either &quot;add&quot; or &quot;modify&quot;; the creator needs to know ahe..." alt="" coords="23,5,166,30"/></map>
+<area shape="rect" id="node2" href="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type.html" title="The edit type of a JSON for VW4 Import can be either &quot;add&quot; or &quot;modify&quot;; the creator needs to know ahe..." alt="" coords="236,5,380,30"/><area shape="rect" id="node4" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern.html" title="An LeafPattern is used to define an Entity by reference in another entity&#39;s child_entities. " alt="" coords="231,179,385,205"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a70594a481dc2a6a7d5334522eb9ea63e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#a70594a481dc2a6a7d5334522eb9ea63e">add</a> (String e)</td></tr>
+<tr class="memdesc:a70594a481dc2a6a7d5334522eb9ea63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">convenience function to add children to this entity  <a href="#a70594a481dc2a6a7d5334522eb9ea63e">More...</a><br/></td></tr>
+<tr class="separator:a70594a481dc2a6a7d5334522eb9ea63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf0e0c927e408646f190445003c49a60"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf0e0c927e408646f190445003c49a60"></a>
 Vector&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern.html">ITLPattern</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#abf0e0c927e408646f190445003c49a60">itl_patterns</a> ()</td></tr>
 <tr class="memdesc:abf0e0c927e408646f190445003c49a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">singleton access to itl_patterns <br/></td></tr>
 <tr class="separator:abf0e0c927e408646f190445003c49a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478cd87172f36b11d34207d35c437e35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a478cd87172f36b11d34207d35c437e35"></a>
+<a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern.html">LeafPattern</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#a478cd87172f36b11d34207d35c437e35">JSONchild_entities</a> ()</td></tr>
+<tr class="memdesc:a478cd87172f36b11d34207d35c437e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON access to child_entities: allows a null response which can avoid an empty object dump in the JSON output. <br/></td></tr>
+<tr class="separator:a478cd87172f36b11d34207d35c437e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc2d54391571deae2e9fa995c3e9337"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfc2d54391571deae2e9fa995c3e9337"></a>
+Vector&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern.html">ITLPattern</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#abfc2d54391571deae2e9fa995c3e9337">JSONitl_patterns</a> ()</td></tr>
+<tr class="memdesc:abfc2d54391571deae2e9fa995c3e9337"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON access to itl_patterns: allows a null response which can avoid an empty object dump in the JSON output. <br/></td></tr>
+<tr class="separator:abfc2d54391571deae2e9fa995c3e9337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7538b077be4bac8f6d27849049885ff2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7538b077be4bac8f6d27849049885ff2"></a>
+Vector&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#a7538b077be4bac8f6d27849049885ff2">JSONtags</a> ()</td></tr>
+<tr class="memdesc:a7538b077be4bac8f6d27849049885ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON access to tags: allows a null response which can avoid an empty object dump in the JSON output. <br/></td></tr>
+<tr class="separator:a7538b077be4bac8f6d27849049885ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd918c8d92bd34f633ea27e3f5d43b3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd918c8d92bd34f633ea27e3f5d43b3c"></a>
 Vector&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#abd918c8d92bd34f633ea27e3f5d43b3c">tags</a> ()</td></tr>
 <tr class="memdesc:abd918c8d92bd34f633ea27e3f5d43b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">singleton access to tags <br/></td></tr>
@@ -97,6 +112,10 @@ Vector&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a cla
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
+<tr class="memitem:ac307802148e09cb3cc9b8bff0acd42ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac307802148e09cb3cc9b8bff0acd42ca"></a>
+<a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern.html">LeafPattern</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#ac307802148e09cb3cc9b8bff0acd42ca">child_entities</a> = null</td></tr>
+<tr class="memdesc:ac307802148e09cb3cc9b8bff0acd42ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">children of this entity <br/></td></tr>
+<tr class="separator:ac307802148e09cb3cc9b8bff0acd42ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76d2b0133d83c43dfd8a19286ac55325"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76d2b0133d83c43dfd8a19286ac55325"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a></td></tr>
 <tr class="memdesc:a76d2b0133d83c43dfd8a19286ac55325"><td class="mdescLeft">&#160;</td><td class="mdescRight">user-readable description of the entity; constraints unknown <br/></td></tr>
@@ -109,7 +128,7 @@ String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a></td></tr>
 <tr class="memdesc:a9a2326f35466e54c36c070829245c557"><td class="mdescLeft">&#160;</td><td class="mdescRight">What unique name does this entity have? <br/></td></tr>
 <tr class="separator:a9a2326f35466e54c36c070829245c557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa96ebc81ca3bd65e0d7c5e67e96bb973"><td class="memItemLeft" align="right" valign="top">Vector&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#aa96ebc81ca3bd65e0d7c5e67e96bb973">tags</a></td></tr>
+<tr class="memitem:aa96ebc81ca3bd65e0d7c5e67e96bb973"><td class="memItemLeft" align="right" valign="top">Vector&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html#aa96ebc81ca3bd65e0d7c5e67e96bb973">tags</a> = null</td></tr>
 <tr class="memdesc:aa96ebc81ca3bd65e0d7c5e67e96bb973"><td class="mdescLeft">&#160;</td><td class="mdescRight">tags for the entity which can be used to define multiple groupings for a given entity.  <a href="#aa96ebc81ca3bd65e0d7c5e67e96bb973">More...</a><br/></td></tr>
 <tr class="separator:aa96ebc81ca3bd65e0d7c5e67e96bb973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b86e44425dbe3c9d866aa273f87828a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b86e44425dbe3c9d866aa273f87828a"></a>
@@ -127,14 +146,49 @@ Vector&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPa
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An entity for import. </p>
 
-<p>Definition at line <a class="el" href="VWImport_8java_source.html#l00046">46</a> of file <a class="el" href="VWImport_8java_source.html">VWImport.java</a>.</p>
-</div><h2 class="groupheader">Field Documentation</h2>
+<p>Definition at line <a class="el" href="VWImport_8java_source.html#l00060">60</a> of file <a class="el" href="VWImport_8java_source.html">VWImport.java</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a70594a481dc2a6a7d5334522eb9ea63e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>convenience function to add children to this entity </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>entity to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="VWImport_8java_source.html#l00086">86</a> of file <a class="el" href="VWImport_8java_source.html">VWImport.java</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
 <a class="anchor" id="aa96ebc81ca3bd65e0d7c5e67e96bb973"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Vector&lt;String&gt; tags</td>
+          <td class="memname">Vector&lt;String&gt; tags = null</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -142,7 +196,7 @@ Vector&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPa
 <p>tags for the entity which can be used to define multiple groupings for a given entity. </p>
 <p>Better than folders: if folders were used, an entity might have only one hierarchical "folder" in which it exists, but any number of tags may be applied to an entity at a time </p>
 
-<p>Definition at line <a class="el" href="VWImport_8java_source.html#l00049">49</a> of file <a class="el" href="VWImport_8java_source.html">VWImport.java</a>.</p>
+<p>Definition at line <a class="el" href="VWImport_8java_source.html#l00070">70</a> of file <a class="el" href="VWImport_8java_source.html">VWImport.java</a>.</p>
 
 </div>
 </div>
@@ -155,7 +209,7 @@ Vector&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPa
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>org</b></li><li class="navelem"><b>smallfoot</b></li><li class="navelem"><b>vw4</b></li><li class="navelem"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a></li><li class="navelem"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.html">Entity</a></li>
-    <li class="footer">Generated on Thu Jun 12 2014 22:44:24 for vw4tools by
+    <li class="footer">Generated on Sat Jun 14 2014 16:38:54 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

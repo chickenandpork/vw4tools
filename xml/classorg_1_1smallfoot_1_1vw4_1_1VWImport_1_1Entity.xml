@@ -3,6 +3,20 @@
   <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kind="class" prot="public">
     <compoundname>org::smallfoot::vw4::VWImport::Entity</compoundname>
       <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1ac307802148e09cb3cc9b8bff0acd42ca" prot="public" static="no" mutable="no">
+        <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern" kindref="compound">LeafPattern</ref></type>
+        <definition>LeafPattern child_entities</definition>
+        <argsstring></argsstring>
+        <name>child_entities</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>children of this entity </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="85" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="85" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" prot="public" static="no" mutable="no">
         <type>String</type>
         <definition>String description</definition>
@@ -14,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="48" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="48" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="62" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a76dab48266f34c941c947433ae14176d" prot="public" static="no" mutable="no">
         <type><ref refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" kindref="compound">Edit_Type</ref></type>
@@ -27,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="56" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="56" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="81" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="81" bodyend="79"/>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a9a2326f35466e54c36c070829245c557" prot="public" static="no" mutable="no">
         <type>String</type>
@@ -40,20 +54,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="58" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="58" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="83" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1aa96ebc81ca3bd65e0d7c5e67e96bb973" prot="public" static="no" mutable="no">
         <type>Vector&lt; String &gt;</type>
         <definition>Vector&lt;String&gt; tags</definition>
         <argsstring></argsstring>
         <name>tags</name>
+        <initializer>= null</initializer>
         <briefdescription>
 <para>tags for the entity which can be used to define multiple groupings for a given entity. </para>        </briefdescription>
         <detaileddescription>
 <para>Better than folders: if folders were used, an entity might have only one hierarchical &quot;folder&quot; in which it exists, but any number of tags may be applied to an entity at a time </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="49" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="49" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="70" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a0b86e44425dbe3c9d866aa273f87828a" prot="public" static="no" mutable="no">
         <type>String</type>
@@ -66,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="57" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="57" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="82" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="82" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -81,10 +96,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="52" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="52" bodyend="51"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="76" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="76" bodyend="73"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a70594a481dc2a6a7d5334522eb9ea63e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void add</definition>
+        <argsstring>(String e)</argsstring>
+        <name>add</name>
+        <param>
+          <type>String</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>convenience function to add children to this entity </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entity to add </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="86" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="86" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abf0e0c927e408646f190445003c49a60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Vector&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kindref="compound">ITLPattern</ref> &gt;</type>
         <definition>Vector&lt;ITLPattern&gt; itl_patterns</definition>
@@ -96,9 +136,48 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="55" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="55" bodyend="55"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abf0e0c927e408646f190445003c49a60" compoundref="VWImport_8java" startline="55" endline="55">VWImport.Entity.itl_patterns</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abf0e0c927e408646f190445003c49a60" compoundref="VWImport_8java" startline="55" endline="55">VWImport.Entity.itl_patterns</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="77" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="77" bodyend="-1"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abf0e0c927e408646f190445003c49a60" compoundref="VWImport_8java" startline="77">VWImport.Entity.itl_patterns</references>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abf0e0c927e408646f190445003c49a60" compoundref="VWImport_8java" startline="77">VWImport.Entity.itl_patterns</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a478cd87172f36b11d34207d35c437e35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern" kindref="compound">LeafPattern</ref></type>
+        <definition>LeafPattern JSONchild_entities</definition>
+        <argsstring>()</argsstring>
+        <name>JSONchild_entities</name>
+        <briefdescription>
+<para>JSON access to child_entities: allows a null response which can avoid an empty object dump in the JSON output. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="89" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="89" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abfc2d54391571deae2e9fa995c3e9337" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Vector&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" kindref="compound">ITLPattern</ref> &gt;</type>
+        <definition>Vector&lt;ITLPattern&gt; JSONitl_patterns</definition>
+        <argsstring>()</argsstring>
+        <name>JSONitl_patterns</name>
+        <briefdescription>
+<para>JSON access to itl_patterns: allows a null response which can avoid an empty object dump in the JSON output. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="79" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="79" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a7538b077be4bac8f6d27849049885ff2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Vector&lt; String &gt;</type>
+        <definition>Vector&lt;String&gt; JSONtags</definition>
+        <argsstring>()</argsstring>
+        <name>JSONtags</name>
+        <briefdescription>
+<para>JSON access to tags: allows a null response which can avoid an empty object dump in the JSON output. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="73" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="73" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abd918c8d92bd34f633ea27e3f5d43b3c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Vector&lt; String &gt;</type>
@@ -111,9 +190,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="51" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="51" bodyend="-1"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abd918c8d92bd34f633ea27e3f5d43b3c" compoundref="VWImport_8java" startline="51">VWImport.Entity.tags</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abd918c8d92bd34f633ea27e3f5d43b3c" compoundref="VWImport_8java" startline="51">VWImport.Entity.tags</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="71" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="71" bodyend="-1"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abd918c8d92bd34f633ea27e3f5d43b3c" compoundref="VWImport_8java" startline="71">VWImport.Entity.tags</references>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abd918c8d92bd34f633ea27e3f5d43b3c" compoundref="VWImport_8java" startline="71">VWImport.Entity.tags</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -121,36 +200,52 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="31">
+      <node id="50">
         <label>VWImport.Edit_Type</label>
         <link refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type"/>
       </node>
-      <node id="33">
+      <node id="53">
         <label>Vector&lt; String &gt;</label>
       </node>
-      <node id="30">
+      <node id="52">
+        <label>VWImport.LeafPattern</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern"/>
+        <childnode refid="53" relation="usage">
+          <edgelabel>remove</edgelabel>
+          <edgelabel>add</edgelabel>
+        </childnode>
+      </node>
+      <node id="49">
         <label>VWImport.Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity"/>
-        <childnode refid="31" relation="usage">
+        <childnode refid="50" relation="usage">
           <edgelabel>edit_type</edgelabel>
         </childnode>
-        <childnode refid="32" relation="usage">
+        <childnode refid="51" relation="usage">
           <edgelabel>itl_patterns</edgelabel>
         </childnode>
-        <childnode refid="33" relation="usage">
+        <childnode refid="52" relation="usage">
+          <edgelabel>child_entities</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
           <edgelabel>tags</edgelabel>
         </childnode>
       </node>
-      <node id="32">
+      <node id="51">
         <label>Vector&lt; org.smallfoot.vw4.VWImport.ITLPattern &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="47" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="46" bodyend="59"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="61" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="60" bodyend="90"/>
     <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a70594a481dc2a6a7d5334522eb9ea63e" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>add</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1ac307802148e09cb3cc9b8bff0acd42ca" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>child_entities</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>description</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a76dab48266f34c941c947433ae14176d" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>edit_type</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a88540be4d74409418ead7a4a7bdc8cee" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>itl_patterns</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abf0e0c927e408646f190445003c49a60" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>itl_patterns</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a478cd87172f36b11d34207d35c437e35" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>JSONchild_entities</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abfc2d54391571deae2e9fa995c3e9337" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>JSONitl_patterns</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a7538b077be4bac8f6d27849049885ff2" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>JSONtags</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1a9a2326f35466e54c36c070829245c557" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>name</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1aa96ebc81ca3bd65e0d7c5e67e96bb973" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>tags</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity_1abd918c8d92bd34f633ea27e3f5d43b3c" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::Entity</scope><name>tags</name></member>

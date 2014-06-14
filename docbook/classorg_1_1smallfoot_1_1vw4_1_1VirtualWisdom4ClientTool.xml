@@ -1,0 +1,578 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool">
+<title>org::smallfoot::vw4::VirtualWisdom4ClientTool class Reference</title>
+        <simplesect>
+            <title>Private Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>org.w3c.dom.Document xmlDocument<para><emphasis>eventually used to hold an XML document when converting XML&lt;&amp;ndash;&gt;JSON&lt;&amp;ndash;&gt;XML</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title>Protected Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>TreeMap&lt; String, Entity &gt; entities<para><emphasis>local singleton array accessed from entities()</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Vector&lt; Pattern &gt; patterns<para><emphasis>local singleton array accessed from patterns()</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>WWNDescription wwndesc<para><emphasis>local singleton array accessed from wwndesc()</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca">VirtualWisdom4ClientTool</link> (
+String xmlFile)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae">VirtualWisdom4ClientTool</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>TreeMap&lt; String, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> &gt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4">entities</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f">load</link> (
+String filename)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ZoneParser <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a9e0f542a9a12624390c9a7f7c032789b">loadFile</link> (
+String url, boolean verbose)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Vector&lt; Pattern &gt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a09f298d19a33be899f5835657c747c5d">patterns</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4">prettyJSON</link> (
+<link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport">VWImport</link> v)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8">save</link> (
+String filename)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>WWNDescription <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6">wwndesc</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058">_load</link> (
+String filename)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785">_save</link> (
+String filename)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2">loadAndAbsorbFile</link> (
+String f)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>java.io.InputStream <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3ac515893512e150892f862b4cce8769">openStream</link> (
+String uri)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">absorbPattern</link> (
+String pattern)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d">entityAccepting</link> (
+<link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> newguy)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String[] <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa0a47fb81ec7fd8f9d1d250ec7c24725">exercisePattern</link> (
+String alias)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a">usage</link> (
+String progname)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae7f58b7f70ac5ad9229b3556469d5328">writeOrderedTuples</link> (
+String name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa">main</link> (
+String args)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Brief Description</title>
+
+<para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool">VirtualWisdom4ClientTool</link> is a &quot;Swiss Army Knife&quot; of tools used when working with VirtualWisdom4. </para>
+    </simplesect>
+        <simplesect>
+            <title>Detailed Description</title>
+
+<para>The existence of these tools is not a judgement on VirtualWisdom4&apos;s proper Engineering; rather, an acceptance that a faster-response solution for the longer-tail of the normal curve is often helpful swapping QA delay for reduced customer friction.</para>
+
+<para>As you&apos;d expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</para>
+
+<para>Ad-Hoc content for this utility-stack may appear at <link xlink:href="http://fcfae.com/">http://fcfae.com/</link> </para>
+                <para>Definition at line 59 of file VirtualWisdom4ClientTool.java</para>
+                <para>The Documentation for this struct was generated from the following file: </para>
+                <para><itemizedlist><listitem><para>VirtualWisdom4ClientTool.java</para></listitem></itemizedlist></para>
+        </simplesect>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca">
+                <title>VirtualWisdom4ClientTool (String xmlFile)</title> <emphasis>Class Constructor to create with an initial file to load.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>xmlFile</entry>
+                                <entry>
+<para>File to load at start</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>See Also: </title>
+
+<para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f">load(String)</link> </para>
+</formalpara>
+</para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae">
+                <title>VirtualWisdom4ClientTool ()</title> <emphasis>Class Constructor with no initial file.</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4">
+                <title>TreeMap&lt;String,Entity&gt; entities ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f">
+                <title>void load (String filename)</title> <emphasis>Wrapper to just load the file, spitting out exceptions and stacks as they occur.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>filename</entry>
+                                <entry>
+<para>file to load </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a9e0f542a9a12624390c9a7f7c032789b">
+                <title>ZoneParser loadFile (String url, boolean verbose)</title> <emphasis>Load a file from the resource given to a WWN/Nickname vector.</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>the number of things loaded (used to trigger obsessive retries to get around choking org.apache.commons.io.input.TeeInputStream ) </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>url</entry>
+                                <entry>
+<para>the <link xlink:href="file://">file://</link> resource of a file, ie &quot;file://sample.csv;wwn=1;nickname=2&quot; </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>verbose</entry>
+                                <entry>
+<para>if true, parser results will be shown to stdout </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a09f298d19a33be899f5835657c747c5d">
+                <title>Vector&lt;Pattern&gt; patterns ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4">
+                <title>String prettyJSON (VWImport v)</title> <emphasis>Convenience function to generate a pretty-printed JSON text string.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>v</entry>
+                                <entry>
+<para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport">VWImport</link> object to markup </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>a pretty-printed JSON using ObjectWriter.withDefaultPrettyPrinter() or null if an exception occurs </para>
+</formalpara>
+</para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8">
+                <title>void save (String filename)</title> <emphasis>Wrapper to just save the file, spitting out exceptions and stacks as they occur.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>filename</entry>
+                                <entry>
+<para>filename to save into </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6">
+                <title>WWNDescription wwndesc ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058">
+                <title>void _load (String filename)</title> <emphasis>Open a file.</emphasis>
+                
+<para>This is actually a wrapper for the underlying file load</para>
+
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>filename</entry>
+                                <entry>
+<para>file to load </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785">
+                <title>void _save (String filename)</title> <emphasis>Save the current XML Document to a new file.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>filename</entry>
+                                <entry>
+<para>filename to save into </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2">
+                <title>void loadAndAbsorbFile (String f)</title> <emphasis>one-shot load a new file and absorb the contents: open the file and stream the
+contents at an array of parsers, the one with the best results wins; using that
+result, absorb all alias information, attempting to create parent
+storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>f</entry>
+                                <entry>
+<para>name of file to open</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>See Also: </title>
+
+<para><link xlink:href="https://github.com/chickenandpork/fibrechannel-parsers/">https://github.com/chickenandpork/fibrechannel-parsers/</link> </para>
+</formalpara>
+</para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3ac515893512e150892f862b4cce8769">
+                <title>java.io.InputStream openStream (String uri)</title> <emphasis>Produce an InputStream for the given uri in a way that corresponds to the url protocol.</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>InputStream ready to offer back the data </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>uri</entry>
+                                <entry>
+<para>the <link xlink:href="file://">file://</link> resource of a file, ie &quot;file:///sample.csv&quot; </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">
+                <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns.</emphasis>
+                
+<para>Hosts will absorb new matches at a top-level (host-&gt;hba); storage will absorb a pattern by force into a second-tier (storagearray -&gt; storagecontroller). This will let devices with non-intuitive combinations (ie SVC nodes in an iogroup don&apos;t have any matching WWPN parts). Not sure how far this will snowball.</para>
+
+<para>param pattern a String pattern to absorb (into an internal array for use later) </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d">
+                <title>Entity entityAccepting (Entity newguy)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa0a47fb81ec7fd8f9d1d250ec7c24725">
+                <title>String [] exercisePattern (String alias)</title> <emphasis>Exercise all current chunking patterns against a given nickname.</emphasis>
+                
+<para>Given a string assumed to be a hostname or alias, all patterns currently absorbed will be exercised to show the possible results in order they would be attempted. This is intended to allow in-situ pattern editing and verification rather than perfect knowledge of the regex system used.</para>
+
+<para>As is assumed in the VW4 product, the regex is performed as: s/{pattern}/\1/ such that for a given pattern, the first capturing group is the result For example, given a pattern of &quot;^(.*).{5}$&quot;, the &quot;.{5}$&quot; matches the final 5 characters (5 wildcards before end-of-line), leaving the remainder within &quot;^(.*)&quot;. All but the final 5 characters are contained in that capture-grouping, so the result is all but the final 5 characters.</para>
+
+<para>param alias a String nickname to exercise all patterns against </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a">
+                <title>void usage (String progname)</title> <emphasis>Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>progname</entry>
+                                <entry>
+<para>the name of the program (args[0]) to print on a usage message </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae7f58b7f70ac5ad9229b3556469d5328">
+                <title>void writeOrderedTuples (String name)</title> <emphasis>Export an &quot;OrderedTuples.csv&quot; file as a stopgap measure until proper JSON processing can be completed.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>name</entry>
+                                <entry>
+<para>filename to write </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                exception                            <row>
+                                <entry>java.io.IOException</entry>
+                                <entry>
+<para>when PrintStream throws an exception </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa">
+                <title>static void main (String args[])</title> <emphasis>Main function, as you can tell.</emphasis>
+                
+<para>this function merely parses the command-line to dispatch actions to the meat of the meal above. I&apos;m using an actual GetOpt because, yes, I&apos;m a UNIX/C hack, re-using 3-decades-old knowledge, but this also preserves both extensibility and the ability to use longopts in scripts as a way to self-document what the tool&apos;s doing.</para>
+
+<para>No real intelligence herein except the parse-and-redirect action.</para>
+
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>args</entry>
+                                <entry>
+<para>as you&apos;d expect, these are commandline arguments given when the jar is activated </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+</section>

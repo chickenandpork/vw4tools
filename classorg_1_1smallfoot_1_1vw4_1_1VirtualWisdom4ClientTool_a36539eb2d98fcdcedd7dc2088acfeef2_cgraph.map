@@ -1,5 +1,7 @@
 <map id="loadAndAbsorbFile" name="loadAndAbsorbFile">
-<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a9e0f542a9a12624390c9a7f7c032789b" title="Load a file from the resource given to a WWN/Nickname vector. " alt="" coords="187,5,255,30"/>
-<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae02047a8c65611b9470268a74d4d25b5" title="patterns" alt="" coords="187,54,256,79"/>
-<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a3ac515893512e150892f862b4cce8769" title="Produce an InputStream for the given uri in a way that corresponds to the url protocol. " alt="" coords="304,5,398,30"/>
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4" title="entities" alt="" coords="194,5,257,30"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a9e0f542a9a12624390c9a7f7c032789b" title="Load a file from the resource given to a WWN/Nickname vector. " alt="" coords="191,54,259,79"/>
+<area shape="rect" id="node5" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a09f298d19a33be899f5835657c747c5d" title="patterns" alt="" coords="191,103,260,129"/>
+<area shape="rect" id="node6" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a43a8de962936ee9d82e0a70eeb9b1db6" title="wwndesc" alt="" coords="187,153,263,178"/>
+<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a3ac515893512e150892f862b4cce8769" title="Produce an InputStream for the given uri in a way that corresponds to the url protocol. " alt="" coords="312,54,406,79"/>
 </map>

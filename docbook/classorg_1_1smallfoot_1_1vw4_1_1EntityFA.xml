@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityFA">
+<title>org::smallfoot::vw4::EntityFA class Reference</title>
+        <simplesect>
+            <title>Protected Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String wwn<para><emphasis>the unique WWPN of the hba</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1aee1f13fcac25df5320b16ca060ad99dd">EntityFA</link> (
+String name, String wwn)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1aa0f20764b2a9bea375e9507de63cb42b">wwn</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a5a51654ce8be38d5f06faa182cb70e61">canBeChild</link> (
+<link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> e)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Brief Description</title>
+
+<para>An <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityFA">EntityFA</link> is the representation of an Storage FA entity in the JSON import for VW4. </para>
+    </simplesect>
+        <simplesect>
+            <title>Detailed Description</title>
+
+<para>Be very careful: there is an <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link>, and a <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity">VWImport::Entity</link> </para>
+                <para>Definition at line 45 of file EntityFA.java</para>
+                <para>The Documentation for this struct was generated from the following file: </para>
+                <para><itemizedlist><listitem><para>EntityFA.java</para></listitem></itemizedlist></para>
+        </simplesect>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1aee1f13fcac25df5320b16ca060ad99dd">
+                <title>EntityFA (String name, String wwn)</title> <emphasis>Class Constructor with no initial child.</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1aa0f20764b2a9bea375e9507de63cb42b">
+                <title>String wwn ()</title> <emphasis>getter</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a5a51654ce8be38d5f06faa182cb70e61">
+                <title>boolean canBeChild (Entity e)</title> <emphasis>this entity has no children so this method will always be false</emphasis>
+                
+            </section>
+</section>

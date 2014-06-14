@@ -5,6 +5,7 @@
     <innerclass refid="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type" prot="public">org::smallfoot::vw4::VWImport::Edit_Type</innerclass>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" prot="public">org::smallfoot::vw4::VWImport::Entity</innerclass>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern" prot="public">org::smallfoot::vw4::VWImport::ITLPattern</innerclass>
+    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern" prot="public">org::smallfoot::vw4::VWImport::LeafPattern</innerclass>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport" prot="public">org::smallfoot::vw4::VWImport</innerclass>
     <innernamespace refid="namespaceorg_1_1smallfoot_1_1vw4">org::smallfoot::vw4</innernamespace>
     <briefdescription>

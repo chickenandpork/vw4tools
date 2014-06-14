@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="dir_93c6ba7fb77bae0709fae89c9c13b44a">
+    <title>java Directory Reference</title>
+        <simplesect>
+            <title> Files </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>file <link linkend="Entity_8java">Entity.java</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>file <link linkend="EntityFA_8java">EntityFA.java</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>file <link linkend="EntityHBA_8java">EntityHBA.java</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>file <link linkend="VirtualWisdom4ClientTool_8java">VirtualWisdom4ClientTool.java</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>file <link linkend="VWImport_8java">VWImport.java</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Detailed Description</title>
+    <para>Directory location is /Users/allan.clark/src/vw4tools/java/</para>
+    </simplesect>
+</section>

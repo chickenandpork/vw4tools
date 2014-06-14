@@ -1,3 +1,4 @@
 <map id="VWImport.Entity" name="VWImport.Entity">
-<area shape="rect" id="node2" href="$enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type.html" title="The edit type of a JSON for VW4 Import can be either &quot;add&quot; or &quot;modify&quot;; the creator needs to know ahe..." alt="" coords="23,5,166,30"/>
+<area shape="rect" id="node2" href="$enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type.html" title="The edit type of a JSON for VW4 Import can be either &quot;add&quot; or &quot;modify&quot;; the creator needs to know ahe..." alt="" coords="236,5,380,30"/>
+<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern.html" title="An LeafPattern is used to define an Entity by reference in another entity&#39;s child_entities. " alt="" coords="231,179,385,205"/>
 </map>

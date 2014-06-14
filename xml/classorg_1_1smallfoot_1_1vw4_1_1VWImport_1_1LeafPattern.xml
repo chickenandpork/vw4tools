@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern" kind="class" prot="public">
+    <compoundname>org::smallfoot::vw4::VWImport::LeafPattern</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1a6ed1b28b21a0bd261524fbd2033a9b22" prot="public" static="no" mutable="no">
+        <type>Vector&lt; String &gt;</type>
+        <definition>Vector&lt;String&gt; add</definition>
+        <argsstring></argsstring>
+        <name>add</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>list of additions in the entity JSON </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="51" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1ab8f2d4298667a61cb4d791405ce929d4" prot="public" static="no" mutable="no">
+        <type>Vector&lt; String &gt;</type>
+        <definition>Vector&lt;String&gt; remove</definition>
+        <argsstring></argsstring>
+        <name>remove</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>list of removals in the entity JSON </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="52" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1ad9e5fb8451aaba717e9e59ba063a924d" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void add</definition>
+        <argsstring>(String leaf)</argsstring>
+        <name>add</name>
+        <param>
+          <type>String</type>
+          <declname>leaf</declname>
+        </param>
+        <briefdescription>
+<para>convenience function for additions </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="53" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1a78ca582c6ca2607992617598ee7b0a4a" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void remove</definition>
+        <argsstring>(String leaf)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>String</type>
+          <declname>leaf</declname>
+        </param>
+        <briefdescription>
+<para>convenience function for removals </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="54" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="54" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>An <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern" kindref="compound">LeafPattern</ref> is used to define an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity" kindref="compound">Entity</ref> by reference in another entity&apos;s child_entities. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="81">
+        <label>Vector&lt; String &gt;</label>
+      </node>
+      <node id="80">
+        <label>VWImport.LeafPattern</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern"/>
+        <childnode refid="81" relation="usage">
+          <edgelabel>remove</edgelabel>
+          <edgelabel>add</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/allan.clark/src/vw4tools/java/VWImport.java" line="50" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VWImport.java" bodystart="49" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1a6ed1b28b21a0bd261524fbd2033a9b22" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::LeafPattern</scope><name>add</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1ad9e5fb8451aaba717e9e59ba063a924d" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::LeafPattern</scope><name>add</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1ab8f2d4298667a61cb4d791405ce929d4" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::LeafPattern</scope><name>remove</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1LeafPattern_1a78ca582c6ca2607992617598ee7b0a4a" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VWImport::LeafPattern</scope><name>remove</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

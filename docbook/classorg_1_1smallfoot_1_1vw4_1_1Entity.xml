@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity">
+<title>org::smallfoot::vw4::Entity class Reference</title>
+        <simplesect>
+            <title> Classes </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException">org::smallfoot::vw4::Entity::ImproperChildException</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title>Protected Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Vector&lt; Entity &gt; children<para><emphasis>local singleton late-instantiated as needed by children()</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String name<para><emphasis>the unique name of the entity</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>abstract boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a0a8c67a491e7100ba94f3035bbe62822">canBeChild</link> (
+<link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> e)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Vector&lt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> &gt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c">children</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afc6a43ee8007bcc023a7ebd2bf5ee1ed">Entity</link> (
+String name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1afb3a328033f8f6bf136d8380e712b9">Entity</link> (
+String name, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> e)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15">name</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367">setname</link> (
+String name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Brief Description</title>
+
+<para>An <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> is the core mutable object used in the JSON import for VW4. </para>
+    </simplesect>
+        <simplesect>
+            <title>Detailed Description</title>
+
+<para>I&apos;m not so sure how it&apos;ll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects: things that can have children things. In the short term, be very careful: there is an <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link>, and a <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity">VWImport::Entity</link> </para>
+                <para>Definition at line 45 of file Entity.java</para>
+                <para>The Documentation for this struct was generated from the following file: </para>
+                <para><itemizedlist><listitem><para>Entity.java</para></listitem></itemizedlist></para>
+        </simplesect>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a0a8c67a491e7100ba94f3035bbe62822">
+                <title>abstract boolean canBeChild (Entity e)</title> <emphasis>whether a given entity can be this entity&apos;s child</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>true if accepted, false if refused </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>e</entry>
+                                <entry>
+<para>entity to check for possible descendent-hood </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c">
+                <title>Vector&lt;Entity&gt; children ()</title> <emphasis>local access to local singleton .children</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afc6a43ee8007bcc023a7ebd2bf5ee1ed">
+                <title>Entity (String name)</title> <emphasis>Class Constructor with no initial child.</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1afb3a328033f8f6bf136d8380e712b9">
+                <title>Entity (String name, Entity e)</title> <emphasis>Class Constructor with an initial child to absorb.</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15">
+                <title>String name ()</title> <emphasis>getter</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367">
+                <title>void setname (String name)</title> <emphasis>setter</emphasis>
+                
+            </section>
+</section>

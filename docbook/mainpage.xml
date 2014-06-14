@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>JavaDoc API Markup for vw4tools</title>
+
+<para><formalpara><title>vw4tools </title></formalpara>
+</para>
+
+<para>Tools and utilities for VirtualWisdom4 </para>
+
+</chapter>

@@ -11,7 +11,7 @@ Collaboration diagram for Virtual\-Wisdom4\-Client\-Tool\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=282pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool__coll__graph}
+\includegraphics[width=350pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -22,43 +22,57 @@ Collaboration diagram for Virtual\-Wisdom4\-Client\-Tool\-:\nopagebreak
 {\bf Virtual\-Wisdom4\-Client\-Tool} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a7991b30b52ad4d408df3575abc9b57ae}
 
 \begin{DoxyCompactList}\small\item\em Class Constructor with no initial file. \end{DoxyCompactList}\item 
-Vector$<$ {\bf Entity} $>$ {\bf entities} ()
+Tree\-Map$<$ String, {\bf Entity} $>$ {\bf entities} ()
 \item 
 void {\bf load} (String filename)
 \begin{DoxyCompactList}\small\item\em Wrapper to just load the file, spitting out exceptions and stacks as they occur. \end{DoxyCompactList}\item 
 Zone\-Parser {\bf load\-File} (String url, boolean verbose)
 \begin{DoxyCompactList}\small\item\em Load a file from the resource given to a W\-W\-N/\-Nickname vector. \end{DoxyCompactList}\item 
-Vector$<$ String $>$ {\bf patterns} ()
+Vector$<$ Pattern $>$ {\bf patterns} ()
 \item 
 String {\bf pretty\-J\-S\-O\-N} ({\bf V\-W\-Import} v)
 \begin{DoxyCompactList}\small\item\em Convenience function to generate a pretty-\/printed J\-S\-O\-N text string. \end{DoxyCompactList}\item 
 void {\bf save} (String filename)
-\begin{DoxyCompactList}\small\item\em Wrapper to just save the file, spitting out exceptions and stacks as they occur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Wrapper to just save the file, spitting out exceptions and stacks as they occur. \end{DoxyCompactList}\item 
+W\-W\-N\-Description {\bf wwndesc} ()
+\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void {\bf main} (String args[$\,$])
 \begin{DoxyCompactList}\small\item\em Main function, as you can tell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf V\-W\-Import} {\bf vwimport} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a4ef055893be8838f513385e4c2f42700}
+
+\begin{DoxyCompactList}\small\item\em singleton list of J\-S\-O\-N-\/writable objects accessed through \doxyref{vwimport()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_acbeee875159f78e186965708e70dee94} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void {\bf \-\_\-load} (String filename)  throws java.\-lang.\-Exception     
+void {\bf \-\_\-load} (String filename)  throws java.\-io.\-I\-O\-Exception     
 \begin{DoxyCompactList}\small\item\em Open a file. \end{DoxyCompactList}\item 
 void {\bf \-\_\-save} (String filename)  throws java.\-lang.\-Exception     
 \begin{DoxyCompactList}\small\item\em Save the current X\-M\-L Document to a new file. \end{DoxyCompactList}\item 
 void {\bf load\-And\-Absorb\-File} (String f)
 \begin{DoxyCompactList}\small\item\em one-\/shot load a new file and absorb the contents\-: open the file and stream the contents at an array of parsers, the one with the best results wins; using that result, absorb all alias information, attempting to create parent storagecontroller(s) or hosts as resulting from absorbtion patterns \end{DoxyCompactList}\item 
 java.\-io.\-Input\-Stream {\bf open\-Stream} (String uri)  throws java.\-io.\-File\-Not\-Found\-Exception, java.\-net.\-Malformed\-U\-R\-L\-Exception, java.\-io.\-I\-O\-Exception     
-\begin{DoxyCompactList}\small\item\em Produce an Input\-Stream for the given uri in a way that corresponds to the url protocol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Produce an Input\-Stream for the given uri in a way that corresponds to the url protocol. \end{DoxyCompactList}\item 
+{\bf V\-W\-Import} {\bf vwimport} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_acbeee875159f78e186965708e70dee94}
+
+\begin{DoxyCompactList}\small\item\em singleton to access vwimport to allow for later post-\/process \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Vector$<$ {\bf Entity} $>$ {\bf entities} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a9a3cd7caed5bd4b81c9383fc0e3c6e6f}
+Tree\-Map$<$ String, {\bf Entity} $>$ {\bf entities} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ac3c495e48cdbca229137371be08ba04f}
 
-\begin{DoxyCompactList}\small\item\em local singleton array accessed from \doxyref{entities()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a66e795032db830396eddba947597ac21} \end{DoxyCompactList}\item 
-Vector$<$ String $>$ {\bf patterns} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a774bc03344433229dc33ecdfbbb416a3}
+\begin{DoxyCompactList}\small\item\em local singleton array accessed from \doxyref{entities()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9ab77e799e869cf9da3d339e124f6c4} \end{DoxyCompactList}\item 
+Vector$<$ Pattern $>$ {\bf patterns} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aaa7580a75c1bf3c122ce5b4c001517c2}
 
-\begin{DoxyCompactList}\small\item\em local singleton array accessed from \doxyref{patterns()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ae02047a8c65611b9470268a74d4d25b5} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em local singleton array accessed from \doxyref{patterns()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a09f298d19a33be899f5835657c747c5d} \end{DoxyCompactList}\item 
+W\-W\-N\-Description {\bf wwndesc} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_afb3f7acf97044713e2aa55c921c5cdb2}
+
+\begin{DoxyCompactList}\small\item\em local singleton array accessed from \doxyref{wwndesc()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a43a8de962936ee9d82e0a70eeb9b1db6} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -76,7 +90,7 @@ As you'd expect, there is no support for this. If it breaks, you may choose to k
 
 Ad-\/\-Hoc content for this utility-\/stack may appear at {\tt http\-://fcfae.\-com/} 
 
-Definition at line 53 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 58 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -102,7 +116,7 @@ Class Constructor to create with an initial file to load.
 \end{DoxySeeAlso}
 
 
-Definition at line 64 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 69 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -114,7 +128,7 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=322pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0f1b4c518fafff8a296bb632e57655ca_cgraph}
+\includegraphics[width=350pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0f1b4c518fafff8a296bb632e57655ca_cgraph}
 \end{center}
 \end{figure}
 
@@ -128,7 +142,7 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{DoxyParamCaption}
 \item[{String}]{filename}
 \end{DoxyParamCaption}
-) throws java.\-lang.\-Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ad9a051ba608e7fcb9adac39bc3946058}
+) throws java.\-io.\-I\-O\-Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ad9a051ba608e7fcb9adac39bc3946058}
 
 
 Open a file. 
@@ -141,12 +155,34 @@ This is actually a wrapper for the underlying file load
 \hline
 \end{DoxyParams}
 
+\begin{DoxyExceptions}{Exceptions}
+{\em I\-O\-Exception} & when File() encounters an error instaitating (typically path or permissions) \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyRefDesc}{Todo}
+\item[{\bf Todo}]\-: evaluate\-: mapper.\-configure(Deserialization\-Config.\-Feature.\-F\-A\-I\-L\-\_\-\-O\-N\-\_\-\-U\-N\-K\-N\-O\-W\-N\-\_\-\-P\-R\-O\-P\-E\-R\-T\-I\-E\-S, false); \end{DoxyRefDesc}
 
-Definition at line 83 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+Definition at line 92 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+References Virtual\-Wisdom4\-Client\-Tool.\-vwimport().
 
 
 
 Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load().
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ad9a051ba608e7fcb9adac39bc3946058_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!\-\_\-save@{\-\_\-save}}
 \index{\-\_\-save@{\-\_\-save}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
@@ -166,7 +202,7 @@ Save the current X\-M\-L Document to a new file.
 \end{DoxyParams}
 
 
-Definition at line 111 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 127 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -174,17 +210,21 @@ Referenced by Virtual\-Wisdom4\-Client\-Tool.\-save().
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!entities@{entities}}
 \index{entities@{entities}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
-\subsubsection[{entities}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<${\bf Entity}$>$ entities (
+\subsubsection[{entities}]{\setlength{\rightskip}{0pt plus 5cm}Tree\-Map$<$String,{\bf Entity}$>$ entities (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a66e795032db830396eddba947597ac21}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_aa9ab77e799e869cf9da3d339e124f6c4}
 $<$ singleton access for entities \begin{DoxyReturn}{Returns}
 collection of entities 
 \end{DoxyReturn}
 
 
-Definition at line 351 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 368 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load\-And\-Absorb\-File().
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!load@{load}}
 \index{load@{load}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
@@ -204,7 +244,7 @@ Wrapper to just load the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 94 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 106 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -220,7 +260,7 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=156pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph}
+\includegraphics[width=248pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a0d686f1044a2e8727b12e6e4921e0e8f_cgraph}
 \end{center}
 \end{figure}
 
@@ -246,11 +286,11 @@ one-\/shot load a new file and absorb the contents\-: open the file and stream t
 \end{DoxySeeAlso}
 
 
-Definition at line 388 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 451 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
-References Virtual\-Wisdom4\-Client\-Tool.\-load\-File(), and Virtual\-Wisdom4\-Client\-Tool.\-patterns().
+References Virtual\-Wisdom4\-Client\-Tool.\-entities(), Virtual\-Wisdom4\-Client\-Tool.\-load\-File(), Entity.\-name, Virtual\-Wisdom4\-Client\-Tool.\-patterns(), and Virtual\-Wisdom4\-Client\-Tool.\-wwndesc().
 
 
 
@@ -258,7 +298,7 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=338pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a36539eb2d98fcdcedd7dc2088acfeef2_cgraph}
+\includegraphics[width=344pt]{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a36539eb2d98fcdcedd7dc2088acfeef2_cgraph}
 \end{center}
 \end{figure}
 
@@ -287,7 +327,7 @@ the number of things loaded (used to trigger obsessive retries to get around cho
 \end{DoxyParams}
 
 
-Definition at line 169 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 185 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -330,11 +370,11 @@ No real intelligence herein except the parse-\/and-\/redirect action.
 \end{DoxyParams}
 
 
-Definition at line 436 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 662 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
-References Virtual\-Wisdom4\-Client\-Tool.\-Virtual\-Wisdom4\-Client\-Tool().
+References Entity.\-name, Virtual\-Wisdom4\-Client\-Tool.\-Virtual\-Wisdom4\-Client\-Tool(), and Virtual\-Wisdom4\-Client\-Tool.\-vwimport().
 
 
 
@@ -368,7 +408,7 @@ Input\-Stream ready to offer back the data
 \end{DoxyParams}
 
 
-Definition at line 141 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 157 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -376,17 +416,17 @@ Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load\-File().
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!patterns@{patterns}}
 \index{patterns@{patterns}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
-\subsubsection[{patterns}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<$String$>$ patterns (
+\subsubsection[{patterns}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<$Pattern$>$ patterns (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ae02047a8c65611b9470268a74d4d25b5}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a09f298d19a33be899f5835657c747c5d}
 $<$ singleton access for patterns \begin{DoxyReturn}{Returns}
 collection of patterns 
 \end{DoxyReturn}
 
 
-Definition at line 344 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 361 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -413,7 +453,7 @@ a pretty-\/printed J\-S\-O\-N using Object\-Writer.\-with\-Default\-Pretty\-Prin
 \end{DoxyReturn}
 
 
-Definition at line 319 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 335 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 \index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!save@{save}}
 \index{save@{save}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
@@ -433,7 +473,7 @@ Wrapper to just save the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 122 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+Definition at line 138 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
 
 
 
@@ -449,6 +489,24 @@ Here is the call graph for this function\-:\nopagebreak
 \end{center}
 \end{figure}
 
+
+\index{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}!wwndesc@{wwndesc}}
+\index{wwndesc@{wwndesc}!org::smallfoot::vw4::VirtualWisdom4ClientTool@{org\-::smallfoot\-::vw4\-::\-Virtual\-Wisdom4\-Client\-Tool}}
+\subsubsection[{wwndesc}]{\setlength{\rightskip}{0pt plus 5cm}W\-W\-N\-Description wwndesc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a43a8de962936ee9d82e0a70eeb9b1db6}
+$<$ singleton access for wwndesc \begin{DoxyReturn}{Returns}
+wwndesc 
+\end{DoxyReturn}
+
+
+Definition at line 375 of file Virtual\-Wisdom4\-Client\-Tool.\-java.
+
+
+
+Referenced by Virtual\-Wisdom4\-Client\-Tool.\-load\-And\-Absorb\-File().
 
 
 

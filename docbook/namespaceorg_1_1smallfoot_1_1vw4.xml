@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="namespaceorg_1_1smallfoot_1_1vw4">
+<title>org::smallfoot::vw4</title>
+        <simplesect>
+            <title> Classes </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">org::smallfoot::vw4::Entity</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityFA">org::smallfoot::vw4::EntityFA</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA">org::smallfoot::vw4::EntityHBA</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool">org::smallfoot::vw4::VirtualWisdom4ClientTool</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport">org::smallfoot::vw4::VWImport</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+</section>

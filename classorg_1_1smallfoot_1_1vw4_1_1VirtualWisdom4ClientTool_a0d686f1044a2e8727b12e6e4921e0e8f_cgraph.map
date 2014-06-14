@@ -1,3 +1,4 @@
 <map id="load" name="load">
-<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058" title="Open a file. " alt="" coords="101,5,155,30"/>
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058" title="Open a file. " alt="" coords="101,29,155,54"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#acbeee875159f78e186965708e70dee94" title="singleton to access vwimport to allow for later post&#45;process " alt="" coords="203,29,277,54"/>
 </map>

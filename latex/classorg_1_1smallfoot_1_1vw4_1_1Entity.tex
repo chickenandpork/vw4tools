@@ -7,11 +7,20 @@ An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core muta
 
 
 
+Inheritance diagram for Entity\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity__inherit__graph}
+\end{center}
+\end{figure}
+
+
 Collaboration diagram for Entity\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=176pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity__coll__graph}
+\includegraphics[width=350pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Data Structures}
@@ -27,7 +36,19 @@ class {\bf Improper\-Child\-Exception}
 \begin{DoxyCompactList}\small\item\em Class Constructor with no initial child. \end{DoxyCompactList}\item 
 {\bf Entity} (String {\bf name}, {\bf Entity} e)  throws Improper\-Child\-Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1afb3a328033f8f6bf136d8380e712b9}
 
-\begin{DoxyCompactList}\small\item\em Class Constructor with an initial child to absorb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Class Constructor with an initial child to absorb. \end{DoxyCompactList}\item 
+String {\bf description} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a464a9940ad720e717c25422b41b7845b}
+
+\begin{DoxyCompactList}\small\item\em getter \end{DoxyCompactList}\item 
+String {\bf name} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afa2149aced9d90555f788dfc81c23d15}
+
+\begin{DoxyCompactList}\small\item\em getter \end{DoxyCompactList}\item 
+void {\bf set\-Description} (String {\bf description})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1d15d718177c4f5411ce6ab339889fd4}
+
+\begin{DoxyCompactList}\small\item\em setter \end{DoxyCompactList}\item 
+void {\bf setname} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a670f83b1f0f39a20e0fe60597032a367}
+
+\begin{DoxyCompactList}\small\item\em setter \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -35,16 +56,25 @@ abstract boolean {\bf can\-Be\-Child} ({\bf Entity} e)
 \begin{DoxyCompactList}\small\item\em whether a given entity can be this entity's child \end{DoxyCompactList}\item 
 Vector$<$ {\bf Entity} $>$ {\bf children} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a63ef33ad49b88027164e49d1916f409c}
 
-\begin{DoxyCompactList}\small\item\em local access to local singleton .children \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em local access to local singleton .children \end{DoxyCompactList}\item 
+abstract \\*
+{\bf org.\-smallfoot.\-vw4.\-V\-W\-Import.\-Entity} {\bf vwentity} ()
+\begin{DoxyCompactList}\small\item\em create a streamable J\-S\-O\-N entity from this one \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Vector$<$ {\bf Entity} $>$ {\bf children} = null\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_ad315cf5c2790d5a5c8c5169c26647e84}
 
 \begin{DoxyCompactList}\small\item\em local singleton late-\/instantiated as needed by \doxyref{children()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_a63ef33ad49b88027164e49d1916f409c} \end{DoxyCompactList}\item 
+String {\bf description}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a76d2b0133d83c43dfd8a19286ac55325}
+
+\begin{DoxyCompactList}\small\item\em the description of the entity showing source \end{DoxyCompactList}\item 
 String {\bf name}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a9a2326f35466e54c36c070829245c557}
 
-\begin{DoxyCompactList}\small\item\em the unique name of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em the unique name of the entity \end{DoxyCompactList}\item 
+Weak\-Reference$<$ {\bf Entity} $>$ {\bf parent} = null\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_ab1bf14d6f0f0af84c30272b6eed5792f}
+
+\begin{DoxyCompactList}\small\item\em convenience weak-\/reference to parent\-: I want a reference but not one that will block G\-C \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -52,7 +82,7 @@ An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core muta
 
 I'm not so sure how it'll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects\-: things that can have children things. In the short term, be very careful\-: there is an \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity}, and a \doxyref{V\-W\-Import\-::\-Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} 
 
-Definition at line 44 of file Entity.\-java.
+Definition at line 46 of file Entity.\-java.
 
 
 
@@ -80,6 +110,20 @@ true if accepted, false if refused
 
 Referenced by Entity.\-Entity().
 
+\index{org\-::smallfoot\-::vw4\-::\-Entity@{org\-::smallfoot\-::vw4\-::\-Entity}!vwentity@{vwentity}}
+\index{vwentity@{vwentity}!org::smallfoot::vw4::Entity@{org\-::smallfoot\-::vw4\-::\-Entity}}
+\subsubsection[{vwentity}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf org.\-smallfoot.\-vw4.\-V\-W\-Import.\-Entity} vwentity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a22ee7fffdf91442c6f69865d5016ef0b}
+
+
+create a streamable J\-S\-O\-N entity from this one 
+
+\begin{DoxyReturn}{Returns}
+a \doxyref{org.\-smallfoot.\-vw4.\-V\-W\-Import.\-Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} representation of this instance 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
