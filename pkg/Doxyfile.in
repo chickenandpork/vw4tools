@@ -1421,6 +1421,25 @@ XML_DTD                =
 XML_PROGRAMLISTING     = NO
 
 #---------------------------------------------------------------------------
+# Configuration options related to the DOCBOOK output
+#---------------------------------------------------------------------------
+
+# If the GENERATE_DOCBOOK tag is set to YES doxygen will generate Docbook files
+# that can be used to generate PDF.
+# The default value is: NO.
+
+@DO_FOP_TRUE@GENERATE_DOCBOOK        = YES
+@DO_FOP_FALSE@GENERATE_DOCBOOK       = NO
+
+# The DOCBOOK_OUTPUT tag is used to specify where the Docbook pages will be put.
+# If a relative path is entered the value of OUTPUT_DIRECTORY will be put in
+# front of it.
+# The default directory is: docbook.
+# This tag requires that the tag GENERATE_DOCBOOK is set to YES.
+
+DOCBOOK_OUTPUT         = docbook
+
+#---------------------------------------------------------------------------
 # configuration options for the AutoGen Definitions output
 #---------------------------------------------------------------------------
 

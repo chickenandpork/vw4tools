@@ -104,6 +104,7 @@ AM_CONDITIONAL(DO_DOT, test "x$DOT" != "xmissing")
 AM_CONDITIONAL(DO_DOXYGEN, test "x$DOXYGEN" != "xmissing" -a "x$DOT" != "xmissing")
 if test "x$DOT" != "xmissing"; then HAVE_DOT=yes; else HAVE_DOT=no; fi
 AC_SUBST(HAVE_DOT)
+AM_CONDITIONAL(DO_FOP, test "x$DOXYGEN" != "xmissing" -a "x$DOT" != "xmissing" -a "x$FOP" != "xmissing" )
 AC_PATH_PROGS(ASTYLE, [astyle], missing, $PATH:$HOME/bin)
 AM_CONDITIONAL(DO_ASTYLE, test "x$ASTYLE" != "xmissing")
 AC_PATH_PROGS(RPMBUILD, [rpmbuild], [missing rpmbuild])
