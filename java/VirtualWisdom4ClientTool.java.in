@@ -764,7 +764,7 @@ System.out.println(jme.getMessage());
              */
             case 'V':   // print the version and quit
             {
-                System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")+"\n");
+                System.out.println(g.consistentVersion("@VERSION@-@BUILDID@"));
                 return;
             }
 
