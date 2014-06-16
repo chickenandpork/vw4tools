@@ -104,11 +104,11 @@ public abstract class Entity
 	/** whether a given entity can be this entity's child @return true if accepted, false if refused @param e entity to check for possible descendent-hood */
     protected abstract boolean canBeChild (Entity e);
 
-	/** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance */
-    protected abstract org.smallfoot.vw4.VWImport.Entity vwentity ();
+	/** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */
+    protected abstract org.smallfoot.vw4.VWImport.Entity vwentity (String tag);
 
-	/** convenience: add myself and all children to the streamable exporter given as "v" @param v VWImport streamer to add myself and children to @return number of entities written */
-    int addTo (VWImport v)
+	/** convenience: add myself and all children to the streamable exporter given as "v" @param v VWImport streamer to add myself and children to @param tag default tag to apply @return number of entities written */
+    int addTo (VWImport v, String tag)
 	{
 	    int i = 0;
 
@@ -118,12 +118,12 @@ public abstract class Entity
 	    }
 	    else
 	    {
-	        v.addEntity(vwentity());
+	        v.addEntity(vwentity(tag));
 		i++;
 
 	        for (Object o: children())
 		    if (o instanceof Entity)
-		        i += ((Entity) o).addTo(v);
+		        i += ((Entity) o).addTo(v, tag);
 		    else
 		        System.out.println("WARNING: child of "+name()+" not written: "+o.toString());
 	    }

@@ -61,6 +61,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "description" : "500a098598123456,NetApp-123456 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
     "name" : "NetApp-123456",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "storageport"
   }, {
     "child_entities" : {
@@ -69,16 +70,19 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "description" : "500a098698123456,NetApp-123456 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
     "name" : "NetApp-123456_456",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "storageport"
   }, {
     "description" : "10000000c9123456,Oracle01 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
     "name" : "Oracle01",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "hba"
   }, {
     "description" : "10000000c9123457,Oracle01 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
     "name" : "Oracle01_457",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "hba"
   } ],
   "version" : "1"
@@ -375,6 +379,7 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -Tsample02 -o], 0, [
     "description" : "sample02 test FA",
     "edit_type" : "add",
     "name" : "sample_02",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "storageport"
   } ],
   "version" : "1"

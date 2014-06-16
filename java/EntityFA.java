@@ -58,8 +58,8 @@ public class EntityFA extends Entity
 
     protected boolean canBeChild (Entity e) { return false; }	/**< this entity has no children so this method will always be false */
 
-	/** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance */
-    protected org.smallfoot.vw4.VWImport.Entity vwentity ()
+	/** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */
+    protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag)
     {
 	org.smallfoot.vw4.VWImport.Entity e = new org.smallfoot.vw4.VWImport.Entity();
 
@@ -67,6 +67,7 @@ public class EntityFA extends Entity
 	e.name = name();
 	e.add(wwn);
 	e.description = description();
+	if (null != tag) e.tags().add(tag);
         e.edit_type = org.smallfoot.vw4.VWImport.Edit_Type.add;
 
 	return e;
