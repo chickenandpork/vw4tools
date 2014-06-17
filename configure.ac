@@ -76,7 +76,7 @@ AC_ARG_WITH(doxygen,
     case "$withval" in
 	""|"yes") 
 		AC_PATH_PROGS(DOXYGEN, [doxygen], missing, $PATH:/Applications/Doxygen.app/Contents/Resources)
-		AC_PATH_PROGS(FOP, [fop], missing)
+		AC_PATH_PROGS(FOP, [xmlgraphics-fop fop], missing)
 		;;
 	"no")  DOXYGEN=missing ;;
 	*) DOXYGEN=$withval ;;
@@ -98,13 +98,30 @@ AC_ARG_WITH(doxygen,
 AC_SUBST(HAVE_DOXYGEN_MARKDOWN)
 AM_CONDITIONAL(DO_DOXYGEN_MD, test "x$HAVE_DOXYGEN_MARKDOWN" = "xyes")
 
+AC_ARG_WITH(docbook,
+[AS_HELP_STRING([--with-docbook],[Indicate where Docbook is or should be downloaded; (default=depjars/docbook-xsl)])],
+[
+    case "$withval" in
+	""|"yes") 
+		DOCBOOKDIR=`pwd`/depjars/docbook-xsl ;;
+	"no")  DOCBOOKDIR=no ;;
+	*) DOCBOOKDIR=$withval ;;
+    esac
+],
+[
+	DOCBOOKDIR=`pwd`/depjars/docbook-xsl
+])
+AC_SUBST(DOCBOOKDIR)
+AM_CONDITIONAL(FETCH_DOCBOOK, test "x$DOCBOOKDIR" != "xno" -a ! -f ${DOCBOOKDIR}/fo/docbook.xsl)
+
 AC_PATH_PROGS(DOT, [dot], missing, $PATH:/usr/local/bin:/usr/local/graph*/bin)
 AC_SUBST(PATHDOT, [`dirname "${DOT}"`])
 AM_CONDITIONAL(DO_DOT, test "x$DOT" != "xmissing")
 AM_CONDITIONAL(DO_DOXYGEN, test "x$DOXYGEN" != "xmissing" -a "x$DOT" != "xmissing")
 if test "x$DOT" != "xmissing"; then HAVE_DOT=yes; else HAVE_DOT=no; fi
 AC_SUBST(HAVE_DOT)
-AM_CONDITIONAL(DO_FOP, test "x$DOXYGEN" != "xmissing" -a "x$DOT" != "xmissing" -a "x$FOP" != "xmissing" )
+AM_CONDITIONAL(DO_FOP, test "x$DOXYGEN" != "xmissing" -a "x$DOT" != "xmissing" -a "x$XSLTPROC" != "xmissing" )
+AM_CONDITIONAL(FETCH_FOP, test "x$DOXYGEN" != "xmissing" -a "x$DOT" != "xmissing" -a "x$XSLTPROC" != "xmissing" -a "x$FOP" = "xmissing" )
 AC_PATH_PROGS(ASTYLE, [astyle], missing, $PATH:$HOME/bin)
 AM_CONDITIONAL(DO_ASTYLE, test "x$ASTYLE" != "xmissing")
 AC_PATH_PROGS(RPMBUILD, [rpmbuild], [missing rpmbuild])

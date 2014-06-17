@@ -30,12 +30,36 @@ EXTRA_DIST = @PACKAGE@.spec gitdescribe
 #endif
 
 if DO_DOXYGEN
-doc: htdocs/README.dox Doxyfile
+if DO_FOP
+doc: htdocs/docbook/docbook.fo htdocs/index.html
+else
+doc: htdocs/index.html
+endif DO_FOP_FALSE
+
+htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/README.dox Doxyfile
 	$(DOXYGEN)
 	if test \! -d $(<D)/.git; then echo "subdir $(<D) not set as a gh-pages branch; see http://rickfoosusa.blogspot.com/2011/10/howto-use-doxygen-with-github.html"; git branch|grep gh-pages || echo git clone --branch gh-pages $$(git config --get remote.origin.url) $(<D); grep $(<D) .gitignore || echo "echo $(<D) > .gitignore"; echo "then delete everything in $(<D), commit, and push"; exit 1; fi
 	@grep $(<D) .gitignore || { echo "echo $(<D) > .gitignore"; exit 1; }
 	(cd $(<D) && git add -A)
 	if test -n "$(DOXYMESSAGE)" ; then (cd $(<D) && git commit -a -m "$(DOXYMESSAGE)" && git push); fi
+
+if DO_FOP
+# fop.sh -xsl /docbook-xsl/fo/docbook.xsl -xml myfile.xml -pdf myfile.pdf
+# http://www.sagehill.net/docbookxsl/InstallingAnFO.html
+htdocs/docbook/docbook.fo: htdocs/docbook/index.xml
+	(cd $(@D) && @XSLTPROC@  --xinclude --output $(@F) --stringparam fop1.extensions 1  $(abs_top_srcdir)/depjars/docbook-xsl/fo/docbook.xsl  $(<F) )
+	echo @XSLTPROC@ --xinclude --output @PACKAGE@.fo $db/docbook-xsl-ns-1.78.1/fo/docbook.xsl $(<D)/xml/index.xml
+
+#	(cd $(@D) && @XSLTPROC@  --xinclude --output $(@F) --stringparam fop1.extensions 1  docbook-xsl/fo/docbook.xsl $(<F) )
+
+htdocs/docbook/docbook.pdf: htdocs/docbook/docbook.fo
+if FETCH_FOP
+	echo @JAVA@ -jar $(abs_builddir) -fo $< -pdf $@
+else
+	echo @FOP@ -fo @PACKAGE@.fo -pdf @PACKAGE@.pdf
+endif FETCH_FOP_FALSE
+
+endif DO_FOP
 
 htdocs/README.dox: README.md Makefile
 	if test \! -d $(@D)/.git; then echo "subdir $(@D) not set as a gh-pages branch; see http://rickfoosusa.blogspot.com/2011/10/howto-use-doxygen-with-github.html"; git branch|grep gh-pages || echo git clone --branch gh-pages $$(git config --get remote.origin.url) $(@D); grep $(@D) .gitignore || echo "echo $(@D) > .gitignore"; echo "then delete everything in $(@D), commit, and push"; exit 1; fi
