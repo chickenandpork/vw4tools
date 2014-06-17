@@ -558,12 +558,28 @@ System.out.println(jme.getMessage());
 
 		    m.vwimport = vwimport;
                 }
-                else
-                if (g.getOptarg().equalsIgnoreCase ("sample02"))
+                else if (g.getOptarg().equalsIgnoreCase ("sample02"))
                 {
-
 		    Entity n = new EntityFA ("sample_02", "10000000c9123456");
 		    n.description = "sample02 test FA"; 
+		    m.entities().put(n.name(), n);
+                }
+                else if (g.getOptarg().equalsIgnoreCase ("sample03"))
+                {
+		    Entity n = new EntityFA ("NetApp 01 A", "500a098598123456");
+		    n.description = "sample03 test NetApp"; 
+		    m.entities().put(n.name(), n);
+
+		    n = new EntityFA ("NetApp 01 B", "500a098698123456");
+		    n.description = "sample03 test NetApp"; 
+		    m.entities().put(n.name(), n);
+
+		    n = new EntityHBA ("hba 02 A", "10000000c9123456");
+		    n.description = "sample03 test HBA"; 
+		    m.entities().put(n.name(), n);
+
+		    n = new EntityHBA ("hba 02 B", "10000000c9123457");
+		    n.description = "sample03 test HBA"; 
 		    m.entities().put(n.name(), n);
                 }
                 else

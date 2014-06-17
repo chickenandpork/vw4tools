@@ -336,7 +336,7 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N alias4file.csv -o
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 
-AT_CHECK([cat OrderedTuples.csv], 0, [NetApp-123456,array,500a098598123456
+AT_CHECK([cat OrderedTuples.csv], 0, [NetApp-123456,array,500a098598123456,
 NetApp-123456_456,array,500a098698123456
 Oracle01,host,10000000c9123456
 Oracle01_457,host,10000000c9123457
@@ -381,6 +381,55 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -Tsample02 -o], 0, [
     "name" : "sample_02",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "storageport"
+  } ],
+  "version" : "1"
+}
+]],[stderr])
+
+AT_CLEANUP()
+
+
+
+AT_SETUP(write json sample sample03)
+dnl      --------------------------
+
+AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -Tsample03 -o], 0, [[{
+  "entities" : [ {
+    "child_entities" : {
+      "add" : [ "500a098598123456" ]
+    },
+    "description" : "sample03 test NetApp",
+    "edit_type" : "add",
+    "name" : "NetApp 01 A",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "storageport"
+  }, {
+    "child_entities" : {
+      "add" : [ "500a098698123456" ]
+    },
+    "description" : "sample03 test NetApp",
+    "edit_type" : "add",
+    "name" : "NetApp 01 B",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "storageport"
+  }, {
+    "child_entities" : {
+      "add" : [ "10000000c9123456" ]
+    },
+    "description" : "sample03 test HBA",
+    "edit_type" : "add",
+    "name" : "hba 02 A",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "hba"
+  }, {
+    "child_entities" : {
+      "add" : [ "10000000c9123457" ]
+    },
+    "description" : "sample03 test HBA",
+    "edit_type" : "add",
+    "name" : "hba 02 B",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "hba"
   } ],
   "version" : "1"
 }

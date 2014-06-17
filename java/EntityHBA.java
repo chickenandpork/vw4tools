@@ -65,6 +65,7 @@ public class EntityHBA extends Entity
 
         e.type = "hba";
         e.name = name();
+	e.add(wwn);
 	e.description = description();
         if (null != tag) e.tags().add(tag);
         e.edit_type = org.smallfoot.vw4.VWImport.Edit_Type.add;
