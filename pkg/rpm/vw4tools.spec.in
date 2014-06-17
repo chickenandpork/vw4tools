@@ -16,6 +16,15 @@ BuildArchitectures: noarch
 Tools and Resources similar to my "fctools" project (nee "vitools") to reduce the friction of certain tasks with VirtualWisdom4.
 
 
+@DO_FOP_TRUE@ %package doc
+@DO_FOP_TRUE@ Summary: VirtualWisdom4 Unofficial Resources Documentation
+@DO_FOP_TRUE@ Group: Utilities
+
+@DO_FOP_TRUE@ %description doc
+@DO_FOP_TRUE@ Documentation for the VW4 Tools and Resources (similar to my "fctools" project) to reduce the friction of certain tasks with VirtualWisdom4.
+
+
+
 %package java
 Summary: VirtualWisdom4 Unofficial Resources in Java
 Group: Utilities
@@ -53,6 +62,10 @@ rm -fr %{buildroot}/%{_datadir}/@PACKAGE@/jars
 %files
 %defattr(-, root, root, 0644)
 
+@DO_FOP_TRUE@ %files doc
+# exported in ./Makefile.am
+@DO_FOP_TRUE@ %{_datadir}/@PACKAGE@/@PACKAGE@.pdf
+
 %files java
 # exported in java/Makefile.am
 %{_datadir}/@PACKAGE@/@PACKAGE@.jar
@@ -63,5 +76,8 @@ rm -fr %{buildroot}/%{_datadir}/@PACKAGE@/jars
 
 
 %changelog
+* Tue Jun 17 2014 Allan Clark <allanc@chickenandporn.com> - 0.9-43
+- Added "doc" subpackage to carry generated (PDF) documentation
+
 * Thu May 1 2014 Allan Clark <allanc@chickenandporn.com> - 0.3-1
 - Initial package

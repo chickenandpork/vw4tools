@@ -31,7 +31,7 @@ EXTRA_DIST = @PACKAGE@.spec gitdescribe
 
 if DO_DOXYGEN
 if DO_FOP
-doc: htdocs/docbook/docbook.fo htdocs/index.html
+doc: htdocs/docbook/@PACKAGE@.pdf htdocs/index.html
 else
 doc: htdocs/index.html
 endif DO_FOP_FALSE
@@ -46,17 +46,14 @@ htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/README.d
 if DO_FOP
 # fop.sh -xsl /docbook-xsl/fo/docbook.xsl -xml myfile.xml -pdf myfile.pdf
 # http://www.sagehill.net/docbookxsl/InstallingAnFO.html
-htdocs/docbook/docbook.fo: htdocs/docbook/index.xml
+htdocs/docbook/@PACKAGE@.fo: htdocs/docbook/index.xml
 	(cd $(@D) && @XSLTPROC@  --xinclude --output $(@F) --stringparam fop1.extensions 1  $(abs_top_srcdir)/depjars/docbook-xsl/fo/docbook.xsl  $(<F) )
-	echo @XSLTPROC@ --xinclude --output @PACKAGE@.fo $db/docbook-xsl-ns-1.78.1/fo/docbook.xsl $(<D)/xml/index.xml
 
-#	(cd $(@D) && @XSLTPROC@  --xinclude --output $(@F) --stringparam fop1.extensions 1  docbook-xsl/fo/docbook.xsl $(<F) )
-
-htdocs/docbook/docbook.pdf: htdocs/docbook/docbook.fo
+htdocs/docbook/@PACKAGE@.pdf: htdocs/docbook/@PACKAGE@.fo
 if FETCH_FOP
-	echo @JAVA@ -jar $(abs_builddir) -fo $< -pdf $@
+	@JAVA@ -jar $(abs_builddir)/depjars/fop.jar -fo $< -pdf $@
 else
-	echo @FOP@ -fo @PACKAGE@.fo -pdf @PACKAGE@.pdf
+	@FOP@ -fo $< -pdf $@
 endif FETCH_FOP_FALSE
 
 endif DO_FOP

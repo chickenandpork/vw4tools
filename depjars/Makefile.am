@@ -58,11 +58,10 @@ fop-1.1-bin.tar.gz:
 fop.jar: $(FOPJARS) fop-1.1.jar
 	@-rm -fr $(@D)/.workdir
 	@mkdir -p $(@D)/.workdir
-	@echo "Manifest-Version: 1.0" > $(@D)/.workdir/MANIFEST.MF
-	@echo "Created-By: @PACKAGE@-@VERSION@" >> $(@D)/.workdir/MANIFEST.MF
 	ln -f $^ $(@D)/.workdir/
 	for i in $(^F) ; do (cd $(@D)/.workdir  && jar xf $$i) ; done
-	(cd $(@D)/.workdir && jar cm MANIFEST.MF META-INF/services org javax java_cup) > $@
+	cp $(@D)/.workdir/META-INF/MANIFEST.MF $(@D)/.workdir/MANIFEST.MF
+	(cd $(@D)/.workdir && jar cm MANIFEST.MF META-INF org javax java_cup) > $@
 	rm -fr $(@D)/.workdir
 	touch $@
 endif FETCH_FOP
