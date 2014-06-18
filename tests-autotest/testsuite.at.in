@@ -73,12 +73,18 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "storageport"
   }, {
+    "child_entities" : {
+      "add" : [ "10000000c9123456" ]
+    },
     "description" : "10000000c9123456,Oracle01 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
     "name" : "Oracle01",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "hba"
   }, {
+    "child_entities" : {
+      "add" : [ "10000000c9123457" ]
+    },
     "description" : "10000000c9123457,Oracle01 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
     "name" : "Oracle01_457",
@@ -336,7 +342,7 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N alias4file.csv -o
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 
-AT_CHECK([cat OrderedTuples.csv], 0, [NetApp-123456,array,500a098598123456,
+AT_CHECK([cat OrderedTuples.csv], 0, [NetApp-123456,array,500a098598123456
 NetApp-123456_456,array,500a098698123456
 Oracle01,host,10000000c9123456
 Oracle01_457,host,10000000c9123457
