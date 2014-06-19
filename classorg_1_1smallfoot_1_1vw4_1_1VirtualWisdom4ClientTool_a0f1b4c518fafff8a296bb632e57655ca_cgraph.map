@@ -1,5 +1,4 @@
 <map id="VirtualWisdom4ClientTool" name="VirtualWisdom4ClientTool">
-<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f" title="Wrapper to just load the file, spitting out exceptions and stacks as they occur. " alt="" coords="227,29,274,54"/>
-<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058" title="Open a file. " alt="" coords="322,29,376,54"/>
-<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#acbeee875159f78e186965708e70dee94" title="singleton to access vwimport to allow for later post&#45;process " alt="" coords="424,29,499,54"/>
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f" title="Wrapper to just load the file, spitting out exceptions and stacks as they occur. " alt="" coords="227,5,274,30"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058" title="Open a file. " alt="" coords="322,5,376,30"/>
 </map>

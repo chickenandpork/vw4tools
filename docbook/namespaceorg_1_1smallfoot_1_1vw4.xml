@@ -31,12 +31,5 @@
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport">org::smallfoot::vw4::VWImport</link></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
         </simplesect>
 </section>

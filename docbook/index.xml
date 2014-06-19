@@ -15,18 +15,15 @@
     </chapter>
         <xi:include href="mainpage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="md_htdocs_README.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="todo.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <chapter>
         <title>Class Documentation</title>
-        <xi:include href="enumorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Edit__Type.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1Entity.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1EntityFA.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classjava_1_1lang_1_1Exception.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1ITLPattern.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </chapter>
     <chapter>
         <title>File Documentation</title>

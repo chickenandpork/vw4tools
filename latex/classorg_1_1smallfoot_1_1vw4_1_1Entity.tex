@@ -2,12 +2,12 @@
 \label{classorg_1_1smallfoot_1_1vw4_1_1Entity}\index{Entity@{Entity}}
 
 
-An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core mutable object used in the J\-S\-O\-N import for V\-W4.  
+An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core mutable object used in the J\+S\+O\+N import for V\+W4.  
 
 
 
 
-Inheritance diagram for Entity\-:\nopagebreak
+Inheritance diagram for Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,7 +16,7 @@ Inheritance diagram for Entity\-:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Entity\-:\nopagebreak
+Collaboration diagram for Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,7 +26,7 @@ Collaboration diagram for Entity\-:\nopagebreak
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-class {\bf Improper\-Child\-Exception}
+class {\bf Improper\+Child\+Exception}
 \begin{DoxyCompactList}\small\item\em Descendents of \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} should know whether a given entity can be one of their child elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -34,32 +34,27 @@ class {\bf Improper\-Child\-Exception}
 {\bf Entity} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afc6a43ee8007bcc023a7ebd2bf5ee1ed}
 
 \begin{DoxyCompactList}\small\item\em Class Constructor with no initial child. \end{DoxyCompactList}\item 
-{\bf Entity} (String {\bf name}, {\bf Entity} e)  throws Improper\-Child\-Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1afb3a328033f8f6bf136d8380e712b9}
+{\bf Entity} (String {\bf name}, {\bf Entity} e)  throws Improper\+Child\+Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1afb3a328033f8f6bf136d8380e712b9}
 
 \begin{DoxyCompactList}\small\item\em Class Constructor with an initial child to absorb. \end{DoxyCompactList}\item 
-String {\bf description} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a464a9940ad720e717c25422b41b7845b}
-
-\begin{DoxyCompactList}\small\item\em getter \end{DoxyCompactList}\item 
-String {\bf name} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afa2149aced9d90555f788dfc81c23d15}
-
-\begin{DoxyCompactList}\small\item\em getter \end{DoxyCompactList}\item 
-void {\bf set\-Description} (String {\bf description})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1d15d718177c4f5411ce6ab339889fd4}
-
-\begin{DoxyCompactList}\small\item\em setter \end{DoxyCompactList}\item 
-void {\bf setname} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a670f83b1f0f39a20e0fe60597032a367}
-
-\begin{DoxyCompactList}\small\item\em setter \end{DoxyCompactList}\end{DoxyCompactItemize}
+String {\bf description} ()
+\item 
+String {\bf name} ()
+\item 
+void {\bf set\+Description} (String {\bf description})
+\item 
+void {\bf setname} (String {\bf name})
+\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-abstract boolean {\bf can\-Be\-Child} ({\bf Entity} e)
+abstract boolean {\bf can\+Be\+Child} ({\bf Entity} e)
 \begin{DoxyCompactList}\small\item\em whether a given entity can be this entity's child \end{DoxyCompactList}\item 
-Vector$<$ {\bf Entity} $>$ {\bf children} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a63ef33ad49b88027164e49d1916f409c}
-
-\begin{DoxyCompactList}\small\item\em local access to local singleton .children \end{DoxyCompactList}\item 
+Vector$<$ {\bf Entity} $>$ {\bf children} ()
+\item 
 abstract \\*
-{\bf org.\-smallfoot.\-vw4.\-V\-W\-Import.\-Entity} {\bf vwentity} ()
-\begin{DoxyCompactList}\small\item\em create a streamable J\-S\-O\-N entity from this one \end{DoxyCompactList}\end{DoxyCompactItemize}
+org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity {\bf vwentity} (String tag)
+\begin{DoxyCompactList}\small\item\em create a streamable J\+S\+O\+N entity from this one \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,24 +67,24 @@ String {\bf description}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a76d2b0133
 String {\bf name}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a9a2326f35466e54c36c070829245c557}
 
 \begin{DoxyCompactList}\small\item\em the unique name of the entity \end{DoxyCompactList}\item 
-Weak\-Reference$<$ {\bf Entity} $>$ {\bf parent} = null\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_ab1bf14d6f0f0af84c30272b6eed5792f}
+Weak\+Reference$<$ {\bf Entity} $>$ {\bf parent} = null\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_ab1bf14d6f0f0af84c30272b6eed5792f}
 
-\begin{DoxyCompactList}\small\item\em convenience weak-\/reference to parent\-: I want a reference but not one that will block G\-C \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em convenience weak-\/reference to parent\+: I want a reference but not one that will block G\+C \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core mutable object used in the J\-S\-O\-N import for V\-W4. 
+An \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} is the core mutable object used in the J\+S\+O\+N import for V\+W4. 
 
-I'm not so sure how it'll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects\-: things that can have children things. In the short term, be very careful\-: there is an \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity}, and a \doxyref{V\-W\-Import\-::\-Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} 
+I'm not so sure how it'll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects\+: things that can have children things. In the short term, be very careful\+: there is an \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity}, and a V\+W\+Import\+::\+Entity 
 
-Definition at line 46 of file Entity.\-java.
+Definition at line 46 of file Entity.\+java.
 
 
 
 \subsection{Member Function Documentation}
-\index{org\-::smallfoot\-::vw4\-::\-Entity@{org\-::smallfoot\-::vw4\-::\-Entity}!can\-Be\-Child@{can\-Be\-Child}}
-\index{can\-Be\-Child@{can\-Be\-Child}!org::smallfoot::vw4::Entity@{org\-::smallfoot\-::vw4\-::\-Entity}}
-\subsubsection[{can\-Be\-Child}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean can\-Be\-Child (
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!can\+Be\+Child@{can\+Be\+Child}}
+\index{can\+Be\+Child@{can\+Be\+Child}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{can\+Be\+Child}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean can\+Be\+Child (
 \begin{DoxyParamCaption}
 \item[{{\bf Entity}}]{e}
 \end{DoxyParamCaption}
@@ -108,24 +103,134 @@ true if accepted, false if refused
 \end{DoxyParams}
 
 
-Referenced by Entity.\-Entity().
+Referenced by Entity.\+Entity().
 
-\index{org\-::smallfoot\-::vw4\-::\-Entity@{org\-::smallfoot\-::vw4\-::\-Entity}!vwentity@{vwentity}}
-\index{vwentity@{vwentity}!org::smallfoot::vw4::Entity@{org\-::smallfoot\-::vw4\-::\-Entity}}
-\subsubsection[{vwentity}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf org.\-smallfoot.\-vw4.\-V\-W\-Import.\-Entity} vwentity (
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!children@{children}}
+\index{children@{children}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{children}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<${\bf Entity}$>$ children (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a22ee7fffdf91442c6f69865d5016ef0b}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a63ef33ad49b88027164e49d1916f409c}
+$<$ local access to local singleton .children 
+
+Definition at line 65 of file Entity.\+java.
 
 
-create a streamable J\-S\-O\-N entity from this one 
+
+Referenced by Entity.\+Entity().
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!description@{description}}
+\index{description@{description}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{description}]{\setlength{\rightskip}{0pt plus 5cm}String description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a464a9940ad720e717c25422b41b7845b}
+$<$ getter 
+
+Definition at line 82 of file Entity.\+java.
+
+
+
+Referenced by Entity.\+set\+Description(), Entity\+H\+B\+A.\+vwentity(), and Entity\+F\+A.\+vwentity().
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!name@{name}}
+\index{name@{name}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}String name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afa2149aced9d90555f788dfc81c23d15}
+$<$ getter 
+
+Definition at line 72 of file Entity.\+java.
+
+
+
+Referenced by Entity.\+Entity(), Entity.\+setname(), Entity\+F\+A.\+vwentity(), and Entity\+H\+B\+A.\+vwentity().
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!set\+Description@{set\+Description}}
+\index{set\+Description@{set\+Description}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{set\+Description}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Description (
+\begin{DoxyParamCaption}
+\item[{String}]{description}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1d15d718177c4f5411ce6ab339889fd4}
+$<$ setter 
+
+Definition at line 86 of file Entity.\+java.
+
+
+
+References Entity.\+description().
+
+
+
+Referenced by Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Absorb\+File().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1d15d718177c4f5411ce6ab339889fd4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!setname@{setname}}
+\index{setname@{setname}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{setname}]{\setlength{\rightskip}{0pt plus 5cm}void setname (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a670f83b1f0f39a20e0fe60597032a367}
+$<$ setter 
+
+Definition at line 76 of file Entity.\+java.
+
+
+
+References Entity.\+name().
+
+
+
+Referenced by Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Absorb\+File().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_a670f83b1f0f39a20e0fe60597032a367_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!vwentity@{vwentity}}
+\index{vwentity@{vwentity}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{vwentity}]{\setlength{\rightskip}{0pt plus 5cm}abstract org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity vwentity (
+\begin{DoxyParamCaption}
+\item[{String}]{tag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_ad132dc987577f0c56ebcd762c3bddddb}
+
+
+create a streamable J\+S\+O\+N entity from this one 
 
 \begin{DoxyReturn}{Returns}
-a \doxyref{org.\-smallfoot.\-vw4.\-V\-W\-Import.\-Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity} representation of this instance 
+a org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity representation of this instance 
 \end{DoxyReturn}
 
+\begin{DoxyParams}{Parameters}
+{\em tag} & default tag to apply \\
+\hline
+\end{DoxyParams}
 
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-java/{\bf Entity.\-java}\end{DoxyCompactItemize}
+java/{\bf Entity.\+java}\end{DoxyCompactItemize}

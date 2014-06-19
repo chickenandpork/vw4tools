@@ -1,7 +1,9 @@
 <map id="loadAndAbsorbFile" name="loadAndAbsorbFile">
-<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4" title="entities" alt="" coords="194,5,257,30"/>
-<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a9e0f542a9a12624390c9a7f7c032789b" title="Load a file from the resource given to a WWN/Nickname vector. " alt="" coords="191,54,259,79"/>
-<area shape="rect" id="node5" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a09f298d19a33be899f5835657c747c5d" title="patterns" alt="" coords="191,103,260,129"/>
-<area shape="rect" id="node6" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a43a8de962936ee9d82e0a70eeb9b1db6" title="wwndesc" alt="" coords="187,153,263,178"/>
-<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a3ac515893512e150892f862b4cce8769" title="Produce an InputStream for the given uri in a way that corresponds to the url protocol. " alt="" coords="312,54,406,79"/>
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4" title="entities" alt="" coords="263,5,326,30"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a09f298d19a33be899f5835657c747c5d" title="patterns" alt="" coords="260,54,329,79"/>
+<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a1d15d718177c4f5411ce6ab339889fd4" title="org.smallfoot.vw4.Entity.set\lDescription" alt="" coords="203,103,386,142"/>
+<area shape="rect" id="node6" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a670f83b1f0f39a20e0fe60597032a367" title="org.smallfoot.vw4.Entity.setname" alt="" coords="187,166,403,191"/>
+<area shape="rect" id="node8" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a43a8de962936ee9d82e0a70eeb9b1db6" title="wwndesc" alt="" coords="257,215,333,241"/>
+<area shape="rect" id="node5" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a464a9940ad720e717c25422b41b7845b" title="org.smallfoot.vw4.Entity.description" alt="" coords="451,110,680,135"/>
+<area shape="rect" id="node7" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#afa2149aced9d90555f788dfc81c23d15" title="org.smallfoot.vw4.Entity.name" alt="" coords="466,166,664,191"/>
 </map>

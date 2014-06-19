@@ -12,6 +12,16 @@
             </para>
         </simplesect>
         <simplesect>
+            <title>Public Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>VWImport vwimport<para><emphasis>singleton list of JSON-writable objects accessed through vwimport()</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
             <title>Protected Attributes</title>
             <para>
                 <itemizedlist>
@@ -72,14 +82,6 @@ String filename)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>ZoneParser <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a9e0f542a9a12624390c9a7f7c032789b">loadFile</link> (
-String url, boolean verbose)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
                         <para>Vector&lt; Pattern &gt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a09f298d19a33be899f5835657c747c5d">patterns</link> (
 )</para>
                     </listitem>
@@ -89,7 +91,7 @@ String url, boolean verbose)</para>
                 <itemizedlist>
                     <listitem>
                         <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4">prettyJSON</link> (
-<link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport">VWImport</link> v)</para>
+VWImport v)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -139,8 +141,8 @@ String f)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>java.io.InputStream <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3ac515893512e150892f862b4cce8769">openStream</link> (
-String uri)</para>
+                        <para>VWImport <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1acbeee875159f78e186965708e70dee94">vwimport</link> (
+)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -174,6 +176,14 @@ String alias)</para>
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>int <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aeb4c990279152389717ab187394330fa">finalizeEntities</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a">usage</link> (
 String progname)</para>
                     </listitem>
@@ -184,6 +194,14 @@ String progname)</para>
                     <listitem>
                         <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae7f58b7f70ac5ad9229b3556469d5328">writeOrderedTuples</link> (
 String name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0ec044bae77579fea9b51e49c05ccbd3">writeOutputfile</link> (
+String filename)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -212,7 +230,7 @@ String args)</para>
 <para>As you&apos;d expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</para>
 
 <para>Ad-Hoc content for this utility-stack may appear at <link xlink:href="http://fcfae.com/">http://fcfae.com/</link> </para>
-                <para>Definition at line 59 of file VirtualWisdom4ClientTool.java</para>
+                <para>Definition at line 56 of file VirtualWisdom4ClientTool.java</para>
                 <para>The Documentation for this struct was generated from the following file: </para>
                 <para><itemizedlist><listitem><para>VirtualWisdom4ClientTool.java</para></listitem></itemizedlist></para>
         </simplesect>
@@ -236,7 +254,7 @@ String args)</para>
                         </tgroup>
                     </table>
                 </formalpara>
-                <formalpara><title>See Also: </title>
+                <formalpara><title>See also: </title>
 
 <para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f">load(String)</link> </para>
 </formalpara>
@@ -274,39 +292,6 @@ String args)</para>
                 </para>
 
             </section>
-            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a9e0f542a9a12624390c9a7f7c032789b">
-                <title>ZoneParser loadFile (String url, boolean verbose)</title> <emphasis>Load a file from the resource given to a WWN/Nickname vector.</emphasis>
-                
-<para><formalpara><title>Returns: </title>
-
-<para>the number of things loaded (used to trigger obsessive retries to get around choking org.apache.commons.io.input.TeeInputStream ) </para>
-</formalpara>
-
-                <formalpara>
-                    <title/>
-                    <table frame="all">
-                        <title>Parameters</title>
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <tbody>
-                            <row>
-                                <entry>url</entry>
-                                <entry>
-<para>the <link xlink:href="file://">file://</link> resource of a file, ie &quot;file://sample.csv;wwn=1;nickname=2&quot; </para>
-</entry>
-                            </row>
-                            <row>
-                                <entry>verbose</entry>
-                                <entry>
-<para>if true, parser results will be shown to stdout </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                </formalpara>
-                </para>
-
-            </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a09f298d19a33be899f5835657c747c5d">
                 <title>Vector&lt;Pattern&gt; patterns ()</title> <emphasis></emphasis>
                 
@@ -324,7 +309,7 @@ String args)</para>
                             <row>
                                 <entry>v</entry>
                                 <entry>
-<para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport">VWImport</link> object to markup </para>
+<para>VWImport object to markup </para>
 </entry>
                             </row>
                         </tbody>
@@ -387,6 +372,23 @@ String args)</para>
                         </tgroup>
                     </table>
                 </formalpara>
+                
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Exceptions</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>IOException</entry>
+                                <entry>
+<para>when File() encounters an error instaitating (typically path or permissions) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
                 </para>
 
             </section>
@@ -436,39 +438,16 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
                         </tgroup>
                     </table>
                 </formalpara>
-                <formalpara><title>See Also: </title>
+                <formalpara><title>See also: </title>
 
 <para><link xlink:href="https://github.com/chickenandpork/fibrechannel-parsers/">https://github.com/chickenandpork/fibrechannel-parsers/</link> </para>
 </formalpara>
 </para>
 
             </section>
-            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3ac515893512e150892f862b4cce8769">
-                <title>java.io.InputStream openStream (String uri)</title> <emphasis>Produce an InputStream for the given uri in a way that corresponds to the url protocol.</emphasis>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1acbeee875159f78e186965708e70dee94">
+                <title>VWImport vwimport ()</title> <emphasis></emphasis>
                 
-<para><formalpara><title>Returns: </title>
-
-<para>InputStream ready to offer back the data </para>
-</formalpara>
-
-                <formalpara>
-                    <title/>
-                    <table frame="all">
-                        <title>Parameters</title>
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <tbody>
-                            <row>
-                                <entry>uri</entry>
-                                <entry>
-<para>the <link xlink:href="file://">file://</link> resource of a file, ie &quot;file:///sample.csv&quot; </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                </formalpara>
-                </para>
-
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">
                 <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns.</emphasis>
@@ -490,6 +469,16 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
 <para>As is assumed in the VW4 product, the regex is performed as: s/{pattern}/\1/ such that for a given pattern, the first capturing group is the result For example, given a pattern of &quot;^(.*).{5}$&quot;, the &quot;.{5}$&quot; matches the final 5 characters (5 wildcards before end-of-line), leaving the remainder within &quot;^(.*)&quot;. All but the final 5 characters are contained in that capture-grouping, so the result is all but the final 5 characters.</para>
 
 <para>param alias a String nickname to exercise all patterns against </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aeb4c990279152389717ab187394330fa">
+                <title>int finalizeEntities ()</title> <emphasis>Finalize absorbed Entities: for each entity, transfer from structured tree of Entities to vwimport array for writing.</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>number of items finalized </para>
+</formalpara>
+</para>
 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a">
@@ -535,10 +524,40 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
                         </tgroup>
                     </table>
                 </formalpara>
-                exception                            <row>
+                
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Exceptions</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
                                 <entry>java.io.IOException</entry>
                                 <entry>
 <para>when PrintStream throws an exception </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0ec044bae77579fea9b51e49c05ccbd3">
+                <title>void writeOutputfile (String filename)</title> <emphasis>Write an output file, finalizing from entities() if required.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>filename</entry>
+                                <entry>
+<para>name of file to write </para>
 </entry>
                             </row>
                         </tbody>

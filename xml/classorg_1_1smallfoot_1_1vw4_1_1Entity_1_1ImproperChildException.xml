@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
   <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException" kind="class" prot="public">
     <compoundname>org::smallfoot::vw4::Entity::ImproperChildException</compoundname>
     <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
@@ -27,7 +27,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="52" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="52" bodyend="52"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="52" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a2a8c52dc01b9775f76eab69ebc825638" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -63,7 +63,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="55" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="55" bodyend="55"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="58" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="58" bodyend="61"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -71,28 +71,28 @@
     <detaileddescription>
 <para>This exception is intended as a method of signalling <ndash/> and rippling up if necessary <ndash/> than an intended seconding as a child element is not accepted by the would-be parent. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="72">
+      <node id="46">
         <label>Entity.ImproperChildException</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException"/>
-        <childnode refid="73" relation="public-inheritance">
+        <childnode refid="47" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="73">
+      <node id="47">
         <label>Exception</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="74">
+      <node id="48">
         <label>Entity.ImproperChildException</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException"/>
-        <childnode refid="75" relation="public-inheritance">
+        <childnode refid="49" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="75">
+      <node id="49">
         <label>Exception</label>
       </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="50" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="49" bodyend="56"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="50" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="49" bodyend="62"/>
     <listofallmembers>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a5c306b76ca66e2e9744e4e1f637cc991" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::ImproperChildException</scope><name>ImproperChildException</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a2a8c52dc01b9775f76eab69ebc825638" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::ImproperChildException</scope><name>ImproperChildException</name></member>

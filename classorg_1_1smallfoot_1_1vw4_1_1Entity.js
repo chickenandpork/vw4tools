@@ -9,7 +9,7 @@ var classorg_1_1smallfoot_1_1vw4_1_1Entity =
     [ "name", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#afa2149aced9d90555f788dfc81c23d15", null ],
     [ "setDescription", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a1d15d718177c4f5411ce6ab339889fd4", null ],
     [ "setname", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a670f83b1f0f39a20e0fe60597032a367", null ],
-    [ "vwentity", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a22ee7fffdf91442c6f69865d5016ef0b", null ],
+    [ "vwentity", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#ad132dc987577f0c56ebcd762c3bddddb", null ],
     [ "children", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#ad315cf5c2790d5a5c8c5169c26647e84", null ],
     [ "description", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325", null ],
     [ "name", "classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557", null ],

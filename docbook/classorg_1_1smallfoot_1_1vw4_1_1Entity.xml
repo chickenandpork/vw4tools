@@ -23,7 +23,21 @@
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>String description<para><emphasis>the description of the entity showing source</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>String name<para><emphasis>the unique name of the entity</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>WeakReference&lt; Entity &gt; parent<para><emphasis>convenience weak-reference to parent: I want a reference but not one that will block GC</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -43,6 +57,14 @@
                     <listitem>
                         <para>Vector&lt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> &gt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c">children</link> (
 )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>abstract org.smallfoot.vw4.VWImport.Entity <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ad132dc987577f0c56ebcd762c3bddddb">vwentity</link> (
+String tag)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -68,8 +90,24 @@ String name, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b">description</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15">name</link> (
 )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1d15d718177c4f5411ce6ab339889fd4">setDescription</link> (
+String description)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -82,6 +120,33 @@ String name)</para>
                 </itemizedlist>
             </para>
         </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2fb8c11825a512c9738dd5fee7250e01">addTo</link> (
+VWImport v, String tag)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a630757ac1bdaa0e8245beaaf33204ffe">isOrphan</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a110223c4015487625c1fbcae19aaa613">isOrphan</link> (
+TreeMap&lt; String, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> &gt; list)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
     <simplesect>
         <title>Brief Description</title>
 
@@ -90,8 +155,8 @@ String name)</para>
         <simplesect>
             <title>Detailed Description</title>
 
-<para>I&apos;m not so sure how it&apos;ll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects: things that can have children things. In the short term, be very careful: there is an <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link>, and a <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VWImport_1_1Entity">VWImport::Entity</link> </para>
-                <para>Definition at line 45 of file Entity.java</para>
+<para>I&apos;m not so sure how it&apos;ll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects: things that can have children things. In the short term, be very careful: there is an <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link>, and a VWImport::Entity </para>
+                <para>Definition at line 47 of file Entity.java</para>
                 <para>The Documentation for this struct was generated from the following file: </para>
                 <para><itemizedlist><listitem><para>Entity.java</para></listitem></itemizedlist></para>
         </simplesect>
@@ -123,8 +188,35 @@ String name)</para>
 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c">
-                <title>Vector&lt;Entity&gt; children ()</title> <emphasis>local access to local singleton .children</emphasis>
+                <title>Vector&lt;Entity&gt; children ()</title> <emphasis></emphasis>
                 
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ad132dc987577f0c56ebcd762c3bddddb">
+                <title>abstract org.smallfoot.vw4.VWImport.Entity vwentity (String tag)</title> <emphasis>create a streamable JSON entity from this one</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>a org.smallfoot.vw4.VWImport.Entity representation of this instance </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>tag</entry>
+                                <entry>
+<para>default tag to apply </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afc6a43ee8007bcc023a7ebd2bf5ee1ed">
                 <title>Entity (String name)</title> <emphasis>Class Constructor with no initial child.</emphasis>
@@ -134,12 +226,61 @@ String name)</para>
                 <title>Entity (String name, Entity e)</title> <emphasis>Class Constructor with an initial child to absorb.</emphasis>
                 
             </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b">
+                <title>String description ()</title> <emphasis></emphasis>
+                
+            </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15">
-                <title>String name ()</title> <emphasis>getter</emphasis>
+                <title>String name ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1d15d718177c4f5411ce6ab339889fd4">
+                <title>void setDescription (String description)</title> <emphasis></emphasis>
                 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367">
-                <title>void setname (String name)</title> <emphasis>setter</emphasis>
+                <title>void setname (String name)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2fb8c11825a512c9738dd5fee7250e01">
+                <title>int addTo (VWImport v, String tag)</title> <emphasis>convenience: add myself and all children to the streamable exporter given as &quot;v&quot;</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>v</entry>
+                                <entry>
+<para>VWImport streamer to add myself and children to </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>tag</entry>
+                                <entry>
+<para>default tag to apply </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>number of entities written </para>
+</formalpara>
+</para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a630757ac1bdaa0e8245beaaf33204ffe">
+                <title>boolean isOrphan ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a110223c4015487625c1fbcae19aaa613">
+                <title>boolean isOrphan (TreeMap&lt; String, Entity &gt; list)</title> <emphasis></emphasis>
                 
             </section>
 </section>
