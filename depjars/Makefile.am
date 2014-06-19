@@ -34,8 +34,6 @@ if FETCH_FOP
 FOPJARS = avalon-framework-4.2.0.jar batik-all-1.7.jar commons-io-1.3.1.jar commons-logging-1.0.4.jar serializer-2.7.0.jar 
 FOPJARS += xalan-2.7.0.jar xercesImpl-2.7.1.jar xml-apis-1.3.04.jar xml-apis-ext-1.3.04.jar xmlgraphics-commons-1.5.jar
 
-JARS += fop.jar
-
 $(FOPJARS): fop-1.1-bin.tar.gz
 	tar xOf $< '*/$@' > $@
 	if jar tf $@ >/dev/null ; then true; else rm $@; false; fi
@@ -93,7 +91,7 @@ EXTRA_DIST = $(nodist_pkgdata_JAVA)
 CONFIG_CLEAN_FILES = $(JARS)
 BUILT_SOURCES := $(JARS)
 if FETCH_FOP
-BUILT_SOURCES += $(DOCBOOKDIR)/fo/docbook.xsl
+BUILT_SOURCES += $(DOCBOOKDIR)/fo/docbook.xsl fop.jar
 endif FETCH_FOP
 
 java-getopt-1.0.13.jar:
