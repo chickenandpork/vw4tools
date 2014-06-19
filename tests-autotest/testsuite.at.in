@@ -46,7 +46,7 @@ dnl bogus test converted to an actual test
 AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(vw4tools) parsed 0 zones, 4 aliases via Alias4Parser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
 check pattern ([[^_]]+)_[[^_]]+$ for acceptance of 10000000c9123456, Oracle01
 check pattern ([[^_]]+)_[[^_]]+$ for acceptance of 10000000c9123457, Oracle01
 check pattern ([[^_]]+)_[[^_]]+$ for acceptance of 500a098598123456, NetApp-123456
@@ -325,6 +325,8 @@ dnl      ----------------------
 
 AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 "WWN",50:0A:09:86:98:12:34:56,NetApp-123456,Storage
+"WWN",20:01:00:15:60:12:34:56,MPV123456,Server
+"WWN",20:13:00:15:60:12:34:56,MPV123456,Server
 "WWN",10:00:00:00:c9:12:34:56,Oracle01,Server
 "WWN",10:00:00:00:c9:12:34:57,Oracle01,Server
 ])
@@ -334,7 +336,7 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N alias4file.csv], 
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 
-AT_CHECK([grep -c ' 4 aliases via Alias4Parser' stdout], 0, [1
+AT_CHECK([grep -c ' 3 aliases via Alias4Parser' stdout], 0, [1
 ], [])
 
 AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N alias4file.csv -oOrderedTuples.csv], 0, [stdout], [stderr])
@@ -342,7 +344,9 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/vw4tools.jar -N alias4file.csv -o
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 
-AT_CHECK([cat OrderedTuples.csv], 0, [NetApp-123456,array,500a098598123456
+AT_CHECK([cat OrderedTuples.csv], 0, [MPV123456-001,host,2001001560123456
+MPV123456-013,host,2013001560123456
+NetApp-123456,array,500a098598123456
 NetApp-123456_456,array,500a098698123456
 Oracle01,host,10000000c9123456
 Oracle01_457,host,10000000c9123457

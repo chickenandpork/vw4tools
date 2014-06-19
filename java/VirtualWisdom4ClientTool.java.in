@@ -24,7 +24,10 @@ import org.smallfoot.parser.FCParser;
 import org.smallfoot.parser.zone.ZPAliasEntry;
 import org.smallfoot.parser.zone.ZoneParser;
 import org.smallfoot.vw4.VWImport;
+import org.smallfoot.wwn.DevRole;
 import org.smallfoot.wwn.WWNDesc;
+import org.smallfoot.wwn.WWNDesc.WWNDescSwitch;
+import org.smallfoot.wwn.WWNDesc.WWNDescTarget;
 import org.smallfoot.wwn.WWNDescription;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -273,14 +276,21 @@ System.out.println(jme.getMessage());
 
         Entity e = null;
         if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
+	{
+	    boolean dupes = (1 < zpa.getWWNArray().length);
                 if (null != zpa) for (String wwn: zpa.getWWNArray())
                 {
 		    Entity newguy;
-		    WWNDesc d = wwndesc().getWWNDescriptor(wwn, false);
+		    WWNDesc d = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
 		    if (null == d)
 		        newguy = new EntityHBA (zpa.name(), wwn);
+		    else if (d instanceof WWNDescTarget)
+		        newguy = new EntityFA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
+		    else if (d instanceof WWNDescSwitch)
+			/* assume a switch device is actually a NPIV virtualizing hosts */
+		        newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
 		    else
-		        newguy = new EntityFA (zpa.name(), wwn);
+		        newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
 
 		    newguy.setDescription (wwn+","+zpa.name()+" converted via "+p.getClass().getName().replaceAll("^.*\\.","")+" from "+f);
 
@@ -304,6 +314,7 @@ System.out.println(jme.getMessage());
 		    }
                     //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
                 }
+        }
     }
 
 
