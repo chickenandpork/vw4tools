@@ -41,27 +41,14 @@ import org.w3c.dom.NodeList;
 /**
  * An EntityHBA is the representation of an HBA entity in the JSON import for VW4.  Be very careful: there is an Entity, and a VWImport::Entity
  */
-public class EntityHBA extends Entity
+public class EntityHBA extends Entity.LeafEntity
 {
-    //protected String name;		/**< the unique name of the entity */
-    protected String wwn;		/**< the unique WWPN of the hba */
-    public String wwn()
-    {
-        return wwn;    /**< getter */
-    }
-
     /**
-     * Class Constructor with no initial child
+     * Basic Class Constructor
      */
     public EntityHBA (String name, String wwn)
     {
-        super(name);
-        this.wwn = wwn;
-    }
-
-    protected boolean canBeChild (Entity e)
-    {
-        return false;    /**< this entity has no children so this method will always be false */
+        super(name, wwn);
     }
 
     /** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */

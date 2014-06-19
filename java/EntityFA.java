@@ -41,27 +41,14 @@ import org.w3c.dom.NodeList;
 /**
  * An EntityFA is the representation of an Storage FA entity in the JSON import for VW4.  Be very careful: there is an Entity, and a VWImport::Entity
  */
-public class EntityFA extends Entity
+public class EntityFA extends Entity.LeafEntity
 {
-    //protected String name;		/**< the unique name of the entity */
-    protected String wwn;		/**< the unique WWPN of the hba */
-    public String wwn()
-    {
-        return wwn;    /**< getter */
-    }
-
     /**
-     * Class Constructor with no initial child
+     * Basic Class Constructor
      */
     public EntityFA (String name, String wwn)
     {
-        super(name);
-        this.wwn = wwn;
-    }
-
-    protected boolean canBeChild (Entity e)
-    {
-        return false;    /**< this entity has no children so this method will always be false */
+        super(name, wwn);
     }
 
     /** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */

@@ -158,4 +158,31 @@ public abstract class Entity
 
         return i;
     }
+
+    /**
+     * A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that leaves can be treated in common
+     */
+    public class LeafEntity extends Entity
+    {
+        protected String wwn;               /**< the unique WWPN of the hba */
+        public String wwn()
+        {
+            return wwn;    /**< getter */
+        }
+
+        /**
+         * Class Constructor with no initial child
+         */
+        public LeafEntity (String name, String wwn)
+        {
+            super(name);
+            this.wwn = wwn;
+        }
+
+        protected boolean canBeChild (Entity e)
+        {
+            return false;    /**< this entity has no children so this method will always be false */
+        }
+
+    }
 }
