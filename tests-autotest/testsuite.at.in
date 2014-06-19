@@ -14,6 +14,30 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(check for null file survival)
+dnl      ----------------------------
+
+AT_DATA([emptyline.csv], [
+])
+
+AT_DATA([emptyfile.csv], [])
+
+dnl bogus test converted to an actual test
+AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyline.csv], 0, [stdout], [stderr])
+dnl "|| true" to ignore the aberrant unpredictable error code
+AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [], [])
+
+dnl bogus test converted to an actual test
+AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyfile.csv], 0, [stdout], [stderr])
+dnl "|| true" to ignore the aberrant unpredictable error code
+AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [], [])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(verify pattern behavior)
 dnl      -----------------------
 
@@ -28,6 +52,57 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="^(.*)_(h
 "Oracle01" --> "Oracle01"
 "Oracle01_hba0" --> "Oracle01"
 ], [stderr])
+
+AT_CLEANUP()
+
+
+
+AT_SETUP(alias4file prune wwn nicknames)
+dnl      ------------------------------
+
+AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,500a098598123456,Storage
+"WWN",50:0A:09:86:98:12:34:56,0x123456,Storage
+"WWN",c0:50:76:12:34:56:00:fe,0x123457,Server
+])
+
+dnl bogus test converted to an actual test
+AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
+dnl "|| true" to ignore the aberrant unpredictable error code
+AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
+], [])
+
+AT_CHECK([cat alias4file.json], 0, [[{
+  "entities" : [ {
+    "child_entities" : {
+      "add" : [ "c0507612345600fe" ]
+    },
+    "description" : "c0507612345600fe,0x123457 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "LPAR-123456:00fe",
+    "tags" : [ "vw4tools-0.9-49" ],
+    "type" : "hba"
+  }, {
+    "child_entities" : {
+      "add" : [ "500a098598123456" ]
+    },
+    "description" : "500a098598123456,500a098598123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456-iGrp1-0e",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "storageport"
+  }, {
+    "child_entities" : {
+      "add" : [ "500a098698123456" ]
+    },
+    "description" : "500a098698123456,0x123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456-iGrp1-0f",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "storageport"
+  } ],
+  "version" : "1"
+}]], [])
 
 AT_CLEANUP()
 
@@ -50,15 +125,6 @@ AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, 
 AT_CHECK([cat alias4file.json], 0, [[{
   "entities" : [ {
     "child_entities" : {
-      "add" : [ "500a098698123456" ]
-    },
-    "description" : "500a098698123456,0x123456 converted via Alias4Parser from alias4file.csv",
-    "edit_type" : "add",
-    "name" : "NetApp-derived-nickname",
-    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
-  }, {
-    "child_entities" : {
       "add" : [ "500a098598123456" ]
     },
     "description" : "500a098598123456,NetApp-123456 converted via Alias4Parser from alias4file.csv",
@@ -66,10 +132,18 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "name" : "NetApp-123456",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "storageport"
+  }, {
+    "child_entities" : {
+      "add" : [ "500a098698123456" ]
+    },
+    "description" : "500a098698123456,0x123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456-iGrp1-0f",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "storageport"
   } ],
   "version" : "1"
-}
-]], [])
+}]], [])
 
 AT_CLEANUP()
 

@@ -162,7 +162,7 @@ public abstract class Entity
     /**
      * A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that leaves can be treated in common
      */
-    public class LeafEntity extends Entity
+    public static class LeafEntity extends Entity
     {
         protected String wwn;               /**< the unique WWPN of the hba */
         public String wwn()
@@ -183,6 +183,9 @@ public abstract class Entity
         {
             return false;    /**< this entity has no children so this method will always be false */
         }
+
+        /** create a bogus function to avoid build errors */
+        protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag) { return null;}
 
     }
 }

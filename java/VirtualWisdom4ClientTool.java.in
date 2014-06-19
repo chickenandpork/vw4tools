@@ -284,22 +284,29 @@ public class VirtualWisdom4ClientTool
             System.out.println("retrying: reading "+f);
 
         Entity e = null;
+	String[] wwns = null;
+
         if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
+	    if ( (null != zpa) && (null != (wwns = (zpa.getWWNArray()))) )
             {
-                boolean dupes = (1 < zpa.getWWNArray().length);
+                boolean dupes = (1 < wwns.length);
                 if (null != zpa) for (String wwn: zpa.getWWNArray())
                     {
+//WWNDesc w = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
+//System.out.println("wwn: "+wwn+" name: "+zpa.name()+" desc: "+(null == w ? "null" : w.getClass().getName()));
+			boolean bogus =  zpa.name().matches("[0-9a-fA-F]{16}") || zpa.name().matches("0x[0-9a-fA-F]{5,6}");
+
                         Entity newguy;
                         WWNDesc d = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
                         if (null == d)
                             newguy = new EntityHBA (zpa.name(), wwn);
                         else if (d instanceof WWNDescTarget)
-                            newguy = new EntityFA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
+                            newguy = new EntityFA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
                         else if (d instanceof WWNDescSwitch)
                             /* assume a switch device is actually a NPIV virtualizing hosts */
-                            newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
+                            newguy = new EntityHBA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
                         else
-                            newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
+                            newguy = new EntityHBA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
 
                         newguy.setDescription (wwn+","+zpa.name()+" converted via "+p.getClass().getName().replaceAll("^.*\\.","")+" from "+f);
 
