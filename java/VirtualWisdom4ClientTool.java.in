@@ -76,7 +76,11 @@ public class VirtualWisdom4ClientTool
     }
 
     public VWImport vwimport = null;		/**< singleton list of JSON-writable objects accessed through vwimport() */
-    protected VWImport vwimport() { if (null == vwimport) vwimport = new VWImport(); return vwimport; }	/**< singleton to access vwimport to allow for later post-process */
+    protected VWImport vwimport()
+    {
+        if (null == vwimport) vwimport = new VWImport();    /**< singleton to access vwimport to allow for later post-process */
+        return vwimport;
+    }
 
     /**
      * Open a file.
@@ -89,10 +93,10 @@ public class VirtualWisdom4ClientTool
     protected void _load(String filename)
     throws java.io.IOException
     {
-	com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-	/** @todo: evaluate: mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);  */
+        com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+        /** @todo: evaluate: mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);  */
 
-	vwimport = mapper.readValue(new File(filename), VWImport.class);
+        vwimport = mapper.readValue(new File(filename), VWImport.class);
     }
 
     /**
@@ -106,10 +110,10 @@ public class VirtualWisdom4ClientTool
         {
             _load (filename);
         }
-                catch (java.io.IOException ioe)
-                {
-                    System.out.println("IO Exception reading from "+filename+": "+ioe.getMessage());
-                }
+        catch (java.io.IOException ioe)
+        {
+            System.out.println("IO Exception reading from "+filename+": "+ioe.getMessage());
+        }
         catch (java.lang.Exception e)
         {
             e.printStackTrace();
@@ -164,7 +168,7 @@ public class VirtualWisdom4ClientTool
         catch (JsonMappingException jme)
         {
             System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
-System.out.println(jme.getMessage());
+            System.out.println(jme.getMessage());
             return null;
         }
         catch (JsonProcessingException jpe)
@@ -229,26 +233,31 @@ System.out.println(jme.getMessage());
      */
     String[] exercisePattern (String alias)
     {
-	String r[] = new String[patterns().size()];
-	int rc = 0;
+        String r[] = new String[patterns().size()];
+        int rc = 0;
 
-	for (Pattern p: patterns())
-	try {
-	    java.util.regex.Matcher m = p.matcher(alias);
-	    if (m.find())
-	    {
-                if (true == new Boolean (System.getProperties().getProperty("debug.showPattern")))
-		    for (int i = 0; i <= m.groupCount(); i++)
-			System.out.println("match alias "+alias+" with "+p.toString()+" match #"+i+" --> "+m.group(i)); 
+        for (Pattern p: patterns())
+            try
+            {
+                java.util.regex.Matcher m = p.matcher(alias);
+                if (m.find())
+                {
+                    if (true == new Boolean (System.getProperties().getProperty("debug.showPattern")))
+                        for (int i = 0; i <= m.groupCount(); i++)
+                            System.out.println("match alias "+alias+" with "+p.toString()+" match #"+i+" --> "+m.group(i));
 
-		r[rc++] = m.group(1);
-	    }
-	    else
-		r[rc++] = alias;
-	}
-	catch (java.lang.IllegalStateException ise) { r[rc++] = alias; System.out.println("Internal Error: ISE during match.  Skipping "+p.toString()+" with "+alias); }
+                    r[rc++] = m.group(1);
+                }
+                else
+                    r[rc++] = alias;
+            }
+            catch (java.lang.IllegalStateException ise)
+            {
+                r[rc++] = alias;
+                System.out.println("Internal Error: ISE during match.  Skipping "+p.toString()+" with "+alias);
+            }
 
-	return r;
+        return r;
     }
 
     Entity entityAccepting (Entity newguy)
@@ -276,45 +285,45 @@ System.out.println(jme.getMessage());
 
         Entity e = null;
         if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
-	{
-	    boolean dupes = (1 < zpa.getWWNArray().length);
+            {
+                boolean dupes = (1 < zpa.getWWNArray().length);
                 if (null != zpa) for (String wwn: zpa.getWWNArray())
-                {
-		    Entity newguy;
-		    WWNDesc d = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
-		    if (null == d)
-		        newguy = new EntityHBA (zpa.name(), wwn);
-		    else if (d instanceof WWNDescTarget)
-		        newguy = new EntityFA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
-		    else if (d instanceof WWNDescSwitch)
-			/* assume a switch device is actually a NPIV virtualizing hosts */
-		        newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
-		    else
-		        newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
+                    {
+                        Entity newguy;
+                        WWNDesc d = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
+                        if (null == d)
+                            newguy = new EntityHBA (zpa.name(), wwn);
+                        else if (d instanceof WWNDescTarget)
+                            newguy = new EntityFA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
+                        else if (d instanceof WWNDescSwitch)
+                            /* assume a switch device is actually a NPIV virtualizing hosts */
+                            newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
+                        else
+                            newguy = new EntityHBA (zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :""), wwn);
 
-		    newguy.setDescription (wwn+","+zpa.name()+" converted via "+p.getClass().getName().replaceAll("^.*\\.","")+" from "+f);
+                        newguy.setDescription (wwn+","+zpa.name()+" converted via "+p.getClass().getName().replaceAll("^.*\\.","")+" from "+f);
 
-                    if (null != (e = entityAccepting(newguy)))
-                        System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
-                    else
-                        for (Pattern s: patterns())
-                            System.out.println("check pattern "+s+" for acceptance of "+wwn+", "+zpa.name());
+                        if (null != (e = entityAccepting(newguy)))
+                            System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
+                        else
+                            for (Pattern s: patterns())
+                                System.out.println("check pattern "+s+" for acceptance of "+wwn+", "+zpa.name());
 
-		    if (null == entities().get(newguy.name()))
-			entities().put(newguy.name(), newguy);
-		    else if (null == entities().get(newguy.name()+"_"+wwn.substring(wwn.length()-4)))
-		    {
-			newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-3));
-			entities().put(newguy.name(), newguy);
-		    }
-		    else if (null == entities().get(String.format("%s_%05d",newguy.name(), wwn.hashCode())))
-		    {
-			newguy.setname(String.format("%s_%05d",newguy.name(), wwn.hashCode()));
-			entities().put(newguy.name(), newguy);
-		    }
-                    //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
-                }
-        }
+                        if (null == entities().get(newguy.name()))
+                            entities().put(newguy.name(), newguy);
+                        else if (null == entities().get(newguy.name()+"_"+wwn.substring(wwn.length()-4)))
+                        {
+                            newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-3));
+                            entities().put(newguy.name(), newguy);
+                        }
+                        else if (null == entities().get(String.format("%s_%05d",newguy.name(), wwn.hashCode())))
+                        {
+                            newguy.setname(String.format("%s_%05d",newguy.name(), wwn.hashCode()));
+                            entities().put(newguy.name(), newguy);
+                        }
+                        //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
+                    }
+            }
     }
 
 
@@ -355,10 +364,10 @@ System.out.println(jme.getMessage());
             }
             else if ( (null != filename) && (filename.equalsIgnoreCase("orderedtuples.csv")) )
             {
-System.out.println("writing ordered tuples to "+filename);
+                System.out.println("writing ordered tuples to "+filename);
                 try
                 {
-		    writeOrderedTuples(filename);
+                    writeOrderedTuples(filename);
                 }
                 catch (java.io.IOException ioe)
                 {
@@ -375,20 +384,20 @@ System.out.println("writing ordered tuples to "+filename);
                 (filename.equalsIgnoreCase("")) ||
                 (filename.equalsIgnoreCase("-"))  )
             {
-                 System.err.println("NOTE: writing to stdout");
-                 String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
-                 System.out.println(o);
+                System.err.println("NOTE: writing to stdout");
+                String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
+                System.out.println(o);
             }
             else
             {
                 com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
                 try
                 {
-                     mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filename), vwimport);
+                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filename), vwimport);
                 }
                 catch (java.io.IOException ioe)
                 {
-                     System.out.println("IO Exception writing to "+filename+": "+ioe.getMessage());
+                    System.out.println("IO Exception writing to "+filename+": "+ioe.getMessage());
                 }
                 //JsonParseException,
                 //JsonMappingException
@@ -397,7 +406,7 @@ System.out.println("writing ordered tuples to "+filename);
         catch (JsonMappingException jme)
         {
             System.err.println("INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services");
-System.out.println(jme.getMessage());
+            System.out.println(jme.getMessage());
         }
         catch (JsonProcessingException jpe)
         {
@@ -412,17 +421,17 @@ System.out.println(jme.getMessage());
      */
     int finalizeEntities()
     {
-	Entity e;
-	int i = 0;
+        Entity e;
+        int i = 0;
 
-	for (String s: entities().keySet())
-	    if ( (null != s) && (null != (e = entities().get(s))) )
-		if (e.isOrphan())	/* tree-order transversal: having a parent means this entity will be written when the parent writes */
-		    i += e.addTo(vwimport(), "@PACKAGE@-@VERSION@-@BUILDID@");
+        for (String s: entities().keySet())
+            if ( (null != s) && (null != (e = entities().get(s))) )
+                if (e.isOrphan())	/* tree-order transversal: having a parent means this entity will be written when the parent writes */
+                    i += e.addTo(vwimport(), "@PACKAGE@-@VERSION@-@BUILDID@");
 
-	//System.out.println("transferred "+i+" entities from "+entities().size()+" entities, resulting in "+vwimport().entities().size()+" json entities");
+        //System.out.println("transferred "+i+" entities from "+entities().size()+" entities, resulting in "+vwimport().entities().size()+" json entities");
 
-	return i;
+        return i;
     }
 
 
@@ -436,26 +445,26 @@ System.out.println(jme.getMessage());
     {
         PrintStream fos = new PrintStream(name);
 
-	Entity e;
+        Entity e;
 
-	for (String s: entities().keySet())
-	    if (null != (e = entities.get(s)))
-	    {
-		if (e instanceof EntityHBA)
-		{
-		    EntityHBA h = (EntityHBA) e;
+        for (String s: entities().keySet())
+            if (null != (e = entities.get(s)))
+            {
+                if (e instanceof EntityHBA)
+                {
+                    EntityHBA h = (EntityHBA) e;
 
-		    /* name,type,WWPN[,customname] */
-		    fos.println(String.format("%s,%s,%s",h.name(),"host",h.wwn()));
-		}
-		else if (e instanceof EntityFA)
-		{
-		    EntityFA h = (EntityFA) e;
+                    /* name,type,WWPN[,customname] */
+                    fos.println(String.format("%s,%s,%s",h.name(),"host",h.wwn()));
+                }
+                else if (e instanceof EntityFA)
+                {
+                    EntityFA h = (EntityFA) e;
 
-		    /* name,type,WWPN[,customname] */
-		    fos.println(String.format("%s,%s,%s",h.name(),"array",h.wwn()));
-		}
-	    }
+                    /* name,type,WWPN[,customname] */
+                    fos.println(String.format("%s,%s,%s",h.name(),"array",h.wwn()));
+                }
+            }
     }
 
 
@@ -518,7 +527,7 @@ System.out.println(jme.getMessage());
             case 'i':	/* fall-thru */
             case 'r':   // Read in a config file
             {
-		m.load(g.getOptarg());
+                m.load(g.getOptarg());
             }
             break;
 
@@ -528,8 +537,8 @@ System.out.println(jme.getMessage());
 
             case 'p': /* exercise chunking-pattern for given alias */
                 for (String s: m.exercisePattern(g.getOptarg()))
-		    if (null != s)
-                	System.out.println("\""+g.getOptarg()+"\" --> \""+s+"\"");
+                    if (null != s)
+                        System.out.println("\""+g.getOptarg()+"\" --> \""+s+"\"");
                 break;
 
             case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
@@ -542,7 +551,7 @@ System.out.println(jme.getMessage());
             /* fall-thru */
             case 'o':   // Write a config file out
             {
-		m.writeOutputfile(g.getOptarg());
+                m.writeOutputfile(g.getOptarg());
             }
             break;
 
@@ -567,31 +576,31 @@ System.out.println(jme.getMessage());
                     vwimport.entities().add(e);
                     System.err.println(vwimport.entities().size() + " entities defined");
 
-		    m.vwimport = vwimport;
+                    m.vwimport = vwimport;
                 }
                 else if (g.getOptarg().equalsIgnoreCase ("sample02"))
                 {
-		    Entity n = new EntityFA ("sample_02", "10000000c9123456");
-		    n.description = "sample02 test FA"; 
-		    m.entities().put(n.name(), n);
+                    Entity n = new EntityFA ("sample_02", "10000000c9123456");
+                    n.description = "sample02 test FA";
+                    m.entities().put(n.name(), n);
                 }
                 else if (g.getOptarg().equalsIgnoreCase ("sample03"))
                 {
-		    Entity n = new EntityFA ("NetApp 01 A", "500a098598123456");
-		    n.description = "sample03 test NetApp"; 
-		    m.entities().put(n.name(), n);
+                    Entity n = new EntityFA ("NetApp 01 A", "500a098598123456");
+                    n.description = "sample03 test NetApp";
+                    m.entities().put(n.name(), n);
 
-		    n = new EntityFA ("NetApp 01 B", "500a098698123456");
-		    n.description = "sample03 test NetApp"; 
-		    m.entities().put(n.name(), n);
+                    n = new EntityFA ("NetApp 01 B", "500a098698123456");
+                    n.description = "sample03 test NetApp";
+                    m.entities().put(n.name(), n);
 
-		    n = new EntityHBA ("hba 02 A", "10000000c9123456");
-		    n.description = "sample03 test HBA"; 
-		    m.entities().put(n.name(), n);
+                    n = new EntityHBA ("hba 02 A", "10000000c9123456");
+                    n.description = "sample03 test HBA";
+                    m.entities().put(n.name(), n);
 
-		    n = new EntityHBA ("hba 02 B", "10000000c9123457");
-		    n.description = "sample03 test HBA"; 
-		    m.entities().put(n.name(), n);
+                    n = new EntityHBA ("hba 02 B", "10000000c9123457");
+                    n.description = "sample03 test HBA";
+                    m.entities().put(n.name(), n);
                 }
                 else
                 {

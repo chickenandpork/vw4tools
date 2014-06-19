@@ -45,31 +45,37 @@ public class EntityFA extends Entity
 {
     //protected String name;		/**< the unique name of the entity */
     protected String wwn;		/**< the unique WWPN of the hba */
-    public String wwn() { return wwn; }		/**< getter */
+    public String wwn()
+    {
+        return wwn;    /**< getter */
+    }
 
     /**
      * Class Constructor with no initial child
      */
     public EntityFA (String name, String wwn)
     {
-	super(name);
-	this.wwn = wwn;
+        super(name);
+        this.wwn = wwn;
     }
 
-    protected boolean canBeChild (Entity e) { return false; }	/**< this entity has no children so this method will always be false */
+    protected boolean canBeChild (Entity e)
+    {
+        return false;    /**< this entity has no children so this method will always be false */
+    }
 
-	/** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */
+    /** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */
     protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag)
     {
-	org.smallfoot.vw4.VWImport.Entity e = new org.smallfoot.vw4.VWImport.Entity();
+        org.smallfoot.vw4.VWImport.Entity e = new org.smallfoot.vw4.VWImport.Entity();
 
-	e.type = "storageport";
-	e.name = name();
-	e.add(wwn);
-	e.description = description();
-	if (null != tag) e.tags().add(tag);
+        e.type = "storageport";
+        e.name = name();
+        e.add(wwn);
+        e.description = description();
+        if (null != tag) e.tags().add(tag);
         e.edit_type = org.smallfoot.vw4.VWImport.Edit_Type.add;
 
-	return e;
+        return e;
     }
 }
