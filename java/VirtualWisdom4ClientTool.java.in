@@ -293,7 +293,8 @@ public class VirtualWisdom4ClientTool
                 if (null != zpa) for (String wwn: zpa.getWWNArray())
                     {
 //WWNDesc w = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
-//System.out.println("wwn: "+wwn+" name: "+zpa.name()+" desc: "+(null == w ? "null" : w.getClass().getName()));
+//System.out.println("wwn: "+wwn+" (of "+wwns.length+" name: "+zpa.name()+" desc: "+(null == w ? "null" : w.getClass().getName()));
+
 			boolean bogus =  zpa.name().matches("[0-9a-fA-F]{16}") || zpa.name().matches("0x[0-9a-fA-F]{5,6}");
 
                         Entity newguy;

@@ -80,7 +80,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "description" : "c0507612345600fe,0x123457 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
     "name" : "LPAR-123456:00fe",
-    "tags" : [ "vw4tools-0.9-49" ],
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "hba"
   }, {
     "child_entities" : {
