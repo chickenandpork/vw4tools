@@ -31,6 +31,10 @@ $(subdir).jar: @PACKAGE@.jar @GETOPTJAR@
 	echo "Main-Class: org.smallfoot.vw4.VirtualWisdom4ClientTool"  >> $(@D)/.workdir/MANIFEST.MF
 	ln -f $^ $(@D)/.workdir/
 	for i in $(^F) ; do (cd $(@D)/.workdir  && jar xf $$i) ; done
-	(cd $(@D)/.workdir && jar cm MANIFEST.MF gnu org) > $@
+if DO_GETOPTJAR
+	(cd $(@D)/.workdir && jar cm MANIFEST.MF gnu* org) > $@
+else
+	(cd $(@D)/.workdir && jar cm MANIFEST.MF org) > $@
+endif DO_GETOPTJAR_FALSE
 	rm -fr $(@D)/.workdir
 

@@ -524,7 +524,7 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /*@DO_GETOPTJAR_TRUE@ */
-        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HV", options);        /@DO_GETOPTJAR_FALSE@* */
+        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVr:i:N:n:o::P:p:T:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
 
 
         int c;
@@ -624,14 +624,16 @@ public class VirtualWisdom4ClientTool
              */
             case 'V':   // print the version and quit
             {
-                System.out.println(g.consistentVersion("@VERSION@-@BUILDID@"));
+/* *@DO_GETOPTJAR_FALSE@/ System.out.println("@VERSION@-@BUILDID@"); /*@DO_GETOPTJAR_FALSE@ */
+/* *@DO_GETOPTJAR_TRUE@/ System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")); /*@DO_GETOPTJAR_TRUE@ */
                 return;
             }
 
             default:
             case '?':
             case 'H':
-                m.usage(g.progname());
+/* *@DO_GETOPTJAR_FALSE@/ m.usage("vw4tool"); /*@DO_GETOPTJAR_FALSE@ */
+/* *@DO_GETOPTJAR_TRUE@/ m.usage(g.progname()); /*@DO_GETOPTJAR_TRUE@ */
                 break;
             }
         }

@@ -197,7 +197,7 @@ AC_ARG_WITH(getoptplus,
 [
     case "$withval" in
 	"yes") WITH_GETOPTJAR=$((locate getopt.jar) | grep -v .workdir | head -1) ;;
-	"no")  WITH_GETOPTJAR=no  ;;
+	"no")  WITH_GETOPTJAR=  ;;
 	*) WITH_GETOPTJAR="$withval" ;;
     esac
 ],
@@ -206,7 +206,7 @@ AC_MSG_CHECKING([for getopt.jar])
     WITH_GETOPTJAR=$((locate getopt.jar) | grep -v .workdir | head -1) ;
 AC_MSG_RESULT([${WITH_GETOPTJAR}])
 ])
-AM_CONDITIONAL(DO_GETOPTJAR, test "$WITH_GETOPTJAR" != no)
+AM_CONDITIONAL(DO_GETOPTJAR, test "x$WITH_GETOPTJAR" != x)
 AC_SUBST([GETOPTJAR], ${WITH_GETOPTJAR})
 
 
