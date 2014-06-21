@@ -56,7 +56,7 @@ public class EntityFA extends Entity.LeafEntity
     {
         org.smallfoot.vw4.VWImport.Entity e = new org.smallfoot.vw4.VWImport.Entity();
 
-        e.type = "storageport";
+        e.type = "iomodule";
         e.name = name();
         e.add(wwn);
         e.description = description();
