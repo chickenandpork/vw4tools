@@ -92,7 +92,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "edit_type" : "add",
     "name" : "NetApp-123456-iGrp1-0e",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   }, {
     "child_entities" : {
       "add" : [ "500a098698123456" ]
@@ -101,7 +101,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "edit_type" : "add",
     "name" : "NetApp-123456-iGrp1-0f",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   } ],
   "version" : "1"
 }]], [])
@@ -133,7 +133,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "edit_type" : "add",
     "name" : "NetApp-123456",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   }, {
     "child_entities" : {
       "add" : [ "500a098698123456" ]
@@ -142,7 +142,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "edit_type" : "add",
     "name" : "NetApp-123456-iGrp1-0f",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   } ],
   "version" : "1"
 }]], [])
@@ -180,7 +180,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "edit_type" : "add",
     "name" : "NetApp-123456",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   }, {
     "child_entities" : {
       "add" : [ "500a098698123456" ]
@@ -189,7 +189,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "edit_type" : "add",
     "name" : "NetApp-123456_456",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   }, {
     "child_entities" : {
       "add" : [ "10000000c9123456" ]
@@ -508,7 +508,7 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o], 0, 
     "edit_type" : "add",
     "name" : "sample_02",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   } ],
   "version" : "1"
 }
@@ -530,7 +530,7 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o], 0, 
     "edit_type" : "add",
     "name" : "NetApp 01 A",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   }, {
     "child_entities" : {
       "add" : [ "500a098698123456" ]
@@ -539,7 +539,7 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o], 0, 
     "edit_type" : "add",
     "name" : "NetApp 01 B",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
-    "type" : "storageport"
+    "type" : "iomodule"
   }, {
     "child_entities" : {
       "add" : [ "10000000c9123456" ]
