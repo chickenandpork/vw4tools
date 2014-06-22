@@ -45,6 +45,21 @@ To confirm you've found a working Java Runtime Environment, use the "help" comma
 
 note: many commands have shorter versions.  "--version" (with two "-") is the same as "-V" (with one dash).  Pay special attention to case.  Uppercase "N" is different from lowercase "n".
 
+
+Common Usage
+============
+
+    java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oexample.json
+
+or
+
+    java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oOrderedTuples.csv
+    awk -f csv-to-json.awk OrderedTuples.csv > example.json
+
+This is the most common usage, here as a reference.  Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple "-o" options.  Notice also that "-o" is "cuddled" to the filename after it.  No spaces.
+
+
+
 Overview
 ========
 
