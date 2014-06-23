@@ -2,22 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
   <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA" kind="class" prot="public">
     <compoundname>org::smallfoot::vw4::EntityHBA</compoundname>
-    <basecompoundref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" prot="public" virt="non-virtual">Entity</basecompoundref>
-      <sectiondef kind="protected-attrib">
-      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1ab07f595ad2e4da7c53cd29f435f5bb3c" prot="protected" static="no" mutable="no">
-        <type>String</type>
-        <definition>String wwn</definition>
-        <argsstring></argsstring>
-        <name>wwn</name>
-        <briefdescription>
-<para>the unique WWPN of the hba </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="47" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="47" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
+    <basecompoundref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity" prot="public" virt="non-virtual">Entity.LeafEntity</basecompoundref>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5470c9c351f0ea8dd64d612e11c7214f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -33,47 +18,15 @@
           <declname>wwn</declname>
         </param>
         <briefdescription>
-<para>Class Constructor with no initial child. </para>        </briefdescription>
+<para>Basic Class Constructor. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="56" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="56" bodyend="60"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="EntityHBA_8java" startline="48" endline="51">EntityHBA.wwn</references>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1aa0f20764b2a9bea375e9507de63cb42b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>String</type>
-        <definition>String wwn</definition>
-        <argsstring>()</argsstring>
-        <name>wwn</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-<para>&lt; getter </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="48" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="48" bodyend="51"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5470c9c351f0ea8dd64d612e11c7214f" compoundref="EntityHBA_8java" startline="56" endline="60">EntityHBA.EntityHBA</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="49" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="49" bodyend="52"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5a51654ce8be38d5f06faa182cb70e61" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>boolean</type>
-        <definition>boolean canBeChild</definition>
-        <argsstring>(Entity e)</argsstring>
-        <name>canBeChild</name>
-        <param>
-          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
-          <declname>e</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-<para>&lt; this entity has no children so this method will always be false </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="62" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="62" bodyend="65"/>
-      </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a1d6bf85ddf0a9382cfa4f82dd3063473" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>org.smallfoot.vw4.VWImport.Entity</type>
         <definition>org.smallfoot.vw4.VWImport.Entity vwentity</definition>
@@ -98,9 +51,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="68" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="68" bodyend="80"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="55" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="55" bodyend="67"/>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="82" endline="85">Entity.description</references>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="72" endline="75">Entity.name</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="Entity_8java" startline="168" endline="171">Entity.LeafEntity.wwn</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -108,45 +62,57 @@
     <detaileddescription>
 <para>Be very careful: there is an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref>, and a VWImport::Entity </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="40">
+      <node id="56">
         <label>EntityHBA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA"/>
-        <childnode refid="41" relation="public-inheritance">
+        <childnode refid="57" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="41">
+      <node id="58">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
+      </node>
+      <node id="57">
+        <label>Entity.LeafEntity</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="45">
+      <node id="63">
         <label>Vector&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="42">
+      <node id="59">
         <label>EntityHBA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA"/>
-        <childnode refid="43" relation="public-inheritance">
+        <childnode refid="60" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="43">
+      <node id="61">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
-        <childnode refid="44" relation="usage">
+        <childnode refid="62" relation="usage">
           <edgelabel>parent</edgelabel>
         </childnode>
-        <childnode refid="45" relation="usage">
+        <childnode refid="63" relation="usage">
           <edgelabel>children</edgelabel>
         </childnode>
       </node>
-      <node id="44">
+      <node id="62">
         <label>WeakReference&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
+      <node id="60">
+        <label>Entity.LeafEntity</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity"/>
+        <childnode refid="61" relation="public-inheritance">
+        </childnode>
+      </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="45" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="44" bodyend="82"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="45" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="44" bodyend="69"/>
     <listofallmembers>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2fb8c11825a512c9738dd5fee7250e01" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>addTo</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5a51654ce8be38d5f06faa182cb70e61" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>canBeChild</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a5a51654ce8be38d5f06faa182cb70e61" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>canBeChild</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ad315cf5c2790d5a5c8c5169c26647e84" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>children</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>children</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>description</name></member>
@@ -156,14 +122,15 @@
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5470c9c351f0ea8dd64d612e11c7214f" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>EntityHBA</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a630757ac1bdaa0e8245beaaf33204ffe" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>isOrphan</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a110223c4015487625c1fbcae19aaa613" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>isOrphan</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>LeafEntity</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a9a2326f35466e54c36c070829245c557" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>name</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>name</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ab1bf14d6f0f0af84c30272b6eed5792f" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>parent</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1d15d718177c4f5411ce6ab339889fd4" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>setDescription</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>setname</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a1d6bf85ddf0a9382cfa4f82dd3063473" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>vwentity</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1ab07f595ad2e4da7c53cd29f435f5bb3c" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>wwn</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1aa0f20764b2a9bea375e9507de63cb42b" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>wwn</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ab07f595ad2e4da7c53cd29f435f5bb3c" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>wwn</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHBA</scope><name>wwn</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

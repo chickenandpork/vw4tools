@@ -1,0 +1,5 @@
+<map id="Entity.LeafEntity" name="Entity.LeafEntity">
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1EntityFA.html" title="An EntityFA is the representation of an Storage FA entity in the JSON import for VW4. " alt="" coords="5,155,75,181"/>
+<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.html" title="An EntityHBA is the representation of an HBA entity in the JSON import for VW4. " alt="" coords="99,155,180,181"/>
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html" title="An Entity is the core mutable object used in the JSON import for VW4. " alt="" coords="62,6,116,31"/>
+</map>

@@ -11,7 +11,7 @@ Inheritance diagram for Entity\+F\+A\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=96pt]{classorg_1_1smallfoot_1_1vw4_1_1EntityFA__inherit__graph}
+\includegraphics[width=130pt]{classorg_1_1smallfoot_1_1vw4_1_1EntityFA__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -28,22 +28,13 @@ Collaboration diagram for Entity\+F\+A\+:\nopagebreak
 \item 
 {\bf Entity\+F\+A} (String {\bf name}, String {\bf wwn})\label{classorg_1_1smallfoot_1_1vw4_1_1EntityFA_aee1f13fcac25df5320b16ca060ad99dd}
 
-\begin{DoxyCompactList}\small\item\em Class Constructor with no initial child. \end{DoxyCompactList}\item 
-String {\bf wwn} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Basic Class Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-boolean {\bf can\+Be\+Child} ({\bf Entity} e)
-\item 
 org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity {\bf vwentity} (String tag)
 \begin{DoxyCompactList}\small\item\em create a streamable J\+S\+O\+N entity from this one \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-String {\bf wwn}\label{classorg_1_1smallfoot_1_1vw4_1_1EntityFA_ab07f595ad2e4da7c53cd29f435f5bb3c}
-
-\begin{DoxyCompactList}\small\item\em the unique W\+W\+P\+N of the hba \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
@@ -56,17 +47,6 @@ Definition at line 44 of file Entity\+F\+A.\+java.
 
 
 \subsection{Member Function Documentation}
-\index{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A@{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A}!can\+Be\+Child@{can\+Be\+Child}}
-\index{can\+Be\+Child@{can\+Be\+Child}!org\+::smallfoot\+::vw4\+::\+Entity\+F\+A@{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A}}
-\subsubsection[{can\+Be\+Child}]{\setlength{\rightskip}{0pt plus 5cm}boolean can\+Be\+Child (
-\begin{DoxyParamCaption}
-\item[{{\bf Entity}}]{e}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1EntityFA_a5a51654ce8be38d5f06faa182cb70e61}
-$<$ this entity has no children so this method will always be false 
-
-Definition at line 62 of file Entity\+F\+A.\+java.
-
 \index{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A@{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A}!vwentity@{vwentity}}
 \index{vwentity@{vwentity}!org\+::smallfoot\+::vw4\+::\+Entity\+F\+A@{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A}}
 \subsubsection[{vwentity}]{\setlength{\rightskip}{0pt plus 5cm}org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity vwentity (
@@ -88,11 +68,11 @@ a org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity representation of this instance
 \end{DoxyParams}
 
 
-Definition at line 68 of file Entity\+F\+A.\+java.
+Definition at line 55 of file Entity\+F\+A.\+java.
 
 
 
-References Entity.\+description(), and Entity.\+name().
+References Entity.\+description(), Entity.\+name(), and Entity.\+Leaf\+Entity.\+wwn().
 
 
 
@@ -104,21 +84,6 @@ Here is the call graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 
-
-\index{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A@{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A}!wwn@{wwn}}
-\index{wwn@{wwn}!org\+::smallfoot\+::vw4\+::\+Entity\+F\+A@{org\+::smallfoot\+::vw4\+::\+Entity\+F\+A}}
-\subsubsection[{wwn}]{\setlength{\rightskip}{0pt plus 5cm}String wwn (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1EntityFA_aa0f20764b2a9bea375e9507de63cb42b}
-$<$ getter 
-
-Definition at line 48 of file Entity\+F\+A.\+java.
-
-
-
-Referenced by Entity\+F\+A.\+Entity\+F\+A().
 
 
 

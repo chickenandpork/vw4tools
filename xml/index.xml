@@ -19,22 +19,23 @@
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a110223c4015487625c1fbcae19aaa613" kind="function"><name>isOrphan</name></member>
   </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA" kind="class"><name>org::smallfoot::vw4::EntityFA</name>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1ab07f595ad2e4da7c53cd29f435f5bb3c" kind="variable"><name>wwn</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1aee1f13fcac25df5320b16ca060ad99dd" kind="function"><name>EntityFA</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1aa0f20764b2a9bea375e9507de63cb42b" kind="function"><name>wwn</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a5a51654ce8be38d5f06faa182cb70e61" kind="function"><name>canBeChild</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
   </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA" kind="class"><name>org::smallfoot::vw4::EntityHBA</name>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1ab07f595ad2e4da7c53cd29f435f5bb3c" kind="variable"><name>wwn</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5470c9c351f0ea8dd64d612e11c7214f" kind="function"><name>EntityHBA</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1aa0f20764b2a9bea375e9507de63cb42b" kind="function"><name>wwn</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5a51654ce8be38d5f06faa182cb70e61" kind="function"><name>canBeChild</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
   </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException" kind="class"><name>org::smallfoot::vw4::Entity::ImproperChildException</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a5c306b76ca66e2e9744e4e1f637cc991" kind="function"><name>ImproperChildException</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a2a8c52dc01b9775f76eab69ebc825638" kind="function"><name>ImproperChildException</name></member>
+  </compound>
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity" kind="class"><name>org::smallfoot::vw4::Entity::LeafEntity</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ab07f595ad2e4da7c53cd29f435f5bb3c" kind="variable"><name>wwn</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c" kind="function"><name>LeafEntity</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" kind="function"><name>wwn</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a5a51654ce8be38d5f06faa182cb70e61" kind="function"><name>canBeChild</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
   </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" kind="class"><name>org::smallfoot::vw4::VirtualWisdom4ClientTool</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad25ef6220eb54575157ab063bc63a0f0" kind="variable"><name>xmlDocument</name></member>

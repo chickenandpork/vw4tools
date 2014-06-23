@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity">
+<title>org::smallfoot::vw4::Entity::LeafEntity class Reference</title>
+        <simplesect>
+            <title>Protected Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String wwn<para><emphasis>the unique WWPN of the hba</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c">LeafEntity</link> (
+String name, String wwn)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b">wwn</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a5a51654ce8be38d5f06faa182cb70e61">canBeChild</link> (
+<link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> e)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>org.smallfoot.vw4.VWImport.Entity <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a1d6bf85ddf0a9382cfa4f82dd3063473">vwentity</link> (
+String tag)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Brief Description</title>
+
+<para>A <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity">LeafEntity</link> is the common ancestor of Storage FAs and Server HBAs; this is combined only so that leaves can be treated in common. </para>
+    </simplesect>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c">
+                <title>LeafEntity (String name, String wwn)</title> <emphasis>Class Constructor with no initial child.</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b">
+                <title>String wwn ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a5a51654ce8be38d5f06faa182cb70e61">
+                <title>boolean canBeChild (Entity e)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a1d6bf85ddf0a9382cfa4f82dd3063473">
+                <title>org.smallfoot.vw4.VWImport.Entity vwentity (String tag)</title> <emphasis>create a bogus function to avoid build errors</emphasis>
+                
+            </section>
+</section>

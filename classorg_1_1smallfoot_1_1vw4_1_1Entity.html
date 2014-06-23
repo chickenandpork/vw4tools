@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">0.9-46</span>
+   &#160;<span id="projectnumber">0.9-58</span>
    </div>
   </td>
  </tr>
@@ -82,7 +82,7 @@ Inheritance diagram for Entity:</div>
 <div class="dyncontent">
 <div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1Entity__inherit__graph.png" border="0" usemap="#Entity_inherit__map" alt="Inheritance graph"/></div>
 <map name="Entity_inherit__map" id="Entity_inherit__map">
-<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1EntityFA.html" title="An EntityFA is the representation of an Storage FA entity in the JSON import for VW4. " alt="" coords="5,81,75,106"/><area shape="rect" id="node3" href="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.html" title="An EntityHBA is the representation of an HBA entity in the JSON import for VW4. " alt="" coords="99,81,180,106"/></map>
+<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html" title="A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that lea..." alt="" coords="31,81,147,106"/><area shape="rect" id="node3" href="classorg_1_1smallfoot_1_1vw4_1_1EntityFA.html" title="An EntityFA is the representation of an Storage FA entity in the JSON import for VW4. " alt="" coords="5,155,75,181"/><area shape="rect" id="node4" href="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.html" title="An EntityHBA is the representation of an HBA entity in the JSON import for VW4. " alt="" coords="99,155,180,181"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Entity:</div>
@@ -94,6 +94,9 @@ Collaboration diagram for Entity:</div>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException.html">ImproperChildException</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Descendents of <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html" title="An Entity is the core mutable object used in the JSON import for VW4. ">Entity</a> should know whether a given entity can be one of their child elements.  <a href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html">LeafEntity</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html" title="A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that lea...">LeafEntity</a> is the common ancestor of Storage FAs and Server HBAs; this is combined only so that leaves can be treated in common.  <a href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -239,7 +242,7 @@ WeakReference&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.htm
 
 <p>Definition at line <a class="el" href="Entity_8java_source.html#l00082">82</a> of file <a class="el" href="Entity_8java_source.html">Entity.java</a>.</p>
 
-<p>Referenced by <a class="el" href="Entity_8java_source.html#l00086">Entity.setDescription()</a>, <a class="el" href="EntityHBA_8java_source.html#l00068">EntityHBA.vwentity()</a>, and <a class="el" href="EntityFA_8java_source.html#l00068">EntityFA.vwentity()</a>.</p>
+<p>Referenced by <a class="el" href="Entity_8java_source.html#l00086">Entity.setDescription()</a>, <a class="el" href="EntityHBA_8java_source.html#l00055">EntityHBA.vwentity()</a>, and <a class="el" href="EntityFA_8java_source.html#l00055">EntityFA.vwentity()</a>.</p>
 
 </div>
 </div>
@@ -267,7 +270,7 @@ WeakReference&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.htm
 
 <p>Definition at line <a class="el" href="Entity_8java_source.html#l00072">72</a> of file <a class="el" href="Entity_8java_source.html">Entity.java</a>.</p>
 
-<p>Referenced by <a class="el" href="Entity_8java_source.html#l00115">Entity.Entity()</a>, <a class="el" href="Entity_8java_source.html#l00076">Entity.setname()</a>, <a class="el" href="EntityFA_8java_source.html#l00068">EntityFA.vwentity()</a>, and <a class="el" href="EntityHBA_8java_source.html#l00068">EntityHBA.vwentity()</a>.</p>
+<p>Referenced by <a class="el" href="Entity_8java_source.html#l00115">Entity.Entity()</a>, <a class="el" href="Entity_8java_source.html#l00076">Entity.setname()</a>, <a class="el" href="EntityFA_8java_source.html#l00055">EntityFA.vwentity()</a>, and <a class="el" href="EntityHBA_8java_source.html#l00055">EntityHBA.vwentity()</a>.</p>
 
 </div>
 </div>
@@ -393,7 +396,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>org</b></li><li class="navelem"><b>smallfoot</b></li><li class="navelem"><b>vw4</b></li><li class="navelem"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a></li>
-    <li class="footer">Generated on Wed Jun 18 2014 17:52:20 for vw4tools by
+    <li class="footer">Generated on Sun Jun 22 2014 22:47:04 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -4,6 +4,7 @@
     <compoundname>Entity.java</compoundname>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" prot="public">org::smallfoot::vw4::Entity</innerclass>
     <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException" prot="public">org::smallfoot::vw4::Entity::ImproperChildException</innerclass>
+    <innerclass refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity" prot="public">org::smallfoot::vw4::Entity::LeafEntity</innerclass>
     <innernamespace refid="namespacecom_1_1fasterxml_1_1jackson_1_1core">com::fasterxml::jackson::core</innernamespace>
     <innernamespace refid="namespacecom_1_1fasterxml_1_1jackson_1_1core_1_1json">com::fasterxml::jackson::core::json</innernamespace>
     <innernamespace refid="namespacecom_1_1fasterxml_1_1jackson_1_1databind">com::fasterxml::jackson::databind</innernamespace>

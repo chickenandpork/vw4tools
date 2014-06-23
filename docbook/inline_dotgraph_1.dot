@@ -1,0 +1,32 @@
+ 
+digraph TransformUDC
+{
+        subgraph cluster_local
+        {
+                label="local files, or FTP URL, or HTTP URL" ;
+                node [ shape=rectangle ]
+                file_zoneshow [ label="zoneshow" ]
+                file_showzones [ label="showzones" ]
+                file_fcalias [ label="fcalias" ]
+                file_dad [ label="device-alias database" ]
+                file_alishow [ label="alishow" ]
+        }
+        subgraph cluster_vw4tool
+        {
+                label="VW4Tool"
+                vw4tool [ shape=circle ]
+        }
+        { brocade1 brocade2 brocade3 } -> { file_zoneshow file_alishow } -> vw4tool
+        { cisco1 cisco2 cisco3 } -> { file_fcalias file_showzones file_dad} -> vw4tool
+
+        subgraph cluster_scripts
+        {
+                label="Scripts"
+                "csv-to-json.awk" [ shape=rectangle ]
+        }
+
+        vw4tool -> "csv-to-json.awk" [ label="OrderedTuples.csv" ]
+
+        "json file" [ shape=rectangle ]
+        { "csv-to-json.awk" vw4tool } -> "json file" -> "VirtualWisdom4 \nEntities Import"
+}
