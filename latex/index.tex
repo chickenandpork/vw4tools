@@ -51,7 +51,7 @@ awk -f csv-to-json.awk OrderedTuples.csv > example.json
 \end{DoxyVerb}
 
 
-This is the most common usage, here as a reference. Notice that although this shows E\+I\+T\+H\+E\+R Ordered\+Tuples.\+csv or a J\+S\+O\+N file being created, both could be created by multiple \char`\"{}-\/o\char`\"{} options. Notice also that \char`\"{}-\/o\char`\"{} is \char`\"{}cuddled\char`\"{} to the filename after it. No spaces.
+This is the most common usage, here as a reference. Notice that although this shows E\+I\+T\+H\+E\+R Ordered\+Tuples.\+csv or a J\+S\+O\+N file being created, both could be created by multiple \char`\"{}-\/o\char`\"{} options. Notice also that \char`\"{}-\/o\char`\"{} is \char`\"{}cuddled\char`\"{} to the filename after it. No spaces, but this should change in the future to avoid ambiguity.
 
 \section*{Overview }
 
@@ -119,7 +119,7 @@ java -jar vw4tool.jar --nickname=/Full/Path/files/aliases
 
 \section*{Specifying Formats }
 
-The user doesn't need to speficy the format of a file; vw4tool will try the file at the same time across many different parsers and see which one can make sense of it. Unfortunately, the parsers canot always chew through any user-\/interface codes (such as \char`\"{}press any key to continue\char`\"{}) and preamble (the verbose text trash before the actual zone or aliases or such). Trimming that to a minimum offers a better chance of parsing the file.
+The user doesn't need to speficy the format of a file; vw4tool will try the file at the same time across many different parsers and see which one can make sense of it. Unfortunately, the parsers cannot always chew through any user-\/interface codes (such as \char`\"{}press any key to continue\char`\"{}) and preamble (the verbose text trash before the actual zone or aliases or such). Trimming that to a minimum offers a better chance of parsing the file.
 
 The corollary to this is that if a file doesn't seem to parse, yet it seems like it should, remove anything before or after the actual content, and confirm that it was collected in a non-\/interactive method. If the user ever needs to \char`\"{}press any key for more\char`\"{}, chances are, the parsed result will be either partial, or none at all.
 
