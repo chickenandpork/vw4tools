@@ -66,6 +66,7 @@ public class VirtualWisdom4ClientTool
      */
     public VirtualWisdom4ClientTool(String xmlFile)
     {
+	this();
         load(xmlFile);
     }
 
@@ -74,6 +75,7 @@ public class VirtualWisdom4ClientTool
      */
     public VirtualWisdom4ClientTool()
     {
+	FCParser.registerProtocols();
     }
 
     public VWImport vwimport = null;		/**< singleton list of JSON-writable objects accessed through vwimport() */
