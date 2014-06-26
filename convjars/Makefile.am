@@ -15,7 +15,8 @@ JAVAROOT = bld
 	echo "Main-Class: org.smallfoot.vw4.VirtualWisdom4ClientTool"  >> $(@D)/.workdir/MANIFEST.MF
 	ln -f $^ $(@D)/.workdir/
 	for i in $(^F) ; do (cd $(@D)/.workdir  && jar xf $$i) ; done
+	(cd $(@D)/.workdir && find * -name Driver.class -print) | sed -e 's@/@.@g' -e 's/.class$$//g' > $(@D)/.workdir/META-INF/services/java.sql.Driver
 	find $(@D)/.workdir '(' -name \*.java -o -name COPYING.LIB -o -name \*.html -o -name README -o -name Makefile -o -name ChangeLog -o -name GetoptDemo.class -o -name LANGUAGES -o -name \*.xml ')' -exec rm {} \;
-	(cd $(@D)/.workdir && jar cm MANIFEST.MF com gnu org) > $@
+	(cd $(@D)/.workdir && jar cm MANIFEST.MF META-INF/services/java.sql.Driver com gnu org) > $@
 	rm -fr $(@D)/.workdir
 	touch $@
