@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.Vector;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 import javax.activation.DataSource;
 import javax.activation.URLDataSource;
@@ -267,6 +268,69 @@ public class VirtualWisdom4ClientTool
 
 
     /**
+     * one-shot load a new file and remove the contents from the internal list of leafEntities (HBAs, FAs)
+     *
+     * Working on only the leaf entities, this uses the parser array to parse an input stream,
+     * and for each WWPN found, it removes that leaf entity from the system.  It doesn't affect
+     * the child_entities of referring entities to allow for a loaded entity list to still
+     * refer to entities which are already on the target system.
+     *
+     * @param f name of file to open
+     *
+     * @see https://github.com/chickenandpork/fibrechannel-parsers/
+     */
+    protected void loadAndRemoveFile(String f)
+    {
+        ZoneParser p = null;
+
+        for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true), "@PACKAGE@", /* ZParser(s) verbose */ true) )); x--)
+            System.out.println("retrying: reading "+f);
+
+	/*
+	 * iteratively search all entities for WWNs becomes a O(N^2) because the entities are
+         * not sorted/indexed by WWPN.  For that reason, we're going to iterate the entities, using
+         * a hashmap of the WWPNs for removal to accelerate the search to a O(N * log2(N))
+         */
+
+	TreeSet<String> removals = new TreeSet<String> ();
+	Vector<String>postRemovals = new Vector<String>();
+	String wwns[];
+
+        if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
+	    if ( (null != zpa) && (null != (wwns = (zpa.getWWNArray()))) )
+                for (String wwn: wwns)
+		    if (null != wwn)
+			removals.add(wwn);
+
+	/*
+         * now that removals is loaded up, removals.contains(WWN) means "we need to nuke that entity". 
+         * Unfortunately, to avoid a concurrent mod exception, we merely increment the counter in
+         * the TreeMap, them post-process the TreeMap.  Seems kinda dumb, but avoids segv, which
+         * makes it a bit cooler
+         */
+	for (String name: entities.keySet())
+	{
+	    Entity e = entities.get(name);
+
+	    if
+	    (
+		(e instanceof Entity.LeafEntity)
+	    &
+		( removals.contains(((Entity.LeafEntity) e).wwn()) )
+	    )
+		postRemovals.add(name);
+	}
+
+	/* now, finally, post-process the postRemovals as removals */
+	for (String name: postRemovals.toArray(new String[0]))
+	{
+		entities.remove(name);
+	}
+
+    }
+
+
+    /**
      * one-shot load a new file and absorb the contents: open the file and stream the
      * contents at an array of parsers, the one with the best results wins; using that
      * result, absorb all alias information, attempting to create parent
@@ -485,9 +549,11 @@ public class VirtualWisdom4ClientTool
     {
         System.out.println("Usage: "+progname+" -V|--version|-H|--help");
         System.out.println("     : "+progname+" --read <filename>|--input <filename> | -r <filename> | -i <filename>");
+        System.out.println("     : "+progname+" --nickname=<filename>|-N<filename> | --removenicknames=<filename> | -i <filename>");
 
         System.out.println("   ie: "+progname+" --read import.json");
-        System.out.println("   ie: "+progname+" -r import.json");
+        System.out.println("       "+progname+" -r import.json");
+        System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv -oOrderedTuples.csv");
     }
 
 
@@ -516,6 +582,8 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("read", LongOpt.REQUIRED_ARGUMENT, null, 'r'));
         options.add(new LongOpt("input", LongOpt.REQUIRED_ARGUMENT, null, 'i'));
         options.add(new LongOpt("nickname", LongOpt.REQUIRED_ARGUMENT, null, 'N'));
+        options.add(new LongOpt("remove", LongOpt.REQUIRED_ARGUMENT, null, 'R'));
+        options.add(new LongOpt("removenicknames", LongOpt.REQUIRED_ARGUMENT, null, 'R'));
         options.add(new LongOpt("nicknameout", LongOpt.REQUIRED_ARGUMENT, null, 'n'));
         options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
         options.add(new LongOpt("pattern", LongOpt.REQUIRED_ARGUMENT, null, 'P'));
@@ -551,6 +619,10 @@ public class VirtualWisdom4ClientTool
 
             case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
                 m.loadAndAbsorbFile(g.getOptarg());
+                break;
+
+            case 'R': /* read a list of Nicknames for removal using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
+                m.loadAndRemoveFile(g.getOptarg());
                 break;
 
 
