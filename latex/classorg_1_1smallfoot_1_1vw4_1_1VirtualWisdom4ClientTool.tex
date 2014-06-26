@@ -54,6 +54,8 @@ void {\bf \+\_\+save} (String filename)  throws java.\+lang.\+Exception
 \begin{DoxyCompactList}\small\item\em Save the current X\+M\+L Document to a new file. \end{DoxyCompactList}\item 
 void {\bf load\+And\+Absorb\+File} (String f)
 \begin{DoxyCompactList}\small\item\em one-\/shot load a new file and absorb the contents\+: open the file and stream the contents at an array of parsers, the one with the best results wins; using that result, absorb all alias information, attempting to create parent storagecontroller(s) or hosts as resulting from absorbtion patterns \end{DoxyCompactList}\item 
+void {\bf load\+And\+Remove\+File} (String f)
+\begin{DoxyCompactList}\small\item\em one-\/shot load a new file and remove the contents from the internal list of leaf\+Entities (H\+B\+As, F\+As) \end{DoxyCompactList}\item 
 V\+W\+Import {\bf vwimport} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
@@ -85,7 +87,7 @@ As you'd expect, there is no support for this. If it breaks, you may choose to k
 
 Ad-\/\+Hoc content for this utility-\/stack may appear at {\tt http\+://fcfae.\+com/} 
 
-Definition at line 55 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 56 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -111,7 +113,7 @@ Class Constructor to create with an initial file to load.
 \end{DoxySeeAlso}
 
 
-Definition at line 66 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 67 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -158,7 +160,7 @@ This is actually a wrapper for the underlying file load
 \item[{\bf Todo}]\+: evaluate\+: mapper.\+configure(Deserialization\+Config.\+Feature.\+F\+A\+I\+L\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+P\+R\+O\+P\+E\+R\+T\+I\+E\+S, false); \end{DoxyRefDesc}
 
 
-Definition at line 93 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 96 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -182,7 +184,7 @@ Save the current X\+M\+L Document to a new file.
 \end{DoxyParams}
 
 
-Definition at line 128 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 131 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -200,7 +202,7 @@ collection of entities
 \end{DoxyReturn}
 
 
-Definition at line 191 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 194 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -224,7 +226,7 @@ Wrapper to just load the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 107 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 110 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -266,7 +268,7 @@ one-\/shot load a new file and absorb the contents\+: open the file and stream t
 \end{DoxySeeAlso}
 
 
-Definition at line 279 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 345 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -286,6 +288,35 @@ Here is the call graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 
+
+\index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!load\+And\+Remove\+File@{load\+And\+Remove\+File}}
+\index{load\+And\+Remove\+File@{load\+And\+Remove\+File}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
+\subsubsection[{load\+And\+Remove\+File}]{\setlength{\rightskip}{0pt plus 5cm}void load\+And\+Remove\+File (
+\begin{DoxyParamCaption}
+\item[{String}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a2e5ab2ec8715ec815edcea74375a493c}
+
+
+one-\/shot load a new file and remove the contents from the internal list of leaf\+Entities (H\+B\+As, F\+As) 
+
+Working on only the leaf entities, this uses the parser array to parse an input stream, and for each W\+W\+P\+N found, it removes that leaf entity from the system. It doesn't affect the child\+\_\+entities of referring entities to allow for a loaded entity list to still refer to entities which are already on the target system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & name of file to open\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+{\tt https\+://github.\+com/chickenandpork/fibrechannel-\/parsers/} 
+\end{DoxySeeAlso}
+
+
+Definition at line 284 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+
+
+
+Referenced by Virtual\+Wisdom4\+Client\+Tool.\+main().
 
 \index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!main@{main}}
 \index{main@{main}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
@@ -309,11 +340,11 @@ No real intelligence herein except the parse-\/and-\/redirect action.
 \end{DoxyParams}
 
 
-Definition at line 506 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 574 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
-References Entity.\+description, Virtual\+Wisdom4\+Client\+Tool.\+entities, Virtual\+Wisdom4\+Client\+Tool.\+load(), Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Absorb\+File(), Entity.\+name, Virtual\+Wisdom4\+Client\+Tool.\+Virtual\+Wisdom4\+Client\+Tool(), and Virtual\+Wisdom4\+Client\+Tool.\+vwimport.
+References Entity.\+description, Virtual\+Wisdom4\+Client\+Tool.\+entities, Virtual\+Wisdom4\+Client\+Tool.\+load(), Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Absorb\+File(), Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Remove\+File(), Entity.\+name, Virtual\+Wisdom4\+Client\+Tool.\+Virtual\+Wisdom4\+Client\+Tool(), and Virtual\+Wisdom4\+Client\+Tool.\+vwimport.
 
 
 
@@ -338,7 +369,7 @@ collection of patterns
 \end{DoxyReturn}
 
 
-Definition at line 184 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 187 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -365,7 +396,7 @@ a pretty-\/printed J\+S\+O\+N using Object\+Writer.\+with\+Default\+Pretty\+Prin
 \end{DoxyReturn}
 
 
-Definition at line 158 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 161 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 \index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!save@{save}}
 \index{save@{save}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
@@ -385,7 +416,7 @@ Wrapper to just save the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 139 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 142 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -411,7 +442,7 @@ Here is the call graph for this function\+:\nopagebreak
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_acbeee875159f78e186965708e70dee94}
 $<$ singleton to access vwimport to allow for later post-\/process 
 
-Definition at line 79 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 82 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -429,7 +460,7 @@ wwndesc
 \end{DoxyReturn}
 
 
-Definition at line 198 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 201 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 

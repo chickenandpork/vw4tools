@@ -7,6 +7,7 @@ var classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool =
     [ "entities", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4", null ],
     [ "load", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f", null ],
     [ "loadAndAbsorbFile", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a36539eb2d98fcdcedd7dc2088acfeef2", null ],
+    [ "loadAndRemoveFile", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a2e5ab2ec8715ec815edcea74375a493c", null ],
     [ "main", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa", null ],
     [ "patterns", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a09f298d19a33be899f5835657c747c5d", null ],
     [ "prettyJSON", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#afc3ee9b897e0757b6cd5c8289c9d4cc4", null ],
