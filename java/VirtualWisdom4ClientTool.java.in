@@ -322,7 +322,7 @@ else System.out.println("get of "+s+" failed");
             if (null != (wk = holdspace.get(s)))
 	    {
 		if (verbose) System.out.println("moving: "+s);
-                entities.put (s, holdspace.remove(s));
+                entities.put (s, wk);
 	    }
 
 	if (verbose)
@@ -398,8 +398,9 @@ else System.out.println("get of "+s+" failed");
     protected void loadAndRemoveFile(String f)
     {
         ZoneParser p = null;
+	java.util.Properties prop = new java.util.Properties();
 
-        for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true), "@PACKAGE@", /* ZParser(s) verbose */ true) )); x--)
+        for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true, prop), "@PACKAGE@", /* ZParser(s) verbose */ true, prop) )); x--)
             System.out.println("retrying: reading "+f);
 
         /*
@@ -461,8 +462,9 @@ else System.out.println("get of "+s+" failed");
     protected void loadAndAbsorbFile(String f)
     {
         ZoneParser p = null;
+	java.util.Properties prop = new java.util.Properties();
 
-        for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true), "@PACKAGE@", /* ZParser(s) verbose */ true) )); x--)
+        for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true, prop), "@PACKAGE@", /* ZParser(s) verbose */ true, prop) )); x--)
             System.out.println("retrying: reading "+f);
 
         Entity e = null;
