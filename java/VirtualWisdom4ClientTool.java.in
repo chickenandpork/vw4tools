@@ -524,19 +524,20 @@ public class VirtualWisdom4ClientTool
         for (String s: entities().keySet())
             if (null != (e = entities.get(s)))
             {
+		/* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */
                 if (e instanceof EntityHBA)
                 {
                     EntityHBA h = (EntityHBA) e;
 
                     /* name,type,WWPN[,customname] */
-                    fos.println(String.format("%s,%s,%s",h.name(),"host",h.wwn()));
+                    fos.println(String.format("%s,%s,%s,%s",h.parentName(),"host",h.wwn(),h.name()));
                 }
                 else if (e instanceof EntityFA)
                 {
                     EntityFA h = (EntityFA) e;
 
                     /* name,type,WWPN[,customname] */
-                    fos.println(String.format("%s,%s,%s",h.name(),"array",h.wwn()));
+                    fos.println(String.format("%s,%s,%s,%s",h.parentName(),"array",h.wwn(),h.name()));
                 }
             }
     }

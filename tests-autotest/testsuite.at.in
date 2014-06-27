@@ -463,12 +463,12 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 
-AT_CHECK([cat OrderedTuples.csv], 0, [oracle10_hba0,host,21000024ff123456
-oracle10_hba1,host,22000024ff123456
-server44_hba0,host,10000000c9123456
-server44_hba1,host,10000000c9123457
-vmax-18641-fa06a0,array,5000097201234554
-vmax-18641-fa07a0,array,5000097201234558
+AT_CHECK([cat OrderedTuples.csv], 0, [oracle10_hba0,host,21000024ff123456,oracle10_hba0
+oracle10_hba1,host,22000024ff123456,oracle10_hba1
+server44_hba0,host,10000000c9123456,server44_hba0
+server44_hba1,host,10000000c9123457,server44_hba1
+vmax-18641-fa06a0,array,5000097201234554,vmax-18641-fa06a0
+vmax-18641-fa07a0,array,5000097201234558,vmax-18641-fa07a0
 ], [])
 
 AT_CLEANUP()
@@ -499,12 +499,12 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N alias4file.csv -
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 
-AT_CHECK([cat OrderedTuples.csv], 0, [MPV123456-001,host,2001001560123456
-MPV123456-013,host,2013001560123456
-NetApp-123456,array,500a098598123456
-NetApp-123456_456,array,500a098698123456
-Oracle01,host,10000000c9123456
-Oracle01_457,host,10000000c9123457
+AT_CHECK([cat OrderedTuples.csv], 0, [MPV123456-001,host,2001001560123456,MPV123456-001
+MPV123456-013,host,2013001560123456,MPV123456-013
+NetApp-123456,array,500a098598123456,NetApp-123456
+NetApp-123456_456,array,500a098698123456,NetApp-123456_456
+Oracle01,host,10000000c9123456,Oracle01
+Oracle01_457,host,10000000c9123457,Oracle01_457
 ], [])
 
 AT_CLEANUP()

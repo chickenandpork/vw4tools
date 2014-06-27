@@ -124,7 +124,10 @@ public abstract class Entity
     {
         this(name);
         if (canBeChild(e))
+	{
             children().add(e);
+	    e.parent = new WeakReference<Entity>(this);
+	}
         else
             throw new ImproperChildException(e, this);
     }
@@ -169,6 +172,14 @@ public abstract class Entity
         {
             return wwn;    /**< getter */
         }
+
+        public String parentName()
+	{
+	    if ( (null == parent) || (null == parent.get()) )
+		return name();
+	    else
+		return parent.get().name();
+	}
 
         /**
          * Class Constructor with no initial child
