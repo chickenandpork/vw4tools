@@ -71,24 +71,24 @@
     <detaileddescription>
 <para>This exception is intended as a method of signalling <ndash/> and rippling up if necessary <ndash/> than an intended seconding as a child element is not accepted by the would-be parent. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="64">
+      <node id="96">
         <label>Entity.ImproperChildException</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException"/>
-        <childnode refid="65" relation="public-inheritance">
+        <childnode refid="97" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="65">
+      <node id="97">
         <label>Exception</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="66">
+      <node id="98">
         <label>Entity.ImproperChildException</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException"/>
-        <childnode refid="67" relation="public-inheritance">
+        <childnode refid="99" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="67">
+      <node id="99">
         <label>Exception</label>
       </node>
     </collaborationgraph>

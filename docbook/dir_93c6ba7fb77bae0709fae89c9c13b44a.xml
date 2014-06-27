@@ -13,6 +13,13 @@
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>file <link linkend="EntityArray_8java">EntityArray.java</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>file <link linkend="EntityFA_8java">EntityFA.java</link></para>
                     </listitem>
                 </itemizedlist>
@@ -21,6 +28,13 @@
                 <itemizedlist>
                     <listitem>
                         <para>file <link linkend="EntityHBA_8java">EntityHBA.java</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>file <link linkend="EntityHost_8java">EntityHost.java</link></para>
                     </listitem>
                 </itemizedlist>
             </para>

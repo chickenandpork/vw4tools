@@ -13,6 +13,13 @@
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityArray">org::smallfoot::vw4::EntityArray</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityFA">org::smallfoot::vw4::EntityFA</link></para>
                     </listitem>
                 </itemizedlist>
@@ -21,6 +28,13 @@
                 <itemizedlist>
                     <listitem>
                         <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA">org::smallfoot::vw4::EntityHBA</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityHost">org::smallfoot::vw4::EntityHost</link></para>
                     </listitem>
                 </itemizedlist>
             </para>

@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityArray">
+<title>org::smallfoot::vw4::EntityArray class Reference</title>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a82720c65ff67c93dc762f047d8916488">EntityArray</link> (
+String name, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> e)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1ae3cca685b4cef300a70d257f519a96e4">newParent</link> (
+String name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a5a51654ce8be38d5f06faa182cb70e61">canBeChild</link> (
+<link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> e)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>org.smallfoot.vw4.VWImport.Entity <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a1d6bf85ddf0a9382cfa4f82dd3063473">vwentity</link> (
+String tag)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Brief Description</title>
+
+<para>An <link linkend="classorg_1_1smallfoot_1_1vw4_1_1EntityArray">EntityArray</link> is the representation of an Array entity in the JSON import for VW4. </para>
+    </simplesect>
+        <simplesect>
+            <title>Detailed Description</title>
+
+<para>Be very careful: there is an <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link>, and a VWImport::Entity </para>
+                <para>Definition at line 45 of file EntityArray.java</para>
+                <para>The Documentation for this struct was generated from the following file: </para>
+                <para><itemizedlist><listitem><para>EntityArray.java</para></listitem></itemizedlist></para>
+        </simplesect>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a82720c65ff67c93dc762f047d8916488">
+                <title>EntityArray (String name, Entity e)</title> <emphasis>Basic Class Constructor.</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1ae3cca685b4cef300a70d257f519a96e4">
+                <title>Entity newParent (String name)</title> <emphasis>create a new Entity of the correct class to be a parent of this one</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a5a51654ce8be38d5f06faa182cb70e61">
+                <title>boolean canBeChild (Entity e)</title> <emphasis>whether a given entity can be this entity&apos;s child</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>true if accepted, false if refused </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>e</entry>
+                                <entry>
+<para>entity to check for possible descendent-hood </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a1d6bf85ddf0a9382cfa4f82dd3063473">
+                <title>org.smallfoot.vw4.VWImport.Entity vwentity (String tag)</title> <emphasis>create a streamable JSON entity from this one</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>a org.smallfoot.vw4.VWImport.Entity representation of this instance </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>tag</entry>
+                                <entry>
+<para>default tag to apply </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+</section>

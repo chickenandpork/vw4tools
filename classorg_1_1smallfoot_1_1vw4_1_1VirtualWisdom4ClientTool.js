@@ -1,5 +1,6 @@
 var classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool =
 [
+    [ "EntitySelector", "interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector.html", "interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector" ],
     [ "VirtualWisdom4ClientTool", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0f1b4c518fafff8a296bb632e57655ca", null ],
     [ "VirtualWisdom4ClientTool", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a7991b30b52ad4d408df3575abc9b57ae", null ],
     [ "_load", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058", null ],

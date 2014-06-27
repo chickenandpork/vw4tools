@@ -2,6 +2,16 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool">
 <title>org::smallfoot::vw4::VirtualWisdom4ClientTool class Reference</title>
         <simplesect>
+            <title> Classes </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector">org::smallfoot::vw4::VirtualWisdom4ClientTool::EntitySelector</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
             <title>Private Attributes</title>
             <para>
                 <itemizedlist>
@@ -192,6 +202,14 @@ String alias)</para>
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae4499ee0125936e10dde278b4a18c289">report</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a">usage</link> (
 String progname)</para>
                     </listitem>
@@ -200,8 +218,8 @@ String progname)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae7f58b7f70ac5ad9229b3556469d5328">writeOrderedTuples</link> (
-String name)</para>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac920712c8aa23e3b84790e1ff7fb297c">writeOrderedTuples</link> (
+String name, <link linkend="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector">EntitySelector</link> sel)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -487,11 +505,48 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
                 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">
-                <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns.</emphasis>
+                <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns and execute it immediately on all current orphan LeafEntities.</emphasis>
                 
-<para>Hosts will absorb new matches at a top-level (host-&gt;hba); storage will absorb a pattern by force into a second-tier (storagearray -&gt; storagecontroller). This will let devices with non-intuitive combinations (ie SVC nodes in an iogroup don&apos;t have any matching WWPN parts). Not sure how far this will snowball.</para>
+<para>The pattern given will be absorbed for the side-benefit of a user testing patterns against names using the &#8211;checkpattern option. The pattern is also immediately executed, such that the following four cases occur for each orphan entity evaluated: <orderedlist>
+<listitem>
 
-<para>param pattern a String pattern to absorb (into an internal array for use later) </para>
+<para>the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan </para>
+</listitem>
+<listitem>
+
+<para>the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity </para>
+</listitem>
+<listitem>
+
+<para>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space </para>
+</listitem>
+<listitem>
+
+<para>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name </para>
+</listitem>
+</orderedlist>
+</para>
+
+<para>When complete, the &quot;hold&quot; space is evaluated to remove any &quot;parents&quot; for which there is only one child, thus eliminating lame pattern results before any next run</para>
+
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>pattern</entry>
+                                <entry>
+<para>a String pattern to execute and absorb (into an internal array for use later) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d">
@@ -518,6 +573,10 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
 </para>
 
             </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae4499ee0125936e10dde278b4a18c289">
+                <title>void report ()</title> <emphasis></emphasis>
+                
+            </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a">
                 <title>void usage (String progname)</title> <emphasis>Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)</emphasis>
                 
@@ -541,8 +600,8 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
                 </para>
 
             </section>
-            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae7f58b7f70ac5ad9229b3556469d5328">
-                <title>void writeOrderedTuples (String name)</title> <emphasis>Export an &quot;OrderedTuples.csv&quot; file as a stopgap measure until proper JSON processing can be completed.</emphasis>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac920712c8aa23e3b84790e1ff7fb297c">
+                <title>void writeOrderedTuples (String name, EntitySelector sel)</title> <emphasis>Export an &quot;OrderedTuples.csv&quot; file as a stopgap measure until proper JSON processing can be completed.</emphasis>
                 
 <para>
                 <formalpara>
@@ -555,6 +614,12 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
                                 <entry>name</entry>
                                 <entry>
 <para>filename to write </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>sel</entry>
+                                <entry>
+<para>an optional selector-method </para>
 </entry>
                             </row>
                         </tbody>

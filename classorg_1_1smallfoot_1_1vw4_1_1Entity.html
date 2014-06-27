@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">0.9-62</span>
+   &#160;<span id="projectnumber">0.9-71</span>
    </div>
   </td>
  </tr>
@@ -82,7 +82,7 @@ Inheritance diagram for Entity:</div>
 <div class="dyncontent">
 <div class="center"><img src="classorg_1_1smallfoot_1_1vw4_1_1Entity__inherit__graph.png" border="0" usemap="#Entity_inherit__map" alt="Inheritance graph"/></div>
 <map name="Entity_inherit__map" id="Entity_inherit__map">
-<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html" title="A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that lea..." alt="" coords="31,81,147,106"/><area shape="rect" id="node3" href="classorg_1_1smallfoot_1_1vw4_1_1EntityFA.html" title="An EntityFA is the representation of an Storage FA entity in the JSON import for VW4. " alt="" coords="5,155,75,181"/><area shape="rect" id="node4" href="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.html" title="An EntityHBA is the representation of an HBA entity in the JSON import for VW4. " alt="" coords="99,155,180,181"/></map>
+<area shape="rect" id="node2" href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html" title="A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that lea..." alt="" coords="31,81,147,106"/><area shape="rect" id="node5" href="classorg_1_1smallfoot_1_1vw4_1_1EntityArray.html" title="An EntityArray is the representation of an Array entity in the JSON import for VW4. " alt="" coords="171,81,257,106"/><area shape="rect" id="node6" href="classorg_1_1smallfoot_1_1vw4_1_1EntityHost.html" title="An EntityHost is the representation of an Host entity in the JSON import for VW4. ..." alt="" coords="282,81,363,106"/><area shape="rect" id="node3" href="classorg_1_1smallfoot_1_1vw4_1_1EntityFA.html" title="An EntityFA is the representation of an Storage FA entity in the JSON import for VW4. " alt="" coords="5,155,75,181"/><area shape="rect" id="node4" href="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.html" title="An EntityHBA is the representation of an HBA entity in the JSON import for VW4. " alt="" coords="99,155,180,181"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Entity:</div>
@@ -111,8 +111,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1afb3a328033f8f6bf136d8380e712b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a464a9940ad720e717c25422b41b7845b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a464a9940ad720e717c25422b41b7845b">description</a> ()</td></tr>
 <tr class="separator:a464a9940ad720e717c25422b41b7845b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeab35e912fa1da9e137231518b27e19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abeab35e912fa1da9e137231518b27e19"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>maybeAdopt</b> (<a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a> e)  throws ImproperChildException     </td></tr>
+<tr class="separator:abeab35e912fa1da9e137231518b27e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa2149aced9d90555f788dfc81c23d15"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#afa2149aced9d90555f788dfc81c23d15">name</a> ()</td></tr>
 <tr class="separator:afa2149aced9d90555f788dfc81c23d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09bc887ffb8f12a369fd5f5da7cfef31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09bc887ffb8f12a369fd5f5da7cfef31"></a>
+abstract <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a09bc887ffb8f12a369fd5f5da7cfef31">newParent</a> (String <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>)</td></tr>
+<tr class="memdesc:a09bc887ffb8f12a369fd5f5da7cfef31"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a new <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html" title="An Entity is the core mutable object used in the JSON import for VW4. ">Entity</a> of the correct class to be a parent of this one <br /></td></tr>
+<tr class="separator:a09bc887ffb8f12a369fd5f5da7cfef31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d15d718177c4f5411ce6ab339889fd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a1d15d718177c4f5411ce6ab339889fd4">setDescription</a> (String <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a>)</td></tr>
 <tr class="separator:a1d15d718177c4f5411ce6ab339889fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670f83b1f0f39a20e0fe60597032a367"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a670f83b1f0f39a20e0fe60597032a367">setname</a> (String <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>)</td></tr>
@@ -186,8 +193,6 @@ WeakReference&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.htm
   </dd>
 </dl>
 
-<p>Referenced by <a class="el" href="Entity_8java_source.html#l00123">Entity.Entity()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a63ef33ad49b88027164e49d1916f409c"></a>
@@ -214,7 +219,7 @@ WeakReference&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.htm
 
 <p>Definition at line <a class="el" href="Entity_8java_source.html#l00065">65</a> of file <a class="el" href="Entity_8java_source.html">Entity.java</a>.</p>
 
-<p>Referenced by <a class="el" href="Entity_8java_source.html#l00123">Entity.Entity()</a>.</p>
+<p>Referenced by <a class="el" href="EntityArray_8java_source.html#l00061">EntityArray.vwentity()</a>, and <a class="el" href="EntityHost_8java_source.html#l00061">EntityHost.vwentity()</a>.</p>
 
 </div>
 </div>
@@ -242,7 +247,7 @@ WeakReference&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.htm
 
 <p>Definition at line <a class="el" href="Entity_8java_source.html#l00082">82</a> of file <a class="el" href="Entity_8java_source.html">Entity.java</a>.</p>
 
-<p>Referenced by <a class="el" href="Entity_8java_source.html#l00086">Entity.setDescription()</a>, <a class="el" href="EntityHBA_8java_source.html#l00055">EntityHBA.vwentity()</a>, and <a class="el" href="EntityFA_8java_source.html#l00055">EntityFA.vwentity()</a>.</p>
+<p>Referenced by <a class="el" href="Entity_8java_source.html#l00086">Entity.setDescription()</a>, <a class="el" href="EntityHBA_8java_source.html#l00055">EntityHBA.vwentity()</a>, <a class="el" href="EntityFA_8java_source.html#l00055">EntityFA.vwentity()</a>, <a class="el" href="EntityArray_8java_source.html#l00061">EntityArray.vwentity()</a>, and <a class="el" href="EntityHost_8java_source.html#l00061">EntityHost.vwentity()</a>.</p>
 
 </div>
 </div>
@@ -270,7 +275,7 @@ WeakReference&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.htm
 
 <p>Definition at line <a class="el" href="Entity_8java_source.html#l00072">72</a> of file <a class="el" href="Entity_8java_source.html">Entity.java</a>.</p>
 
-<p>Referenced by <a class="el" href="Entity_8java_source.html#l00115">Entity.Entity()</a>, <a class="el" href="Entity_8java_source.html#l00076">Entity.setname()</a>, <a class="el" href="EntityFA_8java_source.html#l00055">EntityFA.vwentity()</a>, and <a class="el" href="EntityHBA_8java_source.html#l00055">EntityHBA.vwentity()</a>.</p>
+<p>Referenced by <a class="el" href="Entity_8java_source.html#l00115">Entity.Entity()</a>, <a class="el" href="EntityArray_8java_source.html#l00049">EntityArray.EntityArray()</a>, <a class="el" href="EntityHost_8java_source.html#l00049">EntityHost.EntityHost()</a>, <a class="el" href="Entity_8java_source.html#l00076">Entity.setname()</a>, <a class="el" href="EntityFA_8java_source.html#l00055">EntityFA.vwentity()</a>, <a class="el" href="EntityHBA_8java_source.html#l00055">EntityHBA.vwentity()</a>, <a class="el" href="EntityArray_8java_source.html#l00061">EntityArray.vwentity()</a>, and <a class="el" href="EntityHost_8java_source.html#l00061">EntityHost.vwentity()</a>.</p>
 
 </div>
 </div>
@@ -301,7 +306,7 @@ WeakReference&lt; <a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.htm
 
 <p>References <a class="el" href="Entity_8java_source.html#l00082">Entity.description()</a>.</p>
 
-<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00345">VirtualWisdom4ClientTool.loadAndAbsorbFile()</a>.</p>
+<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00486">VirtualWisdom4ClientTool.loadAndAbsorbFile()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -341,7 +346,7 @@ Here is the call graph for this function:</div>
 
 <p>References <a class="el" href="Entity_8java_source.html#l00072">Entity.name()</a>.</p>
 
-<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00345">VirtualWisdom4ClientTool.loadAndAbsorbFile()</a>.</p>
+<p>Referenced by <a class="el" href="VirtualWisdom4ClientTool_8java_source.html#l00486">VirtualWisdom4ClientTool.loadAndAbsorbFile()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -396,7 +401,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>org</b></li><li class="navelem"><b>smallfoot</b></li><li class="navelem"><b>vw4</b></li><li class="navelem"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a></li>
-    <li class="footer">Generated on Thu Jun 26 2014 11:03:30 for vw4tools by
+    <li class="footer">Generated on Fri Jun 27 2014 09:59:56 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

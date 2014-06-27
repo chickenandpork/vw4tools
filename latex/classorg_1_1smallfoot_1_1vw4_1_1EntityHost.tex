@@ -1,0 +1,120 @@
+\section{Entity\+Host Class Reference}
+\label{classorg_1_1smallfoot_1_1vw4_1_1EntityHost}\index{Entity\+Host@{Entity\+Host}}
+
+
+An \doxyref{Entity\+Host}{p.}{classorg_1_1smallfoot_1_1vw4_1_1EntityHost} is the representation of an Host entity in the J\+S\+O\+N import for V\+W4.  
+
+
+
+
+Inheritance diagram for Entity\+Host\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=104pt]{classorg_1_1smallfoot_1_1vw4_1_1EntityHost__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Entity\+Host\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1smallfoot_1_1vw4_1_1EntityHost__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Entity\+Host} (String {\bf name}, {\bf Entity} e)  throws Improper\+Child\+Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1EntityHost_a8c76d8db7cbedb53bd3469b0ec940962}
+
+\begin{DoxyCompactList}\small\item\em Basic Class Constructor. \end{DoxyCompactList}\item 
+{\bf Entity} {\bf new\+Parent} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1EntityHost_ae3cca685b4cef300a70d257f519a96e4}
+
+\begin{DoxyCompactList}\small\item\em create a new \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} of the correct class to be a parent of this one \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean {\bf can\+Be\+Child} ({\bf Entity} e)
+\begin{DoxyCompactList}\small\item\em whether a given entity can be this entity's child \end{DoxyCompactList}\item 
+org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity {\bf vwentity} (String tag)
+\begin{DoxyCompactList}\small\item\em create a streamable J\+S\+O\+N entity from this one \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+An \doxyref{Entity\+Host}{p.}{classorg_1_1smallfoot_1_1vw4_1_1EntityHost} is the representation of an Host entity in the J\+S\+O\+N import for V\+W4. 
+
+Be very careful\+: there is an \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity}, and a V\+W\+Import\+::\+Entity 
+
+Definition at line 44 of file Entity\+Host.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\index{org\+::smallfoot\+::vw4\+::\+Entity\+Host@{org\+::smallfoot\+::vw4\+::\+Entity\+Host}!can\+Be\+Child@{can\+Be\+Child}}
+\index{can\+Be\+Child@{can\+Be\+Child}!org\+::smallfoot\+::vw4\+::\+Entity\+Host@{org\+::smallfoot\+::vw4\+::\+Entity\+Host}}
+\subsubsection[{can\+Be\+Child}]{\setlength{\rightskip}{0pt plus 5cm}boolean can\+Be\+Child (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1EntityHost_a5a51654ce8be38d5f06faa182cb70e61}
+
+
+whether a given entity can be this entity's child 
+
+\begin{DoxyReturn}{Returns}
+true if accepted, false if refused 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & entity to check for possible descendent-\/hood \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file Entity\+Host.\+java.
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity\+Host@{org\+::smallfoot\+::vw4\+::\+Entity\+Host}!vwentity@{vwentity}}
+\index{vwentity@{vwentity}!org\+::smallfoot\+::vw4\+::\+Entity\+Host@{org\+::smallfoot\+::vw4\+::\+Entity\+Host}}
+\subsubsection[{vwentity}]{\setlength{\rightskip}{0pt plus 5cm}org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity vwentity (
+\begin{DoxyParamCaption}
+\item[{String}]{tag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1EntityHost_a1d6bf85ddf0a9382cfa4f82dd3063473}
+
+
+create a streamable J\+S\+O\+N entity from this one 
+
+\begin{DoxyReturn}{Returns}
+a org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity representation of this instance 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em tag} & default tag to apply \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file Entity\+Host.\+java.
+
+
+
+References Entity.\+children(), Entity.\+description(), and Entity.\+name().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classorg_1_1smallfoot_1_1vw4_1_1EntityHost_a1d6bf85ddf0a9382cfa4f82dd3063473_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+java/{\bf Entity\+Host.\+java}\end{DoxyCompactItemize}

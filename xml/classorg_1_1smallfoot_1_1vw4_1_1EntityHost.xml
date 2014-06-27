@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="classorg_1_1smallfoot_1_1vw4_1_1EntityHost" kind="class" prot="public">
+    <compoundname>org::smallfoot::vw4::EntityHost</compoundname>
+    <basecompoundref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" prot="public" virt="non-virtual">Entity</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a8c76d8db7cbedb53bd3469b0ec940962" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>EntityHost</definition>
+        <argsstring>(String name, Entity e)</argsstring>
+        <name>EntityHost</name>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <exceptions> throws <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException" kindref="compound">ImproperChildException</ref>     </exceptions>
+        <briefdescription>
+<para>Basic Class Constructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/EntityHost.java" line="49" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHost.java" bodystart="49" bodyend="52"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="72" endline="75">Entity.name</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1ae3cca685b4cef300a70d257f519a96e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
+        <definition>Entity newParent</definition>
+        <argsstring>(String name)</argsstring>
+        <name>newParent</name>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>create a new <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> of the correct class to be a parent of this one </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/EntityHost.java" line="78" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHost.java" bodystart="78" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a5a51654ce8be38d5f06faa182cb70e61" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean canBeChild</definition>
+        <argsstring>(Entity e)</argsstring>
+        <name>canBeChild</name>
+        <param>
+          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>whether a given entity can be this entity&apos;s child </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if accepted, false if refused </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entity to check for possible descendent-hood </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/EntityHost.java" line="55" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHost.java" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a1d6bf85ddf0a9382cfa4f82dd3063473" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>org.smallfoot.vw4.VWImport.Entity</type>
+        <definition>org.smallfoot.vw4.VWImport.Entity vwentity</definition>
+        <argsstring>(String tag)</argsstring>
+        <name>vwentity</name>
+        <param>
+          <type>String</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+<para>create a streamable JSON entity from this one </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a org.smallfoot.vw4.VWImport.Entity representation of this instance </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default tag to apply </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/EntityHost.java" line="61" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHost.java" bodystart="61" bodyend="75"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c" compoundref="Entity_8java" startline="65" endline="69">Entity.children</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="82" endline="85">Entity.description</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="72" endline="75">Entity.name</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>An <ref refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost" kindref="compound">EntityHost</ref> is the representation of an Host entity in the JSON import for VW4. </para>    </briefdescription>
+    <detaileddescription>
+<para>Be very careful: there is an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref>, and a VWImport::Entity </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="89">
+        <label>Entity</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
+      </node>
+      <node id="88">
+        <label>EntityHost</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost"/>
+        <childnode refid="89" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="93">
+        <label>Vector&lt; org.smallfoot.vw4.Entity &gt;</label>
+      </node>
+      <node id="91">
+        <label>Entity</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
+        <childnode refid="92" relation="usage">
+          <edgelabel>parent</edgelabel>
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>children</edgelabel>
+        </childnode>
+      </node>
+      <node id="92">
+        <label>WeakReference&lt; org.smallfoot.vw4.Entity &gt;</label>
+      </node>
+      <node id="90">
+        <label>EntityHost</label>
+        <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost"/>
+        <childnode refid="91" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/allan.clark/src/vw4tools/java/EntityHost.java" line="45" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHost.java" bodystart="44" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2fb8c11825a512c9738dd5fee7250e01" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>addTo</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a5a51654ce8be38d5f06faa182cb70e61" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>canBeChild</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ad315cf5c2790d5a5c8c5169c26647e84" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>children</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>children</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>description</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>description</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afc6a43ee8007bcc023a7ebd2bf5ee1ed" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>Entity</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1afb3a328033f8f6bf136d8380e712b9" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>Entity</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a8c76d8db7cbedb53bd3469b0ec940962" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>EntityHost</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a630757ac1bdaa0e8245beaaf33204ffe" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>isOrphan</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a110223c4015487625c1fbcae19aaa613" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>isOrphan</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1abeab35e912fa1da9e137231518b27e19" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>maybeAdopt</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a9a2326f35466e54c36c070829245c557" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>name</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>name</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1ae3cca685b4cef300a70d257f519a96e4" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>newParent</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ab1bf14d6f0f0af84c30272b6eed5792f" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>parent</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1d15d718177c4f5411ce6ab339889fd4" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>setDescription</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>setname</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a1d6bf85ddf0a9382cfa4f82dd3063473" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::EntityHost</scope><name>vwentity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

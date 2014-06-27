@@ -24,6 +24,22 @@ String name, String wwn)</para>
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para><link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ae3cca685b4cef300a70d257f519a96e4">newParent</link> (
+String name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a929a7f5f05728b26869df0351a7a815d">parentName</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b">wwn</link> (
 )</para>
                     </listitem>
@@ -56,6 +72,14 @@ String tag)</para>
     </simplesect>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c">
                 <title>LeafEntity (String name, String wwn)</title> <emphasis>Class Constructor with no initial child.</emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ae3cca685b4cef300a70d257f519a96e4">
+                <title>Entity newParent (String name)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a929a7f5f05728b26869df0351a7a815d">
+                <title>String parentName ()</title> <emphasis></emphasis>
                 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b">

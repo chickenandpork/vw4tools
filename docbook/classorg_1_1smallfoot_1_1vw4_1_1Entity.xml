@@ -105,8 +105,24 @@ String name, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1abeab35e912fa1da9e137231518b27e19">maybeAdopt</link> (
+<link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> e)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15">name</link> (
 )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>abstract <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a09bc887ffb8f12a369fd5f5da7cfef31">newParent</link> (
+String name)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -237,8 +253,16 @@ TreeMap&lt; String, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entit
                 <title>String description ()</title> <emphasis></emphasis>
                 
             </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1abeab35e912fa1da9e137231518b27e19">
+                <title>void maybeAdopt (Entity e)</title> <emphasis></emphasis>
+                
+            </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15">
                 <title>String name ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a09bc887ffb8f12a369fd5f5da7cfef31">
+                <title>abstract Entity newParent (String name)</title> <emphasis>create a new Entity of the correct class to be a parent of this one</emphasis>
                 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1d15d718177c4f5411ce6ab339889fd4">

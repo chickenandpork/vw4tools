@@ -1,9 +1,8 @@
 <map id="loadAndAbsorbFile" name="loadAndAbsorbFile">
 <area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4" title="entities" alt="" coords="263,5,326,30"/>
-<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a09f298d19a33be899f5835657c747c5d" title="patterns" alt="" coords="260,54,329,79"/>
-<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a1d15d718177c4f5411ce6ab339889fd4" title="org.smallfoot.vw4.Entity.set\lDescription" alt="" coords="203,103,386,142"/>
-<area shape="rect" id="node6" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a670f83b1f0f39a20e0fe60597032a367" title="org.smallfoot.vw4.Entity.setname" alt="" coords="187,166,403,191"/>
-<area shape="rect" id="node8" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a43a8de962936ee9d82e0a70eeb9b1db6" title="wwndesc" alt="" coords="257,215,333,241"/>
-<area shape="rect" id="node5" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a464a9940ad720e717c25422b41b7845b" title="org.smallfoot.vw4.Entity.description" alt="" coords="451,110,680,135"/>
-<area shape="rect" id="node7" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#afa2149aced9d90555f788dfc81c23d15" title="org.smallfoot.vw4.Entity.name" alt="" coords="466,166,664,191"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a1d15d718177c4f5411ce6ab339889fd4" title="org.smallfoot.vw4.Entity.set\lDescription" alt="" coords="203,54,386,93"/>
+<area shape="rect" id="node5" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a670f83b1f0f39a20e0fe60597032a367" title="org.smallfoot.vw4.Entity.setname" alt="" coords="187,117,403,142"/>
+<area shape="rect" id="node7" href="$classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a43a8de962936ee9d82e0a70eeb9b1db6" title="wwndesc" alt="" coords="257,166,333,191"/>
+<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a464a9940ad720e717c25422b41b7845b" title="org.smallfoot.vw4.Entity.description" alt="" coords="451,61,680,86"/>
+<area shape="rect" id="node6" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#afa2149aced9d90555f788dfc81c23d15" title="org.smallfoot.vw4.Entity.name" alt="" coords="466,117,664,142"/>
 </map>

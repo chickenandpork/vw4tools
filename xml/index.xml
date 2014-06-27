@@ -11,20 +11,39 @@
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afc6a43ee8007bcc023a7ebd2bf5ee1ed" kind="function"><name>Entity</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1afb3a328033f8f6bf136d8380e712b9" kind="function"><name>Entity</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" kind="function"><name>description</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1abeab35e912fa1da9e137231518b27e19" kind="function"><name>maybeAdopt</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" kind="function"><name>name</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a09bc887ffb8f12a369fd5f5da7cfef31" kind="function"><name>newParent</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1d15d718177c4f5411ce6ab339889fd4" kind="function"><name>setDescription</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367" kind="function"><name>setname</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2fb8c11825a512c9738dd5fee7250e01" kind="function"><name>addTo</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a630757ac1bdaa0e8245beaaf33204ffe" kind="function"><name>isOrphan</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a110223c4015487625c1fbcae19aaa613" kind="function"><name>isOrphan</name></member>
   </compound>
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray" kind="class"><name>org::smallfoot::vw4::EntityArray</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a82720c65ff67c93dc762f047d8916488" kind="function"><name>EntityArray</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1ae3cca685b4cef300a70d257f519a96e4" kind="function"><name>newParent</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a5a51654ce8be38d5f06faa182cb70e61" kind="function"><name>canBeChild</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
+  </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA" kind="class"><name>org::smallfoot::vw4::EntityFA</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1aee1f13fcac25df5320b16ca060ad99dd" kind="function"><name>EntityFA</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1ae3cca685b4cef300a70d257f519a96e4" kind="function"><name>newParent</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
   </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA" kind="class"><name>org::smallfoot::vw4::EntityHBA</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a5470c9c351f0ea8dd64d612e11c7214f" kind="function"><name>EntityHBA</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1ae3cca685b4cef300a70d257f519a96e4" kind="function"><name>newParent</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
+  </compound>
+  <compound refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost" kind="class"><name>org::smallfoot::vw4::EntityHost</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a8c76d8db7cbedb53bd3469b0ec940962" kind="function"><name>EntityHost</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1ae3cca685b4cef300a70d257f519a96e4" kind="function"><name>newParent</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a5a51654ce8be38d5f06faa182cb70e61" kind="function"><name>canBeChild</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
+  </compound>
+  <compound refid="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector" kind="interface"><name>org::smallfoot::vw4::VirtualWisdom4ClientTool::EntitySelector</name>
+    <member refid="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector_1a06dae9b60fcb30b8dc2ce7d716a56548" kind="function"><name>select</name></member>
   </compound>
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException" kind="class"><name>org::smallfoot::vw4::Entity::ImproperChildException</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a5c306b76ca66e2e9744e4e1f637cc991" kind="function"><name>ImproperChildException</name></member>
@@ -33,6 +52,8 @@
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity" kind="class"><name>org::smallfoot::vw4::Entity::LeafEntity</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ab07f595ad2e4da7c53cd29f435f5bb3c" kind="variable"><name>wwn</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c" kind="function"><name>LeafEntity</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ae3cca685b4cef300a70d257f519a96e4" kind="function"><name>newParent</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a929a7f5f05728b26869df0351a7a815d" kind="function"><name>parentName</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" kind="function"><name>wwn</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a5a51654ce8be38d5f06faa182cb70e61" kind="function"><name>canBeChild</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a1d6bf85ddf0a9382cfa4f82dd3063473" kind="function"><name>vwentity</name></member>
@@ -60,8 +81,9 @@
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d" kind="function"><name>entityAccepting</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa0a47fb81ec7fd8f9d1d250ec7c24725" kind="function"><name>exercisePattern</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aeb4c990279152389717ab187394330fa" kind="function"><name>finalizeEntities</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae4499ee0125936e10dde278b4a18c289" kind="function"><name>report</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" kind="function"><name>usage</name></member>
-    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae7f58b7f70ac5ad9229b3556469d5328" kind="function"><name>writeOrderedTuples</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac920712c8aa23e3b84790e1ff7fb297c" kind="function"><name>writeOrderedTuples</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0ec044bae77579fea9b51e49c05ccbd3" kind="function"><name>writeOutputfile</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" kind="function"><name>main</name></member>
   </compound>
@@ -83,9 +105,13 @@
   </compound>
   <compound refid="Entity_8java" kind="file"><name>Entity.java</name>
   </compound>
+  <compound refid="EntityArray_8java" kind="file"><name>EntityArray.java</name>
+  </compound>
   <compound refid="EntityFA_8java" kind="file"><name>EntityFA.java</name>
   </compound>
   <compound refid="EntityHBA_8java" kind="file"><name>EntityHBA.java</name>
+  </compound>
+  <compound refid="EntityHost_8java" kind="file"><name>EntityHost.java</name>
   </compound>
   <compound refid="VirtualWisdom4ClientTool_8java" kind="file"><name>VirtualWisdom4ClientTool.java</name>
   </compound>

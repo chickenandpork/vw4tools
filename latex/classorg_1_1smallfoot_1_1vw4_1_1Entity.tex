@@ -11,7 +11,7 @@ Inheritance diagram for Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=175pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity__inherit__graph}
+\includegraphics[width=312pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -41,8 +41,14 @@ class {\bf Leaf\+Entity}
 \begin{DoxyCompactList}\small\item\em Class Constructor with an initial child to absorb. \end{DoxyCompactList}\item 
 String {\bf description} ()
 \item 
+void {\bfseries maybe\+Adopt} ({\bf Entity} e)  throws Improper\+Child\+Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1Entity_abeab35e912fa1da9e137231518b27e19}
+
+\item 
 String {\bf name} ()
 \item 
+abstract {\bf Entity} {\bf new\+Parent} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a09bc887ffb8f12a369fd5f5da7cfef31}
+
+\begin{DoxyCompactList}\small\item\em create a new \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} of the correct class to be a parent of this one \end{DoxyCompactList}\item 
 void {\bf set\+Description} (String {\bf description})
 \item 
 void {\bf setname} (String {\bf name})
@@ -103,10 +109,6 @@ true if accepted, false if refused
 {\em e} & entity to check for possible descendent-\/hood \\
 \hline
 \end{DoxyParams}
-
-
-Referenced by Entity.\+Entity().
-
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!children@{children}}
 \index{children@{children}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
 \subsubsection[{children}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<${\bf Entity}$>$ children (
@@ -120,7 +122,7 @@ Definition at line 65 of file Entity.\+java.
 
 
 
-Referenced by Entity.\+Entity().
+Referenced by Entity\+Array.\+vwentity(), and Entity\+Host.\+vwentity().
 
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!description@{description}}
 \index{description@{description}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
@@ -135,7 +137,7 @@ Definition at line 82 of file Entity.\+java.
 
 
 
-Referenced by Entity.\+set\+Description(), Entity\+H\+B\+A.\+vwentity(), and Entity\+F\+A.\+vwentity().
+Referenced by Entity.\+set\+Description(), Entity\+H\+B\+A.\+vwentity(), Entity\+F\+A.\+vwentity(), Entity\+Array.\+vwentity(), and Entity\+Host.\+vwentity().
 
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!name@{name}}
 \index{name@{name}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
@@ -150,7 +152,7 @@ Definition at line 72 of file Entity.\+java.
 
 
 
-Referenced by Entity.\+Entity(), Entity.\+setname(), Entity\+F\+A.\+vwentity(), and Entity\+H\+B\+A.\+vwentity().
+Referenced by Entity.\+Entity(), Entity\+Array.\+Entity\+Array(), Entity\+Host.\+Entity\+Host(), Entity.\+setname(), Entity\+F\+A.\+vwentity(), Entity\+H\+B\+A.\+vwentity(), Entity\+Array.\+vwentity(), and Entity\+Host.\+vwentity().
 
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!set\+Description@{set\+Description}}
 \index{set\+Description@{set\+Description}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}

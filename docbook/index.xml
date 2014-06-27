@@ -19,8 +19,11 @@
     <chapter>
         <title>Class Documentation</title>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1Entity.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1EntityArray.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1EntityFA.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1EntityHost.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classjava_1_1lang_1_1Exception.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -30,8 +33,10 @@
         <title>File Documentation</title>
         <xi:include href="README_8dox.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="Entity_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="EntityArray_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="EntityFA_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="EntityHBA_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="EntityHost_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="VirtualWisdom4ClientTool_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="VWImport_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </chapter>
