@@ -66,7 +66,7 @@ public class VirtualWisdom4ClientTool
      */
     public VirtualWisdom4ClientTool(String xmlFile)
     {
-	this();
+        this();
         load(xmlFile);
     }
 
@@ -75,7 +75,7 @@ public class VirtualWisdom4ClientTool
      */
     public VirtualWisdom4ClientTool()
     {
-	FCParser.registerProtocols();
+        FCParser.registerProtocols();
     }
 
     public VWImport vwimport = null;		/**< singleton list of JSON-writable objects accessed through vwimport() */
@@ -214,92 +214,95 @@ public class VirtualWisdom4ClientTool
      * <li>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space</li>
      * <li>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name</li>
      * </ol>
-     * 
+     *
      * When complete, the "hold" space is evaluated to remove any "parents" for which there is only one child, thus eliminating lame pattern results before any next run
      *
      * @param pattern a String pattern to execute and absorb (into an internal array for use later)
      */
     void absorbPattern (String pattern)
     {
-	Entity wk;
-	Entity parent;
-	Pattern p = Pattern.compile(pattern);
+        Entity wk;
+        Entity parent;
+        Pattern p = Pattern.compile(pattern);
 
-	/* absorb for --checkpattern behavior */
+        /* absorb for --checkpattern behavior */
         patterns().add(p);
 
-	TreeMap<String,Entity> holdspace = new TreeMap<String,Entity>();
-	
-	for (String s: entities().keySet())
-	    if (null != (wk = holdspace.get(s)))
-		if (wk instanceof Entity.LeafEntity)
-		{
-	Entity.LeafEntity work = (Entity.LeafEntity) wk;
-		if ( (null == work.parent) || (null == work.parent.get()) )
-		{
-                    java.util.regex.Matcher m = p.matcher(work.name());
-                    if (m.find())
+        TreeMap<String,Entity> holdspace = new TreeMap<String,Entity>();
+
+        for (String s: entities().keySet())
+            if (null != (wk = holdspace.get(s)))
+                if (wk instanceof Entity.LeafEntity)
+                {
+                    Entity.LeafEntity work = (Entity.LeafEntity) wk;
+                    if ( (null == work.parent) || (null == work.parent.get()) )
                     {
-		        String possibleName = m.group(1);
-
-		    	/* OK, orphan.  Which of the four cases are we? */
-			if ( (null != (parent = entities.get(possibleName))) || (null != (parent = holdspace.get(possibleName))) )
-			{
-			    /* case 2 & 3: possibly adopt this entity, blindly ignoring if the parent refuses */
-			    try
-			    {
-			    	parent.maybeAdopt(work);
-			    }
-			    catch (Entity.ImproperChildException ice) { /* ignored - same action either way */ }
-			}
-			else if (possibleName.equalsIgnoreCase(work.name()))
-			{
-			    /* case 4: parent matches.  need to rename this one and adopt into a new parent */
-			    String wwn = work.wwn;
-
-                        if (
-			    (null == entities().get(work.name()+"_"+wwn.substring(wwn.length()-4)))
-			&& 
-                            (null == holdspace.get(work.name()+"_"+wwn.substring(wwn.length()-4)))
-			    )
+                        java.util.regex.Matcher m = p.matcher(work.name());
+                        if (m.find())
                         {
-                            work.setname(work.name()+"_"+wwn.substring(wwn.length()-4));
-                            entities().put(work.name(), entities().remove(possibleName));
-			    holdspace.put (possibleName, work.newParent(possibleName));
+                            String possibleName = m.group(1);
+
+                            /* OK, orphan.  Which of the four cases are we? */
+                            if ( (null != (parent = entities.get(possibleName))) || (null != (parent = holdspace.get(possibleName))) )
+                            {
+                                /* case 2 & 3: possibly adopt this entity, blindly ignoring if the parent refuses */
+                                try
+                                {
+                                    parent.maybeAdopt(work);
+                                }
+                                catch (Entity.ImproperChildException ice)
+                                {
+                                    /* ignored - same action either way */
+                                }
+                            }
+                            else if (possibleName.equalsIgnoreCase(work.name()))
+                            {
+                                /* case 4: parent matches.  need to rename this one and adopt into a new parent */
+                                String wwn = work.wwn;
+
+                                if (
+                                    (null == entities().get(work.name()+"_"+wwn.substring(wwn.length()-4)))
+                                    &&
+                                    (null == holdspace.get(work.name()+"_"+wwn.substring(wwn.length()-4)))
+                                )
+                                {
+                                    work.setname(work.name()+"_"+wwn.substring(wwn.length()-4));
+                                    entities().put(work.name(), entities().remove(possibleName));
+                                    holdspace.put (possibleName, work.newParent(possibleName));
+                                }
+                                else if (
+                                    (null == entities().get(String.format("%s_%05d",work.name(), wwn.hashCode())))
+                                    &&
+                                    (null == holdspace.get(String.format("%s_%05d",work.name(), wwn.hashCode())))
+                                )
+                                {
+                                    work.setname(String.format("%s_%05d",work.name(), wwn.hashCode()));
+                                    entities().put(work.name(), entities().remove(possibleName));
+                                    holdspace.put (possibleName, work.newParent(possibleName));
+                                }
+                            }
+                            else
+                            {
+                                /* case 1: no entity found; create in hold */
+                                holdspace.put (possibleName, work.newParent(possibleName));
+                            }
                         }
-                        else if (
-			    (null == entities().get(String.format("%s_%05d",work.name(), wwn.hashCode())))
-			&& 
-			    (null == holdspace.get(String.format("%s_%05d",work.name(), wwn.hashCode())))
-			    )
-                        {
-                            work.setname(String.format("%s_%05d",work.name(), wwn.hashCode()));
-                            entities().put(work.name(), entities().remove(possibleName));
-			    holdspace.put (possibleName, work.newParent(possibleName));
-                        }
-			}
-			else
-			{
-			    /* case 1: no entity found; create in hold */
-			    holdspace.put (possibleName, work.newParent(possibleName));
-			}
-		    }
-		}
-		}
+                    }
+                }
 
 
-	/* complete: nuke any single-child parents */
-	Vector<String>nukeList = new Vector<String>();
-	for (String s: holdspace.keySet())
-	    if (null != (wk = holdspace.get(s)))
-		if (wk.children().size() < 2)
-		    nukeList.add(s);
+        /* complete: nuke any single-child parents */
+        Vector<String>nukeList = new Vector<String>();
+        for (String s: holdspace.keySet())
+            if (null != (wk = holdspace.get(s)))
+                if (wk.children().size() < 2)
+                    nukeList.add(s);
 
-	for (String s: nukeList)
-	    holdspace.remove (s);
+        for (String s: nukeList)
+            holdspace.remove (s);
 
-	/* now shift the remainders over to permanent store */
-	for (String s: holdspace.keySet())
+        /* now shift the remainders over to permanent store */
+        for (String s: holdspace.keySet())
             if (null != (wk = holdspace.get(s)))
                 entities.put (s, holdspace.remove(s));
     }
@@ -374,48 +377,48 @@ public class VirtualWisdom4ClientTool
         for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true), "@PACKAGE@", /* ZParser(s) verbose */ true) )); x--)
             System.out.println("retrying: reading "+f);
 
-	/*
-	 * iteratively search all entities for WWNs becomes a O(N^2) because the entities are
-         * not sorted/indexed by WWPN.  For that reason, we're going to iterate the entities, using
-         * a hashmap of the WWPNs for removal to accelerate the search to a O(N * log2(N))
-         */
+        /*
+         * iteratively search all entities for WWNs becomes a O(N^2) because the entities are
+             * not sorted/indexed by WWPN.  For that reason, we're going to iterate the entities, using
+             * a hashmap of the WWPNs for removal to accelerate the search to a O(N * log2(N))
+             */
 
-	TreeSet<String> removals = new TreeSet<String> ();
-	Vector<String>postRemovals = new Vector<String>();
-	String wwns[];
+        TreeSet<String> removals = new TreeSet<String> ();
+        Vector<String>postRemovals = new Vector<String>();
+        String wwns[];
 
         if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
-	    if ( (null != zpa) && (null != (wwns = (zpa.getWWNArray()))) )
-                for (String wwn: wwns)
-		    if (null != wwn)
-			removals.add(wwn);
+                if ( (null != zpa) && (null != (wwns = (zpa.getWWNArray()))) )
+                    for (String wwn: wwns)
+                        if (null != wwn)
+                            removals.add(wwn);
 
-	/*
-         * That was weird, and should @todo be converted to using the remove() operator of an iterator; alternatively, navigableKeySet() might give enough nav/removal.
-         *
-         * now that removals is loaded up, removals.contains(WWN) means "we need to nuke that entity". 
-         * Unfortunately, to avoid a concurrent mod exception, we merely increment the counter in
-         * the TreeMap, them post-process the TreeMap.  Seems kinda dumb, but avoids segv, which
-         * makes it a bit cooler
-         */
-	for (String name: entities.keySet())
-	{
-	    Entity e = entities.get(name);
+        /*
+             * That was weird, and should @todo be converted to using the remove() operator of an iterator; alternatively, navigableKeySet() might give enough nav/removal.
+             *
+             * now that removals is loaded up, removals.contains(WWN) means "we need to nuke that entity".
+             * Unfortunately, to avoid a concurrent mod exception, we merely increment the counter in
+             * the TreeMap, them post-process the TreeMap.  Seems kinda dumb, but avoids segv, which
+             * makes it a bit cooler
+             */
+        for (String name: entities.keySet())
+        {
+            Entity e = entities.get(name);
 
-	    if
-	    (
-		(e instanceof Entity.LeafEntity)
-	    &
-		( removals.contains(((Entity.LeafEntity) e).wwn()) )
-	    )
-		postRemovals.add(name);
-	}
+            if
+            (
+                (e instanceof Entity.LeafEntity)
+                &
+                ( removals.contains(((Entity.LeafEntity) e).wwn()) )
+            )
+                postRemovals.add(name);
+        }
 
-	/* now, finally, post-process the postRemovals as removals */
-	for (String name: postRemovals.toArray(new String[0]))
-	{
-		entities.remove(name);
-	}
+        /* now, finally, post-process the postRemovals as removals */
+        for (String name: postRemovals.toArray(new String[0]))
+        {
+            entities.remove(name);
+        }
 
     }
 
@@ -438,51 +441,51 @@ public class VirtualWisdom4ClientTool
             System.out.println("retrying: reading "+f);
 
         Entity e = null;
-	String[] wwns = null;
+        String[] wwns = null;
 
         if (null != p) for (ZPAliasEntry zpa: p.aliasArray())
-	    if ( (null != zpa) && (null != (wwns = (zpa.getWWNArray()))) )
-            {
-                boolean dupes = (1 < wwns.length);
-                if (null != zpa) for (String wwn: zpa.getWWNArray())
-                    {
+                if ( (null != zpa) && (null != (wwns = (zpa.getWWNArray()))) )
+                {
+                    boolean dupes = (1 < wwns.length);
+                    if (null != zpa) for (String wwn: zpa.getWWNArray())
+                        {
 //WWNDesc w = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
 //System.out.println("wwn: "+wwn+" (of "+wwns.length+" name: "+zpa.name()+" desc: "+(null == w ? "null" : w.getClass().getName()));
 
-			boolean bogus =  zpa.name().matches("[0-9a-fA-F]{16}") || zpa.name().matches("0x[0-9a-fA-F]{5,6}");
+                            boolean bogus =  zpa.name().matches("[0-9a-fA-F]{16}") || zpa.name().matches("0x[0-9a-fA-F]{5,6}");
 
-                        Entity newguy;
-                        WWNDesc d = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
-                        if (null == d)
-                            newguy = new EntityHBA (zpa.name(), wwn);
-                        else if (d instanceof WWNDescTarget)
-                            newguy = new EntityFA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
-                        else if (d instanceof WWNDescSwitch)
-                            /* assume a switch device is actually a NPIV virtualizing hosts */
-                            newguy = new EntityHBA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
-                        else
-                            newguy = new EntityHBA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
+                            Entity newguy;
+                            WWNDesc d = wwndesc().getWWNDescriptor(wwn, false, DevRole.max()-1);
+                            if (null == d)
+                                newguy = new EntityHBA (zpa.name(), wwn);
+                            else if (d instanceof WWNDescTarget)
+                                newguy = new EntityFA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
+                            else if (d instanceof WWNDescSwitch)
+                                /* assume a switch device is actually a NPIV virtualizing hosts */
+                                newguy = new EntityHBA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
+                            else
+                                newguy = new EntityHBA (bogus?d.toString() :( zpa.name()+(dupes?(null==d.descPort()?"":"-"+d.descPort()) :"")), wwn);
 
-                        newguy.setDescription (wwn+","+zpa.name()+" converted via "+p.getClass().getName().replaceAll("^.*\\.","")+" from "+f);
+                            newguy.setDescription (wwn+","+zpa.name()+" converted via "+p.getClass().getName().replaceAll("^.*\\.","")+" from "+f);
 
-                        if (null != (e = entityAccepting(newguy)))
-                            System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
+                            if (null != (e = entityAccepting(newguy)))
+                                System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
 
-                        if (null == entities().get(newguy.name()))
-                            entities().put(newguy.name(), newguy);
-                        else if (null == entities().get(newguy.name()+"_"+wwn.substring(wwn.length()-4)))
-                        {
-                            newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-4));
-                            entities().put(newguy.name(), newguy);
+                            if (null == entities().get(newguy.name()))
+                                entities().put(newguy.name(), newguy);
+                            else if (null == entities().get(newguy.name()+"_"+wwn.substring(wwn.length()-4)))
+                            {
+                                newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-4));
+                                entities().put(newguy.name(), newguy);
+                            }
+                            else if (null == entities().get(String.format("%s_%05d",newguy.name(), wwn.hashCode())))
+                            {
+                                newguy.setname(String.format("%s_%05d",newguy.name(), wwn.hashCode()));
+                                entities().put(newguy.name(), newguy);
+                            }
+                            //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
                         }
-                        else if (null == entities().get(String.format("%s_%05d",newguy.name(), wwn.hashCode())))
-                        {
-                            newguy.setname(String.format("%s_%05d",newguy.name(), wwn.hashCode()));
-                            entities().put(newguy.name(), newguy);
-                        }
-                        //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
-                    }
-            }
+                }
     }
 
 
@@ -609,7 +612,7 @@ public class VirtualWisdom4ClientTool
         for (String s: entities().keySet())
             if (null != (e = entities.get(s)))
             {
-		/* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */
+                /* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */
                 if (e instanceof EntityHBA)
                 {
                     EntityHBA h = (EntityHBA) e;
@@ -784,16 +787,16 @@ public class VirtualWisdom4ClientTool
              */
             case 'V':   // print the version and quit
             {
-/* *@DO_GETOPTJAR_FALSE@/ System.out.println("@VERSION@-@BUILDID@"); /*@DO_GETOPTJAR_FALSE@ */
-/* *@DO_GETOPTJAR_TRUE@/ System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")); /*@DO_GETOPTJAR_TRUE@ */
+                /* *@DO_GETOPTJAR_FALSE@/ System.out.println("@VERSION@-@BUILDID@"); /*@DO_GETOPTJAR_FALSE@ */
+                /* *@DO_GETOPTJAR_TRUE@/ System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")); /*@DO_GETOPTJAR_TRUE@ */
                 return;
             }
 
             default:
             case '?':
             case 'H':
-/* *@DO_GETOPTJAR_FALSE@/ m.usage("vw4tool"); /*@DO_GETOPTJAR_FALSE@ */
-/* *@DO_GETOPTJAR_TRUE@/ m.usage(g.progname()); /*@DO_GETOPTJAR_TRUE@ */
+                /* *@DO_GETOPTJAR_FALSE@/ m.usage("vw4tool"); /*@DO_GETOPTJAR_FALSE@ */
+                /* *@DO_GETOPTJAR_TRUE@/ m.usage(g.progname()); /*@DO_GETOPTJAR_TRUE@ */
                 break;
             }
         }

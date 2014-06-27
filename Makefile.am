@@ -75,7 +75,8 @@ endif
 
 
 if DO_ASTYLE
-formatting: java/Entity.java java/EntityFA.java java/EntityHBA.java java/VWImport.java java/VirtualWisdom4ClientTool.java.in
+formatting: java/Entity.java java/EntityArray.java java/EntityFA.java java/EntityHBA.java java/EntityHost.java java/VWImport.java java/VirtualWisdom4ClientTool.java.in
+
 if DO_GITFORMATTING
 	@git ls-files --other --exclude-standard --directory || { echo "###################### unignored local files: git add, git commit ?"; }
 	@git diff --exit-code || { echo "###################### unstaged changes: git commit -a"; exit 1; }

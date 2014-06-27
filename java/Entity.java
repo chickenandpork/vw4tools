@@ -123,16 +123,16 @@ public abstract class Entity
     public Entity (String name, Entity e) throws ImproperChildException
     {
         this(name);
-	maybeAdopt(e);
+        maybeAdopt(e);
     }
 
     public void maybeAdopt(Entity e) throws ImproperChildException
     {
         if (canBeChild(e))
-	{
+        {
             children().add(e);
-	    e.parent = new WeakReference<Entity>(this);
-	}
+            e.parent = new WeakReference<Entity>(this);
+        }
         else
             throw new ImproperChildException(e, this);
     }
@@ -183,12 +183,12 @@ public abstract class Entity
         }
 
         public String parentName()
-	{
-	    if ( (null == parent) || (null == parent.get()) )
-		return name();
-	    else
-		return parent.get().name();
-	}
+        {
+            if ( (null == parent) || (null == parent.get()) )
+                return name();
+            else
+                return parent.get().name();
+        }
 
         /**
          * Class Constructor with no initial child
@@ -205,8 +205,14 @@ public abstract class Entity
         }
 
         /** create a bogus function to avoid build errors */
-        protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag) { return null;}
+        protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag)
+        {
+            return null;
+        }
 
-        public Entity newParent (String name) { return null; }
+        public Entity newParent (String name)
+        {
+            return null;
+        }
     }
 }

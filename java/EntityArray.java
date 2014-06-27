@@ -46,10 +46,16 @@ public class EntityArray extends Entity
     /**
      * Basic Class Constructor
      */
-    public EntityArray (String name, Entity e) throws ImproperChildException { super (name, e); }
+    public EntityArray (String name, Entity e) throws ImproperChildException
+    {
+        super (name, e);
+    }
 
     /** whether a given entity can be this entity's child @return true if accepted, false if refused @param e entity to check for possible descendent-hood */
-    protected boolean canBeChild (Entity e) { return (e instanceof EntityFA); }
+    protected boolean canBeChild (Entity e)
+    {
+        return (e instanceof EntityFA);
+    }
 
     /** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */
     protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag)
@@ -59,7 +65,7 @@ public class EntityArray extends Entity
         e.type = "array";
         e.name = name();
 
-	for (Entity n: children())
+        for (Entity n: children())
             if (null != n) e.add(n.name());
         e.description = description();
         if (null != tag) e.tags().add(tag);
@@ -69,5 +75,8 @@ public class EntityArray extends Entity
     }
 
     /** create a new Entity of the correct class to be a parent of this one */
-    public Entity newParent (String name) { return null; }
+    public Entity newParent (String name)
+    {
+        return null;
+    }
 }
