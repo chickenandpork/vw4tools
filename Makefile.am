@@ -18,7 +18,7 @@ ACLOCAL_AMFLAGS = -I m4
 # if missing mkinstalldirs install-sh trigger errors, ignore the result code on the "system (cp ...)" command in automake
 CONFIG_CLEAN_FILES = aclocal.m4 config.guess config.sub missing install-sh Doxyfile @PACKAGE@.spec
 CONFIG_STATUS_DEPENDENCIES = gitdescribe
-EXTRA_DIST = @PACKAGE@.spec gitdescribe
+EXTRA_DIST = @PACKAGE@.spec gitdescribe README.md
 
 
 

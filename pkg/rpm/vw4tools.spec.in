@@ -16,12 +16,12 @@ BuildArchitectures: noarch
 Tools and Resources similar to my "fctools" project (nee "vitools") to reduce the friction of certain tasks with VirtualWisdom4.
 
 
-@DO_FOP_TRUE@ %package doc
-@DO_FOP_TRUE@ Summary: VirtualWisdom4 Unofficial Resources Documentation
-@DO_FOP_TRUE@ Group: Utilities
+@DO_FOP_TRUE@%package doc
+@DO_FOP_TRUE@Summary: VirtualWisdom4 Unofficial Resources Documentation
+@DO_FOP_TRUE@Group: Utilities
 
-@DO_FOP_TRUE@ %description doc
-@DO_FOP_TRUE@ Documentation for the VW4 Tools and Resources (similar to my "fctools" project) to reduce the friction of certain tasks with VirtualWisdom4.
+@DO_FOP_TRUE@%description doc
+@DO_FOP_TRUE@Documentation for the VW4 Tools and Resources (similar to my "fctools" project) to reduce the friction of certain tasks with VirtualWisdom4.
 
 
 
@@ -62,9 +62,9 @@ rm -fr %{buildroot}/%{_datadir}/@PACKAGE@/jars
 %files
 %defattr(-, root, root, 0644)
 
-@DO_FOP_TRUE@ %files doc
+@DO_FOP_TRUE@%files doc
 # exported in ./Makefile.am
-@DO_FOP_TRUE@ %{_datadir}/@PACKAGE@/@PACKAGE@.pdf
+@DO_FOP_TRUE@%{_datadir}/@PACKAGE@/@PACKAGE@.pdf
 
 %files java
 # exported in java/Makefile.am
