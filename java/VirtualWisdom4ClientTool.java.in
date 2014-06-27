@@ -222,11 +222,11 @@ public class VirtualWisdom4ClientTool
     void absorbPattern (String pattern)
     {
 	boolean verbose = new Boolean (System.getProperties().getProperty("debug.showPattern"));
-System.out.println("absorbing "+pattern);
         Entity wk;
         Entity parent;
         Pattern p = Pattern.compile(pattern);
 
+	if (verbose) System.out.println("absorbing pattern: "+pattern);
         /* absorb for --checkpattern behavior */
         patterns().add(p);
 
@@ -297,8 +297,8 @@ System.out.println("absorbing "+pattern);
                         }
                     }
                 }
-else System.out.println("skipping "+wk.name()+" a "+wk.getClass().getName());
-else System.out.println("get of "+s+" failed");
+else { if (verbose) System.out.println("skipping "+wk.name()+" a "+wk.getClass().getName()); }
+else { if (verbose) System.out.println("get of "+s+" failed"); }
 
 
         /* complete: nuke any single-child parents */
@@ -380,6 +380,30 @@ else System.out.println("get of "+s+" failed");
     Entity entityAccepting (Entity newguy)
     {
         return null;
+    }
+
+
+    void report ()
+    {
+	int orphans = 0;
+	int fostered = 0;
+	int total = 0;
+	Entity e;
+
+        for (String s: entities().keySet())
+            if ( (null != s) && (null != (e = entities().get(s))) )
+	    {
+		total++;
+
+                if (e instanceof Entity.LeafEntity)
+		{
+		    if (e.isOrphan()) orphans++;
+		    else fostered++;
+		}
+	    }
+
+	System.out.println("@PACKAGE@ @VERSION@-@BUILDID@");
+	System.out.println(String.format("%5d total entities\n%5d leaf nodes\n%5d orphans\n%5.2f %% coverage", total, (orphans + fostered), orphans, (fostered * 100.0)/(orphans + fostered)));
     }
 
 
@@ -515,6 +539,10 @@ else System.out.println("get of "+s+" failed");
                 }
     }
 
+    public interface EntitySelector
+    {
+	public boolean select(Entity e);
+    }
 
     /**
      * Write an output file, finalizing from entities() if required
@@ -556,7 +584,19 @@ else System.out.println("get of "+s+" failed");
                 System.out.println("writing ordered tuples to "+filename);
                 try
                 {
-                    writeOrderedTuples(filename);
+                    writeOrderedTuples(filename,null);
+                }
+                catch (java.io.IOException ioe)
+                {
+                    System.out.println("IO Exception writing to "+filename+": "+ioe.getMessage());
+                }
+            }
+            else if ( (null != filename) && (filename.equalsIgnoreCase("orphanentities.csv")) )
+            {
+                System.out.println("writing ordered tuples to "+filename);
+                try
+                {
+                    writeOrderedTuples(filename, new EntitySelector() {public boolean select(Entity e) {return e.isOrphan();} });
                 }
                 catch (java.io.IOException ioe)
                 {
@@ -628,9 +668,10 @@ else System.out.println("get of "+s+" failed");
      * Export an "OrderedTuples.csv" file as a stopgap measure until proper JSON processing can be completed
      *
      * @param name filename to write
+     * @param sel an optional selector-method
      * @throws java.io.IOException when PrintStream throws an exception
      */
-    void writeOrderedTuples(String name) throws java.io.IOException
+    void writeOrderedTuples(String name, EntitySelector sel) throws java.io.IOException
     {
         PrintStream fos = new PrintStream(name);
 
@@ -638,6 +679,7 @@ else System.out.println("get of "+s+" failed");
 
         for (String s: entities().keySet())
             if (null != (e = entities.get(s)))
+            if ( (null == sel ) || (sel.select(e)) )
             {
                 /* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */
                 if (e instanceof EntityHBA)
@@ -672,6 +714,7 @@ else System.out.println("get of "+s+" failed");
         System.out.println("   ie: "+progname+" --read import.json");
         System.out.println("       "+progname+" -r import.json");
         System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv -oOrderedTuples.csv");
+        System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv --pattern=\"^([^-]+)-.*\" --report -oOrderedTuples.csv -oOrphanEntities.csv");
     }
 
 
@@ -702,6 +745,7 @@ else System.out.println("get of "+s+" failed");
         options.add(new LongOpt("nickname", LongOpt.REQUIRED_ARGUMENT, null, 'N'));
         options.add(new LongOpt("remove", LongOpt.REQUIRED_ARGUMENT, null, 'R'));
         options.add(new LongOpt("removenicknames", LongOpt.REQUIRED_ARGUMENT, null, 'R'));
+        options.add(new LongOpt("report", LongOpt.NO_ARGUMENT, null, '!'));
         options.add(new LongOpt("nicknameout", LongOpt.REQUIRED_ARGUMENT, null, 'n'));
         options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
         options.add(new LongOpt("pattern", LongOpt.REQUIRED_ARGUMENT, null, 'P'));
@@ -711,7 +755,6 @@ else System.out.println("get of "+s+" failed");
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /*@DO_GETOPTJAR_TRUE@ */
         /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o::P:p:T:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
-
 
         int c;
         while ((c = g.getopt()) != -1)
@@ -741,6 +784,10 @@ else System.out.println("get of "+s+" failed");
 
             case 'R': /* read a list of Nicknames for removal using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
                 m.loadAndRemoveFile(g.getOptarg());
+                break;
+
+            case '!': /* report */
+                m.report();
                 break;
 
 
