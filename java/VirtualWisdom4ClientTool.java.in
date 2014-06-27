@@ -205,17 +205,103 @@ public class VirtualWisdom4ClientTool
     }
 
     /**
-     * Absorb a pattern for chunking together nickname patterns.  Hosts will absorb new
-     * matches at a top-level (host->hba); storage will absorb a pattern by force into a
-     * second-tier (storagearray -> storagecontroller).  This will let devices with
-     * non-intuitive combinations (ie SVC nodes in an iogroup don't have any matching WWPN
-     * parts).  Not sure how far this will snowball.
+     * Absorb a pattern for chunking together nickname patterns and execute it immediately on all current orphan LeafEntities.
      *
-     * param pattern a String pattern to absorb (into an internal array for use later)
+     * The pattern given will be absorbed for the side-benefit of a user testing patterns against names using the --checkpattern option.  The pattern is also immediately executed, such that the following four cases occur for each orphan entity evaluated:
+     * <ol>
+     * <li>the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan</li>
+     * <li>the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity</li>
+     * <li>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space</li>
+     * <li>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name</li>
+     * </ol>
+     * 
+     * When complete, the "hold" space is evaluated to remove any "parents" for which there is only one child, thus eliminating lame pattern results before any next run
+     *
+     * @param pattern a String pattern to execute and absorb (into an internal array for use later)
      */
     void absorbPattern (String pattern)
     {
-        patterns().add(Pattern.compile(pattern));
+	Entity wk;
+	Entity parent;
+	Pattern p = Pattern.compile(pattern);
+
+	/* absorb for --checkpattern behavior */
+        patterns().add(p);
+
+	TreeMap<String,Entity> holdspace = new TreeMap<String,Entity>();
+	
+	for (String s: entities().keySet())
+	    if (null != (wk = holdspace.get(s)))
+		if (wk instanceof Entity.LeafEntity)
+		{
+	Entity.LeafEntity work = (Entity.LeafEntity) wk;
+		if ( (null == work.parent) || (null == work.parent.get()) )
+		{
+                    java.util.regex.Matcher m = p.matcher(work.name());
+                    if (m.find())
+                    {
+		        String possibleName = m.group(1);
+
+		    	/* OK, orphan.  Which of the four cases are we? */
+			if ( (null != (parent = entities.get(possibleName))) || (null != (parent = holdspace.get(possibleName))) )
+			{
+			    /* case 2 & 3: possibly adopt this entity, blindly ignoring if the parent refuses */
+			    try
+			    {
+			    	parent.maybeAdopt(work);
+			    }
+			    catch (Entity.ImproperChildException ice) { /* ignored - same action either way */ }
+			}
+			else if (possibleName.equalsIgnoreCase(work.name()))
+			{
+			    /* case 4: parent matches.  need to rename this one and adopt into a new parent */
+			    String wwn = work.wwn;
+
+                        if (
+			    (null == entities().get(work.name()+"_"+wwn.substring(wwn.length()-4)))
+			&& 
+                            (null == holdspace.get(work.name()+"_"+wwn.substring(wwn.length()-4)))
+			    )
+                        {
+                            work.setname(work.name()+"_"+wwn.substring(wwn.length()-4));
+                            entities().put(work.name(), entities().remove(possibleName));
+			    holdspace.put (possibleName, work.newParent(possibleName));
+                        }
+                        else if (
+			    (null == entities().get(String.format("%s_%05d",work.name(), wwn.hashCode())))
+			&& 
+			    (null == holdspace.get(String.format("%s_%05d",work.name(), wwn.hashCode())))
+			    )
+                        {
+                            work.setname(String.format("%s_%05d",work.name(), wwn.hashCode()));
+                            entities().put(work.name(), entities().remove(possibleName));
+			    holdspace.put (possibleName, work.newParent(possibleName));
+                        }
+			}
+			else
+			{
+			    /* case 1: no entity found; create in hold */
+			    holdspace.put (possibleName, work.newParent(possibleName));
+			}
+		    }
+		}
+		}
+
+
+	/* complete: nuke any single-child parents */
+	Vector<String>nukeList = new Vector<String>();
+	for (String s: holdspace.keySet())
+	    if (null != (wk = holdspace.get(s)))
+		if (wk.children().size() < 2)
+		    nukeList.add(s);
+
+	for (String s: nukeList)
+	    holdspace.remove (s);
+
+	/* now shift the remainders over to permanent store */
+	for (String s: holdspace.keySet())
+            if (null != (wk = holdspace.get(s)))
+                entities.put (s, holdspace.remove(s));
     }
 
     /**
@@ -305,6 +391,8 @@ public class VirtualWisdom4ClientTool
 			removals.add(wwn);
 
 	/*
+         * That was weird, and should @todo be converted to using the remove() operator of an iterator; alternatively, navigableKeySet() might give enough nav/removal.
+         *
          * now that removals is loaded up, removals.contains(WWN) means "we need to nuke that entity". 
          * Unfortunately, to avoid a concurrent mod exception, we merely increment the counter in
          * the TreeMap, them post-process the TreeMap.  Seems kinda dumb, but avoids segv, which
@@ -379,15 +467,12 @@ public class VirtualWisdom4ClientTool
 
                         if (null != (e = entityAccepting(newguy)))
                             System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
-                        else
-                            for (Pattern s: patterns())
-                                System.out.println("check pattern "+s+" for acceptance of "+wwn+", "+zpa.name());
 
                         if (null == entities().get(newguy.name()))
                             entities().put(newguy.name(), newguy);
                         else if (null == entities().get(newguy.name()+"_"+wwn.substring(wwn.length()-4)))
                         {
-                            newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-3));
+                            newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-4));
                             entities().put(newguy.name(), newguy);
                         }
                         else if (null == entities().get(String.format("%s_%05d",newguy.name(), wwn.hashCode())))

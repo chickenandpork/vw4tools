@@ -123,6 +123,11 @@ public abstract class Entity
     public Entity (String name, Entity e) throws ImproperChildException
     {
         this(name);
+	maybeAdopt(e);
+    }
+
+    public void maybeAdopt(Entity e) throws ImproperChildException
+    {
         if (canBeChild(e))
 	{
             children().add(e);
@@ -162,6 +167,10 @@ public abstract class Entity
         return i;
     }
 
+    /** create a new Entity of the correct class to be a parent of this one */
+    public abstract Entity newParent (String name);
+
+
     /**
      * A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that leaves can be treated in common
      */
@@ -198,5 +207,6 @@ public abstract class Entity
         /** create a bogus function to avoid build errors */
         protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag) { return null;}
 
+        public Entity newParent (String name) { return null; }
     }
 }

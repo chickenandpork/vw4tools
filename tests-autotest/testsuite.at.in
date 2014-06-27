@@ -202,10 +202,6 @@ AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/conv
 dnl "|| true" to ignore the aberrant unpredictable error code
 AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
-check pattern ([[^_]]+)_[[^_]]+$ for acceptance of 10000000c9123456, Oracle01
-check pattern ([[^_]]+)_[[^_]]+$ for acceptance of 10000000c9123457, Oracle01
-check pattern ([[^_]]+)_[[^_]]+$ for acceptance of 500a098598123456, NetApp-123456
-check pattern ([[^_]]+)_[[^_]]+$ for acceptance of 500a098698123456, NetApp-123456
 ], [])
 
 AT_CHECK([cat alias4file.json], 0, [[{
@@ -224,7 +220,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     },
     "description" : "500a098698123456,NetApp-123456 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
-    "name" : "NetApp-123456_456",
+    "name" : "NetApp-123456_3456",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "iomodule"
   }, {
@@ -242,7 +238,7 @@ AT_CHECK([cat alias4file.json], 0, [[{
     },
     "description" : "10000000c9123457,Oracle01 converted via Alias4Parser from alias4file.csv",
     "edit_type" : "add",
-    "name" : "Oracle01_457",
+    "name" : "Oracle01_3457",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "hba"
   } ],
@@ -502,9 +498,9 @@ AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, []
 AT_CHECK([cat OrderedTuples.csv], 0, [MPV123456-001,host,2001001560123456,MPV123456-001
 MPV123456-013,host,2013001560123456,MPV123456-013
 NetApp-123456,array,500a098598123456,NetApp-123456
-NetApp-123456_456,array,500a098698123456,NetApp-123456_456
+NetApp-123456_3456,array,500a098698123456,NetApp-123456_3456
 Oracle01,host,10000000c9123456,Oracle01
-Oracle01_457,host,10000000c9123457,Oracle01_457
+Oracle01_3457,host,10000000c9123457,Oracle01_3457
 ], [])
 
 AT_CLEANUP()

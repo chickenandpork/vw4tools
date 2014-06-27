@@ -66,4 +66,7 @@ public class EntityHBA extends Entity.LeafEntity
         return e;
     }
 
+    /** create a new Entity of the correct class to be a parent of this one */
+    public Entity newParent (String name) { try { return new EntityHost(name, this); } catch (Entity.ImproperChildException ice) { /* ignored... @todo should run in circles, scream and shout */ } return null; }
+
 }

@@ -39,26 +39,28 @@ import org.w3c.dom.NodeList;
 /* */	import com.fasterxml.jackson.databind.jsonschema.*;	/* */
 
 /**
- * An EntityFA is the representation of an Storage FA entity in the JSON import for VW4.  Be very careful: there is an Entity, and a VWImport::Entity
+ * An EntityArray is the representation of an Array entity in the JSON import for VW4.  Be very careful: there is an Entity, and a VWImport::Entity
  */
-public class EntityFA extends Entity.LeafEntity
+public class EntityArray extends Entity
 {
     /**
      * Basic Class Constructor
      */
-    public EntityFA (String name, String wwn)
-    {
-        super(name, wwn);
-    }
+    public EntityArray (String name, Entity e) throws ImproperChildException { super (name, e); }
+
+    /** whether a given entity can be this entity's child @return true if accepted, false if refused @param e entity to check for possible descendent-hood */
+    protected boolean canBeChild (Entity e) { return (e instanceof EntityFA); }
 
     /** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */
     protected org.smallfoot.vw4.VWImport.Entity vwentity (String tag)
     {
         org.smallfoot.vw4.VWImport.Entity e = new org.smallfoot.vw4.VWImport.Entity();
 
-        e.type = "iomodule";
+        e.type = "array";
         e.name = name();
-        e.add(wwn);
+
+	for (Entity n: children())
+            if (null != n) e.add(n.name());
         e.description = description();
         if (null != tag) e.tags().add(tag);
         e.edit_type = org.smallfoot.vw4.VWImport.Edit_Type.add;
@@ -67,6 +69,5 @@ public class EntityFA extends Entity.LeafEntity
     }
 
     /** create a new Entity of the correct class to be a parent of this one */
-    public Entity newParent (String name) { try { return new EntityArray(name, this); } catch (Entity.ImproperChildException ice) { /* ignored... @todo should run in circles, scream and shout */ } return null; }
-
+    public Entity newParent (String name) { return null; }
 }
