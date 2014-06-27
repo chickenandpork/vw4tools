@@ -221,6 +221,8 @@ public class VirtualWisdom4ClientTool
      */
     void absorbPattern (String pattern)
     {
+	boolean verbose = new Boolean (System.getProperties().getProperty("debug.showPattern"));
+System.out.println("absorbing "+pattern);
         Entity wk;
         Entity parent;
         Pattern p = Pattern.compile(pattern);
@@ -231,20 +233,23 @@ public class VirtualWisdom4ClientTool
         TreeMap<String,Entity> holdspace = new TreeMap<String,Entity>();
 
         for (String s: entities().keySet())
-            if (null != (wk = holdspace.get(s)))
+            if (null != (wk = entities().get(s)))
                 if (wk instanceof Entity.LeafEntity)
                 {
                     Entity.LeafEntity work = (Entity.LeafEntity) wk;
                     if ( (null == work.parent) || (null == work.parent.get()) )
                     {
+			if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern);
                         java.util.regex.Matcher m = p.matcher(work.name());
                         if (m.find())
                         {
                             String possibleName = m.group(1);
+			    if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern+" possible: "+possibleName);
 
                             /* OK, orphan.  Which of the four cases are we? */
                             if ( (null != (parent = entities.get(possibleName))) || (null != (parent = holdspace.get(possibleName))) )
                             {
+				if (verbose) System.out.println("Case 2/3 "+work.name()+" with "+pattern+" possible: "+possibleName+" parent is a "+parent.getClass().getName().replaceAll(".*\\.",""));
                                 /* case 2 & 3: possibly adopt this entity, blindly ignoring if the parent refuses */
                                 try
                                 {
@@ -252,11 +257,13 @@ public class VirtualWisdom4ClientTool
                                 }
                                 catch (Entity.ImproperChildException ice)
                                 {
+				if (verbose) System.out.println("Case 2/3 "+work.name()+" with "+pattern+" possible: "+possibleName+" parent is a "+parent.getClass().getName().replaceAll(".*\\.","")+" refused adoption");
                                     /* ignored - same action either way */
                                 }
                             }
                             else if (possibleName.equalsIgnoreCase(work.name()))
                             {
+				if (verbose) System.out.println("Case 4 "+work.name()+" with "+pattern+" possible: "+possibleName);
                                 /* case 4: parent matches.  need to rename this one and adopt into a new parent */
                                 String wwn = work.wwn;
 
@@ -283,28 +290,46 @@ public class VirtualWisdom4ClientTool
                             }
                             else
                             {
+				if (verbose) System.out.println("Case 1 "+work.name()+" with "+pattern+" possible: "+possibleName);
                                 /* case 1: no entity found; create in hold */
                                 holdspace.put (possibleName, work.newParent(possibleName));
                             }
                         }
                     }
                 }
+else System.out.println("skipping "+wk.name()+" a "+wk.getClass().getName());
+else System.out.println("get of "+s+" failed");
 
 
         /* complete: nuke any single-child parents */
         Vector<String>nukeList = new Vector<String>();
         for (String s: holdspace.keySet())
             if (null != (wk = holdspace.get(s)))
+	    {
+		if (verbose) System.out.println("nukecheck: "+wk.name()+" has "+wk.children().size()+" children");
                 if (wk.children().size() < 2)
                     nukeList.add(s);
+	    }
 
         for (String s: nukeList)
+	{
+	    if (verbose) System.out.println("removing single-child pattern-merge entity: "+s);
             holdspace.remove (s);
+	}
 
         /* now shift the remainders over to permanent store */
         for (String s: holdspace.keySet())
             if (null != (wk = holdspace.get(s)))
+	    {
+		if (verbose) System.out.println("moving: "+s);
                 entities.put (s, holdspace.remove(s));
+	    }
+
+	if (verbose)
+	{
+	    System.out.println("finally after executing pattern \""+pattern+"\":");
+	    for (String s: entities.keySet()) System.out.println("entity: "+s);
+	}
     }
 
     /**
