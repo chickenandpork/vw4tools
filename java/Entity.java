@@ -111,6 +111,8 @@ public abstract class Entity
 
     /**
      * Class Constructor with no initial child
+     *
+     * @param name initial name of the new entity
      */
     public Entity (String name)
     {
@@ -119,6 +121,9 @@ public abstract class Entity
 
     /**
      * Class Constructor with an initial child to absorb
+     *
+     * @param name initial name of the new entity
+     * @param e Entity to consider for adoption as child
      */
     public Entity (String name, Entity e) throws ImproperChildException
     {
@@ -126,6 +131,11 @@ public abstract class Entity
         maybeAdopt(e);
     }
 
+    /**
+     * Convenience function: Entity should either adopt a given child "e" or throw an exception.  This allows very simple coding of streamlining the adoption in a cleaner iteration loop.
+     *
+     * @param e Entity to consider for adoption as child
+     */
     public void maybeAdopt(Entity e) throws ImproperChildException
     {
         if (canBeChild(e))
@@ -137,7 +147,13 @@ public abstract class Entity
             throw new ImproperChildException(e, this);
     }
 
-    /** whether a given entity can be this entity's child @return true if accepted, false if refused @param e entity to check for possible descendent-hood */
+    /**
+     * whether a given entity can be this entity's child @return true if accepted,
+     * false if refused
+     *
+     * @param e entity to check for possible descendent-hood
+     * @return true if this entity accepts children of "e"'s descendent type
+     */
     protected abstract boolean canBeChild (Entity e);
 
     /** create a streamable JSON entity from this one @return a org.smallfoot.vw4.VWImport.Entity representation of this instance @param tag default tag to apply */
@@ -167,7 +183,12 @@ public abstract class Entity
         return i;
     }
 
-    /** create a new Entity of the correct class to be a parent of this one */
+    /**
+     * create a new Entity of the correct class to be a parent of this one.  This function is used to polymorphically create the parentage of an entity such as the host holding an HBA
+     *
+     * @return new parent for this entity
+     * @param name initial name of the new entity
+     */
     public abstract Entity newParent (String name);
 
 
@@ -182,6 +203,14 @@ public abstract class Entity
             return wwn;    /**< getter */
         }
 
+        /**
+         * convenience function: if this entity has a parent, show the parent's name,
+             * otherwise show this entity's name.  Used during OrderedTuples written via
+             * VirtualWisdom4ClientTool.writeOrderedTuples(String, EntitySelector), this
+             * allows a simpler, consistent coding when OrderedTuples is being exported.
+             *
+             * @return name of parent entity is existent, otherwise name of this entity
+             */
         public String parentName()
         {
             if ( (null == parent) || (null == parent.get()) )
@@ -191,7 +220,10 @@ public abstract class Entity
         }
 
         /**
-         * Class Constructor with no initial child
+         * Class Constructor with an initial child to absorb
+         *
+         * @param name initial name of the new entity
+         * @param wwn initial child entity for this Leaf Entity
          */
         public LeafEntity (String name, String wwn)
         {
@@ -199,9 +231,16 @@ public abstract class Entity
             this.wwn = wwn;
         }
 
+        /**
+         * whether a given entity can be this entity's child @return true if accepted,
+         * false if refused.  LeafEntity has no children so this method will always be false
+         *
+         * @param e entity to check for possible descendent-hood
+         * @return true if this entity accepts children of "e"'s descendent type (always false for Leaf Entity)
+         */
         protected boolean canBeChild (Entity e)
         {
-            return false;    /**< this entity has no children so this method will always be false */
+            return false;
         }
 
         /** create a bogus function to avoid build errors */
@@ -210,6 +249,20 @@ public abstract class Entity
             return null;
         }
 
+        /**
+         * create a new Entity of the correct class to be a parent of this one: this
+         * function is stubbed to return null so that this class can be a static class and
+         * directly extensible.  Not really 100% good practice, but the descendency of
+         * this LeafEntity is intended to collect functionality.  This class is wrapped
+         * inside an Entity to retain a clear affinity, but thence needs to be static to be
+         * extensible.  "She swallowed the cat to catch the spider, she swallowed the
+         * spider to catch the fly.. "
+         *
+         * Descendents will override this method
+         *
+         * @return new parent for this entity
+         * @param name initial name of the new entity
+         */
         public Entity newParent (String name)
         {
             return null;
