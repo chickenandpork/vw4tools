@@ -4,3 +4,12 @@ Makefile.in
 # build scripts: configure-time generated
 Makefile
 VirtualWisdom4ClientTool.java
+
+# created as a side-effect of "make formatting"
+Entity.java.orig
+EntityArray.java.orig
+EntityFA.java.orig
+EntityHBA.java.orig
+EntityHost.java.orig
+VWImport.java.orig
+VirtualWisdom4ClientTool.java.in.orig
