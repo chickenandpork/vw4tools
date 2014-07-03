@@ -81,7 +81,7 @@ public class VirtualWisdom4ClientTool
     public VWImport vwimport = null;		/**< singleton list of JSON-writable objects accessed through vwimport() */
     protected VWImport vwimport()
     {
-        if (null == vwimport) vwimport = new VWImport();    /**< singleton to access vwimport to allow for later post-process */
+        if (null == vwimport) vwimport = new VWImport();   /**< singleton to access vwimport to allow for later post-process @return vwimport instance, created if needed */
         return vwimport;
     }
 
@@ -539,9 +539,10 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
                 }
     }
 
+    /** simple convenience interface to allow entity selection to be codified and created on-the-fly in a query API */
     public interface EntitySelector
     {
-	public boolean select(Entity e);
+	public boolean select(Entity e);	/**< function to define whether an entity should be selected based on its attributes @return true if this entity satisfies the coded logic */
     }
 
     /**
