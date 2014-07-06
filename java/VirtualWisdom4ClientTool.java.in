@@ -769,6 +769,9 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
             }
             break;
 
+	    /**
+	     * @cmdopt -P|--pattern= is used to provide an "aggregating pattern" to collect Orphan Entities into a container.  An "Orphan Entity" is an entity which is not part of a larger device: an HBA not assigned to a host, or a FA not assigned to a storage array.  Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important.
+             */
             case 'P': /* input chunking-pattern for host-combination and storage-combination */
                 m.absorbPattern(g.getOptarg());
                 break;
