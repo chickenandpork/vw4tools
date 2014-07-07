@@ -79,9 +79,10 @@ public abstract class Entity
     }
 
     protected String description;		/**< the description of the entity showing source */
+    /** the description of the entity showing source @return description of the entity */
     public String description()
     {
-        return description;    /**< getter */
+        return description;
     }
     public void setDescription(String description)
     {
@@ -148,8 +149,7 @@ public abstract class Entity
     }
 
     /**
-     * whether a given entity can be this entity's child @return true if accepted,
-     * false if refused
+     * whether a given entity can be this entity's child
      *
      * @param e entity to check for possible descendent-hood
      * @return true if this entity accepts children of "e"'s descendent type
