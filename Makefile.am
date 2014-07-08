@@ -22,18 +22,13 @@ EXTRA_DIST = @PACKAGE@.spec gitdescribe README.md
 
 
 
-#dwd.zip: Doxyfile
-#	$(DOXYGEN)
-#	rm -f $@
-#	for i in $$(basename -s .awk $$(grep -l @page scripts/*.awk) ; basename -s .xsl $$(grep -l @page scripts/*.xsl)) ; do ls htdocs/html/$$i.html; done | zip $@ -@
-#	unzip -t $@ >/dev/null
-#endif
+SOURCES = java/Entity.java java/EntityArray.java java/EntityFA.java java/EntityHBA.java java/EntityHost.java java/VWImport.java java/VirtualWisdom4ClientTool.java.in
 
 if DO_DOXYGEN
 if DO_FOP
-doc: htdocs/docbook/@PACKAGE@.pdf htdocs/index.html
+doc: htdocs/docbook/@PACKAGE@.pdf htdocs/index.html $(SOURCES)
 else
-doc: htdocs/index.html
+doc: htdocs/index.html $(SOURCES)
 endif DO_FOP_FALSE
 
 htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/README.dox Doxyfile java/*java
@@ -61,7 +56,7 @@ endif DO_FOP
 htdocs/README.dox: README.md Makefile
 	if test \! -d $(@D)/.git; then echo "subdir $(@D) not set as a gh-pages branch; see http://rickfoosusa.blogspot.com/2011/10/howto-use-doxygen-with-github.html"; git branch|grep gh-pages || echo git clone --branch gh-pages $$(git config --get remote.origin.url) $(@D); grep $(@D) .gitignore || echo "echo $(@D) > .gitignore"; echo "then delete everything in $(@D), commit, and push"; exit 1; fi
 if DO_DOXYGEN_MD
-	awk 'BEGIN { print "@file README"; shown=0; } /^@PACKAGE@/ && (0 == shown) { print "@mainpage JavaDoc API Markup for @PACKAGE@"; shown++; } { printf "%s\n",$$0; } END {print "" }' $< > $@
+	awk 'BEGIN { print "@file $(<F)"; shown=0; } /^@PACKAGE@/ && (0 == shown) { print "@mainpage JavaDoc API Markup for @PACKAGE@"; shown++; } { printf "%s\n",$$0; } END {print "" }' $< > $@
 else
 	awk 'BEGIN { print "/** @file "; print "@mainpage JavaDoc API Markup for @PACKAGE@"; } /@PACKAGE@$$/ {next} /^=+$$/ {next} { printf " * %s\n",$$0; } END {print " */" }' $< > $@
 endif DO_DOXYGEN_MD_FALSE
@@ -73,9 +68,8 @@ schema.json: @SCHEMASAMPLE@
 	@JAVA@ -jar jsonschema2pojo/jsonschema2pojo.jar  --source @SCHEMASAMPLE@ --package org.smallfoot.vw4.pojo --source-type JSON --target schema
 endif
 
-
 if DO_ASTYLE
-formatting: java/Entity.java java/EntityArray.java java/EntityFA.java java/EntityHBA.java java/EntityHost.java java/VWImport.java java/VirtualWisdom4ClientTool.java.in
+formatting: $(SOURCES)
 
 if DO_GITFORMATTING
 	@git ls-files --other --exclude-standard --directory || { echo "###################### unignored local files: git add, git commit ?"; }
