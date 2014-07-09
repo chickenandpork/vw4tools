@@ -62,9 +62,10 @@ public abstract class Entity
     }
 
     protected Vector<Entity> children = null;		/**< local singleton late-instantiated as needed by children() */
+    /** get a list of child entities (local access to local singleton .children) @return list of zero or more child entities but never null */
     protected Vector<Entity> children()
     {
-        if (null == children) children = new Vector<Entity>(1,1);    /**< local access to local singleton .children */
+        if (null == children) children = new Vector<Entity>(1,1);
         return children;
     }
 

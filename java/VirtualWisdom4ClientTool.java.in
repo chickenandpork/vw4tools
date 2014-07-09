@@ -542,7 +542,13 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
     /** simple convenience interface to allow entity selection to be codified and created on-the-fly in a query API */
     public interface EntitySelector
     {
-	public boolean select(Entity e);	/**< function to define whether an entity should be selected based on its attributes @return true if this entity satisfies the coded logic */
+	/**
+	 * function to define whether an entity should be selected based on its attributes
+	 *
+	 * @param e entity to consider
+	 * @return true if this entity satisfies the coded logic
+	 */
+	public boolean select(Entity e);
     }
 
     /**
@@ -737,7 +743,54 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
 
         Vector<LongOpt> options = new Vector(20,2);
 
-        /* Always always ALWAYS provide a quick reference and a version output */
+        /**
+         * Always always ALWAYS provide a quick reference and a version output
+         *
+         * @cmdopt -H|--help Show a simple help screen as a reminder of options which are understood by the application
+         * @cmdopt @code java -jar @PACKAGE@.jar --help @endcode
+         *
+         * @cmdopt -V|--version Show the current release version for reference
+         * @cmdopt @code java -jar @PACKAGE@.jar --version
+         *  @VERSION@-@BUILDID@ @endcode
+         *
+         * @cmdopt -n|--nicknameout={file} Output nicknames from internal store
+         * @cmdopt -o|--output={file} Output nicknames from internal store
+	 * --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few "magic" filenames:
+	 * <ul>
+	 * <li>schema.json will cause the current schema to be written</li>
+	 * <li>orderedtuples.csv will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</li>
+	 * <li>orphanentities.csv will cause a CSV to be written listing all orphan entities.  An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.</li>
+	 * </ul>
+	 * All other filename patterns will result in a JSON-formatted file
+	 *
+         * @cmdopt -N|--nickname={file/uri} Import nicknames by parsing a text stream from various sources
+         * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow
+         * Parse results for AliShowZoneParser:
+         * Zones: 44
+         * Aliases: 112 (names with one or more WWPNs)
+         * Aliases: 136 (name/WWPN tuples) @endcode
+         * In this example, a zone file was parsed by the AliShowZoneParser resulting in 112
+         * nicknames; due to duplicate nicknames, there are actually 136 unique WWPN/alias
+         * tuples, which means that (136-112) 24 of the WWPNs have the same alias as other
+         * WWPNs
+         *
+         * @cmdopt -i|--input import an existing JSON file for later editing
+         * @cmdopt -r|--read import an existing JSON file for later editing
+         * @cmdopt @code java -jar @PACKAGE@.jar --read working.json @endcode
+         *
+         * @cmdopt -R|--remove Parse ncknames for removal from the internal nickname list
+         * @cmdopt -R|--removenicknames Parse ncknames for removal from the internal nickname list
+         *
+         * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage
+         * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow  --report
+	 * (@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
+	 * @PACKAGE@ @VERSION@-@BUILDID@
+	 *     5 total entities
+	 *     4 leaf nodes
+	 *     2 orphans
+	 * 50.00 % coverage @endcode
+         */
+
         options.add(new LongOpt("help", LongOpt.NO_ARGUMENT, null, 'H'));
         options.add(new LongOpt("version", LongOpt.NO_ARGUMENT, null, 'V'));
 
@@ -754,7 +807,7 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
 
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
-        /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /*@DO_GETOPTJAR_TRUE@ */
+        /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /@DO_GETOPTJAR_TRUE@* */
         /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o::P:p:T:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
 
         int c;
@@ -865,16 +918,16 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
              */
             case 'V':   // print the version and quit
             {
-                /* *@DO_GETOPTJAR_FALSE@/ System.out.println("@VERSION@-@BUILDID@"); /*@DO_GETOPTJAR_FALSE@ */
-                /* *@DO_GETOPTJAR_TRUE@/ System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")); /*@DO_GETOPTJAR_TRUE@ */
+                /* *@DO_GETOPTJAR_FALSE@/ System.out.println("@VERSION@-@BUILDID@"); /@DO_GETOPTJAR_FALSE@* */
+                /* *@DO_GETOPTJAR_TRUE@/ System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")); /@DO_GETOPTJAR_TRUE@* */
                 return;
             }
 
             default:
             case '?':
             case 'H':
-                /* *@DO_GETOPTJAR_FALSE@/ m.usage("vw4tool"); /*@DO_GETOPTJAR_FALSE@ */
-                /* *@DO_GETOPTJAR_TRUE@/ m.usage(g.progname()); /*@DO_GETOPTJAR_TRUE@ */
+                /* *@DO_GETOPTJAR_FALSE@/ m.usage("vw4tool"); /@DO_GETOPTJAR_FALSE@* */
+                /* *@DO_GETOPTJAR_TRUE@/ m.usage(g.progname()); /@DO_GETOPTJAR_TRUE@* */
                 break;
             }
         }
