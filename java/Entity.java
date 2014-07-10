@@ -70,13 +70,15 @@ public abstract class Entity
     }
 
     protected String name;		/**< the unique name of the entity */
+    /** unique name of the entity: getter for internal variable @return the name */
     public String name()
     {
-        return name;    /**< getter */
+        return name;
     }
+    /** set the unique name of the entity: setter @param name the name to set */
     public void setname(String name)
     {
-        this.name = name;    /**< setter */
+        this.name = name;
     }
 
     protected String description;		/**< the description of the entity showing source */
@@ -85,9 +87,10 @@ public abstract class Entity
     {
         return description;
     }
+    /** set the description of the entity to show its source: setter pattern @param description the description to set */
     public void setDescription(String description)
     {
-        this.description = description;    /**< setter */
+        this.description = description;
     }
 
     protected WeakReference<Entity> parent = null;		/**< convenience weak-reference to parent: I want a reference but not one that will block GC */
@@ -199,9 +202,10 @@ public abstract class Entity
     public static class LeafEntity extends Entity
     {
         protected String wwn;               /**< the unique WWPN of the hba */
+	/** the unique WWPN of the hba: getter for internal variable @return the WWPN */
         public String wwn()
         {
-            return wwn;    /**< getter */
+            return wwn;
         }
 
         /**
