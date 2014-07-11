@@ -756,12 +756,12 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
          * @cmdopt -n|--nicknameout={file} Output nicknames from internal store
          * @cmdopt -o|--output={file} Output nicknames from internal store
 	 * --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few "magic" filenames:
-	 * <ul>
-	 * <li>schema.json will cause the current schema to be written</li>
-	 * <li>orderedtuples.csv will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</li>
-	 * <li>orphanentities.csv will cause a CSV to be written listing all orphan entities.  An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.</li>
-	 * </ul>
-	 * All other filename patterns will result in a JSON-formatted file
+	 * @cmdopt <ul>
+	 * @cmdopt <li><b>schema.json</b> will cause the current schema to be written</li>
+	 * @cmdopt <li><b>orderedtuples.csv</b> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</li>
+	 * @cmdopt <li><b>orphanentities.csv</b> will cause a CSV to be written listing all orphan entities.  An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.</li>
+	 * @cmdopt </ul>
+	 * @cmdopt All other filename patterns will result in a JSON-formatted file
 	 *
          * @cmdopt -N|--nickname={file/uri} Import nicknames by parsing a text stream from various sources
          * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow
