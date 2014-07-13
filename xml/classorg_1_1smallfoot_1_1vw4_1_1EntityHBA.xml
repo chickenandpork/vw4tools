@@ -69,9 +69,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" line="55" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityHBA.java" bodystart="55" bodyend="67"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="82" endline="85">Entity.description</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="72" endline="75">Entity.name</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="Entity_8java" startline="180" endline="183">Entity.LeafEntity.wwn</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="86" endline="89">Entity.description</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="74" endline="77">Entity.name</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="Entity_8java" startline="206" endline="209">Entity.LeafEntity.wwn</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -18,7 +18,7 @@ Collaboration diagram for Virtual\+Wisdom4\+Client\+Tool\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 interface {\bf Entity\+Selector}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em simple convenience interface to allow entity selection to be codified and created on-\/the-\/fly in a query A\+P\+I \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -343,9 +343,101 @@ No real intelligence herein except the parse-\/and-\/redirect action.
 {\em args} & as you'd expect, these are commandline arguments given when the jar is activated \\
 \hline
 \end{DoxyParams}
+Always always A\+L\+W\+A\+Y\+S provide a quick reference and a version output
+
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/\+H$\vert$--help Show a simple help screen as a reminder of options which are understood by the application \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]
+\begin{DoxyCode}
+java -jar vw4tools.jar --help 
+\end{DoxyCode}
+\end{DoxyRefDesc}
 
 
-Definition at line 733 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/\+V$\vert$--version Show the current release version for reference \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]
+\begin{DoxyCode}
+java -jar vw4tools.jar --version
+0.9-85 
+\end{DoxyCode}
+\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/n$\vert$--nicknameout=\{file\} Output nicknames from internal store \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/o$\vert$--output=\{file\} Output nicknames from internal store --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as J\+S\+O\+N with the exception of a few \char`\"{}magic\char`\"{} filenames\+: \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]\end{DoxyRefDesc}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}cmdopt 8.\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]{\bfseries orderedtuples.\+csv} will cause an Ordered\+Tuples.\+csv file to be written, suitable for post-\/processing via csv-\/to-\/json.\+awk but allowing a user to more easily edit C\+S\+V for fine-\/tuning \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]{\bfseries orphanentities.\+csv} will cause a C\+S\+V to be written listing all orphan entities. An \char`\"{}\+Orphan Entity\char`\"{} is an entity lacking a parent entity, such as an \char`\"{}\+H\+B\+A Port\char`\"{} without a \char`\"{}host\char`\"{} parent, or a \char`\"{}iomodule\char`\"{} without a parent \char`\"{}storagearray\char`\"{} entity. \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]\end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]All other filename patterns will result in a J\+S\+O\+N-\/formatted file\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/\+N$\vert$--nickname=\{file/uri\} Import nicknames by parsing a text stream from various sources \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]
+\begin{DoxyCode}
+ java -jar vw4tools.jar --nickname=switch44.zoneshow
+Parse results \textcolor{keywordflow}{for} AliShowZoneParser:
+Zones: 44
+Aliases: 112 (names with one or more WWPNs)
+Aliases: 136 (name/WWPN tuples) 
+\end{DoxyCode}
+ In this example, a zone file was parsed by the Ali\+Show\+Zone\+Parser resulting in 112 nicknames; due to duplicate nicknames, there are actually 136 unique W\+W\+P\+N/alias tuples, which means that (136-\/112) 24 of the W\+W\+P\+Ns have the same alias as other W\+W\+P\+Ns\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/i$\vert$--input import an existing J\+S\+O\+N file for later editing \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/r$\vert$--read import an existing J\+S\+O\+N file for later editing \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]
+\begin{DoxyCode}
+java -jar vw4tools.jar --read working.json 
+\end{DoxyCode}
+\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/\+R$\vert$--remove Parse ncknames for removal from the internal nickname list \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/\+R$\vert$--removenicknames Parse ncknames for removal from the internal nickname list\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/!$\vert$--report Summarize the current status of the internal nicknaes and pattern/collation coverage \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]
+\begin{DoxyCode}
+ java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
+(vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
+vw4tools 0.9-85
+    5 total entities
+    4 leaf nodes
+    2 orphans
+50.00 % coverage 
+\end{DoxyCode}
+ \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Commandline Options}
+\item[{\bf Commandline Options}]-\/\+P$\vert$--pattern= is used to provide an \char`\"{}aggregating pattern\char`\"{} to collect Orphan Entities into a container. An \char`\"{}\+Orphan Entity\char`\"{} is an entity which is not part of a larger device\+: an H\+B\+A not assigned to a host, or a F\+A not assigned to a storage array. Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important. \end{DoxyRefDesc}
+
+
+Definition at line 740 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -441,7 +533,10 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_acbeee875159f78e186965708e70dee94}
-$<$ singleton to access vwimport to allow for later post-\/process 
+$<$ singleton to access vwimport to allow for later post-\/process \begin{DoxyReturn}{Returns}
+vwimport instance, created if needed 
+\end{DoxyReturn}
+
 
 Definition at line 82 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 

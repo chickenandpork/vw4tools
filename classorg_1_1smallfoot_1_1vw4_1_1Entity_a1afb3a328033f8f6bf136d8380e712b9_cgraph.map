@@ -1,0 +1,6 @@
+<map id="Entity" name="Entity">
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#abeab35e912fa1da9e137231518b27e19" title="Convenience function: Entity should either adopt a given child &quot;e&quot; or throw an exception. " alt="" coords="109,29,205,54"/>
+<area shape="rect" id="node5" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#afa2149aced9d90555f788dfc81c23d15" title="unique name of the entity: getter for internal variable " alt="" coords="130,78,185,103"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a0a8c67a491e7100ba94f3035bbe62822" title="whether a given entity can be this entity&#39;s child " alt="" coords="254,5,343,30"/>
+<area shape="rect" id="node4" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a63ef33ad49b88027164e49d1916f409c" title="get a list of child entities (local access to local singleton .children) " alt="" coords="265,54,333,79"/>
+</map>

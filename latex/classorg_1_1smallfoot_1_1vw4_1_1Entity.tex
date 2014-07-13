@@ -33,33 +33,29 @@ class {\bf Leaf\+Entity}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bf Entity} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afc6a43ee8007bcc023a7ebd2bf5ee1ed}
-
+{\bf Entity} (String {\bf name})
 \begin{DoxyCompactList}\small\item\em Class Constructor with no initial child. \end{DoxyCompactList}\item 
-{\bf Entity} (String {\bf name}, {\bf Entity} e)  throws Improper\+Child\+Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1afb3a328033f8f6bf136d8380e712b9}
-
+{\bf Entity} (String {\bf name}, {\bf Entity} e)  throws Improper\+Child\+Exception     
 \begin{DoxyCompactList}\small\item\em Class Constructor with an initial child to absorb. \end{DoxyCompactList}\item 
 String {\bf description} ()
-\item 
-void {\bfseries maybe\+Adopt} ({\bf Entity} e)  throws Improper\+Child\+Exception     \label{classorg_1_1smallfoot_1_1vw4_1_1Entity_abeab35e912fa1da9e137231518b27e19}
-
-\item 
+\begin{DoxyCompactList}\small\item\em the description of the entity showing source \end{DoxyCompactList}\item 
+void {\bf maybe\+Adopt} ({\bf Entity} e)  throws Improper\+Child\+Exception     
+\begin{DoxyCompactList}\small\item\em Convenience function\+: \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} should either adopt a given child \char`\"{}e\char`\"{} or throw an exception. \end{DoxyCompactList}\item 
 String {\bf name} ()
-\item 
-abstract {\bf Entity} {\bf new\+Parent} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a09bc887ffb8f12a369fd5f5da7cfef31}
-
-\begin{DoxyCompactList}\small\item\em create a new \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} of the correct class to be a parent of this one \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em unique name of the entity\+: getter for internal variable \end{DoxyCompactList}\item 
+abstract {\bf Entity} {\bf new\+Parent} (String {\bf name})
+\begin{DoxyCompactList}\small\item\em create a new \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} of the correct class to be a parent of this one. \end{DoxyCompactList}\item 
 void {\bf set\+Description} (String {\bf description})
-\item 
+\begin{DoxyCompactList}\small\item\em set the description of the entity to show its source\+: setter pattern \end{DoxyCompactList}\item 
 void {\bf setname} (String {\bf name})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em set the unique name of the entity\+: setter \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 abstract boolean {\bf can\+Be\+Child} ({\bf Entity} e)
 \begin{DoxyCompactList}\small\item\em whether a given entity can be this entity's child \end{DoxyCompactList}\item 
 Vector$<$ {\bf Entity} $>$ {\bf children} ()
-\item 
+\begin{DoxyCompactList}\small\item\em get a list of child entities (local access to local singleton .children) \end{DoxyCompactList}\item 
 abstract \\*
 org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity {\bf vwentity} (String tag)
 \begin{DoxyCompactList}\small\item\em create a streamable J\+S\+O\+N entity from this one \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -89,6 +85,82 @@ Definition at line 46 of file Entity.\+java.
 
 
 
+\subsection{Constructor \& Destructor Documentation}
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afc6a43ee8007bcc023a7ebd2bf5ee1ed}
+
+
+Class Constructor with no initial child. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & initial name of the new entity \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 122 of file Entity.\+java.
+
+
+
+References Entity.\+name().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_afc6a43ee8007bcc023a7ebd2bf5ee1ed_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} (
+\begin{DoxyParamCaption}
+\item[{String}]{name, }
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+) throws {\bf Improper\+Child\+Exception}\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1afb3a328033f8f6bf136d8380e712b9}
+
+
+Class Constructor with an initial child to absorb. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & initial name of the new entity \\
+\hline
+{\em e} & \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} to consider for adoption as child \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file Entity.\+java.
+
+
+
+References Entity.\+maybe\+Adopt(), and Entity.\+name().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1afb3a328033f8f6bf136d8380e712b9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
 \subsection{Member Function Documentation}
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!can\+Be\+Child@{can\+Be\+Child}}
 \index{can\+Be\+Child@{can\+Be\+Child}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
@@ -101,14 +173,18 @@ Definition at line 46 of file Entity.\+java.
 
 whether a given entity can be this entity's child 
 
-\begin{DoxyReturn}{Returns}
-true if accepted, false if refused 
-\end{DoxyReturn}
 
 \begin{DoxyParams}{Parameters}
 {\em e} & entity to check for possible descendent-\/hood \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this entity accepts children of \char`\"{}e\char`\"{}'s descendent type 
+\end{DoxyReturn}
+
+
+Referenced by Entity.\+maybe\+Adopt().
+
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!children@{children}}
 \index{children@{children}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
 \subsubsection[{children}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<${\bf Entity}$>$ children (
@@ -116,13 +192,20 @@ true if accepted, false if refused
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a63ef33ad49b88027164e49d1916f409c}
-$<$ local access to local singleton .children 
-
-Definition at line 65 of file Entity.\+java.
 
 
+get a list of child entities (local access to local singleton .children) 
 
-Referenced by Entity\+Array.\+vwentity(), and Entity\+Host.\+vwentity().
+\begin{DoxyReturn}{Returns}
+list of zero or more child entities but never null 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file Entity.\+java.
+
+
+
+Referenced by Entity.\+maybe\+Adopt(), Entity\+Host.\+vwentity(), and Entity\+Array.\+vwentity().
 
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!description@{description}}
 \index{description@{description}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
@@ -131,13 +214,61 @@ Referenced by Entity\+Array.\+vwentity(), and Entity\+Host.\+vwentity().
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a464a9940ad720e717c25422b41b7845b}
-$<$ getter 
 
-Definition at line 82 of file Entity.\+java.
+
+the description of the entity showing source 
+
+\begin{DoxyReturn}{Returns}
+description of the entity 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file Entity.\+java.
 
 
 
 Referenced by Entity.\+set\+Description(), Entity\+H\+B\+A.\+vwentity(), Entity\+F\+A.\+vwentity(), Entity\+Array.\+vwentity(), and Entity\+Host.\+vwentity().
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!maybe\+Adopt@{maybe\+Adopt}}
+\index{maybe\+Adopt@{maybe\+Adopt}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{maybe\+Adopt}]{\setlength{\rightskip}{0pt plus 5cm}void maybe\+Adopt (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+) throws {\bf Improper\+Child\+Exception}\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_abeab35e912fa1da9e137231518b27e19}
+
+
+Convenience function\+: \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} should either adopt a given child \char`\"{}e\char`\"{} or throw an exception. 
+
+This allows very simple coding of streamlining the adoption in a cleaner iteration loop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} to consider for adoption as child \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 144 of file Entity.\+java.
+
+
+
+References Entity.\+can\+Be\+Child(), Entity.\+children(), and Entity.\+parent.
+
+
+
+Referenced by Entity.\+Entity().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_abeab35e912fa1da9e137231518b27e19_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!name@{name}}
 \index{name@{name}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
@@ -146,14 +277,42 @@ Referenced by Entity.\+set\+Description(), Entity\+H\+B\+A.\+vwentity(), Entity\
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_afa2149aced9d90555f788dfc81c23d15}
-$<$ getter 
-
-Definition at line 72 of file Entity.\+java.
 
 
+unique name of the entity\+: getter for internal variable 
 
-Referenced by Entity.\+Entity(), Entity\+Array.\+Entity\+Array(), Entity\+Host.\+Entity\+Host(), Entity.\+setname(), Entity\+F\+A.\+vwentity(), Entity\+H\+B\+A.\+vwentity(), Entity\+Array.\+vwentity(), and Entity\+Host.\+vwentity().
+\begin{DoxyReturn}{Returns}
+the name 
+\end{DoxyReturn}
 
+
+Definition at line 74 of file Entity.\+java.
+
+
+
+Referenced by Entity.\+Entity(), Entity\+Array.\+Entity\+Array(), Entity\+Host.\+Entity\+Host(), Entity.\+Leaf\+Entity.\+parent\+Name(), Entity.\+setname(), Entity\+F\+A.\+vwentity(), Entity\+H\+B\+A.\+vwentity(), Entity\+Host.\+vwentity(), and Entity\+Array.\+vwentity().
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!new\+Parent@{new\+Parent}}
+\index{new\+Parent@{new\+Parent}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{new\+Parent}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf Entity} new\+Parent (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a09bc887ffb8f12a369fd5f5da7cfef31}
+
+
+create a new \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} of the correct class to be a parent of this one. 
+
+This function is used to polymorphically create the parentage of an entity such as the host holding an H\+B\+A
+
+\begin{DoxyReturn}{Returns}
+new parent for this entity 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & initial name of the new entity \\
+\hline
+\end{DoxyParams}
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!set\+Description@{set\+Description}}
 \index{set\+Description@{set\+Description}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
 \subsubsection[{set\+Description}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Description (
@@ -161,9 +320,18 @@ Referenced by Entity.\+Entity(), Entity\+Array.\+Entity\+Array(), Entity\+Host.\
 \item[{String}]{description}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a1d15d718177c4f5411ce6ab339889fd4}
-$<$ setter 
 
-Definition at line 86 of file Entity.\+java.
+
+set the description of the entity to show its source\+: setter pattern 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & the description to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 91 of file Entity.\+java.
 
 
 
@@ -191,9 +359,18 @@ Here is the call graph for this function\+:\nopagebreak
 \item[{String}]{name}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a670f83b1f0f39a20e0fe60597032a367}
-$<$ setter 
 
-Definition at line 76 of file Entity.\+java.
+
+set the unique name of the entity\+: setter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file Entity.\+java.
 
 
 

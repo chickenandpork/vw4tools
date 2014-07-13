@@ -1,0 +1,78 @@
+
+\begin{DoxyRefList}
+\item[\label{cmdopt__cmdopt000001}%
+Global \doxyref{Virtual\+Wisdom4\+Client\+Tool.main}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a75988cf84fc6ee7a2ebff36e363021aa} (String args\mbox{[}\mbox{]})]-\/\+H$\vert$--help Show a simple help screen as a reminder of options which are understood by the application 
+
+
+\begin{DoxyCode}
+java -jar vw4tools.jar --help 
+\end{DoxyCode}
+
+
+-\/\+V$\vert$--version Show the current release version for reference 
+
+
+\begin{DoxyCode}
+java -jar vw4tools.jar --version
+0.9-85 
+\end{DoxyCode}
+
+
+-\/n$\vert$--nicknameout=\{file\} Output nicknames from internal store 
+
+-\/o$\vert$--output=\{file\} Output nicknames from internal store --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as J\+S\+O\+N with the exception of a few \char`\"{}magic\char`\"{} filenames\+: 
+
+
+
+{\bfseries schema.\+json} will cause the current schema to be written 
+
+{\bfseries orderedtuples.\+csv} will cause an Ordered\+Tuples.\+csv file to be written, suitable for post-\/processing via csv-\/to-\/json.\+awk but allowing a user to more easily edit C\+S\+V for fine-\/tuning 
+
+{\bfseries orphanentities.\+csv} will cause a C\+S\+V to be written listing all orphan entities. An \char`\"{}\+Orphan Entity\char`\"{} is an entity lacking a parent entity, such as an \char`\"{}\+H\+B\+A Port\char`\"{} without a \char`\"{}host\char`\"{} parent, or a \char`\"{}iomodule\char`\"{} without a parent \char`\"{}storagearray\char`\"{} entity. 
+
+
+
+All other filename patterns will result in a J\+S\+O\+N-\/formatted file
+
+-\/\+N$\vert$--nickname=\{file/uri\} Import nicknames by parsing a text stream from various sources 
+
+
+\begin{DoxyCode}
+ java -jar vw4tools.jar --nickname=switch44.zoneshow
+Parse results \textcolor{keywordflow}{for} AliShowZoneParser:
+Zones: 44
+Aliases: 112 (names with one or more WWPNs)
+Aliases: 136 (name/WWPN tuples) 
+\end{DoxyCode}
+ In this example, a zone file was parsed by the Ali\+Show\+Zone\+Parser resulting in 112 nicknames; due to duplicate nicknames, there are actually 136 unique W\+W\+P\+N/alias tuples, which means that (136-\/112) 24 of the W\+W\+P\+Ns have the same alias as other W\+W\+P\+Ns
+
+-\/i$\vert$--input import an existing J\+S\+O\+N file for later editing 
+
+-\/r$\vert$--read import an existing J\+S\+O\+N file for later editing 
+
+
+\begin{DoxyCode}
+java -jar vw4tools.jar --read working.json 
+\end{DoxyCode}
+
+
+-\/\+R$\vert$--remove Parse ncknames for removal from the internal nickname list 
+
+-\/\+R$\vert$--removenicknames Parse ncknames for removal from the internal nickname list
+
+-\/!$\vert$--report Summarize the current status of the internal nicknaes and pattern/collation coverage 
+
+
+\begin{DoxyCode}
+ java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
+(vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
+vw4tools 0.9-85
+    5 total entities
+    4 leaf nodes
+    2 orphans
+50.00 % coverage 
+\end{DoxyCode}
+ 
+
+-\/\+P$\vert$--pattern= is used to provide an \char`\"{}aggregating pattern\char`\"{} to collect Orphan Entities into a container. An \char`\"{}\+Orphan Entity\char`\"{} is an entity which is not part of a larger device\+: an H\+B\+A not assigned to a host, or a F\+A not assigned to a storage array. Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important. 
+\end{DoxyRefList}

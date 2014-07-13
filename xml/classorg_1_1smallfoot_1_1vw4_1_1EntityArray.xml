@@ -25,7 +25,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/EntityArray.java" line="49" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityArray.java" bodystart="49" bodyend="52"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="72" endline="75">Entity.name</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="74" endline="77">Entity.name</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1EntityArray_1ae3cca685b4cef300a70d257f519a96e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
@@ -97,9 +97,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/EntityArray.java" line="61" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/EntityArray.java" bodystart="61" bodyend="75"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c" compoundref="Entity_8java" startline="65" endline="69">Entity.children</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="82" endline="85">Entity.description</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="72" endline="75">Entity.name</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c" compoundref="Entity_8java" startline="66" endline="70">Entity.children</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="86" endline="89">Entity.description</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="74" endline="77">Entity.name</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

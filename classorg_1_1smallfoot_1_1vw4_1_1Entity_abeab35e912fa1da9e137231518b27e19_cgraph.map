@@ -1,0 +1,4 @@
+<map id="maybeAdopt" name="maybeAdopt">
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a0a8c67a491e7100ba94f3035bbe62822" title="whether a given entity can be this entity&#39;s child " alt="" coords="150,5,239,30"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a63ef33ad49b88027164e49d1916f409c" title="get a list of child entities (local access to local singleton .children) " alt="" coords="161,54,229,79"/>
+</map>

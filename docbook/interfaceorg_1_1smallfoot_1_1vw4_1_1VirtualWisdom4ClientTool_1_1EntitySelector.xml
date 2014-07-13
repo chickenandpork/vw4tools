@@ -12,8 +12,36 @@
                 </itemizedlist>
             </para>
         </simplesect>
+    <simplesect>
+        <title>Brief Description</title>
+
+<para>simple convenience interface to allow entity selection to be codified and created on-the-fly in a query API </para>
+    </simplesect>
             <section xml:id="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector_1a06dae9b60fcb30b8dc2ce7d716a56548">
-                <title>boolean select (Entity e)</title> <emphasis></emphasis>
+                <title>boolean select (Entity e)</title> <emphasis>function to define whether an entity should be selected based on its attributes</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>e</entry>
+                                <entry>
+<para>entity to consider </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>true if this entity satisfies the coded logic </para>
+</formalpara>
+</para>
+
             </section>
 </section>

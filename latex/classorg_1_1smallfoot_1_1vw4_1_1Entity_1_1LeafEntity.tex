@@ -26,22 +26,19 @@ Collaboration diagram for Entity.\+Leaf\+Entity\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bf Leaf\+Entity} (String {\bf name}, String {\bf wwn})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a30cc6402437a41c9da17a4e50fc9590c}
-
-\begin{DoxyCompactList}\small\item\em Class Constructor with no initial child. \end{DoxyCompactList}\item 
-{\bf Entity} {\bfseries new\+Parent} (String {\bf name})\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_ae3cca685b4cef300a70d257f519a96e4}
-
-\item 
-String {\bfseries parent\+Name} ()\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a929a7f5f05728b26869df0351a7a815d}
-
-\item 
+{\bf Leaf\+Entity} (String {\bf name}, String {\bf wwn})
+\begin{DoxyCompactList}\small\item\em Class Constructor with an initial child to absorb. \end{DoxyCompactList}\item 
+{\bf Entity} {\bf new\+Parent} (String {\bf name})
+\begin{DoxyCompactList}\small\item\em create a new \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} of the correct class to be a parent of this one\+: this function is stubbed to return null so that this class can be a static class and directly extensible. \end{DoxyCompactList}\item 
+String {\bf parent\+Name} ()
+\begin{DoxyCompactList}\small\item\em convenience function\+: if this entity has a parent, show the parent's name, otherwise show this entity's name. \end{DoxyCompactList}\item 
 String {\bf wwn} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em the unique W\+W\+P\+N of the hba\+: getter for internal variable \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 boolean {\bf can\+Be\+Child} ({\bf Entity} e)
-\item 
+\begin{DoxyCompactList}\small\item\em whether a given entity can be this entity's child \end{DoxyCompactList}\item 
 org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity {\bf vwentity} (String tag)\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a1d6bf85ddf0a9382cfa4f82dd3063473}
 
 \begin{DoxyCompactList}\small\item\em create a bogus function to avoid build errors \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -56,7 +53,48 @@ String {\bf wwn}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_ab07
 \subsection{Detailed Description}
 A \doxyref{Leaf\+Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity} is the common ancestor of Storage F\+As and Server H\+B\+As; this is combined only so that leaves can be treated in common. 
 
-Definition at line 177 of file Entity.\+java.
+Definition at line 202 of file Entity.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}!Leaf\+Entity@{Leaf\+Entity}}
+\index{Leaf\+Entity@{Leaf\+Entity}!org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}}
+\subsubsection[{Leaf\+Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Leaf\+Entity} (
+\begin{DoxyParamCaption}
+\item[{String}]{name, }
+\item[{String}]{wwn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a30cc6402437a41c9da17a4e50fc9590c}
+
+
+Class Constructor with an initial child to absorb. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & initial name of the new entity \\
+\hline
+{\em wwn} & initial child entity for this Leaf \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 233 of file Entity.\+java.
+
+
+
+References Entity.\+Leaf\+Entity.\+wwn().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a30cc6402437a41c9da17a4e50fc9590c_cgraph}
+\end{center}
+\end{figure}
+
 
 
 
@@ -68,9 +106,87 @@ Definition at line 177 of file Entity.\+java.
 \item[{{\bf Entity}}]{e}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a5a51654ce8be38d5f06faa182cb70e61}
-$<$ this entity has no children so this method will always be false 
 
-Definition at line 202 of file Entity.\+java.
+
+whether a given entity can be this entity's child 
+
+\begin{DoxyReturn}{Returns}
+true if accepted, false if refused. \doxyref{Leaf\+Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity} has no children so this method will always be false
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & entity to check for possible descendent-\/hood \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this entity accepts children of \char`\"{}e\char`\"{}'s descendent type (always false for Leaf \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity}) 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file Entity.\+java.
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}!new\+Parent@{new\+Parent}}
+\index{new\+Parent@{new\+Parent}!org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}}
+\subsubsection[{new\+Parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} new\+Parent (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_ae3cca685b4cef300a70d257f519a96e4}
+
+
+create a new \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} of the correct class to be a parent of this one\+: this function is stubbed to return null so that this class can be a static class and directly extensible. 
+
+Not really 100\% good practice, but the descendency of this \doxyref{Leaf\+Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity} is intended to collect functionality. This class is wrapped inside an \doxyref{Entity}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity} to retain a clear affinity, but thence needs to be static to be extensible. \char`\"{}\+She swallowed the cat to catch the spider, she swallowed the
+spider to catch the fly.. \char`\"{}
+
+Descendents will override this method
+
+\begin{DoxyReturn}{Returns}
+new parent for this entity 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & initial name of the new entity \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 271 of file Entity.\+java.
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}!parent\+Name@{parent\+Name}}
+\index{parent\+Name@{parent\+Name}!org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}}
+\subsubsection[{parent\+Name}]{\setlength{\rightskip}{0pt plus 5cm}String parent\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a929a7f5f05728b26869df0351a7a815d}
+
+
+convenience function\+: if this entity has a parent, show the parent's name, otherwise show this entity's name. 
+
+Used during Ordered\+Tuples written via Virtual\+Wisdom4\+Client\+Tool.\+write\+Ordered\+Tuples(\+String, Entity\+Selector), this allows a simpler, consistent coding when Ordered\+Tuples is being exported.
+
+\begin{DoxyReturn}{Returns}
+name of parent entity is existent, otherwise name of this entity 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file Entity.\+java.
+
+
+
+References Entity.\+name().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_a929a7f5f05728b26869df0351a7a815d_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}!wwn@{wwn}}
 \index{wwn@{wwn}!org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity\+::\+Leaf\+Entity}}
@@ -79,9 +195,16 @@ Definition at line 202 of file Entity.\+java.
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_aa0f20764b2a9bea375e9507de63cb42b}
-$<$ getter 
 
-Definition at line 180 of file Entity.\+java.
+
+the unique W\+W\+P\+N of the hba\+: getter for internal variable 
+
+\begin{DoxyReturn}{Returns}
+the W\+W\+P\+N 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file Entity.\+java.
 
 
 

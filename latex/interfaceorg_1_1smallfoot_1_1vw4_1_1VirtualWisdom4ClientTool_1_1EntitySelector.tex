@@ -1,18 +1,44 @@
 \section{Virtual\+Wisdom4\+Client\+Tool.\+Entity\+Selector Interface Reference}
 \label{interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector}\index{Virtual\+Wisdom4\+Client\+Tool.\+Entity\+Selector@{Virtual\+Wisdom4\+Client\+Tool.\+Entity\+Selector}}
+
+
+simple convenience interface to allow entity selection to be codified and created on-\/the-\/fly in a query A\+P\+I  
+
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-boolean {\bfseries select} ({\bf Entity} e)\label{interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector_a06dae9b60fcb30b8dc2ce7d716a56548}
-
-\end{DoxyCompactItemize}
+boolean {\bf select} ({\bf Entity} e)
+\begin{DoxyCompactList}\small\item\em function to define whether an entity should be selected based on its attributes \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+simple convenience interface to allow entity selection to be codified and created on-\/the-\/fly in a query A\+P\+I 
+
+Definition at line 543 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
-Definition at line 542 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
+\subsection{Member Function Documentation}
+\index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool\+::\+Entity\+Selector@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool\+::\+Entity\+Selector}!select@{select}}
+\index{select@{select}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool\+::\+Entity\+Selector@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool\+::\+Entity\+Selector}}
+\subsubsection[{select}]{\setlength{\rightskip}{0pt plus 5cm}boolean select (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+)}\label{interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector_a06dae9b60fcb30b8dc2ce7d716a56548}
+
+
+function to define whether an entity should be selected based on its attributes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & entity to consider \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this entity satisfies the coded logic 
+\end{DoxyReturn}
 
 
 The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}

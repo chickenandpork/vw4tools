@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="179" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="179" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="204" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="204" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,13 +35,28 @@
           <declname>wwn</declname>
         </param>
         <briefdescription>
-<para>Class Constructor with no initial child. </para>        </briefdescription>
+<para>Class Constructor with an initial child to absorb. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>initial name of the new entity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wwn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>initial child entity for this Leaf <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="196" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="196" bodyend="200"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="Entity_8java" startline="180" endline="183">Entity.LeafEntity.wwn</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="233" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="233" bodyend="237"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="Entity_8java" startline="206" endline="209">Entity.LeafEntity.wwn</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ae3cca685b4cef300a70d257f519a96e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
@@ -53,12 +68,22 @@
           <declname>name</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>create a new <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> of the correct class to be a parent of this one: this function is stubbed to return null so that this class can be a static class and directly extensible. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Not really 100% good practice, but the descendency of this <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity" kindref="compound">LeafEntity</ref> is intended to collect functionality. This class is wrapped inside an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> to retain a clear affinity, but thence needs to be static to be extensible. &quot;She swallowed the cat to catch the spider, she swallowed the
+spider to catch the fly.. &quot;</para><para>Descendents will override this method</para><para><simplesect kind="return"><para>new parent for this entity </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>initial name of the new entity </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="213" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="213" bodyend="216"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="271" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="271" bodyend="274"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a929a7f5f05728b26869df0351a7a815d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -66,12 +91,14 @@
         <argsstring>()</argsstring>
         <name>parentName</name>
         <briefdescription>
-        </briefdescription>
+<para>convenience function: if this entity has a parent, show the parent&apos;s name, otherwise show this entity&apos;s name. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Used during OrderedTuples written via VirtualWisdom4ClientTool.writeOrderedTuples(String, EntitySelector), this allows a simpler, consistent coding when OrderedTuples is being exported.</para><para><simplesect kind="return"><para>name of parent entity is existent, otherwise name of this entity </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="185" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="185" bodyend="191"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="219" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="219" bodyend="225"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="74" endline="77">Entity.name</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -79,13 +106,14 @@
         <argsstring>()</argsstring>
         <name>wwn</name>
         <briefdescription>
-        </briefdescription>
+<para>the unique WWPN of the hba: getter for internal variable </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>the WWPN </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
-<para>&lt; getter </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="180" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="180" bodyend="183"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c" compoundref="Entity_8java" startline="196" endline="200">Entity.LeafEntity.LeafEntity</referencedby>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="206" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="206" bodyend="209"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c" compoundref="Entity_8java" startline="233" endline="237">Entity.LeafEntity.LeafEntity</referencedby>
         <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a1d6bf85ddf0a9382cfa4f82dd3063473" compoundref="EntityHBA_8java" startline="55" endline="67">EntityHBA.vwentity</referencedby>
         <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a1d6bf85ddf0a9382cfa4f82dd3063473" compoundref="EntityFA_8java" startline="55" endline="67">EntityFA.vwentity</referencedby>
       </memberdef>
@@ -101,12 +129,22 @@
           <declname>e</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>whether a given entity can be this entity&apos;s child </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>true if accepted, false if refused. <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity" kindref="compound">LeafEntity</ref> has no children so this method will always be false</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entity to check for possible descendent-hood </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if this entity accepts children of &quot;e&quot;&apos;s descendent type (always false for Leaf <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref>) </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
-<para>&lt; this entity has no children so this method will always be false </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="202" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="202" bodyend="205"/>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="246" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="246" bodyend="249"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a1d6bf85ddf0a9382cfa4f82dd3063473" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>org.smallfoot.vw4.VWImport.Entity</type>
@@ -123,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="208" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="208" bodyend="211"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="252" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="252" bodyend="255"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -178,7 +216,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="178" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="177" bodyend="217"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="203" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="202" bodyend="275"/>
     <listofallmembers>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2fb8c11825a512c9738dd5fee7250e01" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>addTo</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a5a51654ce8be38d5f06faa182cb70e61" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>canBeChild</name></member>
