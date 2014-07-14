@@ -202,7 +202,7 @@ public abstract class Entity
     public static class LeafEntity extends Entity
     {
         protected String wwn;               /**< the unique WWPN of the hba */
-	/** the unique WWPN of the hba: getter for internal variable @return the WWPN */
+        /** the unique WWPN of the hba: getter for internal variable @return the WWPN */
         public String wwn()
         {
             return wwn;

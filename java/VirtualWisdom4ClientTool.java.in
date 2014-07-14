@@ -212,7 +212,7 @@ public class VirtualWisdom4ClientTool
      * patterns against names using the --checkpattern option.  The pattern is also
      * immediately executed, such that the following four cases occur for each orphan
      * entity evaluated:
-     * 
+     *
      * - the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan
      * - the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity
      * - the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space
@@ -226,12 +226,12 @@ public class VirtualWisdom4ClientTool
      */
     void absorbPattern (String pattern)
     {
-	boolean verbose = new Boolean (System.getProperties().getProperty("debug.showPattern"));
+        boolean verbose = new Boolean (System.getProperties().getProperty("debug.showPattern"));
         Entity wk;
         Entity parent;
         Pattern p = Pattern.compile(pattern);
 
-	if (verbose) System.out.println("absorbing pattern: "+pattern);
+        if (verbose) System.out.println("absorbing pattern: "+pattern);
         /* absorb for --checkpattern behavior */
         patterns().add(p);
 
@@ -244,17 +244,17 @@ public class VirtualWisdom4ClientTool
                     Entity.LeafEntity work = (Entity.LeafEntity) wk;
                     if ( (null == work.parent) || (null == work.parent.get()) )
                     {
-			if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern);
+                        if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern);
                         java.util.regex.Matcher m = p.matcher(work.name());
                         if (m.find())
                         {
                             String possibleName = m.group(1);
-			    if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern+" possible: "+possibleName);
+                            if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern+" possible: "+possibleName);
 
                             /* OK, orphan.  Which of the four cases are we? */
                             if ( (null != (parent = entities.get(possibleName))) || (null != (parent = holdspace.get(possibleName))) )
                             {
-				if (verbose) System.out.println("Case 2/3 "+work.name()+" with "+pattern+" possible: "+possibleName+" parent is a "+parent.getClass().getName().replaceAll(".*\\.",""));
+                                if (verbose) System.out.println("Case 2/3 "+work.name()+" with "+pattern+" possible: "+possibleName+" parent is a "+parent.getClass().getName().replaceAll(".*\\.",""));
                                 /* case 2 & 3: possibly adopt this entity, blindly ignoring if the parent refuses */
                                 try
                                 {
@@ -262,13 +262,13 @@ public class VirtualWisdom4ClientTool
                                 }
                                 catch (Entity.ImproperChildException ice)
                                 {
-				if (verbose) System.out.println("Case 2/3 "+work.name()+" with "+pattern+" possible: "+possibleName+" parent is a "+parent.getClass().getName().replaceAll(".*\\.","")+" refused adoption");
+                                    if (verbose) System.out.println("Case 2/3 "+work.name()+" with "+pattern+" possible: "+possibleName+" parent is a "+parent.getClass().getName().replaceAll(".*\\.","")+" refused adoption");
                                     /* ignored - same action either way */
                                 }
                             }
                             else if (possibleName.equalsIgnoreCase(work.name()))
                             {
-				if (verbose) System.out.println("Case 4 "+work.name()+" with "+pattern+" possible: "+possibleName);
+                                if (verbose) System.out.println("Case 4 "+work.name()+" with "+pattern+" possible: "+possibleName);
                                 /* case 4: parent matches.  need to rename this one and adopt into a new parent */
                                 String wwn = work.wwn;
 
@@ -295,46 +295,52 @@ public class VirtualWisdom4ClientTool
                             }
                             else
                             {
-				if (verbose) System.out.println("Case 1 "+work.name()+" with "+pattern+" possible: "+possibleName);
+                                if (verbose) System.out.println("Case 1 "+work.name()+" with "+pattern+" possible: "+possibleName);
                                 /* case 1: no entity found; create in hold */
                                 holdspace.put (possibleName, work.newParent(possibleName));
                             }
                         }
                     }
                 }
-else { if (verbose) System.out.println("skipping "+wk.name()+" a "+wk.getClass().getName()); }
-else { if (verbose) System.out.println("get of "+s+" failed"); }
+                else
+                {
+                    if (verbose) System.out.println("skipping "+wk.name()+" a "+wk.getClass().getName());
+                }
+            else
+            {
+                if (verbose) System.out.println("get of "+s+" failed");
+            }
 
 
         /* complete: nuke any single-child parents */
         Vector<String>nukeList = new Vector<String>();
         for (String s: holdspace.keySet())
             if (null != (wk = holdspace.get(s)))
-	    {
-		if (verbose) System.out.println("nukecheck: "+wk.name()+" has "+wk.children().size()+" children");
+            {
+                if (verbose) System.out.println("nukecheck: "+wk.name()+" has "+wk.children().size()+" children");
                 if (wk.children().size() < 2)
                     nukeList.add(s);
-	    }
+            }
 
         for (String s: nukeList)
-	{
-	    if (verbose) System.out.println("removing single-child pattern-merge entity: "+s);
+        {
+            if (verbose) System.out.println("removing single-child pattern-merge entity: "+s);
             holdspace.remove (s);
-	}
+        }
 
         /* now shift the remainders over to permanent store */
         for (String s: holdspace.keySet())
             if (null != (wk = holdspace.get(s)))
-	    {
-		if (verbose) System.out.println("moving: "+s);
+            {
+                if (verbose) System.out.println("moving: "+s);
                 entities.put (s, wk);
-	    }
+            }
 
-	if (verbose)
-	{
-	    System.out.println("finally after executing pattern \""+pattern+"\":");
-	    for (String s: entities.keySet()) System.out.println("entity: "+s);
-	}
+        if (verbose)
+        {
+            System.out.println("finally after executing pattern \""+pattern+"\":");
+            for (String s: entities.keySet()) System.out.println("entity: "+s);
+        }
     }
 
     /**
@@ -390,25 +396,25 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
 
     void report ()
     {
-	int orphans = 0;
-	int fostered = 0;
-	int total = 0;
-	Entity e;
+        int orphans = 0;
+        int fostered = 0;
+        int total = 0;
+        Entity e;
 
         for (String s: entities().keySet())
             if ( (null != s) && (null != (e = entities().get(s))) )
-	    {
-		total++;
+            {
+                total++;
 
                 if (e instanceof Entity.LeafEntity)
-		{
-		    if (e.isOrphan()) orphans++;
-		    else fostered++;
-		}
-	    }
+                {
+                    if (e.isOrphan()) orphans++;
+                    else fostered++;
+                }
+            }
 
-	System.out.println("@PACKAGE@ @VERSION@-@BUILDID@");
-	System.out.println(String.format("%5d total entities\n%5d leaf nodes\n%5d orphans\n%5.2f %% coverage", total, (orphans + fostered), orphans, (fostered * 100.0)/(orphans + fostered)));
+        System.out.println("@PACKAGE@ @VERSION@-@BUILDID@");
+        System.out.println(String.format("%5d total entities\n%5d leaf nodes\n%5d orphans\n%5.2f %% coverage", total, (orphans + fostered), orphans, (fostered * 100.0)/(orphans + fostered)));
     }
 
 
@@ -427,7 +433,7 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
     protected void loadAndRemoveFile(String f)
     {
         ZoneParser p = null;
-	java.util.Properties prop = new java.util.Properties();
+        java.util.Properties prop = new java.util.Properties();
 
         for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true, prop), "@PACKAGE@", /* ZParser(s) verbose */ true, prop) )); x--)
             System.out.println("retrying: reading "+f);
@@ -491,7 +497,7 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
     protected void loadAndAbsorbFile(String f)
     {
         ZoneParser p = null;
-	java.util.Properties prop = new java.util.Properties();
+        java.util.Properties prop = new java.util.Properties();
 
         for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true, prop), "@PACKAGE@", /* ZParser(s) verbose */ true, prop) )); x--)
             System.out.println("retrying: reading "+f);
@@ -547,13 +553,13 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
     /** simple convenience interface to allow entity selection to be codified and created on-the-fly in a query API */
     public interface EntitySelector
     {
-	/**
-	 * function to define whether an entity should be selected based on its attributes
-	 *
-	 * @param e entity to consider
-	 * @return true if this entity satisfies the coded logic
-	 */
-	public boolean select(Entity e);
+        /**
+         * function to define whether an entity should be selected based on its attributes
+         *
+         * @param e entity to consider
+         * @return true if this entity satisfies the coded logic
+         */
+        public boolean select(Entity e);
     }
 
     /**
@@ -608,7 +614,13 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
                 System.out.println("writing ordered tuples to "+filename);
                 try
                 {
-                    writeOrderedTuples(filename, new EntitySelector() {public boolean select(Entity e) {return e.isOrphan();} });
+                    writeOrderedTuples(filename, new EntitySelector()
+                    {
+                        public boolean select(Entity e)
+                        {
+                            return e.isOrphan();
+                        }
+                    });
                 }
                 catch (java.io.IOException ioe)
                 {
@@ -691,24 +703,24 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
 
         for (String s: entities().keySet())
             if (null != (e = entities.get(s)))
-            if ( (null == sel ) || (sel.select(e)) )
-            {
-                /* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */
-                if (e instanceof EntityHBA)
+                if ( (null == sel ) || (sel.select(e)) )
                 {
-                    EntityHBA h = (EntityHBA) e;
+                    /* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */
+                    if (e instanceof EntityHBA)
+                    {
+                        EntityHBA h = (EntityHBA) e;
 
-                    /* name,type,WWPN[,customname] */
-                    fos.println(String.format("%s,%s,%s,%s",h.parentName(),"host",h.wwn(),h.name()));
-                }
-                else if (e instanceof EntityFA)
-                {
-                    EntityFA h = (EntityFA) e;
+                        /* name,type,WWPN[,customname] */
+                        fos.println(String.format("%s,%s,%s,%s",h.parentName(),"host",h.wwn(),h.name()));
+                    }
+                    else if (e instanceof EntityFA)
+                    {
+                        EntityFA h = (EntityFA) e;
 
-                    /* name,type,WWPN[,customname] */
-                    fos.println(String.format("%s,%s,%s,%s",h.parentName(),"array",h.wwn(),h.name()));
+                        /* name,type,WWPN[,customname] */
+                        fos.println(String.format("%s,%s,%s,%s",h.parentName(),"array",h.wwn(),h.name()));
+                    }
                 }
-            }
     }
 
 
@@ -760,41 +772,41 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
          *
          * @cmdopt -n|--nicknameout={file} Output nicknames from internal store
          * @cmdopt -o|--output={file} Output nicknames from internal store
-	 * --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few "magic" filenames:
-	 *
-	 * @cmdopt # <b>schema.json</b> will cause the current schema to be written
-	 * @cmdopt # <b>orderedtuples.csv</b> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning
-	 * @cmdopt # <b>orphanentities.csv</b> will cause a CSV to be written listing all orphan entities.  An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.
-	 *
-	 * @cmdopt All other filename patterns will result in a JSON-formatted file
-	 *
-         * @cmdopt -N|--nickname={file/uri} Import nicknames by parsing a text stream from various sources
-         * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow
-         * Parse results for AliShowZoneParser:
-         * Zones: 44
-         * Aliases: 112 (names with one or more WWPNs)
-         * Aliases: 136 (name/WWPN tuples) @endcode
-         * In this example, a zone file was parsed by the AliShowZoneParser resulting in 112
-         * nicknames; due to duplicate nicknames, there are actually 136 unique WWPN/alias
-         * tuples, which means that (136-112) 24 of the WWPNs have the same alias as other
-         * WWPNs
+        * --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few "magic" filenames:
          *
-         * @cmdopt -i|--input import an existing JSON file for later editing
-         * @cmdopt -r|--read import an existing JSON file for later editing
-         * @cmdopt @code java -jar @PACKAGE@.jar --read working.json @endcode
+         * @cmdopt # <b>schema.json</b> will cause the current schema to be written
+         * @cmdopt # <b>orderedtuples.csv</b> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning
+         * @cmdopt # <b>orphanentities.csv</b> will cause a CSV to be written listing all orphan entities.  An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.
          *
-         * @cmdopt -R|--remove Parse ncknames for removal from the internal nickname list
-         * @cmdopt -R|--removenicknames Parse ncknames for removal from the internal nickname list
+         * @cmdopt All other filename patterns will result in a JSON-formatted file
          *
-         * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage
-         * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow  --report
-	 * (@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
-	 * @PACKAGE@ @VERSION@-@BUILDID@
-	 *     5 total entities
-	 *     4 leaf nodes
-	 *     2 orphans
-	 * 50.00 % coverage @endcode
-         */
+               * @cmdopt -N|--nickname={file/uri} Import nicknames by parsing a text stream from various sources
+               * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow
+               * Parse results for AliShowZoneParser:
+               * Zones: 44
+               * Aliases: 112 (names with one or more WWPNs)
+               * Aliases: 136 (name/WWPN tuples) @endcode
+               * In this example, a zone file was parsed by the AliShowZoneParser resulting in 112
+               * nicknames; due to duplicate nicknames, there are actually 136 unique WWPN/alias
+               * tuples, which means that (136-112) 24 of the WWPNs have the same alias as other
+               * WWPNs
+               *
+               * @cmdopt -i|--input import an existing JSON file for later editing
+               * @cmdopt -r|--read import an existing JSON file for later editing
+               * @cmdopt @code java -jar @PACKAGE@.jar --read working.json @endcode
+               *
+               * @cmdopt -R|--remove Parse ncknames for removal from the internal nickname list
+               * @cmdopt -R|--removenicknames Parse ncknames for removal from the internal nickname list
+               *
+               * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage
+               * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow  --report
+         * (@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
+         * @PACKAGE@ @VERSION@-@BUILDID@
+         *     5 total entities
+         *     4 leaf nodes
+         *     2 orphans
+         * 50.00 % coverage @endcode
+               */
 
         options.add(new LongOpt("help", LongOpt.NO_ARGUMENT, null, 'H'));
         options.add(new LongOpt("version", LongOpt.NO_ARGUMENT, null, 'V'));
@@ -827,9 +839,9 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
             }
             break;
 
-	    /**
-	     * @cmdopt -P|--pattern= is used to provide an "aggregating pattern" to collect Orphan Entities into a container.  An "Orphan Entity" is an entity which is not part of a larger device: an HBA not assigned to a host, or a FA not assigned to a storage array.  Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important.
-             */
+            /**
+             * @cmdopt -P|--pattern= is used to provide an "aggregating pattern" to collect Orphan Entities into a container.  An "Orphan Entity" is an entity which is not part of a larger device: an HBA not assigned to a host, or a FA not assigned to a storage array.  Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important.
+                 */
             case 'P': /* input chunking-pattern for host-combination and storage-combination */
                 m.absorbPattern(g.getOptarg());
                 break;
