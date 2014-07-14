@@ -59,7 +59,7 @@ endif DO_FOP
 htdocs/README.dox: README.md Makefile
 	if test \! -d $(@D)/.git; then echo "subdir $(@D) not set as a gh-pages branch; see http://rickfoosusa.blogspot.com/2011/10/howto-use-doxygen-with-github.html"; git branch|grep gh-pages || echo git clone --branch gh-pages $$(git config --get remote.origin.url) $(@D); grep $(@D) .gitignore || echo "echo $(@D) > .gitignore"; echo "then delete everything in $(@D), commit, and push"; exit 1; fi
 if DO_DOXYGEN_MD
-	awk 'BEGIN { print "@file $(<F)"; shown=0; } /^@PACKAGE@/ && (0 == shown) { print "@mainpage JavaDoc API Markup for @PACKAGE@"; shown++; } { printf "%s\n",$$0; } END {print "" }' $< > $@
+	awk 'BEGIN { print "@file"; shown=0; } /^@PACKAGE@/ && (0 == shown) { print "@mainpage JavaDoc API Markup for @PACKAGE@"; shown++; } { printf "%s\n",$$0; } END {print "" }' $< > $@
 else
 	awk 'BEGIN { print "/** @file "; print "@mainpage JavaDoc API Markup for @PACKAGE@"; } /@PACKAGE@$$/ {next} /^=+$$/ {next} { printf " * %s\n",$$0; } END {print " */" }' $< > $@
 endif DO_DOXYGEN_MD_FALSE
