@@ -84,6 +84,8 @@ var NAVTREEINDEX0 =
 "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#afb3f7acf97044713e2aa55c921c5cdb2":[4,0,0,0,0,5,18],
 "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#afc3ee9b897e0757b6cd5c8289c9d4cc4":[4,0,0,0,0,5,11],
 "cmdopt.html":[3],
+"csv-to-json_8awk_source.html":[5,0,1,0],
+"dir_53e6fa9553ac22a5646d2a2b2d7b97a1.html":[5,0,1],
 "dir_93c6ba7fb77bae0709fae89c9c13b44a.html":[5,0,0],
 "files.html":[5,0],
 "functions.html":[4,2,0],

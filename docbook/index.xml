@@ -40,9 +40,11 @@
         <xi:include href="EntityHost_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="VirtualWisdom4ClientTool_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="VWImport_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="csv-to-json_8awk.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </chapter>
     <chapter>
         <title>Directory Documentation</title>
         <xi:include href="dir_93c6ba7fb77bae0709fae89c9c13b44a.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_53e6fa9553ac22a5646d2a2b2d7b97a1.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </chapter>
 </book>

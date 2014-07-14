@@ -117,6 +117,8 @@
   </compound>
   <compound refid="VWImport_8java" kind="file"><name>VWImport.java</name>
   </compound>
+  <compound refid="csv-to-json_8awk" kind="file"><name>csv-to-json.awk</name>
+  </compound>
   <compound refid="md_htdocs_README" kind="page"><name>md_htdocs_README</name>
   </compound>
   <compound refid="todo" kind="page"><name>todo</name>
@@ -124,6 +126,8 @@
   <compound refid="cmdopt" kind="page"><name>cmdopt</name>
   </compound>
   <compound refid="dir_93c6ba7fb77bae0709fae89c9c13b44a" kind="dir"><name>java</name>
+  </compound>
+  <compound refid="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir"><name>scripts</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>
