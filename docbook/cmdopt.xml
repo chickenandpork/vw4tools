@@ -13,27 +13,18 @@
 <para>-V|&#8211;version Show the current release version for reference </para>
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--version
-&#32;0.9-88&#32;
+&#32;0.9-89&#32;
 </programlisting></para>
 
 <para>-n|&#8211;nicknameout={file} Output nicknames from internal store </para>
 
 <para>-o|&#8211;output={file} Output nicknames from internal store &#8211;nicknameout and &#8211;output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few &quot;magic&quot; filenames:</para>
 
-<para><formalpara><title><emphasis role="bold">schema.json</emphasis> will cause the current schema to be written</title></formalpara>
-</para>
+<para>1. <emphasis role="bold">schema.json</emphasis> will cause the current schema to be written </para>
 
-<para></para>
+<para>2. <emphasis role="bold">orderedtuples.csv</emphasis> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning </para>
 
-<para><formalpara><title><emphasis role="bold">orderedtuples.csv</emphasis> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</title></formalpara>
-</para>
-
-<para></para>
-
-<para><formalpara><title><emphasis role="bold">orphanentities.csv</emphasis> will cause a CSV to be written listing all orphan entities. An &quot;Orphan Entity&quot; is an entity lacking a parent entity, such as an &quot;HBA Port&quot; without a &quot;host&quot; parent, or a &quot;iomodule&quot; without a parent &quot;storagearray&quot; entity.</title></formalpara>
-</para>
-
-<para></para>
+<para>3. <emphasis role="bold">orphanentities.csv</emphasis> will cause a CSV to be written listing all orphan entities. An &quot;Orphan Entity&quot; is an entity lacking a parent entity, such as an &quot;HBA Port&quot; without a &quot;host&quot; parent, or a &quot;iomodule&quot; without a parent &quot;storagearray&quot; entity.</para>
 
 <para>All other filename patterns will result in a JSON-formatted file</para>
 
@@ -61,7 +52,7 @@
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow&#32;&#32;--report
 (vw4tools)&#32;parsed&#32;0&#32;zones,&#32;2&#32;aliases&#32;via&#32;Alias4Parser
-vw4tools&#32;0.9-88
+vw4tools&#32;0.9-89
 &#32;&#32;&#32;&#32;5&#32;total&#32;entities
 &#32;&#32;&#32;&#32;4&#32;leaf&#32;nodes
 &#32;&#32;&#32;&#32;2&#32;orphans

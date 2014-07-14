@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">0.9-88</span>
+   &#160;<span id="projectnumber">0.9-89</span>
    </div>
   </td>
  </tr>
@@ -502,15 +502,21 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --></dd></dl>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000003">Commandline Options:</a></b></dt><dd>-V|&ndash;version Show the current release version for reference </dd></dl>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000004">Commandline Options:</a></b></dt><dd><div class="fragment"><div class="line">java -jar vw4tools.jar --version</div>
-<div class="line"> 0.9-88 </div>
+<div class="line"> 0.9-89 </div>
 </div><!-- fragment --></dd></dl>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000005">Commandline Options:</a></b></dt><dd>-n|&ndash;nicknameout={file} Output nicknames from internal store </dd></dl>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000006">Commandline Options:</a></b></dt><dd>-o|&ndash;output={file} Output nicknames from internal store &ndash;nicknameout and &ndash;output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few "magic" filenames:</dd></dl>
-<dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000007">Commandline Options:</a></b></dt><dd><h1><b>schema.json</b> will cause the current schema to be written</h1>
+<dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000007">Commandline Options:</a></b></dt><dd><ol type="1">
+<li><b>schema.json</b> will cause the current schema to be written </li>
+</ol>
 </dd></dl>
-<dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000008">Commandline Options:</a></b></dt><dd><h1><b>orderedtuples.csv</b> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</h1>
+<dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000008">Commandline Options:</a></b></dt><dd><ol type="1">
+<li><b>orderedtuples.csv</b> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning </li>
+</ol>
 </dd></dl>
-<dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000009">Commandline Options:</a></b></dt><dd><h1><b>orphanentities.csv</b> will cause a CSV to be written listing all orphan entities. An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.</h1>
+<dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000009">Commandline Options:</a></b></dt><dd><ol type="1">
+<li><b>orphanentities.csv</b> will cause a CSV to be written listing all orphan entities. An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.</li>
+</ol>
 </dd></dl>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000010">Commandline Options:</a></b></dt><dd>All other filename patterns will result in a JSON-formatted file</dd></dl>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000011">Commandline Options:</a></b></dt><dd>-N|&ndash;nickname={file/uri} Import nicknames by parsing a text stream from various sources </dd></dl>
@@ -529,7 +535,7 @@ Here is the call graph for this function:</div>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000018">Commandline Options:</a></b></dt><dd>-!|&ndash;report Summarize the current status of the internal nicknaes and pattern/collation coverage </dd></dl>
 <dl class="cmdopt"><dt><b><a class="el" href="cmdopt.html#_cmdopt000019">Commandline Options:</a></b></dt><dd><div class="fragment"><div class="line">java -jar vw4tools.jar --nickname=switch44.zoneshow  --report</div>
 <div class="line">(vw4tools) parsed 0 zones, 2 aliases via Alias4Parser</div>
-<div class="line">vw4tools 0.9-88</div>
+<div class="line">vw4tools 0.9-89</div>
 <div class="line">    5 total entities</div>
 <div class="line">    4 leaf nodes</div>
 <div class="line">    2 orphans</div>
@@ -723,7 +729,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>org</b></li><li class="navelem"><b>smallfoot</b></li><li class="navelem"><b>vw4</b></li><li class="navelem"><a class="el" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html">VirtualWisdom4ClientTool</a></li>
-    <li class="footer">Generated on Mon Jul 14 2014 12:06:44 for vw4tools by
+    <li class="footer">Generated on Mon Jul 14 2014 12:11:32 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

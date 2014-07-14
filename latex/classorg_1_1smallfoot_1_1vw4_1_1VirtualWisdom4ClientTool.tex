@@ -361,7 +361,7 @@ java -jar vw4tools.jar --help
 \item[{\bf Commandline Options}]
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
- 0.9-88 
+ 0.9-89 
 \end{DoxyCode}
 \end{DoxyRefDesc}
 
@@ -373,11 +373,20 @@ java -jar vw4tools.jar --version
 
 
 \begin{DoxyRefDesc}{Commandline Options}
-\item[{\bf Commandline Options}]\subsection*{{\bfseries schema.\+json} will cause the current schema to be written}\end{DoxyRefDesc}
+\item[{\bf Commandline Options}]
+\begin{DoxyEnumerate}
+\item {\bfseries schema.\+json} will cause the current schema to be written 
+\end{DoxyEnumerate}\end{DoxyRefDesc}
 \begin{DoxyRefDesc}{Commandline Options}
-\item[{\bf Commandline Options}]\subsection*{{\bfseries orderedtuples.\+csv} will cause an Ordered\+Tuples.\+csv file to be written, suitable for post-\/processing via csv-\/to-\/json.\+awk but allowing a user to more easily edit C\+S\+V for fine-\/tuning}\end{DoxyRefDesc}
+\item[{\bf Commandline Options}]
+\begin{DoxyEnumerate}
+\item {\bfseries orderedtuples.\+csv} will cause an Ordered\+Tuples.\+csv file to be written, suitable for post-\/processing via csv-\/to-\/json.\+awk but allowing a user to more easily edit C\+S\+V for fine-\/tuning 
+\end{DoxyEnumerate}\end{DoxyRefDesc}
 \begin{DoxyRefDesc}{Commandline Options}
-\item[{\bf Commandline Options}]\subsection*{{\bfseries orphanentities.\+csv} will cause a C\+S\+V to be written listing all orphan entities. An \char`\"{}\+Orphan Entity\char`\"{} is an entity lacking a parent entity, such as an \char`\"{}\+H\+B\+A Port\char`\"{} without a \char`\"{}host\char`\"{} parent, or a \char`\"{}iomodule\char`\"{} without a parent \char`\"{}storagearray\char`\"{} entity.}\end{DoxyRefDesc}
+\item[{\bf Commandline Options}]
+\begin{DoxyEnumerate}
+\item {\bfseries orphanentities.\+csv} will cause a C\+S\+V to be written listing all orphan entities. An \char`\"{}\+Orphan Entity\char`\"{} is an entity lacking a parent entity, such as an \char`\"{}\+H\+B\+A Port\char`\"{} without a \char`\"{}host\char`\"{} parent, or a \char`\"{}iomodule\char`\"{} without a parent \char`\"{}storagearray\char`\"{} entity.
+\end{DoxyEnumerate}\end{DoxyRefDesc}
 
 
 \begin{DoxyRefDesc}{Commandline Options}
@@ -423,7 +432,7 @@ java -jar vw4tools.jar --read working.json
 \begin{DoxyCode}
 java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 0.9-88
+vw4tools 0.9-89
     5 total entities
     4 leaf nodes
     2 orphans
