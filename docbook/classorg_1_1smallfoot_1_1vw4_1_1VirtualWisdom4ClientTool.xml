@@ -505,26 +505,21 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
                 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">
-                <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns and execute it immediately on all current orphan LeafEntities.</emphasis>
+                <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns and execute it
+immediately on all current orphan LeafEntities.</emphasis>
                 
-<para>The pattern given will be absorbed for the side-benefit of a user testing patterns against names using the &#8211;checkpattern option. The pattern is also immediately executed, such that the following four cases occur for each orphan entity evaluated: <orderedlist>
-<listitem>
+<para>The pattern given will be absorbed for the side-benefit of a user testing patterns against names using the &#8211;checkpattern option. The pattern is also immediately executed, such that the following four cases occur for each orphan entity evaluated:</para>
 
-<para>the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan </para>
-</listitem>
+<para><itemizedlist>
 <listitem>
-
-<para>the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity </para>
-</listitem>
-<listitem>
-
-<para>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space </para>
-</listitem>
-<listitem>
-
-<para>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name </para>
-</listitem>
-</orderedlist>
+<para>the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan</para>
+</listitem><listitem>
+<para>the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity</para>
+</listitem><listitem>
+<para>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space</para>
+</listitem><listitem>
+<para>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name</para>
+</listitem></itemizedlist>
 </para>
 
 <para>When complete, the &quot;hold&quot; space is evaluated to remove any &quot;parents&quot; for which there is only one child, thus eliminating lame pattern results before any next run</para>

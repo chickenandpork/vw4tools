@@ -13,20 +13,25 @@
 <para>-V|&#8211;version Show the current release version for reference </para>
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--version
-0.9-86&#32;
+&#32;0.9-88&#32;
 </programlisting></para>
 
 <para>-n|&#8211;nicknameout={file} Output nicknames from internal store </para>
 
-<para>-o|&#8211;output={file} Output nicknames from internal store &#8211;nicknameout and &#8211;output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few &quot;magic&quot; filenames: </para>
+<para>-o|&#8211;output={file} Output nicknames from internal store &#8211;nicknameout and &#8211;output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few &quot;magic&quot; filenames:</para>
+
+<para><formalpara><title><emphasis role="bold">schema.json</emphasis> will cause the current schema to be written</title></formalpara>
+</para>
 
 <para></para>
 
-<para><emphasis role="bold">schema.json</emphasis> will cause the current schema to be written </para>
+<para><formalpara><title><emphasis role="bold">orderedtuples.csv</emphasis> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</title></formalpara>
+</para>
 
-<para><emphasis role="bold">orderedtuples.csv</emphasis> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning </para>
+<para></para>
 
-<para><emphasis role="bold">orphanentities.csv</emphasis> will cause a CSV to be written listing all orphan entities. An &quot;Orphan Entity&quot; is an entity lacking a parent entity, such as an &quot;HBA Port&quot; without a &quot;host&quot; parent, or a &quot;iomodule&quot; without a parent &quot;storagearray&quot; entity. </para>
+<para><formalpara><title><emphasis role="bold">orphanentities.csv</emphasis> will cause a CSV to be written listing all orphan entities. An &quot;Orphan Entity&quot; is an entity lacking a parent entity, such as an &quot;HBA Port&quot; without a &quot;host&quot; parent, or a &quot;iomodule&quot; without a parent &quot;storagearray&quot; entity.</title></formalpara>
+</para>
 
 <para></para>
 
@@ -34,11 +39,11 @@
 
 <para>-N|&#8211;nickname={file/uri} Import nicknames by parsing a text stream from various sources </para>
 
-<para><programlisting>&#32;java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow
-Parse&#32;results&#32;<emphasis>for</emphasis>&#32;AliShowZoneParser:
-Zones:&#32;44
-Aliases:&#32;112&#32;(names&#32;with&#32;one&#32;or&#32;more&#32;WWPNs)
-Aliases:&#32;136&#32;(name/WWPN&#32;tuples)&#32;
+<para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow
+&#32;&#32;&#32;&#32;&#32;&#32;Parse&#32;results&#32;<emphasis>for</emphasis>&#32;AliShowZoneParser:
+&#32;&#32;&#32;&#32;&#32;&#32;Zones:&#32;44
+&#32;&#32;&#32;&#32;&#32;&#32;Aliases:&#32;112&#32;(names&#32;with&#32;one&#32;or&#32;more&#32;WWPNs)
+&#32;&#32;&#32;&#32;&#32;&#32;Aliases:&#32;136&#32;(name/WWPN&#32;tuples)&#32;
 </programlisting> In this example, a zone file was parsed by the AliShowZoneParser resulting in 112 nicknames; due to duplicate nicknames, there are actually 136 unique WWPN/alias tuples, which means that (136-112) 24 of the WWPNs have the same alias as other WWPNs</para>
 
 <para>-i|&#8211;input import an existing JSON file for later editing </para>
@@ -54,9 +59,9 @@ Aliases:&#32;136&#32;(name/WWPN&#32;tuples)&#32;
 
 <para>-!|&#8211;report Summarize the current status of the internal nicknaes and pattern/collation coverage </para>
 
-<para><programlisting>&#32;java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow&#32;&#32;--report
+<para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow&#32;&#32;--report
 (vw4tools)&#32;parsed&#32;0&#32;zones,&#32;2&#32;aliases&#32;via&#32;Alias4Parser
-vw4tools&#32;0.9-86
+vw4tools&#32;0.9-88
 &#32;&#32;&#32;&#32;5&#32;total&#32;entities
 &#32;&#32;&#32;&#32;4&#32;leaf&#32;nodes
 &#32;&#32;&#32;&#32;2&#32;orphans

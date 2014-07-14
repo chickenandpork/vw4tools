@@ -34,7 +34,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="84" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="84" bodyend="-1"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="740" endline="934">VirtualWisdom4ClientTool.main</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="757" endline="951">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a9a2326f35466e54c36c070829245c557" prot="protected" static="no" mutable="no">
         <type>String</type>
@@ -48,8 +48,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="72" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="72" bodyend="-1"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="486" endline="540">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="740" endline="934">VirtualWisdom4ClientTool.main</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="497" endline="551">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="757" endline="951">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ab1bf14d6f0f0af84c30272b6eed5792f" prot="protected" static="no" mutable="no">
         <type>WeakReference&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> &gt;</type>
@@ -328,7 +328,7 @@
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="91" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="91" bodyend="94"/>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="86" endline="89">Entity.description</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="486" endline="540">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="497" endline="551">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -355,7 +355,7 @@
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="79" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="79" bodyend="82"/>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="74" endline="77">Entity.name</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="486" endline="540">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="497" endline="551">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="package-func">

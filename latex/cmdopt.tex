@@ -14,21 +14,23 @@ java -jar vw4tools.jar --help
 
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
-0.9-86 
+ 0.9-88 
 \end{DoxyCode}
 
 
 -\/n$\vert$--nicknameout=\{file\} Output nicknames from internal store 
 
--\/o$\vert$--output=\{file\} Output nicknames from internal store --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as J\+S\+O\+N with the exception of a few \char`\"{}magic\char`\"{} filenames\+: 
+-\/o$\vert$--output=\{file\} Output nicknames from internal store --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as J\+S\+O\+N with the exception of a few \char`\"{}magic\char`\"{} filenames\+:
+
+\section*{{\bfseries schema.\+json} will cause the current schema to be written}
 
 
 
-{\bfseries schema.\+json} will cause the current schema to be written 
+\section*{{\bfseries orderedtuples.\+csv} will cause an Ordered\+Tuples.\+csv file to be written, suitable for post-\/processing via csv-\/to-\/json.\+awk but allowing a user to more easily edit C\+S\+V for fine-\/tuning}
 
-{\bfseries orderedtuples.\+csv} will cause an Ordered\+Tuples.\+csv file to be written, suitable for post-\/processing via csv-\/to-\/json.\+awk but allowing a user to more easily edit C\+S\+V for fine-\/tuning 
 
-{\bfseries orphanentities.\+csv} will cause a C\+S\+V to be written listing all orphan entities. An \char`\"{}\+Orphan Entity\char`\"{} is an entity lacking a parent entity, such as an \char`\"{}\+H\+B\+A Port\char`\"{} without a \char`\"{}host\char`\"{} parent, or a \char`\"{}iomodule\char`\"{} without a parent \char`\"{}storagearray\char`\"{} entity. 
+
+\section*{{\bfseries orphanentities.\+csv} will cause a C\+S\+V to be written listing all orphan entities. An \char`\"{}\+Orphan Entity\char`\"{} is an entity lacking a parent entity, such as an \char`\"{}\+H\+B\+A Port\char`\"{} without a \char`\"{}host\char`\"{} parent, or a \char`\"{}iomodule\char`\"{} without a parent \char`\"{}storagearray\char`\"{} entity.}
 
 
 
@@ -38,11 +40,11 @@ All other filename patterns will result in a J\+S\+O\+N-\/formatted file
 
 
 \begin{DoxyCode}
- java -jar vw4tools.jar --nickname=switch44.zoneshow
-Parse results \textcolor{keywordflow}{for} AliShowZoneParser:
-Zones: 44
-Aliases: 112 (names with one or more WWPNs)
-Aliases: 136 (name/WWPN tuples) 
+java -jar vw4tools.jar --nickname=switch44.zoneshow
+      Parse results \textcolor{keywordflow}{for} AliShowZoneParser:
+      Zones: 44
+      Aliases: 112 (names with one or more WWPNs)
+      Aliases: 136 (name/WWPN tuples) 
 \end{DoxyCode}
  In this example, a zone file was parsed by the Ali\+Show\+Zone\+Parser resulting in 112 nicknames; due to duplicate nicknames, there are actually 136 unique W\+W\+P\+N/alias tuples, which means that (136-\/112) 24 of the W\+W\+P\+Ns have the same alias as other W\+W\+P\+Ns
 
@@ -64,9 +66,9 @@ java -jar vw4tools.jar --read working.json
 
 
 \begin{DoxyCode}
- java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
+java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 0.9-86
+vw4tools 0.9-88
     5 total entities
     4 leaf nodes
     2 orphans
