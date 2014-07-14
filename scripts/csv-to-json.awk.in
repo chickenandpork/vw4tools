@@ -1,3 +1,71 @@
+#!awk -f
+# 
+# The "@" in the following documentation is markup for collectors
+## @file
+## 
+## @page scripts Scripting Options
+## @subpage csv-to-json
+## 
+## @page csv-to-json csv-to-json.awk: Convert a "OrderedTuples.csv" file to a JSON Entity import
+## 
+## @section Overview
+## 
+## This script (csv-to-json.awk) interprets a basic 4-column CSV into a JSON entities file.  This is "the old method", but facilitates hand-tweaking if required.  In essence, the four columns of the file are:
+## 
+## 1. host/array name
+## 2. device type: "host" or "array" (without quotes)
+## 3. WWPN
+## 4. optional unique name of the WWPN within the (column 1) host
+## 
+## For example:
+## 
+## | name          | type  | WWPN                    | (optional) name |
+## | ------------- | ----- | :---------------------: | :-------------- |
+## | MPV123456-001 | host  | 2001001560123456        | MPV123456-001   |
+## | MPV123456-013 | host  | 2013001560123456        | MPV123456-013   |
+## | NetApp-123456 | array | 500a098598123456        |                 |
+## | NetApp-123456 | array | 500a098698123456        |                 |
+## | Oracle01      | host  | 10:00:00:00:c9:12:34:56 | Oracle01-A      |
+## | Oracle01      | host  | 10:00:00:00:c9:12:34:57 | Oracle01-B      |
+## 
+## @section running Running this Script
+## 
+## This AWK script should work with gawk.exe from the UnxUtils project on
+## sourceforge.net (which offers windows binaries without need of cygwin) and
+## is regression-tested using basic awk on BSD-based operating systems.
+## 
+##     gawk.exe   -f csv-to-json.awk   OrderedTuples.csv   >   customer-name.json
+## 
+## @section cmdline Commandline Variables:
+## 
+## - -v SKIPARRAY={something} will avoid exporting the array which contains iomodules
+## - -v SKIPHOST={something} will avoid exporting the host which contains hbas
+## 
+## @section Example Usage (2 switches)
+## 
+##     plink.exe -l username -pw pAssw0rd 192.168.1.44 'show device-alias database' > SW44.dad
+##     plink.exe -l username -pw pAssw0rd 192.168.1.42 'zoneshow' > SW42.zoneshow
+##     java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv
+## 
+## (manual changes to the OrderedTuples.csv file)
+## 
+##     sort.exe OrderedTuples.csv    | gawk.exe   -f csv-to-json.awk   >  customer-name.json
+## 
+## If the user wants to avoid showing hosts in that output (but still produce HBAs):
+## 
+##     plink.exe -l username -pw pAssw0rd 192.168.1.44 'show device-alias database' > SW44.dad
+##     plink.exe -l username -pw pAssw0rd 192.168.1.42 'zoneshow' > SW42.zoneshow
+##     java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv
+##     sort.exe OrderedTuples.csv    | gawk.exe   -v SKIPHOST=gary.yuen   -f csv-to-json.awk   >  customer-name.json
+## 
+## It is assumed the user wants to make changes to OrderedTuples.csv before the final step; otherwise, the last two steps may be combined (which avoids this script):
+## 
+##     plink.exe -l username -pw pAssw0rd 192.168.1.44 'show device-alias database' > SW44.dad
+##     plink.exe -l username -pw pAssw0rd 192.168.1.42 'zoneshow' > SW42.zoneshow
+##     java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -ocustomer-name.json
+
+
+
 BEGIN { ecount = 0; FS=","; HOLDNAME=""; HOLDTYPE=""; printf "{\n  \"version\" : 1,\n   \"entities\" : [\n"; }
 
 func dumpAccum()
