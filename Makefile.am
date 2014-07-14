@@ -26,10 +26,13 @@ SOURCES = java/Entity.java java/EntityArray.java java/EntityFA.java java/EntityH
 
 if DO_DOXYGEN
 if DO_FOP
-doc: htdocs/docbook/@PACKAGE@.pdf htdocs/index.html $(SOURCES)
+doc: htdocs/docbook/@PACKAGE@.pdf htdocs/index.html $(SOURCES) htdocs/@PACKAGE@.jar
 else
-doc: htdocs/index.html $(SOURCES)
+doc: htdocs/index.html $(SOURCES) htdocs/@PACKAGE@.jar
 endif DO_FOP_FALSE
+
+htdocs/@PACKAGE@.jar: convjars/@PACKAGE@.jar
+	ln -f $< $@
 
 htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/README.dox Doxyfile java/*java
 	$(DOXYGEN)
