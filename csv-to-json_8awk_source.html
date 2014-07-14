@@ -67,13 +67,77 @@ $(document).ready(function(){initNavTree('csv-to-json_8awk_source.html','');});
 <div class="title">csv-to-json.awk</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"></div><!-- fragment --></div><!-- contents -->
+<a href="csv-to-json_8awk.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#!awk -f</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"># </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"># The &quot;@&quot; in the following documentation is markup for collectors</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//! @file</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span><span class="comment">//! @page csv-to-json csv-to-json.awk: Convert a &quot;OrderedTuples.csv&quot; file to a JSON Entity import</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="comment">//! @section Overview</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span><span class="comment">//! This script (csv-to-json.awk) interprets a basic 4-column CSV into a JSON entities file.  This is &quot;the old method&quot;, but facilitates hand-tweaking if required.  In essence, the four columns of the file are:</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="comment">//! 1. host/array name</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="comment">//! 2. device type: &quot;host&quot; or &quot;array&quot; (without quotes)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span><span class="comment">//! 3. WWPN</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span><span class="comment">//! 4. optional unique name of the WWPN within the (column 1) host</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span><span class="comment">//! For example:</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span><span class="comment">//! | name | type | WWPN | (optional) name |</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span><span class="comment">//! | ---- | ---- | :--: | :-------------- |</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span><span class="comment">//! | MPV123456-001 | host | 2001001560123456 | MPV123456-001 |</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span><span class="comment">//! | MPV123456-013 | host | 2013001560123456 | MPV123456-013 |</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span><span class="comment">//! | NetApp-123456 | array | 500a098598123456 | |</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span><span class="comment">//! | NetApp-123456 | array | 500a098698123456 | |</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span><span class="comment">//! | Oracle01 | host | 10:00:00:00:c9:12:34:56 | Oracle01-A |</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span><span class="comment">//! | Oracle01 | host | 10:00:00:00:c9:12:34:57 | Oracle01-B |</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span><span class="comment">//! @section running Running this Script</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span><span class="comment">//! This AWK script should work with gawk.exe from the UnxUtils project on</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span><span class="comment">//! sourceforge.net (which offers windows binaries without need of cygwin) and</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span><span class="comment">//! is regression-tested using basic awk on BSD-based operating systems.</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span><span class="comment">//!     gawk.exe   -f csv-to-json.awk   OrderedTuples.csv   &gt;   customer-name.json</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span><span class="comment">//! @section cmdline Commandline Variables:</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span><span class="comment">//! - -v SKIPARRAY={something} will avoid exporting the array which contains iomodules</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span><span class="comment">//! - -v SKIPHOST={something} will avoid exporting the host which contains hbas</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span><span class="comment">//! @section Example Usage (2 switches)</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span><span class="comment">//!     plink.exe -l username -pw pAssw0rd 192.168.1.44 &#39;show device-alias database&#39; &gt; SW44.dad</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span><span class="comment">//!     plink.exe -l username -pw pAssw0rd 192.168.1.42 &#39;zoneshow&#39; &gt; SW42.zoneshow</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span><span class="comment">//!     java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span><span class="comment">//! (manual changes to the OrderedTuples.csv file)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span><span class="comment">//!     sort.exe OrderedTuples.csv    | gawk.exe   -f csv-to-json.awk   &gt;  customer-name.json</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span><span class="comment">//! If the user wants to avoid showing hosts in that output (but still produce HBAs):</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span><span class="comment">//!     plink.exe -l username -pw pAssw0rd 192.168.1.44 &#39;show device-alias database&#39; &gt; SW44.dad</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span><span class="comment">//!     plink.exe -l username -pw pAssw0rd 192.168.1.42 &#39;zoneshow&#39; &gt; SW42.zoneshow</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span><span class="comment">//!     java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span><span class="comment">//!     sort.exe OrderedTuples.csv    | gawk.exe   -v SKIPHOST=gary.yuen   -f csv-to-json.awk   &gt;  customer-name.json</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span><span class="comment">//! It is assumed the user wants to make changes to OrderedTuples.csv before the final step; otherwise, the last two steps may be combined (which avoids this script):</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span><span class="comment">//! </span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span><span class="comment">//!     plink.exe -l username -pw pAssw0rd 192.168.1.44 &#39;show device-alias database&#39; &gt; SW44.dad</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span><span class="comment">//!     plink.exe -l username -pw pAssw0rd 192.168.1.42 &#39;zoneshow&#39; &gt; SW42.zoneshow</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span><span class="comment">//!     java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -ocustomer-name.json</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_53e6fa9553ac22a5646d2a2b2d7b97a1.html">scripts</a></li><li class="navelem"><b>csv-to-json.awk</b></li>
-    <li class="footer">Generated on Mon Jul 14 2014 13:45:50 for vw4tools by
+    <li class="navelem"><a class="el" href="dir_53e6fa9553ac22a5646d2a2b2d7b97a1.html">scripts</a></li><li class="navelem"><a class="el" href="csv-to-json_8awk.html">csv-to-json.awk</a></li>
+    <li class="footer">Generated on Mon Jul 14 2014 14:02:47 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

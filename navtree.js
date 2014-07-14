@@ -3,6 +3,12 @@ var NAVTREE =
   [ "vw4tools", "index.html", [
     [ "JavaDoc API Markup for vw4tools", "index.html", null ],
     [ "README", "md_htdocs_README.html", null ],
+    [ "csv-to-json.awk: Convert a \"OrderedTuples.csv\" file to a JSON Entity import", "csv-to-json.html", [
+      [ "Overview", "csv-to-json.html#Overview", null ],
+      [ "Running this Script", "csv-to-json.html#running", null ],
+      [ "Commandline Variables:", "csv-to-json.html#cmdline", null ],
+      [ "Usage (2 switches)", "csv-to-json.html#Example", null ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "Commandline Options", "cmdopt.html", null ],
     [ "Data Structures", null, [

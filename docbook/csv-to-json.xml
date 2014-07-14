@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>csv-to-json.awk: Convert a &quot;OrderedTuples.csv&quot; file to a JSON Entity import</title>
+<section xml:id="csv-to-json_1Overview">
+<title>Overview</title>
+
+<para>This script (<link linkend="csv-to-json_8awk">csv-to-json.awk</link>) interprets a basic 4-column CSV into a JSON entities file. This is &quot;the old method&quot;, but facilitates hand-tweaking if required. In essence, the four columns of the file are:</para>
+
+<para><orderedlist>
+<listitem>
+<para>host/array name</para>
+</listitem><listitem>
+<para>device type: &quot;host&quot; or &quot;array&quot; (without quotes)</para>
+</listitem><listitem>
+<para>WWPN</para>
+</listitem><listitem>
+<para>optional unique name of the WWPN within the (column 1) host</para>
+</listitem></orderedlist>
+</para>
+
+<para>For example:</para>
+
+<para><table frame="all">
+    <title></title>
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+    <tbody>
+<row>
+<entry>
+<para>name </para>
+</entry><entry>
+<para>type </para>
+</entry><entry>
+<para>WWPN </para>
+</entry><entry>
+<para>(optional) name  </para>
+</entry></row>
+<row>
+<entry>
+<para>MPV123456-001 </para>
+</entry><entry>
+<para>host </para>
+</entry><entry>
+<para>2001001560123456 </para>
+</entry><entry>
+<para>MPV123456-001 </para>
+</entry></row>
+<row>
+<entry>
+<para>MPV123456-013 </para>
+</entry><entry>
+<para>host </para>
+</entry><entry>
+<para>2013001560123456 </para>
+</entry><entry>
+<para>MPV123456-013 </para>
+</entry></row>
+<row>
+<entry>
+<para>NetApp-123456 </para>
+</entry><entry>
+<para>array </para>
+</entry><entry>
+<para>500a098598123456 </para>
+</entry><entry>
+<para></para>
+</entry></row>
+<row>
+<entry>
+<para>NetApp-123456 </para>
+</entry><entry>
+<para>array </para>
+</entry><entry>
+<para>500a098698123456 </para>
+</entry><entry>
+<para></para>
+</entry></row>
+<row>
+<entry>
+<para>Oracle01 </para>
+</entry><entry>
+<para>host </para>
+</entry><entry>
+<para>10:00:00:00:c9:12:34:56 </para>
+</entry><entry>
+<para>Oracle01-A </para>
+</entry></row>
+<row>
+<entry>
+<para>Oracle01 </para>
+</entry><entry>
+<para>host </para>
+</entry><entry>
+<para>10:00:00:00:c9:12:34:57 </para>
+</entry><entry>
+<para>Oracle01-B </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</table>
+</para>
+</section>
+<section xml:id="csv-to-json_1running">
+<title>Running this Script</title>
+
+<para>This AWK script should work with gawk.exe from the UnxUtils project on sourceforge.net (which offers windows binaries without need of cygwin) and is regression-tested using basic awk on BSD-based operating systems. <programlisting><literallayout>gawk.exe   -f csv-to-json.awk   OrderedTuples.csv   &gt;   customer-name.json
+</literallayout></programlisting></para>
+</section>
+<section xml:id="csv-to-json_1cmdline">
+<title>Commandline Variables:</title>
+
+<para><itemizedlist>
+<listitem>
+<para>-v SKIPARRAY={something} will avoid exporting the array which contains iomodules</para>
+</listitem><listitem>
+<para>-v SKIPHOST={something} will avoid exporting the host which contains hbas</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="csv-to-json_1Example">
+<title>Usage (2 switches)</title>
+
+<para><programlisting><literallayout>plink.exe -l username -pw pAssw0rd 192.168.1.44 &apos;show device-alias database&apos; &gt; SW44.dad
+plink.exe -l username -pw pAssw0rd 192.168.1.42 &apos;zoneshow&apos; &gt; SW42.zoneshow
+java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv
+</literallayout></programlisting></para>
+
+<para>(manual changes to the OrderedTuples.csv file) <programlisting><literallayout>sort.exe OrderedTuples.csv    | gawk.exe   -f csv-to-json.awk   &gt;  customer-name.json
+</literallayout></programlisting></para>
+
+<para>If the user wants to avoid showing hosts in that output (but still produce HBAs): <programlisting><literallayout>plink.exe -l username -pw pAssw0rd 192.168.1.44 &apos;show device-alias database&apos; &gt; SW44.dad
+plink.exe -l username -pw pAssw0rd 192.168.1.42 &apos;zoneshow&apos; &gt; SW42.zoneshow
+java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv
+sort.exe OrderedTuples.csv    | gawk.exe   -v SKIPHOST=gary.yuen   -f csv-to-json.awk   &gt;  customer-name.json
+</literallayout></programlisting></para>
+
+<para>It is assumed the user wants to make changes to OrderedTuples.csv before the final step; otherwise, the last two steps may be combined (which avoids this script): <programlisting><literallayout>plink.exe -l username -pw pAssw0rd 192.168.1.44 &apos;show device-alias database&apos; &gt; SW44.dad
+plink.exe -l username -pw pAssw0rd 192.168.1.42 &apos;zoneshow&apos; &gt; SW42.zoneshow
+java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -ocustomer-name.json  </literallayout></programlisting> </para>
+</section>
+
+</chapter>

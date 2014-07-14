@@ -15,6 +15,7 @@
     </chapter>
         <xi:include href="mainpage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="md_htdocs_README.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="csv-to-json.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="todo.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="cmdopt.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <chapter>

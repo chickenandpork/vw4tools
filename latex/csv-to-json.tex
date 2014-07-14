@@ -1,0 +1,53 @@
+\section{Overview}\label{csv-to-json_Overview}
+This script (\doxyref{csv-\/to-\/json.\+awk}{p.}{csv-to-json_8awk}) interprets a basic 4-\/column C\+S\+V into a J\+S\+O\+N entities file. This is \char`\"{}the old method\char`\"{}, but facilitates hand-\/tweaking if required. In essence, the four columns of the file are\+:
+
+
+\begin{DoxyEnumerate}
+\item host/array name
+\item device type\+: \char`\"{}host\char`\"{} or \char`\"{}array\char`\"{} (without quotes)
+\item W\+W\+P\+N
+\item optional unique name of the W\+W\+P\+N within the (column 1) host
+\end{DoxyEnumerate}
+
+For example\+:
+
+\begin{TabularC}{4}
+\hline
+\rowcolor{lightgray}{\bf name }&{\bf type }&\PBS\centering {\bf W\+W\+P\+N }&{\bf (optional) name  }\\\cline{1-4}
+M\+P\+V123456-\/001 &host &\PBS\centering 2001001560123456 &M\+P\+V123456-\/001 \\\cline{1-4}
+M\+P\+V123456-\/013 &host &\PBS\centering 2013001560123456 &M\+P\+V123456-\/013 \\\cline{1-4}
+Net\+App-\/123456 &array &\PBS\centering 500a098598123456 &\\\cline{1-4}
+Net\+App-\/123456 &array &\PBS\centering 500a098698123456 &\\\cline{1-4}
+Oracle01 &host &\PBS\centering 10\+:00\+:00\+:00\+:c9\+:12\+:34\+:56 &Oracle01-\/\+A \\\cline{1-4}
+Oracle01 &host &\PBS\centering 10\+:00\+:00\+:00\+:c9\+:12\+:34\+:57 &Oracle01-\/\+B \\\cline{1-4}
+\end{TabularC}
+\section{Running this Script}\label{csv-to-json_running}
+This A\+W\+K script should work with gawk.\+exe from the Unx\+Utils project on sourceforge.\+net (which offers windows binaries without need of cygwin) and is regression-\/tested using basic awk on B\+S\+D-\/based operating systems. \begin{DoxyVerb}gawk.exe   -f csv-to-json.awk   OrderedTuples.csv   >   customer-name.json
+\end{DoxyVerb}
+\section{Commandline Variables\+:}\label{csv-to-json_cmdline}
+
+\begin{DoxyItemize}
+\item -\/v S\+K\+I\+P\+A\+R\+R\+A\+Y=\{something\} will avoid exporting the array which contains iomodules
+\item -\/v S\+K\+I\+P\+H\+O\+S\+T=\{something\} will avoid exporting the host which contains hbas
+\end{DoxyItemize}\section{Usage (2 switches)}\label{csv-to-json_Example}
+\begin{DoxyVerb}plink.exe -l username -pw pAssw0rd 192.168.1.44 'show device-alias database' > SW44.dad
+plink.exe -l username -pw pAssw0rd 192.168.1.42 'zoneshow' > SW42.zoneshow
+java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv
+\end{DoxyVerb}
+
+
+(manual changes to the Ordered\+Tuples.\+csv file) \begin{DoxyVerb}sort.exe OrderedTuples.csv    | gawk.exe   -f csv-to-json.awk   >  customer-name.json
+\end{DoxyVerb}
+
+
+If the user wants to avoid showing hosts in that output (but still produce H\+B\+As)\+: \begin{DoxyVerb}plink.exe -l username -pw pAssw0rd 192.168.1.44 'show device-alias database' > SW44.dad
+plink.exe -l username -pw pAssw0rd 192.168.1.42 'zoneshow' > SW42.zoneshow
+java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -oOrderedTuples.csv
+sort.exe OrderedTuples.csv    | gawk.exe   -v SKIPHOST=gary.yuen   -f csv-to-json.awk   >  customer-name.json
+\end{DoxyVerb}
+
+
+It is assumed the user wants to make changes to Ordered\+Tuples.\+csv before the final step; otherwise, the last two steps may be combined (which avoids this script)\+: \begin{DoxyVerb}plink.exe -l username -pw pAssw0rd 192.168.1.44 'show device-alias database' > SW44.dad
+plink.exe -l username -pw pAssw0rd 192.168.1.42 'zoneshow' > SW42.zoneshow
+java.exe   -jar vw4tool.jar   -N SW44.dad   -N SW42.zoneshow   -ocustomer-name.json  \end{DoxyVerb}
+ 

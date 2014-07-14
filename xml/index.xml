@@ -121,6 +121,8 @@
   </compound>
   <compound refid="md_htdocs_README" kind="page"><name>md_htdocs_README</name>
   </compound>
+  <compound refid="csv-to-json" kind="page"><name>csv-to-json</name>
+  </compound>
   <compound refid="todo" kind="page"><name>todo</name>
   </compound>
   <compound refid="cmdopt" kind="page"><name>cmdopt</name>
