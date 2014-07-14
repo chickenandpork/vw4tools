@@ -205,17 +205,22 @@ public class VirtualWisdom4ClientTool
     }
 
     /**
-     * Absorb a pattern for chunking together nickname patterns and execute it immediately on all current orphan LeafEntities.
+     * Absorb a pattern for chunking together nickname patterns and execute it
+     * immediately on all current orphan LeafEntities.
      *
-     * The pattern given will be absorbed for the side-benefit of a user testing patterns against names using the --checkpattern option.  The pattern is also immediately executed, such that the following four cases occur for each orphan entity evaluated:
-     * <ol>
-     * <li>the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan</li>
-     * <li>the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity</li>
-     * <li>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space</li>
-     * <li>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name</li>
-     * </ol>
+     * The pattern given will be absorbed for the side-benefit of a user testing
+     * patterns against names using the --checkpattern option.  The pattern is also
+     * immediately executed, such that the following four cases occur for each orphan
+     * entity evaluated:
+     * 
+     * - the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan
+     * - the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity
+     * - the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space
+     * - the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name
      *
-     * When complete, the "hold" space is evaluated to remove any "parents" for which there is only one child, thus eliminating lame pattern results before any next run
+     * When complete, the "hold" space is evaluated to remove any "parents" for which
+     * there is only one child, thus eliminating lame pattern results before any next
+     * run
      *
      * @param pattern a String pattern to execute and absorb (into an internal array for use later)
      */
@@ -756,11 +761,11 @@ else { if (verbose) System.out.println("get of "+s+" failed"); }
          * @cmdopt -n|--nicknameout={file} Output nicknames from internal store
          * @cmdopt -o|--output={file} Output nicknames from internal store
 	 * --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few "magic" filenames:
-	 * @cmdopt <ul>
-	 * @cmdopt <li><b>schema.json</b> will cause the current schema to be written</li>
-	 * @cmdopt <li><b>orderedtuples.csv</b> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</li>
-	 * @cmdopt <li><b>orphanentities.csv</b> will cause a CSV to be written listing all orphan entities.  An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.</li>
-	 * @cmdopt </ul>
+	 *
+	 * @cmdopt # <b>schema.json</b> will cause the current schema to be written
+	 * @cmdopt # <b>orderedtuples.csv</b> will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning
+	 * @cmdopt # <b>orphanentities.csv</b> will cause a CSV to be written listing all orphan entities.  An "Orphan Entity" is an entity lacking a parent entity, such as an "HBA Port" without a "host" parent, or a "iomodule" without a parent "storagearray" entity.
+	 *
 	 * @cmdopt All other filename patterns will result in a JSON-formatted file
 	 *
          * @cmdopt -N|--nickname={file/uri} Import nicknames by parsing a text stream from various sources

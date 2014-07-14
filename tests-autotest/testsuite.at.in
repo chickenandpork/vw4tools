@@ -695,9 +695,10 @@ AT_SETUP(Doxygen confirmation of marked-up content)
 dnl      -----------------------------------------
 
 AT_CHECK([if test x@DOXYGEN@ = xmissing ; then exit 77; fi])
-AT_CHECK([make -C $abs_top_builddir doc], 0, [ignore],[stderr])
+AT_CHECK([make -C $abs_top_builddir Doxyfile], 0, [stdout],[])
+AT_CHECK([(cd $abs_top_builddir && @DOXYGEN@)], 0, [stdout],[stderr])
 dnl used to put the errors at the bottom of the output
-AT_CHECK([grep -v 'INFO: Rendered page #' stderr | grep -v 'org.apache.fop.events.LoggingEventListener processEvent'], 1, [s],[])
+AT_CHECK([grep -v 'INFO: Rendered page #' stderr | grep -v 'org.apache.fop.events.LoggingEventListener processEvent'], 1, [],[])
 
 AT_CLEANUP()
 
