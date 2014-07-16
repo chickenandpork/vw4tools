@@ -104,6 +104,9 @@ java-getopt-1.0.13.jar:
 check-local: $(JARS)
 	for i in $^; do jar tf $$i >/dev/null || exit 1; done
 
+clean-local:
+	rm -f $(JSON_JARS)
+
 json.jar: $(JSON_JARS)
 	@-rm -fr $(@D)/.workdir
 	@mkdir -p $(@D)/.workdir
