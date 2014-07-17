@@ -12,6 +12,7 @@ var classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool =
     [ "main", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa", null ],
     [ "patterns", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a09f298d19a33be899f5835657c747c5d", null ],
     [ "prettyJSON", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#afc3ee9b897e0757b6cd5c8289c9d4cc4", null ],
+    [ "report", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae2ffed10ae7714400e64ba55620d5e5c", null ],
     [ "save", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a119573b242d96a5e64a7d340bcf14aa8", null ],
     [ "vwimport", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#acbeee875159f78e186965708e70dee94", null ],
     [ "wwndesc", "classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a43a8de962936ee9d82e0a70eeb9b1db6", null ],

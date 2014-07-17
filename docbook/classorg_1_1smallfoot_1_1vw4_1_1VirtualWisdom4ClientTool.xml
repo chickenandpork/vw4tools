@@ -242,6 +242,14 @@ String args)</para>
                     </listitem>
                 </itemizedlist>
             </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">report</link> (
+int orphans, int fostered, int total)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
         </simplesect>
     <simplesect>
         <title>Brief Description</title>
@@ -690,5 +698,9 @@ immediately on all current orphan LeafEntities.</emphasis>
                 </formalpara>
                 </para>
 
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">
+                <title>static String report (int orphans, int fostered, int total)</title> <emphasis></emphasis>
+                
             </section>
 </section>

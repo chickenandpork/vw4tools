@@ -14,7 +14,7 @@ java -jar vw4tools.jar --help
 
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
- 0.9-94 
+ 0.9-96 
 \end{DoxyCode}
 
 
@@ -62,7 +62,7 @@ java -jar vw4tools.jar --read working.json
 \begin{DoxyCode}
 java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 0.9-94
+vw4tools 0.9-96
     5 total entities
     4 leaf nodes
     2 orphans
@@ -71,4 +71,30 @@ vw4tools 0.9-94
  
 
 -\/\+P$\vert$--pattern= is used to provide an \char`\"{}aggregating pattern\char`\"{} to collect Orphan Entities into a container. An \char`\"{}\+Orphan Entity\char`\"{} is an entity which is not part of a larger device\+: an H\+B\+A not assigned to a host, or a F\+A not assigned to a storage array. Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important. 
+
+-\/p$\vert$--checkpattern= is used to test an \char`\"{}aggregating pattern\char`\"{} against a certain nickname/alias. Although Aggregating Patterns are evaluated immediately, they're stored for testing as well, so even though we're giving a test alias after the pattern, it'll evaluate all loaded patterns against the alias\+: 
+
+
+\begin{DoxyCode}
+ java -jar vw4tools.jar --pattern=\textcolor{stringliteral}{"([^-]+)-[^-]+$"} --checkpattern=NetApp-123456 --checkpattern=
+      UberServer\_44\_HBA0
+\textcolor{stringliteral}{"NetApp-123456"} --> \textcolor{stringliteral}{"NetApp"}
+\textcolor{stringliteral}{"UberServer\_44\_HBA0"} --> \textcolor{stringliteral}{"UberServer\_44\_HBA0"} 
+\end{DoxyCode}
+ 
+
+in this example, the one pattern it tested against a new alias when the --checkpattern is encountered; if there were two patterns, each pattern would be tried to the checkpattern sample when seen\+:
+
+
+\begin{DoxyCode}
+ java -jar vw4tools.jar --pattern=\textcolor{stringliteral}{"([^-]+)-[^-]+$"} --pattern=\textcolor{stringliteral}{"^(.*)\_hba(\(\backslash\)d+)$"} --checkpattern=NetApp-123456
+       --checkpattern=UberServer\_44\_hba0
+\textcolor{stringliteral}{"NetApp-123456"} --> \textcolor{stringliteral}{"NetApp"}
+\textcolor{stringliteral}{"NetApp-123456"} --> \textcolor{stringliteral}{"NetApp-123456"}
+\textcolor{stringliteral}{"UberServer\_44\_HBA0"} --> \textcolor{stringliteral}{"UberServer\_44\_hba0"}
+\textcolor{stringliteral}{"UberServer\_44\_HBA0"} --> \textcolor{stringliteral}{"UberServer\_44"} 
+\end{DoxyCode}
+ 
+
+in this example, two patterns ( \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} and \char`\"{}$^\wedge$(.$\ast$)\+\_\+hba(\textbackslash{}d+)\$\char`\"{} ) are loaded; when \char`\"{}\+Net\+App-\/123456\char`\"{} is given as a checkpattern, each is tried in turn, so we see that \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} converts \char`\"{}\+Net\+App-\/123456\char`\"{} to \char`\"{}\+Net\+App\char`\"{}, which means a bunch of devices \char`\"{}\+Net\+App-\/123456\char`\"{}, \char`\"{}\+Net\+App-\/123457\char`\"{}, \char`\"{}\+Net\+App-\/\+A\+B\+C\+D\+E\+F\char`\"{} would be child entities of a larger entity \char`\"{}\+Net\+App\char`\"{}. In essence, all the Net\+App-\/$\ast$ are collected into the same contailer called \char`\"{}\+Net\+App\char`\"{}. Similarly, \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} and \char`\"{}$^\wedge$(.$\ast$)\+\_\+hba(\textbackslash{}d+)\$\char`\"{} are tested against \char`\"{}\+Uber\+Server\+\_\+44\+\_\+hba0\char`\"{} when the checkpattern is given, and we can see that \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} makes no difference to the value, but \char`\"{}$^\wedge$(.$\ast$)\+\_\+hba(\textbackslash{}d+)\$\char`\"{} has the desired effect of chopping off the \char`\"{}\+\_\+hba\#\char`\"{} portion. 
 \end{DoxyRefList}

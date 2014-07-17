@@ -13,7 +13,7 @@
 <para>-V|&#8211;version Show the current release version for reference </para>
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--version
-&#32;0.9-94&#32;
+&#32;0.9-96&#32;
 </programlisting></para>
 
 <para>-n|&#8211;nicknameout={file} Output nicknames from internal store </para>
@@ -52,7 +52,7 @@
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow&#32;&#32;--report
 (vw4tools)&#32;parsed&#32;0&#32;zones,&#32;2&#32;aliases&#32;via&#32;Alias4Parser
-vw4tools&#32;0.9-94
+vw4tools&#32;0.9-96
 &#32;&#32;&#32;&#32;5&#32;total&#32;entities
 &#32;&#32;&#32;&#32;4&#32;leaf&#32;nodes
 &#32;&#32;&#32;&#32;2&#32;orphans
@@ -60,6 +60,24 @@ vw4tools&#32;0.9-94
 </programlisting> </para>
 
 <para>-P|&#8211;pattern= is used to provide an &quot;aggregating pattern&quot; to collect Orphan Entities into a container. An &quot;Orphan Entity&quot; is an entity which is not part of a larger device: an HBA not assigned to a host, or a FA not assigned to a storage array. Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important. </para>
+
+<para>-p|&#8211;checkpattern= is used to test an &quot;aggregating pattern&quot; against a certain nickname/alias. Although Aggregating Patterns are evaluated immediately, they&apos;re stored for testing as well, so even though we&apos;re giving a test alias after the pattern, it&apos;ll evaluate all loaded patterns against the alias: </para>
+
+<para><programlisting>&#32;java&#32;-jar&#32;vw4tools.jar&#32;--pattern=<emphasis>&quot;([^-]+)-[^-]+$&quot;</emphasis>&#32;--checkpattern=NetApp-123456&#32;--checkpattern=UberServer_44_HBA0
+<emphasis>&quot;NetApp-123456&quot;</emphasis>&#32;--&gt;&#32;<emphasis>&quot;NetApp&quot;</emphasis>
+<emphasis>&quot;UberServer_44_HBA0&quot;</emphasis>&#32;--&gt;&#32;<emphasis>&quot;UberServer_44_HBA0&quot;</emphasis>&#32;
+</programlisting> </para>
+
+<para>in this example, the one pattern it tested against a new alias when the &#8211;checkpattern is encountered; if there were two patterns, each pattern would be tried to the checkpattern sample when seen:</para>
+
+<para><programlisting>&#32;java&#32;-jar&#32;vw4tools.jar&#32;--pattern=<emphasis>&quot;([^-]+)-[^-]+$&quot;</emphasis>&#32;--pattern=<emphasis>&quot;^(.*)_hba(\d+)$&quot;</emphasis>&#32;--checkpattern=NetApp-123456&#32;--checkpattern=UberServer_44_hba0
+<emphasis>&quot;NetApp-123456&quot;</emphasis>&#32;--&gt;&#32;<emphasis>&quot;NetApp&quot;</emphasis>
+<emphasis>&quot;NetApp-123456&quot;</emphasis>&#32;--&gt;&#32;<emphasis>&quot;NetApp-123456&quot;</emphasis>
+<emphasis>&quot;UberServer_44_HBA0&quot;</emphasis>&#32;--&gt;&#32;<emphasis>&quot;UberServer_44_hba0&quot;</emphasis>
+<emphasis>&quot;UberServer_44_HBA0&quot;</emphasis>&#32;--&gt;&#32;<emphasis>&quot;UberServer_44&quot;</emphasis>&#32;
+</programlisting> </para>
+
+<para>in this example, two patterns ( &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; ) are loaded; when &quot;NetApp-123456&quot; is given as a checkpattern, each is tried in turn, so we see that &quot;([^-]+)-[^-]+$&quot; converts &quot;NetApp-123456&quot; to &quot;NetApp&quot;, which means a bunch of devices &quot;NetApp-123456&quot;, &quot;NetApp-123457&quot;, &quot;NetApp-ABCDEF&quot; would be child entities of a larger entity &quot;NetApp&quot;. In essence, all the NetApp-* are collected into the same contailer called &quot;NetApp&quot;. Similarly, &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; are tested against &quot;UberServer_44_hba0&quot; when the checkpattern is given, and we can see that &quot;([^-]+)-[^-]+$&quot; makes no difference to the value, but &quot;^(.*)_hba(\d+)$&quot; has the desired effect of chopping off the &quot;_hba#&quot; portion. </para>
 </listitem></varlistentry>
 </variablelist>
 </para>
