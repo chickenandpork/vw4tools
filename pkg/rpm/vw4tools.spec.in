@@ -52,7 +52,7 @@ Tools and Resources similar to my "fctools" project (nee "vitools") to reduce th
 
 %install
 make install DESTDIR=%{buildroot}
-rm %{buildroot}/@faehome@/@PACKAGE@/java.jar
+#rm %{buildroot}/@faehome@/@PACKAGE@/java.jar
 rm -fr %{buildroot}/%{_datadir}/@PACKAGE@/jars
 
 %clean
@@ -77,7 +77,7 @@ rm -fr %{buildroot}/%{_datadir}/@PACKAGE@/jars
 
 %files scripts
 # exported in scripts/Makefile.am
-@faehome@/@PACKAGE@/csv-to-json.awk
+%{bindir}/csv-to-json.awk
 
 
 %changelog

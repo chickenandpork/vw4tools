@@ -1,8 +1,6 @@
-contrib_SCRIPTS = csv-to-json.awk
-
-contribdir = @faehome@/@PACKAGE@
+bin_SCRIPTS = csv-to-json.awk
 
 EXTRA_DIST = csv-to-json.awk.in
 
-check-local: $(contrib_SCRIPTS)
+check-local: $(bin_SCRIPTS)
 

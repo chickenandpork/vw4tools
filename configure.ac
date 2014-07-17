@@ -152,8 +152,6 @@ AM_CONDITIONAL(HAVE_BASE64, [test "x$BASE64" != "xmissing"])
 AC_PATH_PROGS(N2A, [native2ascii])
 
 AC_SUBST(yumrepos, [$sysconfdir/yum.repos.d])
-AC_SUBST(faebase, [/home/services])
-AC_SUBST(faehome, [/home/.fae])
 AC_SUBST(emaildest, [ftpupdates])
 AC_SUBST(httpconfd, [/etc/httpd/conf.d])
 AC_SUBST(localreposroot, [/var/ftp])

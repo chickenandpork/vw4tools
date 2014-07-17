@@ -1,8 +1,6 @@
-nodist_java_JAVA = VirtualWisdom4ClientTool.java VWImport.java Entity.java EntityHost.java EntityHBA.java EntityArray.java EntityFA.java
+nodist_java_JAVA = $(srcdir)/VirtualWisdom4ClientTool.java $(srcdir)/VWImport.java $(srcdir)/Entity.java $(srcdir)/EntityHost.java $(srcdir)/EntityHBA.java $(srcdir)/EntityArray.java $(srcdir)/EntityFA.java
 nodist_java_DATA = $(subdir).jar
 javadir = $(pkgdir)
-faejavadir = @faehome@/@PACKAGE@
-faejava_DATA = $(subdir).jar
 
 EXTRA_DIST = $(nodist_java_JAVA) VirtualWisdom4ClientTool.java.in
 CONFIG_CLEAN_FILES = $(subdir).jar
@@ -21,6 +19,7 @@ AM_JAVACFLAGS= @JAVAC_FLAGS@ -cp $(JAVAROOT):@GETOPTJAR@:@FCPARSERSJAR@:@WWNDESC
 
 clean-local:
 	CLASSES=`for i in $(nodist_java_JAVA); do awk -v FILE="$$i" '/^package / {gsub (";$$",""); gsub (".java",".class",FILE); gsub ("\\\\.","/",$$2); printf "%s/%s\n",$$2,FILE}' $(srcdir)/$$i; done`; (cd $(top_builddir)/ && rm -f $$CLASSES)
+	rm -fr bld javaroot.stamp VirtualWisdom4ClientTool.java @PACKAGE@.jar
 	
 
 $(subdir).jar: @PACKAGE@.jar @GETOPTJAR@
