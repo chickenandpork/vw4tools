@@ -212,14 +212,14 @@ AC_ARG_WITH(fcparsers,
 [AS_HELP_STRING([--with-fcparsers],[Enable autodecompression of a built fcparsers.jar; default=search])],
 [
     case "$withval" in
-        "yes") WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null ; locate fcparsers.jar) | grep -v .workdir| head -1) ;;
+        "yes") WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null|grep -v 'is not installed' ; locate fcparsers.jar) | grep -v .workdir| head -1) ;;
         "no")  WITH_FCPARSERS=no  ;;
         *) WITH_FCPARSERS="$withval" ;;
     esac
 ],
 [
 AC_MSG_CHECKING([for fcparsers.jar])
-    WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null; locate fcparsers.jar) | grep -v .workdir| head -1) ;
+    WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null|grep -v 'is not installed'; locate fcparsers.jar) | grep -v .workdir| head -1) ;
 AC_MSG_RESULT([${WITH_FCPARSERS}])
 ])
 AM_CONDITIONAL(DO_FCPARSERSJAR, test "$WITH_FCPARSERS" != no)
@@ -234,14 +234,14 @@ AC_ARG_WITH(wwndesc,
 [AS_HELP_STRING([--with-wwndesc],[Enable autodecompression of a built wwndesc.jar; default=search])],
 [
     case "$withval" in
-        "yes") WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null ; locate wwndesc.jar) | grep -v .workdir| head -1) ;;
+        "yes") WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null|grep -v 'is not installed' ; locate wwndesc.jar) | grep -v .workdir| head -1) ;;
         "no")  WITH_WWNDESC=no  ;;
         *) WITH_WWNDESC="$withval" ;;
     esac
 ],
 [
 AC_MSG_CHECKING([for wwndesc.jar])
-    WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null; locate wwndesc.jar) | grep -v .workdir| head -1) ;
+    WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null|grep -v 'is not installed'; locate wwndesc.jar) | grep -v .workdir| head -1) ;
 AC_MSG_RESULT([${WITH_WWNDESC}])
 ])
 AM_CONDITIONAL(DO_WWNDESCJAR, test "$WITH_WWNDESC" != no)
