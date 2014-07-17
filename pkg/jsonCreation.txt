@@ -45,7 +45,7 @@ These are all "Orphans" in VW3-ish terms, but you can remove them from your coll
 
 
 
-What I'd like to convert this to:
+What I'd like to convert this to:   (check out http://chickenandpork.github.io/vw4tools/cmdopt.html for more options)
 
 1) plink.exe -l admin -pw p4ssw0rd  192.168.1.1 “show device-alias database”   > 192.168.1.1.dad
 

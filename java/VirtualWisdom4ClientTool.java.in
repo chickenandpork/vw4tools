@@ -394,6 +394,12 @@ public class VirtualWisdom4ClientTool
     }
 
 
+    public static String report (int orphans, int fostered, int total)
+    {
+        return String.format("%5d total entities\n%5d leaf nodes\n%5d orphans\n%5.2f %% coverage", total, (orphans + fostered), orphans, (fostered * 100.0)/(orphans + fostered));
+    }
+
+
     void report ()
     {
         int orphans = 0;
@@ -414,7 +420,7 @@ public class VirtualWisdom4ClientTool
             }
 
         System.out.println("@PACKAGE@ @VERSION@-@BUILDID@");
-        System.out.println(String.format("%5d total entities\n%5d leaf nodes\n%5d orphans\n%5.2f %% coverage", total, (orphans + fostered), orphans, (fostered * 100.0)/(orphans + fostered)));
+        System.out.println(report (orphans, fostered, total));
     }
 
 
@@ -734,11 +740,31 @@ public class VirtualWisdom4ClientTool
         System.out.println("Usage: "+progname+" -V|--version|-H|--help");
         System.out.println("     : "+progname+" --read <filename>|--input <filename> | -r <filename> | -i <filename>");
         System.out.println("     : "+progname+" --nickname=<filename>|-N<filename> | --removenicknames=<filename> | -i <filename>");
+        System.out.println("     : "+progname+" --pattern=<pattern>|-P <pattern> [--pattern=...] --checkpattern=<alias>");
 
         System.out.println("   ie: "+progname+" --read import.json");
         System.out.println("       "+progname+" -r import.json");
         System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv -o OrderedTuples.csv");
         System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv --pattern=\"^([^-]+)-.*\" --report -o OrderedTuples.csv -o OrphanEntities.csv");
+
+        System.out.println("\nA possible workflow could be:");
+        System.out.println("1. collect all the text content: nickname=");
+        System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow");
+        System.out.println("2. see how it looks: report");
+        System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --report");
+        System.out.println("3. check out a pattern to see if it collects nicknames correctly: pattern=, checkpattern=");
+        System.out.println("       "+progname+" -P \"^(.*)_FC(\\d)$\" -p \"server12_FC2\" -p \"server12_FC1\" -p \"server11_FC1\"");
+        System.out.println("\"server12_FC2\" --> \"server12\"\n\"server12_FC1\" --> \"server12\"\n\"server11_FC1\" --> \"server11\"\n so this looks like two HBAs for server12, one for server11.  ok");
+        System.out.println("4. add the pattern, see how it looks: report");
+        System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\"^(.*)_FC(\\d)$\" --report");
+        System.out.println(report (14, 33, 1011));
+        System.out.println("5. write it out to JSON");
+        System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\"^(.*)_FC(\\d)$\" -o customer.json");
+        System.out.println("6. try importing it; there are typically Invalid Entities (Orphans), save that error message\nie: saved as \"invalid.txt\"");
+        System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\"^(.*)_FC(\\d)$\" -R invalid.txt -o customer.json");
+        System.out.println("7. try importing it again.  A single WWN is bad?  write that to another file, exclude, and try a new JSON:");
+	System.out.println("       echo '10000000c9123456,\"serverc9123456\"' > manualskip.txt");
+        System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\"^(.*)_FC(\\d)$\" -R invalid.txt -R manualskip.txt -o customer.json");
     }
 
 
