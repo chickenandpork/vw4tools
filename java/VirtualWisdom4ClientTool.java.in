@@ -737,8 +737,8 @@ public class VirtualWisdom4ClientTool
 
         System.out.println("   ie: "+progname+" --read import.json");
         System.out.println("       "+progname+" -r import.json");
-        System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv -oOrderedTuples.csv");
-        System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv --pattern=\"^([^-]+)-.*\" --report -oOrderedTuples.csv -oOrphanEntities.csv");
+        System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv -o OrderedTuples.csv");
+        System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv --pattern=\"^([^-]+)-.*\" --report -o OrderedTuples.csv -o OrphanEntities.csv");
     }
 
 
@@ -818,7 +818,7 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("removenicknames", LongOpt.REQUIRED_ARGUMENT, null, 'R'));
         options.add(new LongOpt("report", LongOpt.NO_ARGUMENT, null, '!'));
         options.add(new LongOpt("nicknameout", LongOpt.REQUIRED_ARGUMENT, null, 'n'));
-        options.add(new LongOpt("output", LongOpt.OPTIONAL_ARGUMENT, null, 'o'));
+        options.add(new LongOpt("output", LongOpt.REQUIRED_ARGUMENT, null, 'o'));
         options.add(new LongOpt("pattern", LongOpt.REQUIRED_ARGUMENT, null, 'P'));
         options.add(new LongOpt("checkpattern", LongOpt.REQUIRED_ARGUMENT, null, 'p'));
 
@@ -841,11 +841,25 @@ public class VirtualWisdom4ClientTool
 
             /**
              * @cmdopt -P|--pattern= is used to provide an "aggregating pattern" to collect Orphan Entities into a container.  An "Orphan Entity" is an entity which is not part of a larger device: an HBA not assigned to a host, or a FA not assigned to a storage array.  Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important.
-                 */
+             */
             case 'P': /* input chunking-pattern for host-combination and storage-combination */
                 m.absorbPattern(g.getOptarg());
                 break;
 
+            /**
+             * @cmdopt -p|--checkpattern= is used to test an "aggregating pattern" against a certain nickname/alias.  Although Aggregating Patterns are evaluated immediately, they're stored for testing as well, so even though we're giving a test alias after the pattern, it'll evaluate all loaded patterns against the alias:
+             * @cmdopt @code java -jar @PACKAGE@.jar --pattern="([^-]+)-[^-]+$" --checkpattern=NetApp-123456 --checkpattern=UberServer_44_HBA0
+	     * "NetApp-123456" --> "NetApp"
+	     * "UberServer_44_HBA0" --> "UberServer_44_HBA0" @endcode
+	     * @cmdopt in this example, the one pattern it tested against a new alias when the --checkpattern is encountered; if there were two patterns, each pattern would be tried to the checkpattern sample when seen:
+	     *
+             * @cmdopt @code java -jar @PACKAGE@.jar --pattern="([^-]+)-[^-]+$" --pattern="^(.*)_hba(\d+)$" --checkpattern=NetApp-123456 --checkpattern=UberServer_44_hba0
+	     * "NetApp-123456" --> "NetApp"
+	     * "NetApp-123456" --> "NetApp-123456"
+	     * "UberServer_44_HBA0" --> "UberServer_44_hba0"
+	     * "UberServer_44_HBA0" --> "UberServer_44" @endcode
+	     * @cmdopt in this example, two patterns ( "([^-]+)-[^-]+$" and "^(.*)_hba(\d+)$" ) are loaded; when "NetApp-123456" is given as a checkpattern, each is tried in turn, so we see that "([^-]+)-[^-]+$" converts "NetApp-123456" to "NetApp", which means a bunch of devices "NetApp-123456", "NetApp-123457", "NetApp-ABCDEF" would be child entities of a larger entity "NetApp".  In essence, all the NetApp-* are collected into the same contailer called "NetApp".  Similarly, "([^-]+)-[^-]+$" and "^(.*)_hba(\d+)$" are tested against "UberServer_44_hba0" when the checkpattern is given, and we can see that "([^-]+)-[^-]+$" makes no difference to the value, but "^(.*)_hba(\d+)$" has the desired effect of chopping off the "_hba#" portion.
+	     */
             case 'p': /* exercise chunking-pattern for given alias */
                 for (String s: m.exercisePattern(g.getOptarg()))
                     if (null != s)

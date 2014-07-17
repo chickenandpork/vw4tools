@@ -1,0 +1,66 @@
+This reminder of how to use the AWK method of JSON creation (CSV-to-JSON.awk) has additional content online:
+
+http://chickenandpork.github.io/vw4tools/csv-to-json.html
+
+
+1) get the device-alias Database:
+
+   plink.exe -l admin -pw p4ssw0rd  192.168.1.1 “show device-alias database”   > 192.168.1.1.dad
+
+    - treat it like binary!
+    - those "hit enter to continue" and backspaces and such risk a bad parse
+
+2) convert to OrderedTuples.csv (nick,array/host,WWN,uniqnick) format
+
+   java.exe -jar vw4tools.jar -N 192.168.1.1.dad -o OrderedTuples.csv
+
+   rather than a nickname format of:
+	50001fe15007dbc8,EVA2
+
+   this looks like:
+	EVA2,array,50001fe15007dbc8,EVA2-port1A
+
+    - yes, the format changes over
+    - CSV: no spaces if you can avoid it (untested with spaces)
+
+
+4) create the JSON:
+
+    sort.exe that output | awk -f csv-to-json.awk > microsoft.json
+
+     - sorts the resulting lines to put WWPNs of the same device in the same area (which is why the format is opposite Nickname CSV format) and creates a JSON
+
+
+This file will still have some errors; "Invalid child entity" are simply Orphan Nicknames/WWPNs but those are now fatal.  Delete and carry on...  This can be done much more quickly if they are all of a format similar to:
+
+Location: [Line : 1234 , Column : 7]
+Invalid added child entities : 20c2000dec123456
+Entity: Cisco-000dec-123456:194 : hba 
+
+These are all "Orphans" in VW3-ish terms, but you can remove them from your collection using the "-R" option:
+
+   java.exe -jar vw4tools.jar -N 192.168.1.1.dad -R invalids.txt -o OrderedTuples.csv
+
+(where "invalids.txt" is a cut-n-paste of the error output)
+
+
+
+What I'd like to convert this to:
+
+1) plink.exe -l admin -pw p4ssw0rd  192.168.1.1 “show device-alias database”   > 192.168.1.1.dad
+
+2) java.exe -jar vw4tools.jar -N 192.168.1.1.dad --pattern="^(.*)_hba(\\d+)$" --pattern="^(.*)-fa.*$" --report -o microsoft.json
+
+
+I don't think I can in-short-term convert it to one step:   (NOTE: this is not possible today)
+
+    java.exe -jar vw4tools.jar -N dad://admin:p4ssw0rd@192.168.1.1/ --pattern="^(.*)_hba(\\d+)$"  -o microsoft.json
+
+
+As this file is updated, I'll store it at ftp://services@ftp.virtualinstruments.com/Allan/FAE/jsonCreation.txt with the vw4tools.jar file.  That means they'll be available at:
+
+FAECORE\contrib\Allan\jsonCreation.txt
+FAECORE\contrib\Allan\vw4tools.jar
+
+gawk.exe from FAECORE\contrib\Allan\UnxUtils.zip  (\usr\local\wbin\gawk.exe)
+
