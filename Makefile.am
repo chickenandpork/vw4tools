@@ -95,6 +95,14 @@ gitdescribe: .git/index
 endif DO_GITFORMATTING
 
 if HAVE_RPMBUILD
+srpm: distcheck
+	@RPMBUILD@ -ts $(PACKAGE)-$(VERSION).tar.bz2
+if DO_SUDOPOSTMOVE
+	@test -n "$(DIRTYOK)" || git diff --exit-code || { echo "###################### unstaged changes: git commit -a"; exit 1; }
+	@test -n "$(DIRTYOK)" || git diff --cached --exit-code || { echo "###################### staged uncommitted changes: git commit"; exit 1; }
+	mv $$(rpm --eval '%{_srcrpmdir}')/@PACKAGE@-$$(rpm --qf '%{VERSION}\n' -q --specfile @PACKAGE@.spec |head -1)-$$(rpm --qf '%{RELEASE}\n' -q --specfile @PACKAGE@.spec |head -1).src.rpm @SUDOPOSTMOVE@
+endif   DO_SUDOPOSTMOVE
+
 rpm: dist-bzip2
 	@RPMBUILD@ --define 'skipcheck 1' -ta $(PACKAGE)-$(VERSION).tar.bz2
 endif

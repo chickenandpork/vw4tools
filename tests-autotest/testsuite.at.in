@@ -592,7 +592,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample01)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample01 -o], 0, [[{
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample01 -o-], 0, [[{
   "entities" : [ {
     "description" : "sample01 test entity",
     "edit_type" : "add",
@@ -614,7 +614,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample02)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o], 0, [[{
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o-], 0, [[{
   "entities" : [ {
     "child_entities" : {
       "add" : [ "10000000c9123456" ]
@@ -636,7 +636,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample03)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o], 0, [[{
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o-], 0, [[{
   "entities" : [ {
     "child_entities" : {
       "add" : [ "500a098598123456" ]
