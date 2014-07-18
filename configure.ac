@@ -267,6 +267,36 @@ AC_SUBST([USERTESTCASE], ${USERTESTCASE})
 
 
 
+AC_ARG_ENABLE(vertimeoutwarning,
+[AS_HELP_STRING([--disable-vertimeoutwarning],[Disable DNS Version Timeout warning; default=enabled])],
+[
+    NOVERTIMEOUTWARNING=yes
+    NRPE_SERVER=127.0.0.1
+],
+[
+    NOVERTIMEOUTWARNING=no
+    NRPE_SERVER=$(host smallfoot.org|awk 'BEGIN {res=""} /has address/ { res=$NF; } END {print res}')
+])
+AC_SUBST([NOVERTIMEOUTWARNING], ${NOVERTIMEOUTWARNING})
+
+
+
+AC_ARG_WITH(sudopostmove,
+[AS_HELP_STRING([--with-sudopostmove],[Enable sudopostmove of a built RPM; default=disabled])],
+[
+    case "$withval" in
+        "no")  WITH_SUDOPOSTMOVE=no  ;;
+        *) WITH_SUDOPOSTMOVE="$withval" ;;
+    esac
+],
+[
+    WITH_SUDOPOSTMOVE=no
+])
+AM_CONDITIONAL(DO_SUDOPOSTMOVE, test "$WITH_SUDOPOSTMOVE" != no)
+AC_SUBST([SUDOPOSTMOVE], ${WITH_SUDOPOSTMOVE})
+
+
+
 AC_CONFIG_FILES(Makefile
   convjars/Makefile 
   depjars/Makefile 

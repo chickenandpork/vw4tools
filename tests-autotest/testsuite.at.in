@@ -4,12 +4,12 @@ AT_INIT()
 AT_SETUP(version)
 dnl      ------
 
-@DO_GETOPTJAR_TRUE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
+@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
 @DO_GETOPTJAR_TRUE@], [])
 @DO_GETOPTJAR_FALSE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [@VERSION@-@BUILDID@
 @DO_GETOPTJAR_FALSE@], [])
 
-@DO_GETOPTJAR_TRUE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
+@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
 @DO_GETOPTJAR_TRUE@], [])
 @DO_GETOPTJAR_FALSE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [@VERSION@-@BUILDID@
 @DO_GETOPTJAR_FALSE@], [])
@@ -27,15 +27,11 @@ AT_DATA([emptyline.csv], [
 AT_DATA([emptyfile.csv], [])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyline.csv], 0, [stdout], [stderr])
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@  -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyline.csv], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [], [])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyfile.csv], 0, [stdout], [stderr])
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@  -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyfile.csv], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [], [])
 
 AT_CLEANUP()
@@ -70,9 +66,7 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,500a098598123456,Storag
 ])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
 ], [])
 
@@ -120,9 +114,7 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 ])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
 
@@ -163,9 +155,7 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 AT_DATA([remove.csv], ["WWN",50:0A:09:85:98:12:34:56,justaName,Storage
 ])
 
-AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via Alias4Parser
 (@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
@@ -198,9 +188,7 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 ])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
 
@@ -258,13 +246,11 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 "WWN",10:00:00:00:c9:12:34:57,Oracle01,Server
 ])
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^-]]+)-[[^-]]+$" --checkpattern=NetApp-123456 --checkpattern=Oracle01], 0, ["NetApp-123456" --> "NetApp"
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^-]]+)-[[^-]]+$" --checkpattern=NetApp-123456 --checkpattern=Oracle01], 0, ["NetApp-123456" --> "NetApp"
 "Oracle01" --> "Oracle01"
 ], [])
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --pattern="([[^-]]+)-[[^-]]+$" --report --nicknameout=alias4file.json -oOrphanEntities.csv], 0, [stdout], [stderr])
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --pattern="([[^-]]+)-[[^-]]+$" --report --nicknameout=alias4file.json -oOrphanEntities.csv], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 @PACKAGE@ @VERSION@-@BUILDID@
     5 total entities
@@ -528,18 +514,11 @@ AT_CLEANUP()
 AT_SETUP(read sample DAD to create JSON)
 dnl      ------------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N abs_top_srcdir/samples/simple.devicealias], 0, [stdout], [stderr])
-
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
-
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N abs_top_srcdir/samples/simple.devicealias], 0, [stdout], [stderr])
 AT_CHECK([grep -c ' 6 aliases via DeviceAliasParser' stdout], 0, [1
 ], [])
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_hba[[0-9]]+$" -N abs_top_srcdir/samples/simple.devicealias -oOrderedTuples.csv], 0, [stdout], [stderr])
-
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_hba[[0-9]]+$" -N abs_top_srcdir/samples/simple.devicealias -oOrderedTuples.csv], 0, [stdout], [stderr])
 
 AT_CHECK([cat OrderedTuples.csv], 0, [oracle10_hba0,host,21000024ff123456,oracle10_hba0
 oracle10_hba1,host,22000024ff123456,oracle10_hba1
@@ -564,18 +543,12 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 "WWN",10:00:00:00:c9:12:34:57,Oracle01,Server
 ])
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N alias4file.csv], 0, [stdout], [stderr])
-
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N alias4file.csv], 0, [stdout], [stderr])
 
 AT_CHECK([grep -c ' 3 aliases via Alias4Parser' stdout], 0, [1
 ], [])
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N alias4file.csv -oOrderedTuples.csv], 0, [stdout], [stderr])
-
-dnl "|| true" to ignore the aberrant unpredictable error code
-AT_CHECK([grep -v 'FYI (non-fatal): version-check: state' stderr || true], 0, [], [])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N alias4file.csv -oOrderedTuples.csv], 0, [stdout], [stderr])
 
 AT_CHECK([cat OrderedTuples.csv], 0, [MPV123456-001,host,2001001560123456,MPV123456-001
 MPV123456-013,host,2013001560123456,MPV123456-013
@@ -592,7 +565,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample01)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample01 -o], 0, [[{
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample01 -o-], 0, [[{
   "entities" : [ {
     "description" : "sample01 test entity",
     "edit_type" : "add",
@@ -614,7 +587,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample02)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o], 0, [[{
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o-], 0, [[{
   "entities" : [ {
     "child_entities" : {
       "add" : [ "10000000c9123456" ]
@@ -636,7 +609,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample03)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o], 0, [[{
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o-], 0, [[{
   "entities" : [ {
     "child_entities" : {
       "add" : [ "500a098598123456" ]
