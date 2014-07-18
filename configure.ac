@@ -267,6 +267,23 @@ AC_SUBST([USERTESTCASE], ${USERTESTCASE})
 
 
 
+AC_ARG_ENABLE(dns,
+[AS_HELP_STRING([--disable-vertimeoutwarning],[Disable DNS Version Timeout warning; default=enabled])],
+[
+    case "$enableval" in
+        "yes")  NOVERTIMEOUTWARNING=yes	;  NRPE_SERVER=127.0.0.1 ;;
+        "no") NOVERTIMEOUTWARNING=no	;  NRPE_SERVER=$(host smallfoot.org|awk 'BEGIN {res=""} /has address/ { res=$NF; } END {print res}') ;;
+        *) NOVERTIMEOUTWARNING=yes	;  NRPE_SERVER=127.0.0.1 ;;
+    esac
+],
+[
+    NOVERTIMEOUTWARNING=no
+    NRPE_SERVER=$(host smallfoot.org|awk 'BEGIN {res=""} /has address/ { res=$NF; } END {print res}')
+])
+AC_SUBST([NOVERTIMEOUTWARNING], ${NOVERTIMEOUTWARNING})
+
+
+
 AC_ARG_WITH(sudopostmove,
 [AS_HELP_STRING([--with-sudopostmove],[Enable sudopostmove of a built RPM; default=disabled])],
 [

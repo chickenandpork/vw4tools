@@ -4,12 +4,12 @@ AT_INIT()
 AT_SETUP(version)
 dnl      ------
 
-@DO_GETOPTJAR_TRUE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
+@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
 @DO_GETOPTJAR_TRUE@], [])
 @DO_GETOPTJAR_FALSE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [@VERSION@-@BUILDID@
 @DO_GETOPTJAR_FALSE@], [])
 
-@DO_GETOPTJAR_TRUE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
+@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
 @DO_GETOPTJAR_TRUE@], [])
 @DO_GETOPTJAR_FALSE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [@VERSION@-@BUILDID@
 @DO_GETOPTJAR_FALSE@], [])
