@@ -22,11 +22,13 @@ digraph TransformUDC
         subgraph cluster_scripts
         {
                 label="Scripts"
-                "csv-to-json.awk" [ shape=rectangle ]
+                "OrderedTuples.csv" [ shape=rectangle ]
         }
 
-        vw4tool -> "csv-to-json.awk" [ label="OrderedTuples.csv" ]
+        vw4tool -> "OrderedTuples.csv" [ label="-oOrderedTuples.csv" ]
 
         "json file" [ shape=rectangle ]
-        { "csv-to-json.awk" vw4tool } -> "json file" -> "VirtualWisdom4 \nEntities Import"
+        "OrderedTuples.csv" -> "json file" [ label="csv-to-json.awk" ]
+        vw4tool -> "json file" [ label="-o file.json" ]
+        "json file" -> "VirtualWisdom4 \nEntities Import" [ label="manual import" ]
 }

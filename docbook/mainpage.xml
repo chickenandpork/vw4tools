@@ -72,7 +72,7 @@ awk -f csv-to-json.awk OrderedTuples.csv &gt; example.json
 <para><formalpara><title>Import of FTP or HTTP Data </title></formalpara>
 </para>
 
-<para>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local fil emay also be mounted as a FUSE filesystem, allowing even &quot;local&quot; data to be generated like a CGI program.</para>
+<para>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local file may also be mounted as a FUSE filesystem, allowing even &quot;local&quot; data to be generated like a CGI program.</para>
 
 <para>In order to draw a text stream from a FTP server or HTTP server, merely use a RFC-1738-compliant URL to indicate these two sources: <programlisting><literallayout>(ftp|http)://{user{:password@@}server{:port}/pathname/to/resource
 </literallayout></programlisting></para>

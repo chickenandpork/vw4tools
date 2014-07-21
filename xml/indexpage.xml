@@ -45,16 +45,18 @@ digraph TransformUDC
         subgraph cluster_scripts
         {
                 label=&quot;Scripts&quot;
-                &quot;csv-to-json.awk&quot; [ shape=rectangle ]
+                &quot;OrderedTuples.csv&quot; [ shape=rectangle ]
         }
 
-        vw4tool -&gt; &quot;csv-to-json.awk&quot; [ label=&quot;OrderedTuples.csv&quot; ]
+        vw4tool -&gt; &quot;OrderedTuples.csv&quot; [ label=&quot;-oOrderedTuples.csv&quot; ]
 
         &quot;json file&quot; [ shape=rectangle ]
-        { &quot;csv-to-json.awk&quot; vw4tool } -&gt; &quot;json file&quot; -&gt; &quot;VirtualWisdom4 \nEntities Import&quot;
+        &quot;OrderedTuples.csv&quot; -&gt; &quot;json file&quot; [ label=&quot;csv-to-json.awk&quot; ]
+        vw4tool -&gt; &quot;json file&quot; [ label=&quot;-o file.json&quot; ]
+        &quot;json file&quot; -&gt; &quot;VirtualWisdom4 \nEntities Import&quot; [ label=&quot;manual import&quot; ]
 }
 </dot></para><para><heading level="1">Import of FTP or HTTP Data </heading>
-</para><para>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local fil emay also be mounted as a FUSE filesystem, allowing even &quot;local&quot; data to be generated like a CGI program.</para><para>In order to draw a text stream from a FTP server or HTTP server, merely use a RFC-1738-compliant URL to indicate these two sources: <verbatim>(ftp|http)://{user{:password@@}server{:port}/pathname/to/resource
+</para><para>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local file may also be mounted as a FUSE filesystem, allowing even &quot;local&quot; data to be generated like a CGI program.</para><para>In order to draw a text stream from a FTP server or HTTP server, merely use a RFC-1738-compliant URL to indicate these two sources: <verbatim>(ftp|http)://{user{:password@@}server{:port}/pathname/to/resource
 </verbatim></para><para>for example:</para><para>(basic user/pass: user = scott, pass = T1ger, host = ftp.example.com, subdir = . , file = nicknames.txt <verbatim>java -jar vw4tool.jar --nickname=ftp://scott:T1ger@@ftp.example.com/nicknames.txt
 </verbatim></para><para>(basic user/pass: user = scott, pass = T1ger, host = ftp.example.com, subdir = /users/local/ScottAdams/ , file = aliases.text <verbatim>java -jar vw4tool.jar --nickname=ftp://scott:T1ger@@ftp.example.com/%2fusers/local/ScottAdams/aliases.text
 </verbatim></para><para>(basic user/pass: user = anonymous, pass = scott@uberserver.net, host = ftp.example.com, subdir = examples , file = aliases <verbatim>java -jar vw4tool.jar -N ftp://anonymous:scott%2Fuberserver.net@@ftp.example.com/examples/aliases

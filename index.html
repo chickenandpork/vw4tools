@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">0.9-96</span>
+   &#160;<span id="projectnumber">0.9-110</span>
    </div>
   </td>
  </tr>
@@ -91,7 +91,7 @@ awk -f csv-to-json.awk OrderedTuples.csv &gt; example.json
 <map name="dot_inline_dotgraph_1.map" id="dot_inline_dotgraph_1.map"></map>
 </div>
 <h1>Import of FTP or HTTP Data </h1>
-<p>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local fil emay also be mounted as a FUSE filesystem, allowing even "local" data to be generated like a CGI program.</p>
+<p>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local file may also be mounted as a FUSE filesystem, allowing even "local" data to be generated like a CGI program.</p>
 <p>In order to draw a text stream from a FTP server or HTTP server, merely use a RFC-1738-compliant URL to indicate these two sources: </p><pre class="fragment">(ftp|http)://{user{:password@@}server{:port}/pathname/to/resource
 </pre><p>for example:</p>
 <p>(basic user/pass: user = scott, pass = T1ger, host = ftp.example.com, subdir = . , file = nicknames.txt </p><pre class="fragment">java -jar vw4tool.jar --nickname=ftp://scott:T1ger@@ftp.example.com/nicknames.txt
@@ -128,7 +128,7 @@ java -jar vw4tool.jar  -N local.txt -o-
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Jul 17 2014 01:14:23 for vw4tools by
+    <li class="footer">Generated on Mon Jul 21 2014 14:58:27 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
