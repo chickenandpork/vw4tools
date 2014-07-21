@@ -103,13 +103,15 @@ digraph TransformUDC
 	subgraph cluster_scripts
 	{
 		label="Scripts"
-		"csv-to-json.awk" [ shape=rectangle ]
+		"OrderedTuples.csv" [ shape=rectangle ]
 	}
 
-	vw4tool -> "csv-to-json.awk" [ label="OrderedTuples.csv" ]
+	vw4tool -> "OrderedTuples.csv" [ label="-oOrderedTuples.csv" ]
 
 	"json file" [ shape=rectangle ]
-	{ "csv-to-json.awk" vw4tool } -> "json file" -> "VirtualWisdom4 \nEntities Import"
+	"OrderedTuples.csv" -> "json file" [ label="csv-to-json.awk" ]
+	vw4tool -> "json file" [ label="-o file.json" ]
+	"json file" -> "VirtualWisdom4 \nEntities Import" [ label="manual import" ]
 }
 @enddot
 
@@ -118,7 +120,7 @@ digraph TransformUDC
 Import of FTP or HTTP Data
 ==========================
 
-VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server.  Less common, a local fil emay also be mounted as a FUSE filesystem, allowing even "local" data to be generated like a CGI program.
+VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server.  Less common, a local file may also be mounted as a FUSE filesystem, allowing even "local" data to be generated like a CGI program.
 
 In order to draw a text stream from a FTP server or HTTP server, merely use a RFC-1738-compliant URL to indicate these two sources:
 
