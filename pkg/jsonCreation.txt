@@ -45,6 +45,43 @@ These are all "Orphans" in VW3-ish terms, but you can remove them from your coll
 
 
 
+Thw walk-thru from the output of "java -jar vw4tools.jar -H" suggests a walk-thru for the non-OrderedTuples-method:
+
+1. collect all the text content: nickname=
+       vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow
+
+2. see how it looks: report
+       vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --report
+
+3. check out a pattern to see if it collects nicknames correctly: pattern=, checkpattern=
+       vw4tool -P "^(.*)_FC(\d)$" -p "server12_FC2" -p "server12_FC1" -p "server11_FC1"
+"server12_FC2" --> "server12"
+"server12_FC1" --> "server12"
+"server11_FC1" --> "server11"
+ so this looks like two HBAs for server12, one for server11.  ok
+
+4. add the pattern, see how it looks: report
+       vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern="^(.*)_FC(\d)$" --report
+ 1011 total entities
+   47 leaf nodes
+   14 orphans
+70.21 % coverage
+
+5. write it out to JSON
+       vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern="^(.*)_FC(\d)$" -o customer.json
+
+6. try importing it; there are typically Invalid Entities (Orphans), save that error message
+
+ie: saved as "invalid.txt"
+       vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern="^(.*)_FC(\d)$" -R invalid.txt -o customer.json
+
+7. try importing it again.  A single WWN is bad?  write that to another file, exclude, and try a new JSON:
+       echo '10000000c9123456,"serverc9123456"' > manualskip.txt
+       vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern="^(.*)_FC(\d)$" -R invalid.txt -R manualskip.txt -o customer.json
+
+
+
+
 What I'd like to convert this to:   (check out http://chickenandpork.github.io/vw4tools/cmdopt.html for more options)
 
 1) plink.exe -l admin -pw p4ssw0rd  192.168.1.1 “show device-alias database”   > 192.168.1.1.dad
