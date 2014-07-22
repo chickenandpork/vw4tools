@@ -20,7 +20,7 @@ Usage: vw4tool -V|--version|-H|--help
 </para><para><verbatim>java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oexample.json
 </verbatim></para><para>or <verbatim>java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oOrderedTuples.csv
 awk -f csv-to-json.awk OrderedTuples.csv &gt; example.json
-</verbatim></para><para>This is the most common usage, here as a reference. Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple &quot;-o&quot; options. Notice also that &quot;-o&quot; is &quot;cuddled&quot; to the filename after it. No spaces, but this should change in the future to avoid ambiguity.</para><para><heading level="1">Overview </heading>
+</verbatim></para><para>This is the most common usage, here as a reference. Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple &quot;-o&quot; options. Notice also that although in past, &quot;-o&quot; was &quot;cuddled&quot; to the filename after it (no spaces), but this has changed to make it easier and more forgiving to use.</para><para><heading level="1">Overview </heading>
 </para><para>In general, collection and conversion looks like the following diagram:</para><para><dot> 
 digraph TransformUDC
 {
@@ -73,12 +73,9 @@ java -jar vw4tool.jar --nickname=/Full/Path/files/aliases
 </para><para>These input formats can be mixed. For example <verbatim>java -jar vw4tool.jar --nickname=http://www.example.com/cgi-bin/fetch.cgi?now=20140901&amp;realm=WEST&amp;group=production -N local.txt -N file:///Users/allanc/aliases.dad -N morefiles.txt
 </verbatim></para><para><heading level="1">Outputs </heading>
 </para><para>vw4tool will either generate an OrderedTuples.csv file (if that specific filename is given on the &quot;-o&quot; option) or a json file (any other putput filename). Or both: <verbatim>java -jar vw4tool.jar  -N local.txt -oOrderedTuples.csv -oexample.json
-</verbatim></para><para>NOTE: giving no filename sends the output to stdout: <verbatim>java -jar vw4tool.jar  -N local.txt -o
-</verbatim></para><para>For this reason, the following two commands do different things: <verbatim>java -jar vw4tool.jar  -N local.txt -oexample.json
+</verbatim></para><para>NOTE: giving no filename used to send the output to stdout, but now requires a &quot;-&quot; to mean &quot;yes, I meant that&quot;: <verbatim>java -jar vw4tool.jar  -N local.txt -o -
+</verbatim></para><para>For this reason, the following two commands used to do different things, but are now equivalent: <verbatim>java -jar vw4tool.jar  -N local.txt -oexample.json
 java -jar vw4tool.jar  -N local.txt -o example.json
-</verbatim></para><para>Stdout can be represented as &quot;-&quot;; the following two commands do the same thing: <verbatim>java -jar vw4tool.jar  -N local.txt -o
-java -jar vw4tool.jar  -N local.txt -o-
-</verbatim></para><para>This behavior may disappear in future. Please try to use &quot;-&quot; to print the result to stdout: <verbatim>java -jar vw4tool.jar  -N local.txt -N (another) --nickname=(another) -o-
 </verbatim></para><para><heading level="1">Proprietary Intellectual Property </heading>
 </para><para>With the exception of samples/import01.json, all files and content are based on the same level of access to the product enjoyed by a customer. Implicitly, no private information is shared, all of this content (save the one file) is based on empirical discovery, and could change overnight. </para>    </detaileddescription>
   </compounddef>

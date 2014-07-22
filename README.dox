@@ -72,7 +72,7 @@ or
     java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oOrderedTuples.csv
     awk -f csv-to-json.awk OrderedTuples.csv > example.json
 
-This is the most common usage, here as a reference.  Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple "-o" options.  Notice also that "-o" is "cuddled" to the filename after it.  No spaces, but this should change in the future to avoid ambiguity.
+This is the most common usage, here as a reference.  Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple "-o" options.  Notice also that although in past, "-o" was "cuddled" to the filename after it (no spaces), but this has changed to make it easier and more forgiving to use.  
 
 
 
@@ -201,23 +201,14 @@ vw4tool will either generate an OrderedTuples.csv file (if that specific filenam
 
     java -jar vw4tool.jar  -N local.txt -oOrderedTuples.csv -oexample.json
 
-NOTE: giving no filename sends the output to stdout:
+NOTE: giving no filename used to send the output to stdout, but now requires a "-" to mean "yes, I meant that":
 
-    java -jar vw4tool.jar  -N local.txt -o
+    java -jar vw4tool.jar  -N local.txt -o -
 
-For this reason, the following two commands do different things:
+For this reason, the following two commands used to do different things, but are now equivalent:
 
     java -jar vw4tool.jar  -N local.txt -oexample.json
     java -jar vw4tool.jar  -N local.txt -o example.json
-
-Stdout can be represented as "-"; the following two commands do the same thing:
-
-    java -jar vw4tool.jar  -N local.txt -o
-    java -jar vw4tool.jar  -N local.txt -o-
-
-This behavior may disappear in future.  Please try to use "-" to print the result to stdout:
-
-    java -jar vw4tool.jar  -N local.txt -N (another) --nickname=(another) -o-
 
 
 

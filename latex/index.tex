@@ -51,7 +51,7 @@ awk -f csv-to-json.awk OrderedTuples.csv > example.json
 \end{DoxyVerb}
 
 
-This is the most common usage, here as a reference. Notice that although this shows E\+I\+T\+H\+E\+R Ordered\+Tuples.\+csv or a J\+S\+O\+N file being created, both could be created by multiple \char`\"{}-\/o\char`\"{} options. Notice also that \char`\"{}-\/o\char`\"{} is \char`\"{}cuddled\char`\"{} to the filename after it. No spaces, but this should change in the future to avoid ambiguity.
+This is the most common usage, here as a reference. Notice that although this shows E\+I\+T\+H\+E\+R Ordered\+Tuples.\+csv or a J\+S\+O\+N file being created, both could be created by multiple \char`\"{}-\/o\char`\"{} options. Notice also that although in past, \char`\"{}-\/o\char`\"{} was \char`\"{}cuddled\char`\"{} to the filename after it (no spaces), but this has changed to make it easier and more forgiving to use.
 
 \section*{Overview }
 
@@ -135,21 +135,12 @@ vw4tool will either generate an Ordered\+Tuples.\+csv file (if that specific fil
 \end{DoxyVerb}
 
 
-N\+O\+T\+E\+: giving no filename sends the output to stdout\+: \begin{DoxyVerb}java -jar vw4tool.jar  -N local.txt -o
+N\+O\+T\+E\+: giving no filename used to send the output to stdout, but now requires a \char`\"{}-\/\char`\"{} to mean \char`\"{}yes, I meant that\char`\"{}\+: \begin{DoxyVerb}java -jar vw4tool.jar  -N local.txt -o -
 \end{DoxyVerb}
 
 
-For this reason, the following two commands do different things\+: \begin{DoxyVerb}java -jar vw4tool.jar  -N local.txt -oexample.json
+For this reason, the following two commands used to do different things, but are now equivalent\+: \begin{DoxyVerb}java -jar vw4tool.jar  -N local.txt -oexample.json
 java -jar vw4tool.jar  -N local.txt -o example.json
-\end{DoxyVerb}
-
-
-Stdout can be represented as \char`\"{}-\/\char`\"{}; the following two commands do the same thing\+: \begin{DoxyVerb}java -jar vw4tool.jar  -N local.txt -o
-java -jar vw4tool.jar  -N local.txt -o-
-\end{DoxyVerb}
-
-
-This behavior may disappear in future. Please try to use \char`\"{}-\/\char`\"{} to print the result to stdout\+: \begin{DoxyVerb}java -jar vw4tool.jar  -N local.txt -N (another) --nickname=(another) -o-
 \end{DoxyVerb}
 
 
