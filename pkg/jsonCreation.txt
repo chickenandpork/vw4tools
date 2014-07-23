@@ -45,13 +45,17 @@ These are all "Orphans" in VW3-ish terms, but you can remove them from your coll
 
 
 
-Thw walk-thru from the output of "java -jar vw4tools.jar -H" suggests a walk-thru for the non-OrderedTuples-method:
+The walk-thru from the output of "java -jar vw4tools.jar -H" suggests a walk-thru for the non-OrderedTuples-method:
 
 1. collect all the text content: nickname=
        vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow
 
 2. see how it looks: report
        vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --report
+ 1011 total entities
+ 1011 leaf nodes
+ 1011 orphans
+ 0.00 % coverage
 
 3. check out a pattern to see if it collects nicknames correctly: pattern=, checkpattern=
        vw4tool -P "^(.*)_FC(\d)$" -p "server12_FC2" -p "server12_FC1" -p "server11_FC1"
@@ -62,9 +66,9 @@ Thw walk-thru from the output of "java -jar vw4tools.jar -H" suggests a walk-thr
 
 4. add the pattern, see how it looks: report
        vw4tool -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern="^(.*)_FC(\d)$" --report
- 1011 total entities
-   47 leaf nodes
-   14 orphans
+ 1361 total entities
+ 1011 leaf nodes
+  316 orphans
 70.21 % coverage
 
 5. write it out to JSON
