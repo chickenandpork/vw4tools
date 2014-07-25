@@ -62,7 +62,7 @@ public class EntityArray extends Entity
     {
         org.smallfoot.vw4.VWImport.Entity e = new org.smallfoot.vw4.VWImport.Entity();
 
-        e.type = "array";
+        e.type = "storagearray";
         e.name = name();
 
         for (Entity n: children())
