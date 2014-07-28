@@ -460,6 +460,18 @@ public class VirtualWisdom4ClientTool
                         if (null != wwn)
                             removals.add(wwn);
 
+	Vector reservedAliases = p.items("reservedAliases");
+	if (null != reservedAliases)
+	for (Object o: reservedAliases.toArray())
+	{
+	    if (o instanceof String)
+		removals.add((String) o);
+	    else
+		System.out.println("unknown item: "+o.getClass().getName());
+	}
+
+
+
         /*
              * That was weird, and should @todo be converted to using the remove() operator of an iterator; alternatively, navigableKeySet() might give enough nav/removal.
              *
@@ -475,8 +487,12 @@ public class VirtualWisdom4ClientTool
             if
             (
                 (e instanceof Entity.LeafEntity)
-                &
-                ( removals.contains(((Entity.LeafEntity) e).wwn()) )
+                &&
+		(
+                    ( removals.contains(((Entity.LeafEntity) e).wwn()) )
+		||
+                    ( removals.contains(((Entity.LeafEntity) e).name()) )
+		)
             )
                 postRemovals.add(name);
         }
