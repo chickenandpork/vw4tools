@@ -480,7 +480,7 @@ public class VirtualWisdom4ClientTool
              * the TreeMap, them post-process the TreeMap.  Seems kinda dumb, but avoids segv, which
              * makes it a bit cooler
              */
-        for (String name: entities.keySet())
+        if (null != entities) for (String name: entities.keySet())
         {
             Entity e = entities.get(name);
 
