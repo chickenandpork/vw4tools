@@ -153,9 +153,20 @@ AC_PATH_PROGS(N2A, [native2ascii])
 
 AC_SUBST(yumrepos, [$sysconfdir/yum.repos.d])
 AC_SUBST(emaildest, [ftpupdates])
+
+AC_ARG_WITH(distname,
+[AS_HELP_STRING([--with-distname],[Define a repository name; default=guess])],
+[
+    DISTNAME=$withval
+],
+[
+    DISTNAME=$(awk 'BEGIN {REL=""} /^CentOS release/ { REL=$1$3} END { if ("" == REL) print "unknown"; else print REL} ' /etc/redhat-release)
+])
+
+AC_SUBST(localreposversion, ${DISTNAME})
+
 AC_SUBST(httpconfd, [/etc/httpd/conf.d])
 AC_SUBST(localreposroot, [/var/ftp])
-AC_SUBST(localreposversion, [CentOS5.6])
 
 AC_ARG_ENABLE(autotest,
 [AS_HELP_STRING([--enable-autotest],[Enable autotest testcases; breaks: make distcheck; default=disabled])],
