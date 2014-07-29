@@ -276,7 +276,7 @@ one-\/shot load a new file and absorb the contents\+: open the file and stream t
 \end{DoxySeeAlso}
 
 
-Definition at line 503 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 519 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -364,7 +364,7 @@ java -jar vw4tools.jar --help
 \item[{\bf Commandline Options}]
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
- 0.9-113 
+ 0.9-118 
 \end{DoxyCode}
 \end{DoxyRefDesc}
 
@@ -435,7 +435,7 @@ java -jar vw4tools.jar --read working.json
 \begin{DoxyCode}
 java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 0.9-113
+vw4tools 0.9-118
     5 total entities
     4 leaf nodes
     2 orphans
@@ -478,7 +478,7 @@ vw4tools 0.9-113
 \item[{\bf Commandline Options}]in this example, two patterns ( \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} and \char`\"{}$^\wedge$(.$\ast$)\+\_\+hba(\textbackslash{}d+)\$\char`\"{} ) are loaded; when \char`\"{}\+Net\+App-\/123456\char`\"{} is given as a checkpattern, each is tried in turn, so we see that \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} converts \char`\"{}\+Net\+App-\/123456\char`\"{} to \char`\"{}\+Net\+App\char`\"{}, which means a bunch of devices \char`\"{}\+Net\+App-\/123456\char`\"{}, \char`\"{}\+Net\+App-\/123457\char`\"{}, \char`\"{}\+Net\+App-\/\+A\+B\+C\+D\+E\+F\char`\"{} would be child entities of a larger entity \char`\"{}\+Net\+App\char`\"{}. In essence, all the Net\+App-\/$\ast$ are collected into the same contailer called \char`\"{}\+Net\+App\char`\"{}. Similarly, \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} and \char`\"{}$^\wedge$(.$\ast$)\+\_\+hba(\textbackslash{}d+)\$\char`\"{} are tested against \char`\"{}\+Uber\+Server\+\_\+44\+\_\+hba0\char`\"{} when the checkpattern is given, and we can see that \char`\"{}([$^\wedge$-\/]+)-\/[$^\wedge$-\/]+\$\char`\"{} makes no difference to the value, but \char`\"{}$^\wedge$(.$\ast$)\+\_\+hba(\textbackslash{}d+)\$\char`\"{} has the desired effect of chopping off the \char`\"{}\+\_\+hba\#\char`\"{} portion. \end{DoxyRefDesc}
 
 
-Definition at line 783 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 799 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
