@@ -57,6 +57,19 @@ public class VirtualWisdom4ClientTool
 {
     private org.w3c.dom.Document xmlDocument;		/**< eventually used to hold an XML document when converting XML<-->JSON<-->XML */
 
+    float verTarget = 40.2f;	/**< target version represented as a float with decimal; this allow point-level equals using a "mod 0" conversion to integer, while simple greater/less comparison, mapping fairly close to expected major/minor API-changes */
+    public void setTarget(String ver)
+    {
+	if (null != ver)
+	    ver = ver.replaceFirst("\\.", "");
+	if (null != ver)
+	{
+	    Float f = Float.parseFloat(ver);
+	    verTarget = f;
+	}
+System.out.println("target set to "+verTarget);
+    }
+
     /**
      * Class Constructor to create with an initial file to load.
      *
@@ -754,7 +767,7 @@ public class VirtualWisdom4ClientTool
     void usage(String progname)
     {
         System.out.println("Usage: "+progname+" -V|--version|-H|--help");
-        System.out.println("     : "+progname+" --read <filename>|--input <filename> | -r <filename> | -i <filename>");
+        System.out.println("     : "+progname+" [ --target=4.0|4.0.1|4.0.2 ] --read <filename>|--input <filename> | -r <filename> | -i <filename>");
         System.out.println("     : "+progname+" --nickname=<filename>|-N<filename> | --removenicknames=<filename> | -i <filename>");
         System.out.println("     : "+progname+" --pattern=<pattern>|-P <pattern> [--pattern=...] --checkpattern=<alias>");
 
@@ -837,8 +850,12 @@ public class VirtualWisdom4ClientTool
                * @cmdopt -r|--read import an existing JSON file for later editing
                * @cmdopt @code java -jar @PACKAGE@.jar --read working.json @endcode
                *
-               * @cmdopt -R|--remove Parse ncknames for removal from the internal nickname list
-               * @cmdopt -R|--removenicknames Parse ncknames for removal from the internal nickname list
+               * @cmdopt -R|--remove Parse nicknames for removal from the internal nickname list
+               * @cmdopt -R|--removenicknames Parse nicknames for removal from the internal nickname list
+               *
+               * @cmdopt -t|--target set a target version for JSON output.  Defaults to latest
+	       *     supported.  A value of 4.0.1 is converted to 40.1 internally due to float
+	       *     comparison and expected changed every bump of major/minor version
                *
                * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage
                * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow  --report
@@ -863,11 +880,12 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("output", LongOpt.REQUIRED_ARGUMENT, null, 'o'));
         options.add(new LongOpt("pattern", LongOpt.REQUIRED_ARGUMENT, null, 'P'));
         options.add(new LongOpt("checkpattern", LongOpt.REQUIRED_ARGUMENT, null, 'p'));
+        options.add(new LongOpt("target", LongOpt.REQUIRED_ARGUMENT, null, 't'));
 
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /@DO_GETOPTJAR_TRUE@* */
-        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o::P:p:T:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
+        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o::P:p:T:t:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
 
         int c;
         while ((c = g.getopt()) != -1)
@@ -984,6 +1002,11 @@ public class VirtualWisdom4ClientTool
                     return;
                 }
             }
+            break;
+
+	    /** @todo need to check 3-decimal values such as "-t 4.0.1.7" (see also testsuite.at.in) */
+            case 't':   // convert to a target version to avoid giving the recipient more than it wants to handle
+		m.setTarget(g.getOptarg());
             break;
 
             /*
