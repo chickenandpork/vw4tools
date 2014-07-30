@@ -83,10 +83,10 @@ public abstract class Entity
                     }
                 }
 
-                if (0 == compatibilityVersion) compatibilityVersion = 0xffffff;
+                if (0 == compatibilityVersion) compatibilityVersion = 0x040002;
             }
             else
-                compatibilityVersion = 0xffffff;
+                compatibilityVersion = 0x040002;
         }
         return compatibilityVersion;
     }

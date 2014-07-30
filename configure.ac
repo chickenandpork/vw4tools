@@ -168,6 +168,8 @@ AC_SUBST(localreposversion, ${DISTNAME})
 AC_SUBST(httpconfd, [/etc/httpd/conf.d])
 AC_SUBST(localreposroot, [/var/ftp])
 
+AC_SUBST(defaultcompattarget, [4.0.2])
+
 AC_ARG_ENABLE(autotest,
 [AS_HELP_STRING([--enable-autotest],[Enable autotest testcases; breaks: make distcheck; default=disabled])],
 [

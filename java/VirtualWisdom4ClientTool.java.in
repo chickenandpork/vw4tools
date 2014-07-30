@@ -776,6 +776,8 @@ public class VirtualWisdom4ClientTool
         System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv -o OrderedTuples.csv");
         System.out.println("       "+progname+" -N somenicknames.csv -R existing.csv --pattern=\"^([^-]+)-.*\" --report -o OrderedTuples.csv -o OrphanEntities.csv");
 
+        System.out.println("\nCompatibility is currently set to: " + Entity.compatibilityVersion());
+
         System.out.println("\nA possible workflow could be:");
         System.out.println("1. collect all the text content: nickname=");
         System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow");

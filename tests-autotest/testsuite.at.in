@@ -21,16 +21,16 @@ AT_CLEANUP()
 AT_SETUP(check for version-setting breakage)
 dnl      ----------------------------------
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1], 0, [target set from 255.255.255 to 4.0.1 as 4.0.1
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1], 0, [target set from @defaultcompattarget@ to 4.0.1 as 4.0.1
 ], [])
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.2], 0, [target set from 255.255.255 to 4.0.2 as 4.0.2
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.2], 0, [target set from @defaultcompattarget@ to 4.0.2 as 4.0.2
 ], [])
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0], 0, [target set from 255.255.255 to 4.0 as 4.0.0
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0], 0, [target set from @defaultcompattarget@ to 4.0 as 4.0.0
 ], [])
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1.6], 0, [target set from 255.255.255 to 4.0.1.6 as 4.0.1
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1.6], 0, [target set from @defaultcompattarget@ to 4.0.1.6 as 4.0.1
 ], [])
 
 AT_CLEANUP()
