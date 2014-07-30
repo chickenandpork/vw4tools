@@ -56,9 +56,15 @@ public class EntityHBA extends Entity.LeafEntity
     {
         org.smallfoot.vw4.VWImport.Entity e = new org.smallfoot.vw4.VWImport.Entity();
 
-        e.type = "hba";
+        if (_compatibilityVersion() < 0x040002)
+            e.type = "hba";
+        else
+            e.type = "fcport";
         e.name = name();
-        e.add(wwn);
+        if (_compatibilityVersion() < 0x040002)
+            e.add(wwn);
+        else
+            e.wwn = wwn;
         e.description = description();
         if (null != tag) e.tags().add(tag);
         e.edit_type = org.smallfoot.vw4.VWImport.Edit_Type.add;

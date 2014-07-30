@@ -45,6 +45,80 @@ import org.w3c.dom.NodeList;
  */
 public abstract class Entity
 {
+    protected static Integer compatibilityVersion = null;		/**< singleton-used compatibility: if (re)set to null, _compatibilityVersion() recalculates */
+    /**
+     * calculate the compatibilityVersion as required
+     *
+     * @return integer value of compatibilityVersion
+     *
+     * @jvmopt <b>compat.target</b>
+     * (values: X.Y.Z as a version.  For example: 4.0.1, 4.1, 4, 4.2)
+     * can be used to tell the JSON output to use specific features available on later versions of the VirtualWisdom4 product.  Initially controls whether fcport entities are created but may expand.
+     */
+    protected static int _compatibilityVersion()
+    {
+        if (null == compatibilityVersion)
+        {
+            String s;
+            if (null != (s= System.getProperties().getProperty("compat.target")))
+            {
+                compatibilityVersion = 0;
+
+                String parts[] = s.split("\\.");
+                for (int i = 0; i < 3; i++)
+                {
+                    try
+                    {
+                        Integer r = Integer.parseInt(parts[i].replaceAll("[^0-9]",""));
+                        compatibilityVersion *= 0x100;
+                        compatibilityVersion += r.intValue();
+                    }
+                    catch (ArrayIndexOutOfBoundsException aioobe)
+                    {
+                        compatibilityVersion *= 0x100;
+                    }
+                    catch (NumberFormatException nfe)
+                    {
+                        compatibilityVersion *= 0x100;
+                    }
+                }
+
+                if (0 == compatibilityVersion) compatibilityVersion = 0xffffff;
+            }
+            else
+                compatibilityVersion = 0xffffff;
+        }
+        return compatibilityVersion;
+    }
+
+    /** convert the compatibilityVersion into a string @return string value of compatibilityVersion */
+    public static String compatibilityVersion()
+    {
+        return String.format ("%d.%d.%d",_compatibilityVersion() / 0x10000 % 0x100, _compatibilityVersion() / 0x100 % 0x100, _compatibilityVersion() % 0x100);
+    }
+    /**
+     * set a new compatibility string to set a different target version
+     *
+     * This, with compatibilityVersion() and _compatibilityVersion(), is a lot of scaffolding
+     * around compatibility outputs; I'm both trying to give some versatility here, plus
+     * experimenting myself with properties-vs-commandlines-vs-both.  At the end of the day,
+     * both methods work to set a version for output, initially a determiner whether fcport
+     * entities are produced.  There's future possibility for growth, including
+     * config/properties files, afforded by this massive 4-part scaffolding with delusions of
+     * grandeur.
+     *
+     * @param newVersion the new value to use as a version
+     *
+     * @return previous config version
+     */
+    public static String compatibilityVersion(String newVersion)
+    {
+        String current = compatibilityVersion();
+        compatibilityVersion = null;
+        System.getProperties().setProperty("compat.target", newVersion);
+        return current;
+    }
+
     /** Descendents of Entity should know whether a given entity can be one of their child elements.  This exception is intended as a method of signalling -- and rippling up if necessary -- than an intended seconding as a child element is not accepted by the would-be parent. */
     public class ImproperChildException extends java.lang.Exception
     {

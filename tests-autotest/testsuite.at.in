@@ -21,17 +21,17 @@ AT_CLEANUP()
 AT_SETUP(check for version-setting breakage)
 dnl      ----------------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1], 0, [target set to 40.1
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1], 0, [target set from 255.255.255 to 4.0.1 as 4.0.1
 ], [])
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.2], 0, [target set to 40.2
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.2], 0, [target set from 255.255.255 to 4.0.2 as 4.0.2
 ], [])
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0], 0, [target set to 40.0
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0], 0, [target set from 255.255.255 to 4.0 as 4.0.0
 ], [])
 
-dnl AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1.6], 0, [target set to 40.1
-dnl ], [])
+AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1.6], 0, [target set from 255.255.255 to 4.0.1.6 as 4.0.1
+], [])
 
 AT_CLEANUP()
 
@@ -91,6 +91,34 @@ AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, 
 
 AT_CHECK([cat alias4file.json], 0, [[{
   "entities" : [ {
+    "description" : "c0507612345600fe,0x123457 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "LPAR-123456:00fe",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "c0507612345600fe"
+  }, {
+    "description" : "500a098598123456,500a098598123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456-iGrp1-0e",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "500a098598123456"
+  }, {
+    "description" : "500a098698123456,0x123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456-iGrp1-0f",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "500a098698123456"
+  } ],
+  "version" : "1"
+}]], [])
+
+AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1 --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
+
+AT_CHECK([cat alias4file.json], 0, [[{
+  "entities" : [ {
     "child_entities" : {
       "add" : [ "c0507612345600fe" ]
     },
@@ -133,7 +161,7 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 ])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
 
@@ -174,7 +202,7 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 AT_DATA([remove.csv], ["WWN",50:0A:09:85:98:12:34:56,justaName,Storage
 ])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via Alias4Parser
 (@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
@@ -189,6 +217,23 @@ AT_CHECK([cat alias4file.json], 0, [[{
     "name" : "NetApp-123456-iGrp1-0f",
     "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
     "type" : "iomodule"
+  } ],
+  "version" : "1"
+}]], [])
+
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via Alias4Parser
+(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
+], [])
+
+AT_CHECK([cat alias4file.json], 0, [[{
+  "entities" : [ {
+    "description" : "500a098698123456,0x123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456-iGrp1-0f",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "500a098698123456"
   } ],
   "version" : "1"
 }]], [])
@@ -226,7 +271,7 @@ Entity: Cisco-000dec-123456:197 : hba
 Location: [Line : 24 , Column : 7]
 ]])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.txt --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.txt --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
 (@PACKAGE@) parsed 0 zones, 3 aliases via VW4InvalidAddedParser
 ], [])
@@ -245,6 +290,23 @@ AT_CHECK([cat alias4file.json], 0, [[{
   "version" : "1"
 }]], [])
 
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.txt --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
+(@PACKAGE@) parsed 0 zones, 3 aliases via VW4InvalidAddedParser
+], [])
+
+AT_CHECK([cat alias4file.json], 0, [[{
+  "entities" : [ {
+    "description" : "500a098698123456,0x123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456-iGrp1-0f",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "500a098698123456"
+  } ],
+  "version" : "1"
+}]], [])
+
 AT_CLEANUP()
 
 
@@ -259,7 +321,7 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 ])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
 
@@ -304,6 +366,43 @@ AT_CHECK([cat alias4file.json], 0, [[{
   "version" : "1"
 }]], [])
 
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
+], [])
+
+AT_CHECK([cat alias4file.json], 0, [[{
+  "entities" : [ {
+    "description" : "500a098598123456,NetApp-123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "500a098598123456"
+  }, {
+    "description" : "500a098698123456,NetApp-123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456_3456",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "500a098698123456"
+  }, {
+    "description" : "10000000c9123456,Oracle01 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "Oracle01",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123456"
+  }, {
+    "description" : "10000000c9123457,Oracle01 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "Oracle01_3457",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123457"
+  } ],
+  "version" : "1"
+}]], [])
+
 AT_CLEANUP()
 
 
@@ -321,7 +420,7 @@ AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddi
 "Oracle01" --> "Oracle01"
 ], [stderr])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --pattern="([[^-]]+)-[[^-]]+$" --report --nicknameout=alias4file.json -oOrphanEntities.csv], 0, [stdout], [stderr])
+AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --pattern="([[^-]]+)-[[^-]]+$" --report --nicknameout=alias4file.json -oOrphanEntities.csv], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 @PACKAGE@ @VERSION@-@BUILDID@
     5 total entities
@@ -658,7 +757,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample02)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o-], 0, [[{
+AT_CHECK([java -Dcompat.target=4.0.0 -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o-], 0, [[{
   "entities" : [ {
     "child_entities" : {
       "add" : [ "10000000c9123456" ]
@@ -673,6 +772,19 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o-], 0,
 }
 ]],[stderr])
 
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample02 -o-], 0, [[{
+  "entities" : [ {
+    "description" : "sample02 test FA",
+    "edit_type" : "add",
+    "name" : "sample_02",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123456"
+  } ],
+  "version" : "1"
+}
+]],[stderr])
+
 AT_CLEANUP()
 
 
@@ -680,7 +792,7 @@ AT_CLEANUP()
 AT_SETUP(write json sample sample03)
 dnl      --------------------------
 
-AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o-], 0, [[{
+AT_CHECK([java -Dcompat.target=4.0.0 -jar $abs_top_builddir/convjars/@PACKAGE@.jar -Tsample03 -o-], 0, [[{
   "entities" : [ {
     "child_entities" : {
       "add" : [ "500a098598123456" ]

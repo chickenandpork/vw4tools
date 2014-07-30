@@ -105,6 +105,8 @@ public class VWImport
         public String type;			/**< What type of Entity is this?  (full range of values unknown) */
         public String name;			/**< What unique name does this entity have? */
 
+        public String wwn;			/**< Used for fcport only, what is the non-child WWPN of this WWPN/Alias tuple? */
+
         public LeafPattern child_entities = null;	/**< children of this entity */
         public void add(String e)
         {

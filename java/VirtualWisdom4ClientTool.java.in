@@ -57,17 +57,17 @@ public class VirtualWisdom4ClientTool
 {
     private org.w3c.dom.Document xmlDocument;		/**< eventually used to hold an XML document when converting XML<-->JSON<-->XML */
 
-    float verTarget = 40.2f;	/**< target version represented as a float with decimal; this allow point-level equals using a "mod 0" conversion to integer, while simple greater/less comparison, mapping fairly close to expected major/minor API-changes */
     public void setTarget(String ver)
     {
-	if (null != ver)
-	    ver = ver.replaceFirst("\\.", "");
-	if (null != ver)
-	{
-	    Float f = Float.parseFloat(ver);
-	    verTarget = f;
-	}
-System.out.println("target set to "+verTarget);
+        /**
+         * @jvmopt <b>debug.showCompatTarget</b>
+         * causes the compat.target to be displayed when (re)set
+         */
+
+        if (null != System.getProperties().getProperty("debug.showCompatTarget"))
+            System.out.println("target set from "+Entity.compatibilityVersion(ver)+" to "+ver+" as "+Entity.compatibilityVersion());
+        else
+            Entity.compatibilityVersion(ver);
     }
 
     /**
@@ -473,15 +473,15 @@ System.out.println("target set to "+verTarget);
                         if (null != wwn)
                             removals.add(wwn);
 
-	Vector reservedAliases = p.items("reservedAliases");
-	if (null != reservedAliases)
-	for (Object o: reservedAliases.toArray())
-	{
-	    if (o instanceof String)
-		removals.add((String) o);
-	    else
-		System.out.println("unknown item: "+o.getClass().getName());
-	}
+        Vector reservedAliases = p.items("reservedAliases");
+        if (null != reservedAliases)
+            for (Object o: reservedAliases.toArray())
+            {
+                if (o instanceof String)
+                    removals.add((String) o);
+                else
+                    System.out.println("unknown item: "+o.getClass().getName());
+            }
 
 
 
@@ -494,21 +494,21 @@ System.out.println("target set to "+verTarget);
              * makes it a bit cooler
              */
         if (null != entities) for (String name: entities.keySet())
-        {
-            Entity e = entities.get(name);
+            {
+                Entity e = entities.get(name);
 
-            if
-            (
-                (e instanceof Entity.LeafEntity)
-                &&
-		(
-                    ( removals.contains(((Entity.LeafEntity) e).wwn()) )
-		||
-                    ( removals.contains(((Entity.LeafEntity) e).name()) )
-		)
-            )
-                postRemovals.add(name);
-        }
+                if
+                (
+                    (e instanceof Entity.LeafEntity)
+                    &&
+                    (
+                        ( removals.contains(((Entity.LeafEntity) e).wwn()) )
+                        ||
+                        ( removals.contains(((Entity.LeafEntity) e).name()) )
+                    )
+                )
+                    postRemovals.add(name);
+            }
 
         /* now, finally, post-process the postRemovals as removals */
         for (String name: postRemovals.toArray(new String[0]))
@@ -792,7 +792,7 @@ System.out.println("target set to "+verTarget);
         System.out.println("6. try importing it; there are typically Invalid Entities (Orphans), save that error message\nie: saved as \"invalid.txt\"");
         System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\"^(.*)_FC(\\d)$\" -R invalid.txt -o customer.json");
         System.out.println("7. try importing it again.  A single WWN is bad?  write that to another file, exclude, and try a new JSON:");
-	System.out.println("       echo '10000000c9123456,\"serverc9123456\"' > manualskip.txt");
+        System.out.println("       echo '10000000c9123456,\"serverc9123456\"' > manualskip.txt");
         System.out.println("       "+progname+" -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\"^(.*)_FC(\\d)$\" -R invalid.txt -R manualskip.txt -o customer.json");
     }
 
@@ -854,8 +854,8 @@ System.out.println("target set to "+verTarget);
                * @cmdopt -R|--removenicknames Parse nicknames for removal from the internal nickname list
                *
                * @cmdopt -t|--target set a target version for JSON output.  Defaults to latest
-	       *     supported.  A value of 4.0.1 is converted to 40.1 internally due to float
-	       *     comparison and expected changed every bump of major/minor version
+           *     supported.  A value of 4.0.1 is converted to 40.1 internally due to float
+           *     comparison and expected changed every bump of major/minor version
                *
                * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage
                * @cmdopt @code java -jar @PACKAGE@.jar --nickname=switch44.zoneshow  --report
@@ -909,17 +909,17 @@ System.out.println("target set to "+verTarget);
             /**
              * @cmdopt -p|--checkpattern= is used to test an "aggregating pattern" against a certain nickname/alias.  Although Aggregating Patterns are evaluated immediately, they're stored for testing as well, so even though we're giving a test alias after the pattern, it'll evaluate all loaded patterns against the alias:
              * @cmdopt @code java -jar @PACKAGE@.jar --pattern="([^-]+)-[^-]+$" --checkpattern=NetApp-123456 --checkpattern=UberServer_44_HBA0
-	     * "NetApp-123456" --> "NetApp"
-	     * "UberServer_44_HBA0" --> "UberServer_44_HBA0" @endcode
-	     * @cmdopt in this example, the one pattern it tested against a new alias when the --checkpattern is encountered; if there were two patterns, each pattern would be tried to the checkpattern sample when seen:
-	     *
+            * "NetApp-123456" --> "NetApp"
+            * "UberServer_44_HBA0" --> "UberServer_44_HBA0" @endcode
+            * @cmdopt in this example, the one pattern it tested against a new alias when the --checkpattern is encountered; if there were two patterns, each pattern would be tried to the checkpattern sample when seen:
+            *
              * @cmdopt @code java -jar @PACKAGE@.jar --pattern="([^-]+)-[^-]+$" --pattern="^(.*)_hba(\d+)$" --checkpattern=NetApp-123456 --checkpattern=UberServer_44_hba0
-	     * "NetApp-123456" --> "NetApp"
-	     * "NetApp-123456" --> "NetApp-123456"
-	     * "UberServer_44_HBA0" --> "UberServer_44_hba0"
-	     * "UberServer_44_HBA0" --> "UberServer_44" @endcode
-	     * @cmdopt in this example, two patterns ( "([^-]+)-[^-]+$" and "^(.*)_hba(\d+)$" ) are loaded; when "NetApp-123456" is given as a checkpattern, each is tried in turn, so we see that "([^-]+)-[^-]+$" converts "NetApp-123456" to "NetApp", which means a bunch of devices "NetApp-123456", "NetApp-123457", "NetApp-ABCDEF" would be child entities of a larger entity "NetApp".  In essence, all the NetApp-* are collected into the same contailer called "NetApp".  Similarly, "([^-]+)-[^-]+$" and "^(.*)_hba(\d+)$" are tested against "UberServer_44_hba0" when the checkpattern is given, and we can see that "([^-]+)-[^-]+$" makes no difference to the value, but "^(.*)_hba(\d+)$" has the desired effect of chopping off the "_hba#" portion.
-	     */
+            * "NetApp-123456" --> "NetApp"
+            * "NetApp-123456" --> "NetApp-123456"
+            * "UberServer_44_HBA0" --> "UberServer_44_hba0"
+            * "UberServer_44_HBA0" --> "UberServer_44" @endcode
+            * @cmdopt in this example, two patterns ( "([^-]+)-[^-]+$" and "^(.*)_hba(\d+)$" ) are loaded; when "NetApp-123456" is given as a checkpattern, each is tried in turn, so we see that "([^-]+)-[^-]+$" converts "NetApp-123456" to "NetApp", which means a bunch of devices "NetApp-123456", "NetApp-123457", "NetApp-ABCDEF" would be child entities of a larger entity "NetApp".  In essence, all the NetApp-* are collected into the same contailer called "NetApp".  Similarly, "([^-]+)-[^-]+$" and "^(.*)_hba(\d+)$" are tested against "UberServer_44_hba0" when the checkpattern is given, and we can see that "([^-]+)-[^-]+$" makes no difference to the value, but "^(.*)_hba(\d+)$" has the desired effect of chopping off the "_hba#" portion.
+            */
             case 'p': /* exercise chunking-pattern for given alias */
                 for (String s: m.exercisePattern(g.getOptarg()))
                     if (null != s)
@@ -1004,10 +1004,10 @@ System.out.println("target set to "+verTarget);
             }
             break;
 
-	    /** @todo need to check 3-decimal values such as "-t 4.0.1.7" (see also testsuite.at.in) */
+            /** @todo need to check 3-decimal values such as "-t 4.0.1.7" (see also testsuite.at.in) */
             case 't':   // convert to a target version to avoid giving the recipient more than it wants to handle
-		m.setTarget(g.getOptarg());
-            break;
+                m.setTarget(g.getOptarg());
+                break;
 
             /*
              * Follows is the "house-keeping": versions, usage, and the catch-all for bad options.
