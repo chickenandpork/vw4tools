@@ -49,6 +49,13 @@ void {\bf set\+Description} (String {\bf description})
 \begin{DoxyCompactList}\small\item\em set the description of the entity to show its source\+: setter pattern \end{DoxyCompactList}\item 
 void {\bf setname} (String {\bf name})
 \begin{DoxyCompactList}\small\item\em set the unique name of the entity\+: setter \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String {\bf compatibility\+Version} ()
+\begin{DoxyCompactList}\small\item\em convert the compatibility\+Version into a string \end{DoxyCompactList}\item 
+static String {\bf compatibility\+Version} (String new\+Version)
+\begin{DoxyCompactList}\small\item\em set a new compatibility string to set a different target version \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,6 +66,11 @@ Vector$<$ {\bf Entity} $>$ {\bf children} ()
 abstract \\*
 org.\+smallfoot.\+vw4.\+V\+W\+Import.\+Entity {\bf vwentity} (String tag)
 \begin{DoxyCompactList}\small\item\em create a streamable J\+S\+O\+N entity from this one \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bf \+\_\+compatibility\+Version} ()
+\begin{DoxyCompactList}\small\item\em calculate the compatibility\+Version as required \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -74,6 +86,12 @@ String {\bf name}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a9a2326f35466e54c
 Weak\+Reference$<$ {\bf Entity} $>$ {\bf parent} = null\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_ab1bf14d6f0f0af84c30272b6eed5792f}
 
 \begin{DoxyCompactList}\small\item\em convenience weak-\/reference to parent\+: I want a reference but not one that will block G\+C \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Integer {\bf compatibility\+Version} = null\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a30b425bd5034c7ca39be7363c0e86cdc}
+
+\begin{DoxyCompactList}\small\item\em singleton-\/used compatibility\+: if (re)set to null, \doxyref{\+\_\+compatibility\+Version()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_a2d966176f7b315760e172d3bc03f64a1} recalculates \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -104,7 +122,7 @@ Class Constructor with no initial child.
 \end{DoxyParams}
 
 
-Definition at line 122 of file Entity.\+java.
+Definition at line 196 of file Entity.\+java.
 
 
 
@@ -142,7 +160,7 @@ Class Constructor with an initial child to absorb.
 \end{DoxyParams}
 
 
-Definition at line 133 of file Entity.\+java.
+Definition at line 207 of file Entity.\+java.
 
 
 
@@ -162,6 +180,46 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 \subsection{Member Function Documentation}
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!\+\_\+compatibility\+Version@{\+\_\+compatibility\+Version}}
+\index{\+\_\+compatibility\+Version@{\+\_\+compatibility\+Version}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{\+\_\+compatibility\+Version}]{\setlength{\rightskip}{0pt plus 5cm}static int \+\_\+compatibility\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_a2d966176f7b315760e172d3bc03f64a1}
+
+
+calculate the compatibility\+Version as required 
+
+\begin{DoxyReturn}{Returns}
+integer value of compatibility\+Version
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{J\+V\+M Options}
+\item[{\bf J\+V\+M Options}]{\bfseries compat.\+target} (values\+: X.\+Y.\+Z as a version. For example\+: 4.\+0.\+1, 4.\+1, 4, 4.\+2) can be used to tell the J\+S\+O\+N output to use specific features available on later versions of the Virtual\+Wisdom4 product. Initially controls whether fcport entities are created but may expand. \end{DoxyRefDesc}
+
+
+Definition at line 58 of file Entity.\+java.
+
+
+
+References Entity.\+compatibility\+Version().
+
+
+
+Referenced by Entity.\+compatibility\+Version(), Entity\+H\+B\+A.\+vwentity(), and Entity\+F\+A.\+vwentity().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_a2d966176f7b315760e172d3bc03f64a1_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!can\+Be\+Child@{can\+Be\+Child}}
 \index{can\+Be\+Child@{can\+Be\+Child}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
 \subsubsection[{can\+Be\+Child}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean can\+Be\+Child (
@@ -201,11 +259,90 @@ list of zero or more child entities but never null
 \end{DoxyReturn}
 
 
-Definition at line 66 of file Entity.\+java.
+Definition at line 140 of file Entity.\+java.
 
 
 
 Referenced by Entity.\+maybe\+Adopt(), Entity\+Host.\+vwentity(), and Entity\+Array.\+vwentity().
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!compatibility\+Version@{compatibility\+Version}}
+\index{compatibility\+Version@{compatibility\+Version}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{compatibility\+Version}]{\setlength{\rightskip}{0pt plus 5cm}static String compatibility\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_aafad8b8b69f1c940a90bb5e2ef672ebf}
+
+
+convert the compatibility\+Version into a string 
+
+\begin{DoxyReturn}{Returns}
+string value of compatibility\+Version 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file Entity.\+java.
+
+
+
+References Entity.\+\_\+compatibility\+Version().
+
+
+
+Referenced by Entity.\+\_\+compatibility\+Version(), and Entity.\+compatibility\+Version().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_aafad8b8b69f1c940a90bb5e2ef672ebf_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!compatibility\+Version@{compatibility\+Version}}
+\index{compatibility\+Version@{compatibility\+Version}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
+\subsubsection[{compatibility\+Version}]{\setlength{\rightskip}{0pt plus 5cm}static String compatibility\+Version (
+\begin{DoxyParamCaption}
+\item[{String}]{new\+Version}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classorg_1_1smallfoot_1_1vw4_1_1Entity_aa3f7ad2834fa542cf7d5cc554c49677d}
+
+
+set a new compatibility string to set a different target version 
+
+This, with \doxyref{compatibility\+Version()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_aafad8b8b69f1c940a90bb5e2ef672ebf} and \doxyref{\+\_\+compatibility\+Version()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1Entity_a2d966176f7b315760e172d3bc03f64a1}, is a lot of scaffolding around compatibility outputs; I'm both trying to give some versatility here, plus experimenting myself with properties-\/vs-\/commandlines-\/vs-\/both. At the end of the day, both methods work to set a version for output, initially a determiner whether fcport entities are produced. There's future possibility for growth, including config/properties files, afforded by this massive 4-\/part scaffolding with delusions of grandeur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Version} & the new value to use as a version\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+previous config version 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file Entity.\+java.
+
+
+
+References Entity.\+compatibility\+Version().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1smallfoot_1_1vw4_1_1Entity_aa3f7ad2834fa542cf7d5cc554c49677d_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}!description@{description}}
 \index{description@{description}!org\+::smallfoot\+::vw4\+::\+Entity@{org\+::smallfoot\+::vw4\+::\+Entity}}
@@ -223,7 +360,7 @@ description of the entity
 \end{DoxyReturn}
 
 
-Definition at line 86 of file Entity.\+java.
+Definition at line 160 of file Entity.\+java.
 
 
 
@@ -249,7 +386,7 @@ This allows very simple coding of streamlining the adoption in a cleaner iterati
 \end{DoxyParams}
 
 
-Definition at line 144 of file Entity.\+java.
+Definition at line 218 of file Entity.\+java.
 
 
 
@@ -286,7 +423,7 @@ the name
 \end{DoxyReturn}
 
 
-Definition at line 74 of file Entity.\+java.
+Definition at line 148 of file Entity.\+java.
 
 
 
@@ -331,7 +468,7 @@ set the description of the entity to show its source\+: setter pattern
 \end{DoxyParams}
 
 
-Definition at line 91 of file Entity.\+java.
+Definition at line 165 of file Entity.\+java.
 
 
 
@@ -370,7 +507,7 @@ set the unique name of the entity\+: setter
 \end{DoxyParams}
 
 
-Definition at line 79 of file Entity.\+java.
+Definition at line 153 of file Entity.\+java.
 
 
 

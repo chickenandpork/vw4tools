@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="jvmopt" kind="page">
+    <compoundname>jvmopt</compoundname>
+    <title>JVM Options</title>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term><anchor id="jvmopt_1_jvmopt000001"/>Global <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2d966176f7b315760e172d3bc03f64a1" kindref="member">Entity._compatibilityVersion</ref>  ()</term></varlistentry>
+<listitem><para><bold>compat.target</bold> (values: X.Y.Z as a version. For example: 4.0.1, 4.1, 4, 4.2) can be used to tell the JSON output to use specific features available on later versions of the VirtualWisdom4 product. Initially controls whether fcport entities are created but may expand.  </para></listitem>
+<varlistentry><term><anchor id="jvmopt_1_jvmopt000002"/>Global <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" kindref="member">VirtualWisdom4ClientTool.setTarget</ref>  (String ver)</term></varlistentry>
+<listitem><para><bold>debug.showCompatTarget</bold> causes the compat.target to be displayed when (re)set </para></listitem>
+</variablelist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

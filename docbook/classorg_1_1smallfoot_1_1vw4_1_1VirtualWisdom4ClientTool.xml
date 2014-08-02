@@ -116,6 +116,14 @@ String filename)</para>
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d">setTarget</link> (
+String ver)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>WWNDescription <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6">wwndesc</link> (
 )</para>
                     </listitem>
@@ -379,6 +387,10 @@ int orphans, int fostered, int total)</para>
                 </formalpara>
                 </para>
 
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d">
+                <title>void setTarget (String ver)</title> <emphasis></emphasis>
+                
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6">
                 <title>WWNDescription wwndesc ()</title> <emphasis></emphasis>

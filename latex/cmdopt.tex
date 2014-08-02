@@ -14,7 +14,7 @@ java -jar vw4tools.jar --help
 
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
- 0.9-118 
+ 0.9-121 
 \end{DoxyCode}
 
 
@@ -52,9 +52,11 @@ java -jar vw4tools.jar --read working.json
 \end{DoxyCode}
 
 
--\/\+R$\vert$--remove Parse ncknames for removal from the internal nickname list 
+-\/\+R$\vert$--remove Parse nicknames for removal from the internal nickname list 
 
--\/\+R$\vert$--removenicknames Parse ncknames for removal from the internal nickname list
+-\/\+R$\vert$--removenicknames Parse nicknames for removal from the internal nickname list
+
+-\/t$\vert$--target set a target version for J\+S\+O\+N output. Defaults to latest supported. A value of 4.\+0.\+1 is converted to 40.\+1 internally due to float comparison and expected changed every bump of major/minor version
 
 -\/!$\vert$--report Summarize the current status of the internal nicknaes and pattern/collation coverage 
 
@@ -62,7 +64,7 @@ java -jar vw4tools.jar --read working.json
 \begin{DoxyCode}
 java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 0.9-118
+vw4tools 0.9-121
     5 total entities
     4 leaf nodes
     2 orphans

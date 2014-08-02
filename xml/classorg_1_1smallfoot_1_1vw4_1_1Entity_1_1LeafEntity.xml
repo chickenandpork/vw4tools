@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="204" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="204" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="278" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="278" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -55,8 +55,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="233" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="233" bodyend="237"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="Entity_8java" startline="206" endline="209">Entity.LeafEntity.wwn</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="307" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="307" bodyend="311"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" compoundref="Entity_8java" startline="280" endline="283">Entity.LeafEntity.wwn</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1ae3cca685b4cef300a70d257f519a96e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
@@ -83,7 +83,7 @@ spider to catch the fly.. &quot;</para><para>Descendents will override this meth
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="271" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="271" bodyend="274"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="345" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="345" bodyend="348"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a929a7f5f05728b26869df0351a7a815d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -97,8 +97,8 @@ spider to catch the fly.. &quot;</para><para>Descendents will override this meth
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="219" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="219" bodyend="225"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="74" endline="77">Entity.name</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="293" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="293" bodyend="299"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="148" endline="151">Entity.name</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1aa0f20764b2a9bea375e9507de63cb42b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -112,10 +112,10 @@ spider to catch the fly.. &quot;</para><para>Descendents will override this meth
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="206" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="206" bodyend="209"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c" compoundref="Entity_8java" startline="233" endline="237">Entity.LeafEntity.LeafEntity</referencedby>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a1d6bf85ddf0a9382cfa4f82dd3063473" compoundref="EntityHBA_8java" startline="55" endline="67">EntityHBA.vwentity</referencedby>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a1d6bf85ddf0a9382cfa4f82dd3063473" compoundref="EntityFA_8java" startline="55" endline="67">EntityFA.vwentity</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="280" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="280" bodyend="283"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a30cc6402437a41c9da17a4e50fc9590c" compoundref="Entity_8java" startline="307" endline="311">Entity.LeafEntity.LeafEntity</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_1a1d6bf85ddf0a9382cfa4f82dd3063473" compoundref="EntityHBA_8java" startline="55" endline="73">EntityHBA.vwentity</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA_1a1d6bf85ddf0a9382cfa4f82dd3063473" compoundref="EntityFA_8java" startline="55" endline="73">EntityFA.vwentity</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -144,7 +144,7 @@ spider to catch the fly.. &quot;</para><para>Descendents will override this meth
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="246" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="246" bodyend="249"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="320" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="320" bodyend="323"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a1d6bf85ddf0a9382cfa4f82dd3063473" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>org.smallfoot.vw4.VWImport.Entity</type>
@@ -161,7 +161,7 @@ spider to catch the fly.. &quot;</para><para>Descendents will override this meth
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="252" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="252" bodyend="255"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="326" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="326" bodyend="329"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -216,12 +216,16 @@ spider to catch the fly.. &quot;</para><para>Descendents will override this meth
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="203" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="202" bodyend="275"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="277" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="276" bodyend="349"/>
     <listofallmembers>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2d966176f7b315760e172d3bc03f64a1" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>_compatibilityVersion</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2fb8c11825a512c9738dd5fee7250e01" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>addTo</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity_1a5a51654ce8be38d5f06faa182cb70e61" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>canBeChild</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ad315cf5c2790d5a5c8c5169c26647e84" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>children</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>children</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a30b425bd5034c7ca39be7363c0e86cdc" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>compatibilityVersion</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1aafad8b8b69f1c940a90bb5e2ef672ebf" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>compatibilityVersion</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1aa3f7ad2834fa542cf7d5cc554c49677d" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>compatibilityVersion</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>description</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>description</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afc6a43ee8007bcc023a7ebd2bf5ee1ed" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::LeafEntity</scope><name>Entity</name></member>

@@ -27,7 +27,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="52" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="52" bodyend="55"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="126" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="126" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a2a8c52dc01b9775f76eab69ebc825638" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -63,7 +63,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="58" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="58" bodyend="61"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="132" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="132" bodyend="135"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -92,7 +92,7 @@
         <label>Exception</label>
       </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="50" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="49" bodyend="62"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="124" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="123" bodyend="136"/>
     <listofallmembers>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a5c306b76ca66e2e9744e4e1f637cc991" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::ImproperChildException</scope><name>ImproperChildException</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1ImproperChildException_1a2a8c52dc01b9775f76eab69ebc825638" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::Entity::ImproperChildException</scope><name>ImproperChildException</name></member>

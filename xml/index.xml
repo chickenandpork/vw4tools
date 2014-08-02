@@ -1,10 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.7">
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kind="class"><name>org::smallfoot::vw4::Entity</name>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a30b425bd5034c7ca39be7363c0e86cdc" kind="variable"><name>compatibilityVersion</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ad315cf5c2790d5a5c8c5169c26647e84" kind="variable"><name>children</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" kind="variable"><name>description</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a9a2326f35466e54c36c070829245c557" kind="variable"><name>name</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ab1bf14d6f0f0af84c30272b6eed5792f" kind="variable"><name>parent</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a2d966176f7b315760e172d3bc03f64a1" kind="function"><name>_compatibilityVersion</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1aafad8b8b69f1c940a90bb5e2ef672ebf" kind="function"><name>compatibilityVersion</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1aa3f7ad2834fa542cf7d5cc554c49677d" kind="function"><name>compatibilityVersion</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a0a8c67a491e7100ba94f3035bbe62822" kind="function"><name>canBeChild</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a63ef33ad49b88027164e49d1916f409c" kind="function"><name>children</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ad132dc987577f0c56ebcd762c3bddddb" kind="function"><name>vwentity</name></member>
@@ -71,6 +75,7 @@
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a09f298d19a33be899f5835657c747c5d" kind="function"><name>patterns</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4" kind="function"><name>prettyJSON</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" kind="function"><name>save</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" kind="function"><name>setTarget</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6" kind="function"><name>wwndesc</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" kind="function"><name>_load</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" kind="function"><name>_save</name></member>
@@ -125,6 +130,8 @@
   <compound refid="scripts" kind="page"><name>scripts</name>
   </compound>
   <compound refid="csv-to-json" kind="page"><name>csv-to-json</name>
+  </compound>
+  <compound refid="jvmopt" kind="page"><name>jvmopt</name>
   </compound>
   <compound refid="todo" kind="page"><name>todo</name>
   </compound>

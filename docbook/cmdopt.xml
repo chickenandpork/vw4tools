@@ -13,7 +13,7 @@
 <para>-V|&#8211;version Show the current release version for reference </para>
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--version
-&#32;0.9-118&#32;
+&#32;0.9-121&#32;
 </programlisting></para>
 
 <para>-n|&#8211;nicknameout={file} Output nicknames from internal store </para>
@@ -44,15 +44,17 @@
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--read&#32;working.json&#32;
 </programlisting></para>
 
-<para>-R|&#8211;remove Parse ncknames for removal from the internal nickname list </para>
+<para>-R|&#8211;remove Parse nicknames for removal from the internal nickname list </para>
 
-<para>-R|&#8211;removenicknames Parse ncknames for removal from the internal nickname list</para>
+<para>-R|&#8211;removenicknames Parse nicknames for removal from the internal nickname list</para>
+
+<para>-t|&#8211;target set a target version for JSON output. Defaults to latest supported. A value of 4.0.1 is converted to 40.1 internally due to float comparison and expected changed every bump of major/minor version</para>
 
 <para>-!|&#8211;report Summarize the current status of the internal nicknaes and pattern/collation coverage </para>
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow&#32;&#32;--report
 (vw4tools)&#32;parsed&#32;0&#32;zones,&#32;2&#32;aliases&#32;via&#32;Alias4Parser
-vw4tools&#32;0.9-118
+vw4tools&#32;0.9-121
 &#32;&#32;&#32;&#32;5&#32;total&#32;entities
 &#32;&#32;&#32;&#32;4&#32;leaf&#32;nodes
 &#32;&#32;&#32;&#32;2&#32;orphans

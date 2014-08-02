@@ -29,7 +29,7 @@ String s)</para>
             <title>Detailed Description</title>
 
 <para>This exception is intended as a method of signalling &#8211; and rippling up if necessary &#8211; than an intended seconding as a child element is not accepted by the would-be parent. </para>
-                <para>Definition at line 50 of file Entity.java</para>
+                <para>Definition at line 124 of file Entity.java</para>
                 <para>The Documentation for this struct was generated from the following file: </para>
                 <para><itemizedlist><listitem><para>Entity.java</para></listitem></itemizedlist></para>
         </simplesect>
