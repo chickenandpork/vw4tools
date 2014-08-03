@@ -4,12 +4,12 @@ AT_INIT()
 AT_SETUP(version)
 dnl      ------
 
-@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
+@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V|@AWK@ '{print $1,$2,$3}'], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
 @DO_GETOPTJAR_TRUE@], [])
 @DO_GETOPTJAR_FALSE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar -V], 0, [@VERSION@-@BUILDID@
 @DO_GETOPTJAR_FALSE@], [])
 
-@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
+@DO_GETOPTJAR_TRUE@AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version|@AWK@ '{print $1,$2,$3}'], 0, [vw4tool version @VERSION@-@BUILDID@ (latest: "2012-12-03 1.0")
 @DO_GETOPTJAR_TRUE@], [])
 @DO_GETOPTJAR_FALSE@AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --version], 0, [@VERSION@-@BUILDID@
 @DO_GETOPTJAR_FALSE@], [])
@@ -21,16 +21,16 @@ AT_CLEANUP()
 AT_SETUP(check for version-setting breakage)
 dnl      ----------------------------------
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1], 0, [target set from @defaultcompattarget@ to 4.0.1 as 4.0.1
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1], 0, [target set from @defaultcompattarget@ to 4.0.1 as 4.0.1
 ], [])
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.2], 0, [target set from @defaultcompattarget@ to 4.0.2 as 4.0.2
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.2], 0, [target set from @defaultcompattarget@ to 4.0.2 as 4.0.2
 ], [])
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0], 0, [target set from @defaultcompattarget@ to 4.0 as 4.0.0
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0], 0, [target set from @defaultcompattarget@ to 4.0 as 4.0.0
 ], [])
 
-AT_CHECK([java -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1.6], 0, [target set from @defaultcompattarget@ to 4.0.1.6 as 4.0.1
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.showCompatTarget=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar --target=4.0.1.6], 0, [target set from @defaultcompattarget@ to 4.0.1.6 as 4.0.1
 ], [])
 
 AT_CLEANUP()
@@ -46,11 +46,11 @@ AT_DATA([emptyline.csv], [
 AT_DATA([emptyfile.csv], [])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@  -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyline.csv], 0, [stdout], [stderr])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyline.csv], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [], [])
 
 dnl bogus test converted to an actual test
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@  -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyfile.csv], 0, [stdout], [stderr])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=emptyfile.csv], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [], [])
 
 AT_CLEANUP()
