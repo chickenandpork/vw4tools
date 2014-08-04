@@ -48,7 +48,7 @@ Tools and Resources similar to my "fctools" project (nee "vitools") to reduce th
 %setup
 
 %build
-%configure %{?configure_additional:%{configure_additional}} && make
+%configure --disable-vertimeoutwarning %{?configure_additional:%{configure_additional}} && make
 
 %install
 make install DESTDIR=%{buildroot}
