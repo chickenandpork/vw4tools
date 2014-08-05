@@ -732,6 +732,27 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(dupe WWPN in nicknames)
+dnl      ----------------------
+
+AT_DATA([nicknamefile.csv], [10000000c9123456,Oracle01,Server
+10000000c9123456,Oracle01
+])
+
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv], 0, [stdout], [stderr])
+
+AT_CHECK([grep -c ' 1 aliases via NicknameParser' stdout], 0, [1
+], [])
+
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -oOrderedTuples.csv], 0, [stdout], [stderr])
+
+AT_CHECK([cat OrderedTuples.csv], 0, [Oracle01,host,10000000c9123456,Oracle01
+], [])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(write json sample sample01)
 dnl      --------------------------
 
