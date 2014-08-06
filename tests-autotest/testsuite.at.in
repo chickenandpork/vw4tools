@@ -242,6 +242,47 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(VW4InvalidAdded remove new fcports)
+dnl      ----------------------------------
+
+AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
+"WWN",50:0A:09:86:98:12:34:56,bogushost2,Storage
+"WWN",50:0A:09:87:98:12:34:56,bogushost,Storage
+])
+
+AT_DATA([remove.txt], [[
+Entity with given name already exist. Use edit type MODIFY to overwrite.
+Entity: bogushost : host
+Location: [Line : 2 , Column : 7]
+New port entities can not be imported. These are automatically discovered.
+Entity: bogushost2 : fcport
+Location: [Line : 16 , Column : 7]
+Invalid added child entities : 20c5000dec123456
+Entity: Cisco-000dec-123456:197 : hba
+Location: [Line : 24 , Column : 7]
+]])
+
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseAddItem=VW4InvalidAddedParser -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.txt --nicknameout=alias4file.json], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via VW4InvalidAddedParser
+(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
+], [])
+
+AT_CHECK([cat alias4file.json], 0, [[{
+  "entities" : [ {
+    "description" : "500a098598123456,NetApp-123456 converted via Alias4Parser from alias4file.csv",
+    "edit_type" : "add",
+    "name" : "NetApp-123456",
+    "tags" : [ "@PACKAGE@-@VERSION@-@BUILDID@" ],
+    "type" : "fcport",
+    "wwn" : "500a098598123456"
+  } ],
+  "version" : "1"
+}]], [])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(VW4InvalidAdded remove nicknames)
 dnl      ---------------------------
 
