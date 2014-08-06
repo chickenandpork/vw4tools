@@ -749,6 +749,27 @@ AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddi
 AT_CHECK([cat OrderedTuples.csv], 0, [Oracle01,host,10000000c9123456,Oracle01
 ], [])
 
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [[(vw4tools) parsed 0 zones, 1 aliases via NicknameParser
+(vw4tools) parsed 0 zones, 0 aliases via AliShowZoneParser
+(vw4tools) parsed 0 zones, 0 aliases via Alias4Parser
+(vw4tools) parsed 0 zones, 0 aliases via BNAZoneParser
+(vw4tools) parsed 0 zones, 0 aliases via DeviceAliasParser
+(vw4tools) parsed 0 zones, 0 aliases via ShowZoneParser
+(vw4tools) parsed 0 zones, 0 aliases via ShowZone2Parser
+(vw4tools) parsed 0 zones, 0 aliases via VW4InvalidAddedParser
+{
+  "entities" : [ {
+    "description" : "10000000c9123456,Oracle01 converted via NicknameParser from nicknamefile.csv",
+    "edit_type" : "add",
+    "name" : "Oracle01",
+    "tags" : [ "vw4tools-0.9-126" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123456"
+  } ],
+  "version" : "1"
+}
+]], [stderr])
+
 AT_CLEANUP()
 
 
