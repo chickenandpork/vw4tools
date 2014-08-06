@@ -568,17 +568,17 @@ public class VirtualWisdom4ClientTool
                             if (null != (e = entityAccepting(newguy)))
                                 System.out.println("object "+e.toString()+" accepts "+wwn+", "+zpa.name());
 
-                            if (null == entities().get(newguy.name()))
-                                entities().put(newguy.name(), newguy);
-                            else if (null == entities().get(newguy.name()+"_"+wwn.substring(wwn.length()-4)))
+                            if (null == entities().get(newguy.name().toLowerCase()))
+                                entities().put(newguy.name().toLowerCase(), newguy);
+                            else if (null == entities().get(newguy.name().toLowerCase()+"_"+wwn.substring(wwn.length()-4)))
                             {
                                 newguy.setname(newguy.name()+"_"+wwn.substring(wwn.length()-4));
-                                entities().put(newguy.name(), newguy);
+                                entities().put(newguy.name().toLowerCase(), newguy);
                             }
-                            else if (null == entities().get(String.format("%s_%05d",newguy.name(), wwn.hashCode())))
+                            else if (null == entities().get(String.format("%s_%05d",newguy.name().toLowerCase(), wwn.hashCode())))
                             {
                                 newguy.setname(String.format("%s_%05d",newguy.name(), wwn.hashCode()));
-                                entities().put(newguy.name(), newguy);
+                                entities().put(newguy.name().toLowerCase(), newguy);
                             }
                             //ports.put(wwn.toLowerCase().replaceAll("[^a-f0-9]",""), zpa.name().replaceAll("\"",""));
                         }
