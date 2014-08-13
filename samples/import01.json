@@ -1,7 +1,7 @@
 {
   "entities": [
     {
-      "description": "ITL app for -- apparently -- two Brocade HBAs: 200000051e961234 and 200100051e961235"
+      "description": "ITL app for -- apparently -- two Brocade HBAs: 200000051e961234 and 200100051e961235",
       "tags": [
         "import"
       ], 

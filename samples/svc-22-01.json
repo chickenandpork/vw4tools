@@ -1,5 +1,5 @@
 {
-  "description": "Sample SVC Entities import based on 2014-06-10 FAE/PA meeting.  NOTE that SVCs, despite their individual ports each having both Initiator and Target behavior, are detected as Targets, hence are defined as Array herein"
+  "description": "Sample SVC Entities import based on 2014-06-10 FAE/PA meeting.  NOTE that SVCs, despite their individual ports each having both Initiator and Target behavior, are detected as Targets, hence are defined as Array herein",
 
   "version" : "1",
   "entities": [
