@@ -1,0 +1,76 @@
+{
+  "entities": [
+    {
+      "description": "ITL example for 6 hosts which are zoned to each of 4 FAs (3 to 2 A-fabric, 3 to 2 B-fabric) (see also import-ITL-packed.json)",
+      "tags": [
+        "import"
+      ], 
+      "itl_patterns": [
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123462",
+	    "target": "50000972081349AD"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123462",
+	    "target": "5000097208134990"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123458",
+	    "target": "50000972081349AD"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123458",
+	    "target": "5000097208134990"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123456",
+	    "target": "50000972081349AD"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123456",
+	    "target": "5000097208134990"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123463",
+	    "target": "50000972081349AE"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123463",
+	    "target": "5000097208134991"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123459",
+	    "target": "50000972081349AE"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123459",
+	    "target": "5000097208134991"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123457",
+	    "target": "50000972081349AE"
+	},
+        {
+	    "edit_type": "add",
+	    "initiator": "10000000c9123457",
+	    "target": "5000097208134991"
+	}
+      ], 
+      "edit_type": "add", 
+      "type": "application", 
+      "name": "six2four"
+    }
+  ], 
+  "version": "1"
+}

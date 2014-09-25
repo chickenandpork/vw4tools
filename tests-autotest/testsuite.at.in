@@ -265,6 +265,8 @@ Location: [Line : 24 , Column : 7]
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseAddItem=VW4InvalidAddedParser -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.txt --nicknameout=alias4file.json], 0, [stdout], [stderr])
 AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via VW4InvalidAddedParser
 (@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
+adding bogushost to itemList reservedAliases
+adding bogushost2 to itemList reservedAliases
 ], [])
 
 AT_CHECK([cat alias4file.json], 0, [[{

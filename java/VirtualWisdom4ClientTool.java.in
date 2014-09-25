@@ -452,7 +452,7 @@ public class VirtualWisdom4ClientTool
     protected void loadAndRemoveFile(String f)
     {
         ZoneParser p = null;
-        java.util.Properties prop = new java.util.Properties();
+        java.util.Properties prop = System.getProperties();
 
         for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true, prop), "@PACKAGE@", /* ZParser(s) verbose */ true, prop) )); x--)
             System.out.println("retrying: reading "+f);
@@ -532,7 +532,7 @@ public class VirtualWisdom4ClientTool
     protected void loadAndAbsorbFile(String f)
     {
         ZoneParser p = null;
-        java.util.Properties prop = new java.util.Properties();
+        java.util.Properties prop = System.getProperties();
 
         for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true, prop), "@PACKAGE@", /* ZParser(s) verbose */ true, prop) )); x--)
             System.out.println("retrying: reading "+f);

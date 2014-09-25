@@ -106,4 +106,11 @@ endif   DO_SUDOPOSTMOVE
 
 rpm: dist-bzip2
 	@RPMBUILD@ --define 'skipcheck 1' -ta $(PACKAGE)-$(VERSION).tar.bz2
-endif
+endif HAVE_RPMBUILD
+
+buildcheck: dist-bzip2
+	rm -fr tests-autotest/testsuite.dir
+	make check || cat tests-autotest/testsuite.dir/*/testsuite.log
+
+
+
