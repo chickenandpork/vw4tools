@@ -5,6 +5,7 @@
       "tags": [
         "import"
       ], 
+      /* to avoid concerns over privacy: clearly the Initiators are fabricated WWPNs (0000c91234*), but the VMAX is VMax-HK192601234, clearly fabricated as well! */
       "itl_patterns": [
         {
 	    "edit_type": "add",
