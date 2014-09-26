@@ -212,8 +212,8 @@ AC_ARG_WITH(passwordfile,
 		URL_VIRTUOSO4="http://fcfae.com/";
 		;;
 	*)
-		PW_VISVC=`awk -F: '($1 == "visvc") {print $2}' ${withval}`
-		URL_VIRTUOSO4=`awk -F: '($1 == "urlVirtuoso4") {print $2}' ${withval}`
+		PW_VISVC=`awk -F, '($1 == "visvc") {print $2}' ${withval}`
+		URL_VIRTUOSO4=`awk -F, '($1 == "urlVirtuoso4") {print $2}' ${withval}`
 		;;
     esac
 ],
