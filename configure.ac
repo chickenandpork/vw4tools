@@ -203,6 +203,28 @@ AM_CONDITIONAL(DO_MAKE_JSONSCHEMA2POJO, test "x$SCHEMASAMPLE" != x)
 AC_SUBST([SCHEMASAMPLE])
 
 
+AC_ARG_WITH(passwordfile,
+[AS_HELP_STRING([--with-passwordfile],[external-to-codebase password file avoiding checking in passwords; default=disabled])],
+[
+    case "$withval" in
+	"no")
+		PW_VISVC="tiger";
+		URL_VIRTUOSO4="http://fcfae.com/";
+		;;
+	*)
+		PW_VISVC=`awk -F: '($1 == "visvc") {print $2}' ${withval}`
+		URL_VIRTUOSO4=`awk -F: '($1 == "urlVirtuoso4") {print $2}' ${withval}`
+		;;
+    esac
+],
+[
+	PW_VISVC="tiger";
+	URL_VIRTUOSO4="http://fcfae.com/";
+])
+AC_SUBST([URL_VIRTUOSO4],${URL_VIRTUOSO4})
+AC_SUBST([PW_VISVC],${PW_VISVC})
+
+
 AC_ARG_WITH(getoptplus,
 [AS_HELP_STRING([--with-getoptplus],[Enable inclusion of an improved getopt .jar; default=search])],
 [

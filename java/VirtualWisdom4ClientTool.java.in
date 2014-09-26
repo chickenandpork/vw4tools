@@ -22,6 +22,7 @@ import javax.xml.xpath.XPathFactory;
 import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
 import org.smallfoot.parser.FCParser;
+import org.smallfoot.parser.SSHCLI;
 import org.smallfoot.parser.zone.ZPAliasEntry;
 import org.smallfoot.parser.zone.ZoneParser;
 import org.smallfoot.vw4.VWImport;
@@ -760,6 +761,83 @@ public class VirtualWisdom4ClientTool
 
 
     /**
+     * Activate a Virtuoso4 curl-and-run on a target VW4 Appliance
+     *
+     * @param hosturl name or ssh:// url to use
+     */
+    void virtuoso4(String hosturl)
+    {
+        SSHCLI cli = new SSHCLI();
+
+	/* because URL is more-or-less "constant" for non URLStreamHandler classes, we need to step through an iterative set of steps */
+
+	/* first: make a base URL */
+
+	    java.net.URL first = null;
+	try
+	{
+	    first = new java.net.URL(hosturl);
+	}
+	catch (java.net.MalformedURLException mue)
+	{
+	    /*
+	     * first fail:
+	     * 
+	     * 1) the ssh:// protocol might not be found
+	     * 2) hosturl might not be a URL
+	     *
+	     * so we test-build a ssh:// URL, and succeeding that, assume it's a host (somewhat unsafe, choosing facility over rock-hard-refusal)
+	     */
+	    try { first = new java.net.URL("ssh://localhost/"); } catch (java.net.MalformedURLException x) { System.out.println("Internal error: ssh:// protocol not found"); return ; }
+
+	    try
+	    {
+	        first = new java.net.URL("ssh://"+hosturl+"/");
+	    }
+	    catch (java.net.MalformedURLException mue2)
+	    {
+		/* second fail: not a functional URL */
+		System.out.println("Cannot create a proper URL from that data"); return ;
+	    }
+	}
+
+	java.net.URL u;
+	try
+	{
+	    String commands[] = { 
+		"rm -fr virtuoso4",
+		"curl "+System.getProperties().getProperty("vw4tools.urlVirtuoso4", "@URL_VIRTUOSO4@")+" | tar -xzf -",
+		"cd virtuoso4",
+		"./virtuoso4.py" };
+
+	    String command = null;
+	    for (String s: commands)
+	    {
+		if (null == command)
+		    command = "";
+		else
+		    command += " && ";
+
+		command += s.replaceAll("!","\\!");
+	    }
+
+	    /* OK, we have a URL.  Now we do the silly part: tear it apart to re-use it */
+	    u = new java.net.URL(first, command); 
+	}
+	catch (java.net.MalformedURLException mue)
+	{
+System.out.println("Internal MalformedURLException: cannot spec-convert "+first.toString()+" to append command: "+mue.getMessage()); return;
+	}
+	
+System.out.println("converted "+first.toString()+" to "+u.toString());
+System.out.println("user info: "+u.getUserInfo());
+	cli.exec(u.toString(), /* dryrun */ false);
+
+        System.out.println("Virtuoso4: "+hosturl);
+    }
+
+
+    /**
      * Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)
      *
      * @param progname the name of the program (args[0]) to print on a usage message
@@ -884,10 +962,12 @@ public class VirtualWisdom4ClientTool
         options.add(new LongOpt("checkpattern", LongOpt.REQUIRED_ARGUMENT, null, 'p'));
         options.add(new LongOpt("target", LongOpt.REQUIRED_ARGUMENT, null, 't'));
 
+        options.add(new LongOpt("virtuoso4", LongOpt.REQUIRED_ARGUMENT, null, 'v'));
+
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /@DO_GETOPTJAR_TRUE@* */
-        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o::P:p:T:t:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
+        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o::P:p:T:t:v:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
 
         int c;
         while ((c = g.getopt()) != -1)
@@ -1005,6 +1085,10 @@ public class VirtualWisdom4ClientTool
                 }
             }
             break;
+
+            case 'v':   // activate a virtuoso4 curl-and-run on a target system
+                m.virtuoso4(g.getOptarg());
+                break;
 
             /** @todo need to check 3-decimal values such as "-t 4.0.1.7" (see also testsuite.at.in) */
             case 't':   // convert to a target version to avoid giving the recipient more than it wants to handle
