@@ -88,6 +88,7 @@
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aeb4c990279152389717ab187394330fa" kind="function"><name>finalizeEntities</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae4499ee0125936e10dde278b4a18c289" kind="function"><name>report</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" kind="function"><name>usage</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a91994d49298b59506ac70828b5eef62c" kind="function"><name>virtuoso4</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac920712c8aa23e3b84790e1ff7fb297c" kind="function"><name>writeOrderedTuples</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0ec044bae77579fea9b51e49c05ccbd3" kind="function"><name>writeOutputfile</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" kind="function"><name>main</name></member>

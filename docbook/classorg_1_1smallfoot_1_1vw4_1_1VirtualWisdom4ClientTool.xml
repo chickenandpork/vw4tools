@@ -226,6 +226,14 @@ String progname)</para>
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a91994d49298b59506ac70828b5eef62c">virtuoso4</link> (
+String hosturl)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac920712c8aa23e3b84790e1ff7fb297c">writeOrderedTuples</link> (
 String name, <link linkend="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector">EntitySelector</link> sel)</para>
                     </listitem>
@@ -272,7 +280,7 @@ int orphans, int fostered, int total)</para>
 <para>As you&apos;d expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</para>
 
 <para>Ad-Hoc content for this utility-stack may appear at <link xlink:href="http://fcfae.com/">http://fcfae.com/</link> </para>
-                <para>Definition at line 57 of file VirtualWisdom4ClientTool.java</para>
+                <para>Definition at line 58 of file VirtualWisdom4ClientTool.java</para>
                 <para>The Documentation for this struct was generated from the following file: </para>
                 <para><itemizedlist><listitem><para>VirtualWisdom4ClientTool.java</para></listitem></itemizedlist></para>
         </simplesect>
@@ -606,6 +614,29 @@ immediately on all current orphan LeafEntities.</emphasis>
                                 <entry>progname</entry>
                                 <entry>
 <para>the name of the program (args[0]) to print on a usage message </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a91994d49298b59506ac70828b5eef62c">
+                <title>void virtuoso4 (String hosturl)</title> <emphasis>Activate a Virtuoso4 curl-and-run on a target VW4 Appliance.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>hosturl</entry>
+                                <entry>
+<para>name or ssh:// url to use </para>
 </entry>
                             </row>
                         </tbody>
