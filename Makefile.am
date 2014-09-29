@@ -89,10 +89,10 @@ endif DO_GITFORMATTING
 
 endif DO_ASTYLE
 
-# in 1.0 use "tag -a 1.0" and remove the --tags below
+# (done by left for doc) in 1.0 use "tag -a 1.0" and remove the --tags below
 if DO_GITFORMATTING
 gitdescribe: .git/index
-	git describe --tags > $@
+	git describe > $@
 endif DO_GITFORMATTING
 
 if HAVE_RPMBUILD
