@@ -799,12 +799,25 @@ public class VirtualWisdom4ClientTool
 		/* second fail: not a functional URL */
 		System.out.println("Cannot create a proper URL from that data"); return ;
 	    }
+
+	    if ((null == first.getUserInfo()) || (0 == first.getUserInfo().length()))
+	    try
+	    {
+	        first = new java.net.URL("ssh://visvc:@PW_VISVC@@"+hosturl+"/");
+	    }
+	    catch (java.net.MalformedURLException mue2)
+	    {
+		/* post-second fail: not a functional URL */
+		System.out.println("Cannot create a proper URL (injecting password) from that data"); return ;
+	    }
+
 	}
 
 	java.net.URL u;
 	try
 	{
 	    String commands[] = { 
+		"killall virtuoso4.py||true",
 		"rm -fr virtuoso4",
 		"curl "+System.getProperties().getProperty("vw4tools.urlVirtuoso4", "@URL_VIRTUOSO4@")+" | tar -xzf -",
 		"cd virtuoso4",
