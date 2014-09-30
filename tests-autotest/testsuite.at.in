@@ -18,6 +18,19 @@ AT_CLEANUP()
 
 
 
+AT_SETUP(jarsigner)
+dnl      ------
+
+AT_CHECK([if test x@JARSIGNER@ = xmissing ; then exit 77; fi])
+
+AT_CHECK([@JARSIGNER@ -verify $abs_top_builddir/convjars/@PACKAGE@.jar], 0, [stdout], [])
+AT_CHECK([grep ^jar stdout], 0, [jar verified.
+], [])
+
+AT_CLEANUP()
+
+
+
 AT_SETUP(check for version-setting breakage)
 dnl      ----------------------------------
 

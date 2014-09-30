@@ -22,6 +22,7 @@ AC_SUBST(AUTOM4TE, autom4te)
 
 SVN_CHECK_JDK([1.6],[1.6])
 AM_CONDITIONAL(DO_JAVA, test "$JAVAC" != none)
+AC_CHECK_PROGS(JARSIGNER, [jarsigner], [missing])
 
 AC_PATH_PROGS(BYACC, [yacc.macosx byaccj], [missing byacc], $PATH:$HOME/bin)
 if test "x$BYACC" = "xmissing byacc"; then echo "BYACC available at http://byaccj.sourceforge.net/#download"; fi
@@ -160,7 +161,7 @@ AC_ARG_WITH(distname,
     DISTNAME=$withval
 ],
 [
-    DISTNAME=$(awk 'BEGIN {REL=""} /^CentOS release/ { REL=$1$3} END { if ("" == REL) print "unknown"; else print REL} ' /etc/redhat-release)
+    DISTNAME=$(cat /etc/redhat-release /dev/null 2>/dev/null | awk 'BEGIN {REL=""} /^CentOS release/ { REL=$1$3} END { if ("" == REL) print "unknown"; else print REL} ')
 ])
 
 AC_SUBST(localreposversion, ${DISTNAME})
@@ -223,6 +224,37 @@ AC_ARG_WITH(passwordfile,
 ])
 AC_SUBST([URL_VIRTUOSO4],${URL_VIRTUOSO4})
 AC_SUBST([PW_VISVC],${PW_VISVC})
+
+
+AC_ARG_WITH(java-keystore,
+[AS_HELP_STRING([--with-java-keystore],[Enable signing of jars (jarsigner -keystore [[keystore]] [[jar]] vitools), by giving a java keystore; (default=disabled, yes=use ~/.keystore)])],
+[
+    case "$withval" in
+        "yes") WITHJAVAKEYSTORE=${HOME}/.keystore ;;
+        "no")  WITHJAVAKEYSTORE=no ;;
+        *) WITHJAVAKEYSTORE=$withval ;;
+    esac
+],
+[
+    WITHJAVAKEYSTORE=no
+])
+AM_CONDITIONAL(DO_JARSIGNER, test "$WITHJAVAKEYSTORE" != no -a "x$JARSIGNER" != xmissing)
+AC_SUBST([WITHJAVAKEYSTORE], ${WITHJAVAKEYSTORE})
+
+
+AC_ARG_WITH(java-keystorepass,
+[AS_HELP_STRING([--with-java-keystorepass],[Automate signing of jars (jarsigner -keystore [[keystore]] [[jar]] vitools), by giving a java keystorepass; (default=disabled, yes= no password)])],
+[
+    case "$withval" in
+        "yes") WITHJAVAKEYSTOREPASS=- ;;
+        "no")  WITHJAVAKEYSTOREPASS= ;;
+        *) WITHJAVAKEYSTOREPASS=$withval ;;
+    esac
+],
+[
+    WITHJAVAKEYSTOREPASS=
+])
+AC_SUBST([JAVAKEYSTOREPASSSTRING], ["-storepass ${WITHJAVAKEYSTOREPASS}"])
 
 
 AC_ARG_WITH(getoptplus,

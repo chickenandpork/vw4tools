@@ -7,7 +7,7 @@ BUILDTMP=$(shell date +%s)
 JAVAROOT = bld
 
 
-@PACKAGE@.jar: ../java/@PACKAGE@.jar $(top_builddir)/depjars/json.jar @FCPARSERSJAR@ @WWNDESCJAR@ @GETOPTJAR@
+$(subdir).jar: ../java/@PACKAGE@.jar $(top_builddir)/depjars/json.jar @FCPARSERSJAR@ @WWNDESCJAR@ @GETOPTJAR@
 	@-rm -fr $(@D)/.workdir
 	@mkdir -p $(@D)/.workdir
 	@echo "Manifest-Version: 1.0" > $(@D)/.workdir/MANIFEST.MF
@@ -20,3 +20,15 @@ JAVAROOT = bld
 	(cd $(@D)/.workdir && jar cm MANIFEST.MF META-INF/services/java.sql.Driver com gnu net* org*) > $@
 	rm -fr $(@D)/.workdir
 	touch $@
+
+if DO_JARSIGNER
+@PACKAGE@.jar: $(subdir).jar @WITHJAVAKEYSTORE@
+	cat /dev/null | @JARSIGNER@ -keystore @WITHJAVAKEYSTORE@ @JAVAKEYSTOREPASSSTRING@ -signedjar $@ $< vitools
+#@PACKAGE@
+
+else
+@PACKAGE@.jar: $(subdir).jar
+	cp $< $@
+endif
+
+
