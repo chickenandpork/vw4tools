@@ -27,15 +27,15 @@ SOURCES = java/Entity.java java/EntityArray.java java/EntityFA.java java/EntityH
 
 if DO_DOXYGEN
 if DO_FOP
-doc: htdocs/docbook/@PACKAGE@.pdf htdocs/index.html htdocs/@PACKAGE@.jar
+doc: htdocs/docbook/@PACKAGE@.pdf htdocs/index.html
 else
-doc: htdocs/index.html htdocs/@PACKAGE@.jar
+doc: htdocs/index.html
 endif DO_FOP_FALSE
 
 htdocs/@PACKAGE@.jar: convjars/@PACKAGE@.jar
 	ln -f $< $@
 
-htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/README.dox Doxyfile all-am $(SOURCES)
+htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/@PACKAGE@.jar htdocs/README.dox Doxyfile all-am $(SOURCES)
 	$(DOXYGEN)
 	if test \! -d $(<D)/.git; then echo "subdir $(<D) not set as a gh-pages branch; see http://rickfoosusa.blogspot.com/2011/10/howto-use-doxygen-with-github.html"; git branch|grep gh-pages || echo git clone --branch gh-pages $$(git config --get remote.origin.url) $(<D); grep $(<D) .gitignore || echo "echo $(<D) > .gitignore"; echo "then delete everything in $(<D), commit, and push"; exit 1; fi
 	@grep $(<D) .gitignore || { echo "echo $(<D) > .gitignore"; exit 1; }
