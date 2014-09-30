@@ -980,7 +980,7 @@ System.out.println("user info: "+u.getUserInfo());
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /@DO_GETOPTJAR_TRUE@* */
-        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o::P:p:T:t:v:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
+        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o:P:p:T:t:v:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
 
         int c;
         while ((c = g.getopt()) != -1)
