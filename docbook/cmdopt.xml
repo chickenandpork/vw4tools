@@ -13,7 +13,7 @@
 <para>-V|&#8211;version Show the current release version for reference </para>
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--version
-&#32;0.9-133&#32;
+&#32;0.9-4&#32;
 </programlisting></para>
 
 <para>-n|&#8211;nicknameout={file} Output nicknames from internal store </para>
@@ -54,7 +54,7 @@
 
 <para><programlisting>java&#32;-jar&#32;vw4tools.jar&#32;--nickname=switch44.zoneshow&#32;&#32;--report
 (vw4tools)&#32;parsed&#32;0&#32;zones,&#32;2&#32;aliases&#32;via&#32;Alias4Parser
-vw4tools&#32;0.9-133
+vw4tools&#32;0.9-4
 &#32;&#32;&#32;&#32;5&#32;total&#32;entities
 &#32;&#32;&#32;&#32;4&#32;leaf&#32;nodes
 &#32;&#32;&#32;&#32;2&#32;orphans

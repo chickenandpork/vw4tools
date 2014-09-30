@@ -397,8 +397,27 @@ int orphans, int fostered, int total)</para>
 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d">
-                <title>void setTarget (String ver)</title> <emphasis></emphasis>
+                <title>void setTarget (String ver)</title> <emphasis>Set the expected version of the receiving VirtualWisdom to tailor version-specific features.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>ver</entry>
+                                <entry>
+<para>version to set (ie &quot;4.0&quot;, &quot;4.0.0&quot;, &quot;4.0.2&quot;) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6">
                 <title>WWNDescription wwndesc ()</title> <emphasis></emphasis>
@@ -743,7 +762,42 @@ immediately on all current orphan LeafEntities.</emphasis>
 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">
-                <title>static String report (int orphans, int fostered, int total)</title> <emphasis></emphasis>
+                <title>static String report (int orphans, int fostered, int total)</title> <emphasis>Convenience function to sSummarize the current &quot;coverage&quot; or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.</emphasis>
                 
+<para><formalpara><title>Returns: </title>
+
+<para>formatted string showing summary in human-readable text </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>orphans</entry>
+                                <entry>
+<para>count of orphan entities (still lacking parent entities) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>fostered</entry>
+                                <entry>
+<para>count of entities accepted by parent entities </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>total</entry>
+                                <entry>
+<para>count of all entities in the system </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
 </section>
