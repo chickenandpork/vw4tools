@@ -58,6 +58,11 @@ public class VirtualWisdom4ClientTool
 {
     private org.w3c.dom.Document xmlDocument;		/**< eventually used to hold an XML document when converting XML<-->JSON<-->XML */
 
+    /**
+     * Set the expected version of the receiving VirtualWisdom to tailor version-specific features
+     *
+     * @param ver version to set (ie "4.0", "4.0.0", "4.0.2")
+     */
     public void setTarget(String ver)
     {
         /**
@@ -408,6 +413,14 @@ public class VirtualWisdom4ClientTool
     }
 
 
+    /**
+     * Convenience function to sSummarize the current "coverage" or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.
+     *
+     * @return formatted string showing summary in human-readable text
+     * @param orphans count of orphan entities (still lacking parent entities)
+     * @param fostered count of entities accepted by parent entities
+     * @param total count of all entities in the system
+     */
     public static String report (int orphans, int fostered, int total)
     {
         return String.format("%5d total entities\n%5d leaf nodes\n%5d orphans\n%5.2f %% coverage", total, (orphans + fostered), orphans, (fostered * 100.0)/(orphans + fostered));

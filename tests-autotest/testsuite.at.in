@@ -999,7 +999,7 @@ AT_SETUP(Doxygen confirmation of marked-up content)
 dnl      -----------------------------------------
 
 AT_CHECK([if test x@DOXYGEN@ = xmissing ; then exit 77; fi])
-AT_CHECK([if test -z "@DO_DOXYGEN_TRUE@"; then exit 77; fi])
+AT_CHECK([if test -n "@DO_DOXYGEN_TRUE@"; then exit 77; fi])
 AT_CHECK([make -C $abs_top_builddir Doxyfile], 0, [stdout],[])
 AT_CHECK([(cd $abs_top_builddir && @DOXYGEN@)], 0, [stdout],[stderr])
 dnl used to put the errors at the bottom of the output
