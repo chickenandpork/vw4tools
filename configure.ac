@@ -2,7 +2,7 @@ dnl ***********************************************************************
 dnl Process this file with autoconf to produce a configure script.
 dnl ***********************************************************************
 #AC_INIT(install-sh)
-AC_INIT(vw4tools, 0.9)
+AC_INIT(vw4tools, 1.0)
 AC_CONFIG_MACRO_DIR([m4])
 
 AC_CANONICAL_HOST
@@ -137,7 +137,7 @@ if test "${CHKVER}" = "${VERSION}"
 then 
   AC_MSG_RESULT([ok])
 else
-  AC_MSG_WARN([version mismatch])
+  AC_MSG_ERROR([version mismatch: configure.ac needs version ${CHKVER} not ${VERSION}])
 fi
 AC_SUBST(BUILDID)
 
