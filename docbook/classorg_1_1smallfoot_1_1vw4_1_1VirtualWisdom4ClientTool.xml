@@ -76,6 +76,14 @@ String xmlFile)</para>
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a6ffcb3b58a6bcea538f374321414a141">check</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>TreeMap&lt; String, <link linkend="classorg_1_1smallfoot_1_1vw4_1_1Entity">Entity</link> &gt; <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4">entities</link> (
 )</para>
                     </listitem>
@@ -280,7 +288,7 @@ int orphans, int fostered, int total)</para>
 <para>As you&apos;d expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</para>
 
 <para>Ad-Hoc content for this utility-stack may appear at <link xlink:href="http://fcfae.com/">http://fcfae.com/</link> </para>
-                <para>Definition at line 58 of file VirtualWisdom4ClientTool.java</para>
+                <para>Definition at line 63 of file VirtualWisdom4ClientTool.java</para>
                 <para>The Documentation for this struct was generated from the following file: </para>
                 <para><itemizedlist><listitem><para>VirtualWisdom4ClientTool.java</para></listitem></itemizedlist></para>
         </simplesect>
@@ -314,6 +322,18 @@ int orphans, int fostered, int total)</para>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae">
                 <title>VirtualWisdom4ClientTool ()</title> <emphasis>Class Constructor with no initial file.</emphasis>
                 
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a6ffcb3b58a6bcea538f374321414a141">
+                <title>boolean check ()</title> <emphasis>self-check whether dependent components are available.</emphasis>
+                
+<para>This is beyond the benefits of build-time link verification and run-time linking, but checking the sanity of dependent parts. For example &#8211; and the only initial check &#8211; BouncyCastle may be available as a Provider (bcpkix) but may not load successfully for a number of fussy little reasons; I&apos;d like to be able to check each one and improve in-field diagnostics.</para>
+
+<para><formalpara><title>Returns: </title>
+
+<para>boolean: Am I sane? </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4">
                 <title>TreeMap&lt;String,Entity&gt; entities ()</title> <emphasis></emphasis>

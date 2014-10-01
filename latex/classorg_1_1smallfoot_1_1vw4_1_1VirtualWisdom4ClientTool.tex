@@ -27,6 +27,8 @@ interface {\bf Entity\+Selector}
 {\bf Virtual\+Wisdom4\+Client\+Tool} ()\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a7991b30b52ad4d408df3575abc9b57ae}
 
 \begin{DoxyCompactList}\small\item\em Class Constructor with no initial file. \end{DoxyCompactList}\item 
+boolean {\bf check} ()
+\begin{DoxyCompactList}\small\item\em self-\/check whether dependent components are available. \end{DoxyCompactList}\item 
 Tree\+Map$<$ String, {\bf Entity} $>$ {\bf entities} ()
 \item 
 void {\bf load} (String filename)
@@ -96,7 +98,7 @@ As you'd expect, there is no support for this. If it breaks, you may choose to k
 
 Ad-\/\+Hoc content for this utility-\/stack may appear at {\tt http\+://fcfae.\+com/} 
 
-Definition at line 57 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 62 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -122,7 +124,7 @@ Class Constructor to create with an initial file to load.
 \end{DoxySeeAlso}
 
 
-Definition at line 86 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 91 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -169,7 +171,7 @@ This is actually a wrapper for the underlying file load
 \item[{\bf Todo}]\+: evaluate\+: mapper.\+configure(Deserialization\+Config.\+Feature.\+F\+A\+I\+L\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+P\+R\+O\+P\+E\+R\+T\+I\+E\+S, false); \end{DoxyRefDesc}
 
 
-Definition at line 115 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 120 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -193,11 +195,35 @@ Save the current X\+M\+L Document to a new file.
 \end{DoxyParams}
 
 
-Definition at line 150 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 155 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
 Referenced by Virtual\+Wisdom4\+Client\+Tool.\+save().
+
+\index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!check@{check}}
+\index{check@{check}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}boolean check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a6ffcb3b58a6bcea538f374321414a141}
+
+
+self-\/check whether dependent components are available. 
+
+This is beyond the benefits of build-\/time link verification and run-\/time linking, but checking the sanity of dependent parts. For example -- and the only initial check -- Bouncy\+Castle may be available as a Provider (bcpkix) but may not load successfully for a number of fussy little reasons; I'd like to be able to check each one and improve in-\/field diagnostics.
+
+\begin{DoxyReturn}{Returns}
+boolean\+: Am I sane? 
+\end{DoxyReturn}
+
+
+Definition at line 464 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+
+
+
+Referenced by Virtual\+Wisdom4\+Client\+Tool.\+main().
 
 \index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!entities@{entities}}
 \index{entities@{entities}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
@@ -211,7 +237,7 @@ collection of entities
 \end{DoxyReturn}
 
 
-Definition at line 213 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 218 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -235,7 +261,7 @@ Wrapper to just load the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 129 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 134 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -277,7 +303,7 @@ one-\/shot load a new file and absorb the contents\+: open the file and stream t
 \end{DoxySeeAlso}
 
 
-Definition at line 546 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 585 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -321,7 +347,7 @@ Working on only the leaf entities, this uses the parser array to parse an input 
 \end{DoxySeeAlso}
 
 
-Definition at line 466 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 505 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -365,7 +391,7 @@ java -jar vw4tools.jar --help
 \item[{\bf Commandline Options}]
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
- 1.0-6 
+ 1.0-7 
 \end{DoxyCode}
 \end{DoxyRefDesc}
 
@@ -440,7 +466,7 @@ java -jar vw4tools.jar --read working.json
 \begin{DoxyCode}
 java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 1.0-6
+vw4tools 1.0-7
     5 total entities
     4 leaf nodes
     2 orphans
@@ -487,15 +513,16 @@ vw4tools 1.0-6
 \item[{\bf Todo}]need to check 3-\/decimal values such as \char`\"{}-\/t 4.\+0.\+1.\+7\char`\"{} (see also testsuite.\+at.\+in) \end{DoxyRefDesc}
 
 
-Definition at line 918 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 970 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
-References Entity.\+description, Virtual\+Wisdom4\+Client\+Tool.\+entities, Virtual\+Wisdom4\+Client\+Tool.\+load(), Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Absorb\+File(), Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Remove\+File(), Entity.\+name, Virtual\+Wisdom4\+Client\+Tool.\+report(), Virtual\+Wisdom4\+Client\+Tool.\+set\+Target(), Virtual\+Wisdom4\+Client\+Tool.\+Virtual\+Wisdom4\+Client\+Tool(), and Virtual\+Wisdom4\+Client\+Tool.\+vwimport.
+References Virtual\+Wisdom4\+Client\+Tool.\+check(), Entity.\+description, Virtual\+Wisdom4\+Client\+Tool.\+entities, Virtual\+Wisdom4\+Client\+Tool.\+load(), Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Absorb\+File(), Virtual\+Wisdom4\+Client\+Tool.\+load\+And\+Remove\+File(), Entity.\+name, Virtual\+Wisdom4\+Client\+Tool.\+report(), Virtual\+Wisdom4\+Client\+Tool.\+set\+Target(), Virtual\+Wisdom4\+Client\+Tool.\+Virtual\+Wisdom4\+Client\+Tool(), and Virtual\+Wisdom4\+Client\+Tool.\+vwimport.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -516,7 +543,7 @@ collection of patterns
 \end{DoxyReturn}
 
 
-Definition at line 206 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 211 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 \index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!pretty\+J\+S\+O\+N@{pretty\+J\+S\+O\+N}}
 \index{pretty\+J\+S\+O\+N@{pretty\+J\+S\+O\+N}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
@@ -539,7 +566,7 @@ a pretty-\/printed J\+S\+O\+N using Object\+Writer.\+with\+Default\+Pretty\+Prin
 \end{DoxyReturn}
 
 
-Definition at line 180 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 185 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 \index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!report@{report}}
 \index{report@{report}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
@@ -568,7 +595,7 @@ formatted string showing summary in human-\/readable text
 \end{DoxyParams}
 
 
-Definition at line 424 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 429 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -592,7 +619,7 @@ Wrapper to just save the file, spitting out exceptions and stacks as they occur.
 \end{DoxyParams}
 
 
-Definition at line 161 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 166 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -629,7 +656,7 @@ Set the expected version of the receiving Virtual\+Wisdom to tailor version-\/sp
 \item[{\bf J\+V\+M Options}]{\bfseries debug.\+show\+Compat\+Target} causes the compat.\+target to be displayed when (re)set \end{DoxyRefDesc}
 
 
-Definition at line 66 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 71 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -651,7 +678,7 @@ vwimport instance, created if needed
 \end{DoxyReturn}
 
 
-Definition at line 101 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 106 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -669,7 +696,7 @@ wwndesc
 \end{DoxyReturn}
 
 
-Definition at line 220 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 225 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
