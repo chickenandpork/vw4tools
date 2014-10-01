@@ -744,7 +744,7 @@ AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddi
 AT_CHECK([grep -c ' 6 aliases via DeviceAliasParser' stdout], 0, [1
 ], [])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_hba[[0-9]]+$" -N abs_top_srcdir/samples/simple.devicealias -oOrderedTuples.csv], 0, [stdout], [stderr])
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_hba[[0-9]]+$" -N abs_top_srcdir/samples/simple.devicealias -oOrderedTuples.csv -oresult.json], 0, [stdout], [stderr])
 
 AT_CHECK([cat OrderedTuples.csv], 0, [oracle10_hba0,host,21000024ff123456,oracle10_hba0
 oracle10_hba1,host,22000024ff123456,oracle10_hba1
@@ -753,6 +753,126 @@ server44_hba1,host,10000000c9123457,server44_hba1
 vmax-18641-fa06a0,array,5000097201234554,vmax-18641-fa06a0
 vmax-18641-fa07a0,array,5000097201234558,vmax-18641-fa07a0
 ], [])
+
+AT_CHECK([cat result.json], 0, [[{
+  "entities" : [ {
+    "description" : "21000024ff123456,oracle10_hba0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "oracle10_hba0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "21000024ff123456"
+  }, {
+    "description" : "22000024ff123456,oracle10_hba1 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "oracle10_hba1",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "22000024ff123456"
+  }, {
+    "description" : "10000000c9123456,server44_hba0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "server44_hba0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123456"
+  }, {
+    "description" : "10000000c9123457,server44_hba1 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "server44_hba1",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123457"
+  }, {
+    "description" : "5000097201234554,vmax-18641-fa06a0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "vmax-18641-fa06a0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "5000097201234554"
+  }, {
+    "description" : "5000097201234558,vmax-18641-fa07a0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "vmax-18641-fa07a0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "5000097201234558"
+  } ],
+  "version" : "1"
+}]], [])
+
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N abs_top_srcdir/samples/simple.devicealias --pattern="([[^_]]+)_hba[[0-9]]+$" -oOrderedTuples.csv -oresult.json], 0, [stdout], [stderr])
+
+AT_CHECK([cat OrderedTuples.csv], 0, [oracle10,host,21000024ff123456,oracle10_hba0
+oracle10,host,22000024ff123456,oracle10_hba1
+server44,host,10000000c9123456,server44_hba0
+server44,host,10000000c9123457,server44_hba1
+vmax-18641-fa06a0,array,5000097201234554,vmax-18641-fa06a0
+vmax-18641-fa07a0,array,5000097201234558,vmax-18641-fa07a0
+], [])
+
+AT_CHECK([cat result.json], 0, [[{
+  "entities" : [ {
+    "child_entities" : {
+      "add" : [ "oracle10_hba0", "oracle10_hba1" ]
+    },
+    "edit_type" : "add",
+    "name" : "oracle10",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "host"
+  }, {
+    "description" : "21000024ff123456,oracle10_hba0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "oracle10_hba0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "21000024ff123456"
+  }, {
+    "description" : "22000024ff123456,oracle10_hba1 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "oracle10_hba1",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "22000024ff123456"
+  }, {
+    "child_entities" : {
+      "add" : [ "server44_hba0", "server44_hba1" ]
+    },
+    "edit_type" : "add",
+    "name" : "server44",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "host"
+  }, {
+    "description" : "10000000c9123456,server44_hba0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "server44_hba0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123456"
+  }, {
+    "description" : "10000000c9123457,server44_hba1 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "server44_hba1",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "10000000c9123457"
+  }, {
+    "description" : "5000097201234554,vmax-18641-fa06a0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "vmax-18641-fa06a0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "5000097201234554"
+  }, {
+    "description" : "5000097201234558,vmax-18641-fa07a0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
+    "edit_type" : "add",
+    "name" : "vmax-18641-fa07a0",
+    "tags" : [ "vw4tools-1.0-6" ],
+    "type" : "fcport",
+    "wwn" : "5000097201234558"
+  } ],
+  "version" : "1"
+}]], [])
 
 AT_CLEANUP()
 
