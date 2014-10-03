@@ -8,6 +8,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.lang.reflect.Method;
+import java.lang.String;
 import java.util.Vector;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -224,6 +226,34 @@ public class VirtualWisdom4ClientTool
     }
 
     /**
+     * stock munger: wrap a String.toUpperCase(String)
+     *
+     * @param s String to convert
+     * @return uppercase variant of given string
+     */
+    public static String touppercase(String s)
+    {
+	if (null == s) return ""; else return s.toUpperCase();
+    }
+
+    Vector<Method> hostMungers = new Vector<Method> (1,1);
+    void addMunger(String munger)
+    {
+	if (null == munger) return;
+
+	else if (munger.equalsIgnoreCase("host:touppercase"))
+	{
+	    try {
+	    Class clazz = this.getClass();
+	    Class[] params = { String.class };
+	    Method M = clazz.getMethod("touppercase", params);
+	    hostMungers.add(M);
+	    }
+	    catch (NoSuchMethodException nsme) { nsme.printStackTrace(); }
+	}
+    }
+
+    /**
      * Absorb a pattern for chunking together nickname patterns and execute it
      * immediately on all current orphan LeafEntities.
      *
@@ -268,6 +298,14 @@ public class VirtualWisdom4ClientTool
                         if (m.find())
                         {
                             String possibleName = m.group(1);
+			    for (Method M: hostMungers)
+			    {
+				if (verbose) System.out.println("pre-munge: calling "+M.getName()+" with \""+possibleName+"\"");
+				try {
+				possibleName = M.invoke(this,new Object[]{possibleName}).toString();
+				} catch (Exception e) { e.printStackTrace(); }
+				if (verbose) System.out.println("post-munge: called "+M.getName()+" gave \""+possibleName+"\"");
+			    }
                             if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern+" possible: "+possibleName);
 
                             /* OK, orphan.  Which of the four cases are we? */
@@ -874,6 +912,7 @@ System.out.println("user info: "+u.getUserInfo());
         System.out.println("     : "+progname+" [ --target=4.0|4.0.1|4.0.2 ] --read <filename>|--input <filename> | -r <filename> | -i <filename>");
         System.out.println("     : "+progname+" --nickname=<filename>|-N<filename> | --removenicknames=<filename> | -i <filename>");
         System.out.println("     : "+progname+" --pattern=<pattern>|-P <pattern> [--pattern=...] --checkpattern=<alias>");
+        System.out.println("     : "+progname+" --munge=uppercase|-M uppercase");
 
         System.out.println("   ie: "+progname+" --read import.json");
         System.out.println("       "+progname+" -r import.json");
@@ -982,6 +1021,7 @@ System.out.println("user info: "+u.getUserInfo());
         options.add(new LongOpt("remove", LongOpt.REQUIRED_ARGUMENT, null, 'R'));
         options.add(new LongOpt("removenicknames", LongOpt.REQUIRED_ARGUMENT, null, 'R'));
         options.add(new LongOpt("report", LongOpt.NO_ARGUMENT, null, '!'));
+        options.add(new LongOpt("munge", LongOpt.REQUIRED_ARGUMENT, null, 'M'));
         options.add(new LongOpt("nicknameout", LongOpt.REQUIRED_ARGUMENT, null, 'n'));
         options.add(new LongOpt("output", LongOpt.REQUIRED_ARGUMENT, null, 'o'));
         options.add(new LongOpt("pattern", LongOpt.REQUIRED_ARGUMENT, null, 'P'));
@@ -993,7 +1033,7 @@ System.out.println("user info: "+u.getUserInfo());
         options.add(new LongOpt("test", LongOpt.REQUIRED_ARGUMENT, null, 'T'));
 
         /* *@DO_GETOPTJAR_TRUE@/        org.smallfoot.getopt.GetOpt	g = new org.smallfoot.getopt.GetOpt("vw4tool", args, options);        /@DO_GETOPTJAR_TRUE@* */
-        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:N:n:o:P:p:T:t:v:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
+        /* *@DO_GETOPTJAR_FALSE@/       gnu.getopt.Getopt		g = new gnu.getopt.Getopt("vw4tool", args, "HVR:r:i:M:N:n:o:P:p:T:t:v:", options.toArray(new LongOpt[0]));        /@DO_GETOPTJAR_FALSE@* */
 
         int c;
         while ((c = g.getopt()) != -1)
@@ -1032,6 +1072,10 @@ System.out.println("user info: "+u.getUserInfo());
                 for (String s: m.exercisePattern(g.getOptarg()))
                     if (null != s)
                         System.out.println("\""+g.getOptarg()+"\" --> \""+s+"\"");
+                break;
+
+            case 'M': /* add Munging rules */
+		m.addMunger(g.getOptarg());
                 break;
 
             case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
