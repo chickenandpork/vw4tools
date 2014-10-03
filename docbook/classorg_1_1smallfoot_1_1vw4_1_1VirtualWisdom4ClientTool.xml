@@ -60,7 +60,7 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Vector&lt; Method &gt; nameMungers</para>
+                        <para>Vector&lt; Method &gt; hostMungers</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -644,8 +644,31 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3c095173af01126818c08d1f53219b69">
-                <title>static String touppercase (String s)</title> <emphasis></emphasis>
+                <title>static String touppercase (String s)</title> <emphasis>stock munger: wrap a String.toUpperCase(String)</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>s</entry>
+                                <entry>
+<para>String to convert </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>uppercase variant of given string </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">
                 <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns and execute it

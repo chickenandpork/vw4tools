@@ -48,9 +48,8 @@ static void {\bf main} (String args[$\,$])
 \begin{DoxyCompactList}\small\item\em Main function, as you can tell. \end{DoxyCompactList}\item 
 static String {\bf report} (int orphans, int fostered, int total)
 \begin{DoxyCompactList}\small\item\em Convenience function to s\+Summarize the current \char`\"{}coverage\char`\"{} or efficiency of alias/nicknames onto current entities as human-\/readable text; useful to show whether the patterns used to aggregate leaf-\/entities into upper-\/layer entities are being effective at all. \end{DoxyCompactList}\item 
-static String {\bfseries touppercase} (String s)\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a3c095173af01126818c08d1f53219b69}
-
-\end{DoxyCompactItemize}
+static String {\bf touppercase} (String s)
+\begin{DoxyCompactList}\small\item\em stock munger\+: wrap a String.\+to\+Upper\+Case(\+String) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
@@ -280,7 +279,7 @@ one-\/shot load a new file and absorb the contents\+: open the file and stream t
 \end{DoxySeeAlso}
 
 
-Definition at line 578 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 584 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -324,7 +323,7 @@ Working on only the leaf entities, this uses the parser array to parse an input 
 \end{DoxySeeAlso}
 
 
-Definition at line 498 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 504 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -368,7 +367,7 @@ java -jar vw4tools.jar --help
 \item[{\bf Commandline Options}]
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
- 1.0-9 
+ 1.0-10 
 \end{DoxyCode}
 \end{DoxyRefDesc}
 
@@ -443,7 +442,7 @@ java -jar vw4tools.jar --read working.json
 \begin{DoxyCode}
 java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 1.0-9
+vw4tools 1.0-10
     5 total entities
     4 leaf nodes
     2 orphans
@@ -490,7 +489,7 @@ vw4tools 1.0-9
 \item[{\bf Todo}]need to check 3-\/decimal values such as \char`\"{}-\/t 4.\+0.\+1.\+7\char`\"{} (see also testsuite.\+at.\+in) \end{DoxyRefDesc}
 
 
-Definition at line 950 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 957 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -571,7 +570,7 @@ formatted string showing summary in human-\/readable text
 \end{DoxyParams}
 
 
-Definition at line 456 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 462 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -641,6 +640,29 @@ References Entity.\+compatibility\+Version.
 
 
 Referenced by Virtual\+Wisdom4\+Client\+Tool.\+main().
+
+\index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!touppercase@{touppercase}}
+\index{touppercase@{touppercase}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
+\subsubsection[{touppercase}]{\setlength{\rightskip}{0pt plus 5cm}static String touppercase (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a3c095173af01126818c08d1f53219b69}
+
+
+stock munger\+: wrap a String.\+to\+Upper\+Case(\+String) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uppercase variant of given string 
+\end{DoxyReturn}
+
+
+Definition at line 234 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 \index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!vwimport@{vwimport}}
 \index{vwimport@{vwimport}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
