@@ -35,7 +35,7 @@ endif DO_FOP_FALSE
 htdocs/@PACKAGE@.jar: convjars/@PACKAGE@.jar
 	ln -f $< $@
 
-htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/@PACKAGE@.jar htdocs/README.dox Doxyfile all-am $(SOURCES)
+htdocs/index.html htdocs/xml/index.xml htdocs/docbook/index.xml: htdocs/@PACKAGE@.jar Doxyfile all-am $(SOURCES) htdocs/BUILDING.dox htdocs/OVERVIEW.dox htdocs/README.dox htdocs/RUNNING.dox
 	$(DOXYGEN)
 	if test \! -d $(<D)/.git; then echo "subdir $(<D) not set as a gh-pages branch; see http://rickfoosusa.blogspot.com/2011/10/howto-use-doxygen-with-github.html"; git branch|grep gh-pages || echo git clone --branch gh-pages $$(git config --get remote.origin.url) $(<D); grep $(<D) .gitignore || echo "echo $(<D) > .gitignore"; echo "then delete everything in $(<D), commit, and push"; exit 1; fi
 	@grep $(<D) .gitignore || { echo "echo $(<D) > .gitignore"; exit 1; }
@@ -60,11 +60,16 @@ endif DO_FOP
 htdocs/README.dox: README.md Makefile
 	if test \! -d $(@D)/.git; then echo "subdir $(@D) not set as a gh-pages branch; see http://rickfoosusa.blogspot.com/2011/10/howto-use-doxygen-with-github.html"; git branch|grep gh-pages || echo git clone --branch gh-pages $$(git config --get remote.origin.url) $(@D); grep $(@D) .gitignore || echo "echo $(@D) > .gitignore"; echo "then delete everything in $(@D), commit, and push"; exit 1; fi
 if DO_DOXYGEN_MD
-	awk 'BEGIN { print "@file"; shown=0; } /^@PACKAGE@/ && (0 == shown) { print "@mainpage JavaDoc API Markup for @PACKAGE@"; shown++; } { printf "%s\n",$$0; } END {print "" }' $< > $@
+	awk 'BEGIN { shown=0; } /^@PACKAGE@/ && (0 == shown) { print "JavaDoc API Markup for @PACKAGE@ {#mainpage}"; shown++; next; } { printf "%s\n",$$0; } END {print "" }' $< > $@
 else
 	awk 'BEGIN { print "/** @file "; print "@mainpage JavaDoc API Markup for @PACKAGE@"; } /@PACKAGE@$$/ {next} /^=+$$/ {next} { printf " * %s\n",$$0; } END {print " */" }' $< > $@
 endif DO_DOXYGEN_MD_FALSE
-endif
+
+
+htdocs/%.dox: %.md htdocs/README.dox
+	cp $< $@
+
+endif DO_DOXYGEN
 
 
 if DO_MAKE_JSONSCHEMA2POJO
