@@ -1,6 +1,8 @@
 Overview
 ========
 
+[TOC]
+
 In general, collection and conversion looks like the following diagram:
 
 @dot

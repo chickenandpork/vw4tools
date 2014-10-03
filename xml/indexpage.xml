@@ -4,17 +4,26 @@
     <compoundname>index</compoundname>
     <title>JavaDoc API Markup for vw4tools</title>
     <detaileddescription>
-<para>Tools and utilities for VirtualWisdom4</para><para>At current, VW4Tools is a script or two, plus one big jar file. vw4tool.jar allows a user to import a text file in one of several formats and output an Entity import JSON for VirtualWisdom4.</para><para>VW4Tools is intentionally 100% opensource to both show the code a user may be running on a trusted server, and to emphasize that Support is also of the OpenSource variety (ie not by VI Support).</para><para><dot> 
+<para>Tools and utilities for VirtualWisdom4</para><para>At current, VW4Tools is a script or two, plus one big jar file. vw4tool.jar allows a user to import a text file in one of several formats and output an Entity import JSON for VirtualWisdom4.</para><para>VW4Tools is intentionally 100% opensource to both show the code a user may be running on a trusted server, and to emphasize that Support is also of the OpenSource variety (ie not by VI Support). In turn, VW4Tools uses other projects to achieve its goals:</para><para><dot> 
+// If this doesn&apos;t show up well, see it at http://chickenandpork.github.io/vw4tools/index.html
 digraph Dependencies
 {
-&quot;fibrechannel-parsers&quot; [ label=&quot;\N&quot;, URL=&quot;http://chickenandpork.github.io/fibrechannel-parsers/index.html&quot; ];
+&quot;vw4tools&quot; [ label=&quot;VW4Tools\n(AL-2.0)&quot;, URL=&quot;https://www.openhub.net/p/\N&quot; ];                          // AL-2.0
 
-&quot;fasterxml::jackson&quot; -&gt; &quot;vw4tools&quot;
-&quot;fibrechannel-parsers&quot; -&gt; &quot;vw4tools&quot;
-&quot;java-getopt&quot; -&gt; &quot;vw4tools&quot;
-&quot;wwndesc&quot; -&gt; &quot;vw4tools&quot;
+&quot;jackson&quot; [ label=&quot;fasterxml::jackson&quot;, URL=&quot;http://wiki.fasterxml.com/JacksonHome&quot; ];                          // LGPL-2.1, AL-2.0
+
+&quot;fibrechannel-parsers&quot; [ label=&quot;\N&quot;, URL=&quot;http://chickenandpork.github.io/fibrechannel-parsers/index.html&quot; ];   // AL-2.0
+
+&quot;wwndesc&quot; [ label=&quot;\N&quot;, URL=&quot;http://chickenandpork.github.io/wwndesc/index.html&quot; ];                             // AL-2.0
+{ &quot;jackson&quot; &quot;fibrechannel-parsers&quot; &quot;wwndesc&quot; } -&gt; &quot;vw4tools&quot; [ label=&quot;AL-2.0&quot; ];
+
+&quot;java-getopt&quot; [ label=&quot;USL/GNU SUN/java-getopt&quot;, URL=&quot;http://www.gnu.org/software/java-getopt/&quot; ];              // LGPL-2
+&quot;java-getopt&quot; -&gt; &quot;vw4tools&quot; [ label=&quot;LGPL-2&quot; ];
 }
-</dot></para><para><heading level="1">Proprietary Intellectual Property </heading>
+</dot></para><para>If we support the notion of &quot;GNU/Linux&quot; rather than &quot;Linux&quot;, then by the same logic, we should refer to java-getopt as &quot;USL/GNU SUN/java-getopt&quot;</para><para><heading level="1">Key Resources </heading>
+</para><para><orderedlist>
+<listitem><para><ref refid="md_htdocs_OVERVIEW" kindref="compound">Usage Overview</ref> can describe general usage</para></listitem><listitem><para><ref refid="md_htdocs_RUNNING" kindref="compound">Running Java</ref> can help users who are new to Java understand how to run Java (note: Here There Be Command Terminals)</para></listitem><listitem><para><ref refid="md_htdocs_BUILDING" kindref="compound">Building</ref> can elaborate on how the project is built from this sourcecode</para></listitem></orderedlist>
+</para><para><heading level="1">Proprietary Intellectual Property </heading>
 </para><para>With the exception of samples/import01.json, all files and content are based on the same level of access to the product enjoyed by a customer. Implicitly, no private information is shared, all of this content (save the one file) is based on empirical discovery, and could change overnight. </para>    </detaileddescription>
   </compounddef>
 </doxygen>

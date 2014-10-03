@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">1.0-8</span>
+   &#160;<span id="projectnumber">1.0-9</span>
    </div>
   </td>
  </tr>
@@ -547,7 +547,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                }</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            }</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        System.out.println(<span class="stringliteral">&quot;vw4tools 1.0-8&quot;</span>);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        System.out.println(<span class="stringliteral">&quot;vw4tools 1.0-9&quot;</span>);</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        System.out.println(report (orphans, fostered, total));</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    }</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;</div>
@@ -830,7 +830,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        <span class="keywordflow">for</span> (String s: <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().keySet())</div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            <span class="keywordflow">if</span> ( (null != s) &amp;&amp; (null != (e = <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().<span class="keyword">get</span>(s))) )</div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;                <span class="keywordflow">if</span> (e.isOrphan())       <span class="comment">/* tree-order transversal: having a parent means this entity will be written when the parent writes */</span></div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;                    i += e.addTo(vwimport(), <span class="stringliteral">&quot;vw4tools-1.0-8&quot;</span>);</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;                    i += e.addTo(vwimport(), <span class="stringliteral">&quot;vw4tools-1.0-9&quot;</span>);</div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;</div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        <span class="comment">//System.out.println(&quot;transferred &quot;+i+&quot; entities from &quot;+entities().size()+&quot; entities, resulting in &quot;+vwimport().entities().size()+&quot; json entities&quot;);</span></div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;</div>
@@ -1030,7 +1030,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;<span class="comment">         *</span></div>
 <div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;<span class="comment">         * @cmdopt -V|--version Show the current release version for reference</span></div>
 <div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;<span class="comment">         * @cmdopt @code java -jar vw4tools.jar --version</span></div>
-<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;<span class="comment">         *  1.0-8 @endcode</span></div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;<span class="comment">         *  1.0-9 @endcode</span></div>
 <div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;<span class="comment">         *</span></div>
 <div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;<span class="comment">         * @cmdopt -n|--nicknameout={file} Output nicknames from internal store</span></div>
 <div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;<span class="comment">         * @cmdopt -o|--output={file} Output nicknames from internal store</span></div>
@@ -1067,7 +1067,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;<span class="comment">               * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage</span></div>
 <div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;<span class="comment">               * @cmdopt @code java -jar vw4tools.jar --nickname=switch44.zoneshow  --report</span></div>
 <div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;<span class="comment">         * (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser</span></div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;<span class="comment">         * vw4tools 1.0-8</span></div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;<span class="comment">         * vw4tools 1.0-9</span></div>
 <div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;<span class="comment">         *     5 total entities</span></div>
 <div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;<span class="comment">         *     4 leaf nodes</span></div>
 <div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;<span class="comment">         *     2 orphans</span></div>
@@ -1232,8 +1232,8 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;<span class="comment">             */</span></div>
 <div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;V&#39;</span>:   <span class="comment">// print the version and quit</span></div>
 <div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;            {</div>
-<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;                <span class="comment">/* *#/ System.out.println(&quot;1.0-8&quot;); /#* */</span></div>
-<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;                <span class="comment">/* */</span> System.out.println(g.consistentVersion(<span class="stringliteral">&quot;1.0-8&quot;</span>)); <span class="comment">/* */</span></div>
+<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;                <span class="comment">/* *#/ System.out.println(&quot;1.0-9&quot;); /#* */</span></div>
+<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;                <span class="comment">/* */</span> System.out.println(g.consistentVersion(<span class="stringliteral">&quot;1.0-9&quot;</span>)); <span class="comment">/* */</span></div>
 <div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;            }</div>
 <div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;</div>
@@ -1288,7 +1288,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="VirtualWisdom4ClientTool_8java.html">VirtualWisdom4ClientTool.java</a></li>
-    <li class="footer">Generated on Thu Oct 2 2014 17:50:08 for vw4tools by
+    <li class="footer">Generated on Thu Oct 2 2014 18:27:04 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

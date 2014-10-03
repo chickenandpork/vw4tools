@@ -6,7 +6,7 @@
 
 <para>At current, VW4Tools is a script or two, plus one big jar file. vw4tool.jar allows a user to import a text file in one of several formats and output an Entity import JSON for VirtualWisdom4.</para>
 
-<para>VW4Tools is intentionally 100% opensource to both show the code a user may be running on a trusted server, and to emphasize that Support is also of the OpenSource variety (ie not by VI Support).</para>
+<para>VW4Tools is intentionally 100% opensource to both show the code a user may be running on a trusted server, and to emphasize that Support is also of the OpenSource variety (ie not by VI Support). In turn, VW4Tools uses other projects to achieve its goals:</para>
 
 <para><para>
     <figure>
@@ -18,6 +18,21 @@
        </mediaobject>
     </figure>
 </para>
+</para>
+
+<para>If we support the notion of &quot;GNU/Linux&quot; rather than &quot;Linux&quot;, then by the same logic, we should refer to java-getopt as &quot;USL/GNU SUN/java-getopt&quot;</para>
+
+<para><formalpara><title>Key Resources </title></formalpara>
+</para>
+
+<para><orderedlist>
+<listitem>
+<para><link linkend="md_htdocs_OVERVIEW">Usage Overview</link> can describe general usage</para>
+</listitem><listitem>
+<para><link linkend="md_htdocs_RUNNING">Running Java</link> can help users who are new to Java understand how to run Java (note: Here There Be Command Terminals)</para>
+</listitem><listitem>
+<para><link linkend="md_htdocs_BUILDING">Building</link> can elaborate on how the project is built from this sourcecode</para>
+</listitem></orderedlist>
 </para>
 
 <para><formalpara><title>Proprietary Intellectual Property </title></formalpara>
