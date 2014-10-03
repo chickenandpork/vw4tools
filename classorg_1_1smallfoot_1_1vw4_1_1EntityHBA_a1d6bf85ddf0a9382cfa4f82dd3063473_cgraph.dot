@@ -1,0 +1,18 @@
+digraph "vwentity"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="vwentity",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="org.smallfoot.vw4.Entity.\l_compatibilityVersion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a2d966176f7b315760e172d3bc03f64a1",tooltip="calculate the compatibilityVersion as required "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="org.smallfoot.vw4.Entity.compatibility\lVersion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#aafad8b8b69f1c940a90bb5e2ef672ebf",tooltip="convert the compatibilityVersion into a string "];
+  Node3 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="org.smallfoot.vw4.Entity.description",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a464a9940ad720e717c25422b41b7845b",tooltip="the description of the entity showing source "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="org.smallfoot.vw4.Entity.name",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html#afa2149aced9d90555f788dfc81c23d15",tooltip="unique name of the entity: getter for internal variable "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="org.smallfoot.vw4.Entity.\lLeafEntity.wwn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html#aa0f20764b2a9bea375e9507de63cb42b",tooltip="the unique WWPN of the hba: getter for internal variable "];
+}

@@ -27,14 +27,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="650" column="1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="643" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>simple convenience interface to allow entity selection to be codified and created on-the-fly in a query API </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="643" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="642" bodyend="651"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="636" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="635" bodyend="644"/>
     <listofallmembers>
       <member refid="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector_1a06dae9b60fcb30b8dc2ce7d716a56548" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool::EntitySelector</scope><name>select</name></member>
     </listofallmembers>

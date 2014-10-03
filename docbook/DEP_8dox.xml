@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="DEP_8dox">
+    <title>DEP.dox File Reference</title>
+    <simplesect>
+        <title>Detailed Description</title>
+
+<para>dep <para>
+    <figure>
+        <title></title>
+        <mediaobject>
+            <imageobject>
+                <imagedata align="center" fileref="inline_dotgraph_2.png"></imagedata>
+            </imageobject>
+       </mediaobject>
+    </figure>
+</para>
+ </para>
+    <para>Definition in file /Users/allan.clark/src/vw4tools/htdocs/DEP.dox</para>
+    </simplesect>
+</section>

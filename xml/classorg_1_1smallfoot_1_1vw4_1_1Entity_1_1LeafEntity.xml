@@ -169,50 +169,60 @@ spider to catch the fly.. &quot;</para><para>Descendents will override this meth
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="103">
+      <node id="115">
         <label>EntityHBA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA"/>
-        <childnode refid="100" relation="public-inheritance">
+        <childnode refid="112" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="102">
+      <node id="114">
         <label>EntityFA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA"/>
-        <childnode refid="100" relation="public-inheritance">
+        <childnode refid="112" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="101">
+      <node id="113">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
       </node>
-      <node id="100">
+      <node id="112">
         <label>Entity.LeafEntity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity"/>
-        <childnode refid="101" relation="public-inheritance">
+        <childnode refid="113" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="107">
+      <node id="119">
+        <label>String</label>
+      </node>
+      <node id="120">
         <label>Vector&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="105">
+      <node id="117">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
-        <childnode refid="106" relation="usage">
+        <childnode refid="118" relation="usage">
           <edgelabel>parent</edgelabel>
         </childnode>
-        <childnode refid="107" relation="usage">
+        <childnode refid="119" relation="usage">
+          <edgelabel>name</edgelabel>
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="120" relation="usage">
           <edgelabel>children</edgelabel>
         </childnode>
       </node>
-      <node id="106">
+      <node id="118">
         <label>WeakReference&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="104">
+      <node id="116">
         <label>Entity.LeafEntity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity"/>
-        <childnode refid="105" relation="public-inheritance">
+        <childnode refid="117" relation="public-inheritance">
+        </childnode>
+        <childnode refid="119" relation="usage">
+          <edgelabel>wwn</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>

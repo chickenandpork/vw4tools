@@ -2,60 +2,11 @@
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>JavaDoc API Markup for vw4tools</title>
 
-<para><formalpara><title>vw4tools </title></formalpara>
-</para>
-
 <para>Tools and utilities for VirtualWisdom4</para>
 
 <para>At current, VW4Tools is a script or two, plus one big jar file. vw4tool.jar allows a user to import a text file in one of several formats and output an Entity import JSON for VirtualWisdom4.</para>
 
-<para><formalpara><title>Running Java </title></formalpara>
-</para>
-
-<para>In this document, it is assumed &quot;java&quot; runs from the command prompt. In some cases, this isn&apos;t true. Windows users, for example, may need to change their usage, from: <programlisting><literallayout>java -jar vw4tool.jar ...
-</literallayout></programlisting></para>
-
-<para>to: <programlisting><literallayout>java.exe -jar vw4tool.jar ...
-</literallayout></programlisting></para>
-
-<para>In both cases, if the &quot;java&quot; (or java.exe) executable is not available on the user&apos;s &quot;path&quot; or list of locations wherein to find a binary/executable, the user will need to type the full pathname to the java executable.</para>
-
-<para>Macintosh OSX users can simply type &quot;java&quot;: <programlisting><literallayout>java -jar vw4tool.jar ...
-</literallayout></programlisting></para>
-
-<para>A UNIX (or unix-like) user may need to type /opt/local/bin/java or similar: <programlisting><literallayout>/opt/local/bin/java -jar vw4tool.jar ...
-</literallayout></programlisting></para>
-
-<para>A Windows user may need to type a full pathname such as: <programlisting><literallayout>&quot;C:\Program Files (x86)\Java\jre7\bin\java.exe&quot; -jar vw4tool.jar ...
-</literallayout></programlisting></para>
-
-<para>In all cases, where I type merely &quot;java&quot;, make sure you replace that with however the invocation details are for your platform.</para>
-
-<para>To confirm you&apos;ve found a working Java Runtime Environment, use the &quot;help&quot; command to as vw4tool.jar what version it is: <programlisting><literallayout>java -jar vw4tool.jar --help
-Usage: vw4tool -V|--version|-H|--help
-     : vw4tool --read &lt;filename&gt;|--input &lt;filename&gt; | -r &lt;filename&gt; | -i &lt;filename&gt;
-   ie: vw4tool --read import.json
-   ie: vw4tool -r import.json
-</literallayout></programlisting></para>
-
-<para>note: many commands have shorter versions. &quot;--version&quot; (with two &quot;-&quot;) is the same as &quot;-V&quot; (with one dash). Pay special attention to case. Uppercase &quot;N&quot; is different from lowercase &quot;n&quot;.</para>
-
-<para><formalpara><title>Common Usage </title></formalpara>
-</para>
-
-<para><programlisting><literallayout>java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oexample.json
-</literallayout></programlisting></para>
-
-<para>or <programlisting><literallayout>java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oOrderedTuples.csv
-awk -f csv-to-json.awk OrderedTuples.csv &gt; example.json
-</literallayout></programlisting></para>
-
-<para>This is the most common usage, here as a reference. Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple &quot;-o&quot; options. Notice also that although in past, &quot;-o&quot; was &quot;cuddled&quot; to the filename after it (no spaces), but this has changed to make it easier and more forgiving to use.</para>
-
-<para><formalpara><title>Overview </title></formalpara>
-</para>
-
-<para>In general, collection and conversion looks like the following diagram:</para>
+<para>VW4Tools is intentionally 100% opensource to both show the code a user may be running on a trusted server, and to emphasize that Support is also of the OpenSource variety (ie not by VI Support).</para>
 
 <para><para>
     <figure>
@@ -68,77 +19,6 @@ awk -f csv-to-json.awk OrderedTuples.csv &gt; example.json
     </figure>
 </para>
 </para>
-
-<para><formalpara><title>Import of FTP or HTTP Data </title></formalpara>
-</para>
-
-<para>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local file may also be mounted as a FUSE filesystem, allowing even &quot;local&quot; data to be generated like a CGI program.</para>
-
-<para>In order to draw a text stream from a FTP server or HTTP server, merely use a RFC-1738-compliant URL to indicate these two sources: <programlisting><literallayout>(ftp|http)://{user{:password@@}server{:port}/pathname/to/resource
-</literallayout></programlisting></para>
-
-<para>for example:</para>
-
-<para>(basic user/pass: user = scott, pass = T1ger, host = ftp.example.com, subdir = . , file = nicknames.txt <programlisting><literallayout>java -jar vw4tool.jar --nickname=ftp://scott:T1ger@@ftp.example.com/nicknames.txt
-</literallayout></programlisting></para>
-
-<para>(basic user/pass: user = scott, pass = T1ger, host = ftp.example.com, subdir = /users/local/ScottAdams/ , file = aliases.text <programlisting><literallayout>java -jar vw4tool.jar --nickname=ftp://scott:T1ger@@ftp.example.com/%2fusers/local/ScottAdams/aliases.text
-</literallayout></programlisting></para>
-
-<para>(basic user/pass: user = anonymous, pass = scott@uberserver.net, host = ftp.example.com, subdir = examples , file = aliases <programlisting><literallayout>java -jar vw4tool.jar -N ftp://anonymous:scott%2Fuberserver.net@@ftp.example.com/examples/aliases
-</literallayout></programlisting></para>
-
-<para>(basic http: host = www.example.com, subdir = . , file = aliases <programlisting><literallayout>java -jar vw4tool.jar --nickname=http://www.example.com/aliases
-</literallayout></programlisting></para>
-
-<para>(basic HTTP GET: host = www.example.com, subdir = . , path=/cgi-bin/fetch.cgi, some parameters <programlisting><literallayout>java -jar vw4tool.jar --nickname=http://www.example.com/cgi-bin/fetch.cgi?now=20140901&amp;realm=WEST&amp;group=production
-</literallayout></programlisting></para>
-
-<para>NOTE: &quot;--nickname=&quot; and &quot;-N&quot; are functionally identical; &quot;--nickname=&quot; may offer a slight beefit in more clearly self-documenting the behavior of the commandline option.</para>
-
-<para><formalpara><title>Import of Local Text File </title></formalpara>
-</para>
-
-<para>The most common usage is local text files representing the metadata of the local environment. This is done by offering a RFC-1738-compliant local file URL: <programlisting><literallayout>file://pathname/to/resource
-</literallayout></programlisting></para>
-
-<para>Note that if the &quot;file://&quot; is not given, and no &quot;protocol&quot; (ie &quot;file://&quot;) is given, vw4tool will warn you about this but try the local <link xlink:href="file://">file://</link> protocol prefix for you</para>
-
-<para>for example:</para>
-
-<para>(local file in subdir ./files/aliases) <programlisting><literallayout>java -jar vw4tool.jar --nickname=file://files/aliases
-java -jar vw4tool.jar --nickname=files/aliases
-</literallayout></programlisting></para>
-
-<para>(local file in subdir /Full/Path/files/aliases) <programlisting><literallayout>java -jar vw4tool.jar --nickname=file:///Full/Path/files/aliases
-java -jar vw4tool.jar --nickname=/Full/Path/files/aliases
-</literallayout></programlisting></para>
-
-<para><formalpara><title>Specifying Formats </title></formalpara>
-</para>
-
-<para>The user doesn&apos;t need to speficy the format of a file; vw4tool will try the file at the same time across many different parsers and see which one can make sense of it. Unfortunately, the parsers cannot always chew through any user-interface codes (such as &quot;press any key to continue&quot;) and preamble (the verbose text trash before the actual zone or aliases or such). Trimming that to a minimum offers a better chance of parsing the file.</para>
-
-<para>The corollary to this is that if a file doesn&apos;t seem to parse, yet it seems like it should, remove anything before or after the actual content, and confirm that it was collected in a non-interactive method. If the user ever needs to &quot;press any key for more&quot;, chances are, the parsed result will be either partial, or none at all.</para>
-
-<para><formalpara><title>Multiple Inputs </title></formalpara>
-</para>
-
-<para>These input formats can be mixed. For example <programlisting><literallayout>java -jar vw4tool.jar --nickname=http://www.example.com/cgi-bin/fetch.cgi?now=20140901&amp;realm=WEST&amp;group=production -N local.txt -N file:///Users/allanc/aliases.dad -N morefiles.txt
-</literallayout></programlisting></para>
-
-<para><formalpara><title>Outputs </title></formalpara>
-</para>
-
-<para>vw4tool will either generate an OrderedTuples.csv file (if that specific filename is given on the &quot;-o&quot; option) or a json file (any other putput filename). Or both: <programlisting><literallayout>java -jar vw4tool.jar  -N local.txt -oOrderedTuples.csv -oexample.json
-</literallayout></programlisting></para>
-
-<para>NOTE: giving no filename used to send the output to stdout, but now requires a &quot;-&quot; to mean &quot;yes, I meant that&quot;: <programlisting><literallayout>java -jar vw4tool.jar  -N local.txt -o -
-</literallayout></programlisting></para>
-
-<para>For this reason, the following two commands used to do different things, but are now equivalent: <programlisting><literallayout>java -jar vw4tool.jar  -N local.txt -oexample.json
-java -jar vw4tool.jar  -N local.txt -o example.json
-</literallayout></programlisting></para>
 
 <para><formalpara><title>Proprietary Intellectual Property </title></formalpara>
 </para>

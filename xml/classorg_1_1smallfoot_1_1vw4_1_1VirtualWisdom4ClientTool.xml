@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="64" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="64" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="61" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="61" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -31,8 +31,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="105" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="105" bodyend="-1"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="102" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="102" bodyend="-1"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -48,8 +48,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="217" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="217" bodyend="-1"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="214" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="214" bodyend="-1"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aaa7580a75c1bf3c122ce5b4c001517c2" prot="protected" static="no" mutable="no">
         <type>Vector&lt; Pattern &gt;</type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="210" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="210" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="207" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="207" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afb3f7acf97044713e2aa55c921c5cdb2" prot="protected" static="no" mutable="no">
         <type>WWNDescription</type>
@@ -77,7 +77,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="224" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="224" bodyend="-1"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="221" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a30197048fc5e557c95a88879f1ce4791" prot="package" static="no" mutable="no">
+        <type>Vector&lt; Method &gt;</type>
+        <definition>Vector&lt;Method&gt; nameMungers</definition>
+        <argsstring></argsstring>
+        <name>nameMungers</name>
+        <initializer>= new Vector&lt;Method&gt; (1,1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="234" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="234" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -105,8 +121,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="91" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="91" bodyend="95"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="134" endline="148">VirtualWisdom4ClientTool.load</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="88" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="88" bodyend="92"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="131" endline="145">VirtualWisdom4ClientTool.load</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -119,23 +135,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="100" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="100" bodyend="103"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a6ffcb3b58a6bcea538f374321414a141" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>boolean</type>
-        <definition>boolean check</definition>
-        <argsstring>()</argsstring>
-        <name>check</name>
-        <briefdescription>
-<para>self-check whether dependent components are available. </para>        </briefdescription>
-        <detaileddescription>
-<para>This is beyond the benefits of build-time link verification and run-time linking, but checking the sanity of dependent parts. For example <ndash/> and the only initial check <ndash/> BouncyCastle may be available as a Provider (bcpkix) but may not load successfully for a number of fussy little reasons; I&apos;d like to be able to check each one and improve in-field diagnostics.</para><para><simplesect kind="return"><para>boolean: Am I sane? </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="464" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="464" bodyend="490"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="97" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="97" bodyend="100"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>TreeMap&lt; String, <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> &gt;</type>
@@ -149,8 +150,8 @@
         <inbodydescription>
 <para>&lt; singleton access for entities <simplesect kind="return"><para>collection of entities </para></simplesect>
 </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="218" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="218" bodyend="222"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="585" endline="639">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="215" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="215" bodyend="219"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="578" endline="632">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -175,10 +176,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="134" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="134" bodyend="148"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" compoundref="VirtualWisdom4ClientTool_8java" startline="120" endline="127">VirtualWisdom4ClientTool._load</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" compoundref="VirtualWisdom4ClientTool_8java" startline="91" endline="95">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="131" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="131" bodyend="145"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" compoundref="VirtualWisdom4ClientTool_8java" startline="117" endline="124">VirtualWisdom4ClientTool._load</references>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" compoundref="VirtualWisdom4ClientTool_8java" startline="88" endline="92">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a09f298d19a33be899f5835657c747c5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Vector&lt; Pattern &gt;</type>
@@ -192,7 +193,7 @@
         <inbodydescription>
 <para>&lt; singleton access for patterns <simplesect kind="return"><para>collection of patterns </para></simplesect>
 </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="211" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="211" bodyend="215"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="208" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="208" bodyend="212"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -218,7 +219,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="185" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="185" bodyend="207"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="182" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="182" bodyend="204"/>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -243,8 +244,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="166" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="166" bodyend="176"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" compoundref="VirtualWisdom4ClientTool_8java" startline="155" endline="159">VirtualWisdom4ClientTool._save</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="163" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="163" bodyend="173"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" compoundref="VirtualWisdom4ClientTool_8java" startline="152" endline="156">VirtualWisdom4ClientTool._save</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -269,9 +270,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
 <para><xrefsect id="jvmopt_1_jvmopt000002"><xreftitle>JVM Options</xreftitle><xrefdescription><para><bold>debug.showCompatTarget</bold> causes the compat.target to be displayed when (re)set </para></xrefdescription></xrefsect></para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="71" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="71" bodyend="82"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="68" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="68" bodyend="79"/>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a30b425bd5034c7ca39be7363c0e86cdc" compoundref="Entity_8java" startline="48">Entity.compatibilityVersion</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>WWNDescription</type>
@@ -285,8 +286,8 @@
         <inbodydescription>
 <para>&lt; singleton access for wwndesc <simplesect kind="return"><para>wwndesc </para></simplesect>
 </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="225" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="225" bodyend="229"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="585" endline="639">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="222" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="222" bodyend="226"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="578" endline="632">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -322,8 +323,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
 <para><xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>: evaluate: mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false); </para></xrefdescription></xrefsect></para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="120" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="120" bodyend="127"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="134" endline="148">VirtualWisdom4ClientTool.load</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="117" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="117" bodyend="124"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="131" endline="145">VirtualWisdom4ClientTool.load</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -349,8 +350,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="155" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="155" bodyend="159"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" compoundref="VirtualWisdom4ClientTool_8java" startline="166" endline="176">VirtualWisdom4ClientTool.save</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="152" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="152" bodyend="156"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" compoundref="VirtualWisdom4ClientTool_8java" startline="163" endline="173">VirtualWisdom4ClientTool.save</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -376,13 +377,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="585" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="585" bodyend="639"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4" compoundref="VirtualWisdom4ClientTool_8java" startline="218" endline="222">VirtualWisdom4ClientTool.entities</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="578" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="578" bodyend="632"/>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4" compoundref="VirtualWisdom4ClientTool_8java" startline="215" endline="219">VirtualWisdom4ClientTool.entities</references>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a9a2326f35466e54c36c070829245c557" compoundref="Entity_8java" startline="146">Entity.name</references>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a1d15d718177c4f5411ce6ab339889fd4" compoundref="Entity_8java" startline="165" endline="168">Entity.setDescription</references>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367" compoundref="Entity_8java" startline="153" endline="156">Entity.setname</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6" compoundref="VirtualWisdom4ClientTool_8java" startline="225" endline="229">VirtualWisdom4ClientTool.wwndesc</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a43a8de962936ee9d82e0a70eeb9b1db6" compoundref="VirtualWisdom4ClientTool_8java" startline="222" endline="226">VirtualWisdom4ClientTool.wwndesc</references>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2e5ab2ec8715ec815edcea74375a493c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -408,8 +409,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="505" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="505" bodyend="572"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="498" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="498" bodyend="565"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1acbeee875159f78e186965708e70dee94" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>VWImport</type>
@@ -423,218 +424,8 @@
         <inbodydescription>
 <para>&lt; singleton to access vwimport to allow for later post-process <simplesect kind="return"><para>vwimport instance, created if needed </para></simplesect>
 </para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="106" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="106" bodyend="110"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="package-func">
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void absorbPattern</definition>
-        <argsstring>(String pattern)</argsstring>
-        <name>absorbPattern</name>
-        <param>
-          <type>String</type>
-          <declname>pattern</declname>
-        </param>
-        <briefdescription>
-<para>Absorb a pattern for chunking together nickname patterns and execute it immediately on all current orphan LeafEntities. </para>        </briefdescription>
-        <detaileddescription>
-<para>The pattern given will be absorbed for the side-benefit of a user testing patterns against names using the <ndash/>checkpattern option. The pattern is also immediately executed, such that the following four cases occur for each orphan entity evaluated:</para><para><itemizedlist>
-<listitem><para>the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan</para></listitem><listitem><para>the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity</para></listitem><listitem><para>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space</para></listitem><listitem><para>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name</para></listitem></itemizedlist>
-</para><para>When complete, the &quot;hold&quot; space is evaluated to remove any &quot;parents&quot; for which there is only one child, thus eliminating lame pattern results before any next run</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>pattern</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>a String pattern to execute and absorb (into an internal array for use later) </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="251" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="251" bodyend="368"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
-        <definition>Entity entityAccepting</definition>
-        <argsstring>(Entity newguy)</argsstring>
-        <name>entityAccepting</name>
-        <param>
-          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
-          <declname>newguy</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="415" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="415" bodyend="418"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa0a47fb81ec7fd8f9d1d250ec7c24725" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>String[]</type>
-        <definition>String [] exercisePattern</definition>
-        <argsstring>(String alias)</argsstring>
-        <name>exercisePattern</name>
-        <param>
-          <type>String</type>
-          <declname>alias</declname>
-        </param>
-        <briefdescription>
-<para>Exercise all current chunking patterns against a given nickname. </para>        </briefdescription>
-        <detaileddescription>
-<para>Given a string assumed to be a hostname or alias, all patterns currently absorbed will be exercised to show the possible results in order they would be attempted. This is intended to allow in-situ pattern editing and verification rather than perfect knowledge of the regex system used.</para><para>As is assumed in the VW4 product, the regex is performed as: s/{pattern}/\1/ such that for a given pattern, the first capturing group is the result For example, given a pattern of &quot;^(.*).{5}$&quot;, the &quot;.{5}$&quot; matches the final 5 characters (5 wildcards before end-of-line), leaving the remainder within &quot;^(.*)&quot;. All but the final 5 characters are contained in that capture-grouping, so the result is all but the final 5 characters.</para><para>param alias a String nickname to exercise all patterns against </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="386" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="386" bodyend="413"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aeb4c990279152389717ab187394330fa" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>int</type>
-        <definition>int finalizeEntities</definition>
-        <argsstring>()</argsstring>
-        <name>finalizeEntities</name>
-        <briefdescription>
-<para>Finalize absorbed Entities: for each entity, transfer from structured tree of Entities to vwimport array for writing. </para>        </briefdescription>
-        <detaileddescription>
-<para><simplesect kind="return"><para>number of items finalized </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="763" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="763" bodyend="776"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae4499ee0125936e10dde278b4a18c289" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void report</definition>
-        <argsstring>()</argsstring>
-        <name>report</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="435" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="435" bodyend="456"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void usage</definition>
-        <argsstring>(String progname)</argsstring>
-        <name>usage</name>
-        <param>
-          <type>String</type>
-          <declname>progname</declname>
-        </param>
-        <briefdescription>
-<para>Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!) </para>        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>progname</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the name of the program (args[0]) to print on a usage message </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="923" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="923" bodyend="955"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a91994d49298b59506ac70828b5eef62c" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void virtuoso4</definition>
-        <argsstring>(String hosturl)</argsstring>
-        <name>virtuoso4</name>
-        <param>
-          <type>String</type>
-          <declname>hosturl</declname>
-        </param>
-        <briefdescription>
-<para>Activate a Virtuoso4 curl-and-run on a target VW4 Appliance. </para>        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>hosturl</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>name or ssh:// url to use </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="820" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="820" bodyend="915"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac920712c8aa23e3b84790e1ff7fb297c" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void writeOrderedTuples</definition>
-        <argsstring>(String name, EntitySelector sel)</argsstring>
-        <name>writeOrderedTuples</name>
-        <param>
-          <type>String</type>
-          <declname>name</declname>
-        </param>
-        <param>
-          <type><ref refid="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector" kindref="compound">EntitySelector</ref></type>
-          <declname>sel</declname>
-        </param>
-        <exceptions> throws java.io.IOException     </exceptions>
-        <briefdescription>
-<para>Export an &quot;OrderedTuples.csv&quot; file as a stopgap measure until proper JSON processing can be completed. </para>        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>name</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>filename to write </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>sel</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>an optional selector-method </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<parameterlist kind="exception"><parameteritem>
-<parameternamelist>
-<parametername>java.io.IOException</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>when PrintStream throws an exception </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="786" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="786" bodyend="812"/>
-      </memberdef>
-      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0ec044bae77579fea9b51e49c05ccbd3" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void writeOutputfile</definition>
-        <argsstring>(String filename)</argsstring>
-        <name>writeOutputfile</name>
-        <param>
-          <type>String</type>
-          <declname>filename</declname>
-        </param>
-        <briefdescription>
-<para>Write an output file, finalizing from <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4" kindref="member">entities()</ref> if required. </para>        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>filename</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>name of file to write </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="658" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="658" bodyend="756"/>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="103" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="103" bodyend="107"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -663,7 +454,7 @@
         <inbodydescription>
 <para>Always always ALWAYS provide a quick reference and a version output</para><para><xrefsect id="cmdopt_1_cmdopt000001"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-H|<ndash/>help Show a simple help screen as a reminder of options which are understood by the application </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000002"><xreftitle>Commandline Options</xreftitle><xrefdescription><para><programlisting><codeline><highlight class="normal">java<sp/>-jar<sp/>vw4tools.jar<sp/>--help<sp/></highlight></codeline>
 </programlisting></para></xrefdescription></xrefsect></para><para><xrefsect id="cmdopt_1_cmdopt000003"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-V|<ndash/>version Show the current release version for reference </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000004"><xreftitle>Commandline Options</xreftitle><xrefdescription><para><programlisting><codeline><highlight class="normal">java<sp/>-jar<sp/>vw4tools.jar<sp/>--version</highlight></codeline>
-<codeline><highlight class="normal"><sp/>1.0-7<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>1.0-8<sp/></highlight></codeline>
 </programlisting></para></xrefdescription></xrefsect></para><para><xrefsect id="cmdopt_1_cmdopt000005"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-n|<ndash/>nicknameout={file} Output nicknames from internal store </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000006"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-o|<ndash/>output={file} Output nicknames from internal store <ndash/>nicknameout and <ndash/>output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few &quot;magic&quot; filenames:</para></xrefdescription></xrefsect></para><para><xrefsect id="cmdopt_1_cmdopt000007"><xreftitle>Commandline Options</xreftitle><xrefdescription><para><orderedlist>
 <listitem><para><bold>schema.json</bold> will cause the current schema to be written </para></listitem></orderedlist>
 </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000008"><xreftitle>Commandline Options</xreftitle><xrefdescription><para><orderedlist>
@@ -678,7 +469,7 @@
 </programlisting> In this example, a zone file was parsed by the AliShowZoneParser resulting in 112 nicknames; due to duplicate nicknames, there are actually 136 unique WWPN/alias tuples, which means that (136-112) 24 of the WWPNs have the same alias as other WWPNs</para></xrefdescription></xrefsect></para><para><xrefsect id="cmdopt_1_cmdopt000013"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-i|<ndash/>input import an existing JSON file for later editing </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000014"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-r|<ndash/>read import an existing JSON file for later editing </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000015"><xreftitle>Commandline Options</xreftitle><xrefdescription><para><programlisting><codeline><highlight class="normal">java<sp/>-jar<sp/>vw4tools.jar<sp/>--read<sp/>working.json<sp/></highlight></codeline>
 </programlisting></para></xrefdescription></xrefsect></para><para><xrefsect id="cmdopt_1_cmdopt000016"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-R|<ndash/>remove Parse nicknames for removal from the internal nickname list </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000017"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-R|<ndash/>removenicknames Parse nicknames for removal from the internal nickname list</para></xrefdescription></xrefsect></para><para><xrefsect id="cmdopt_1_cmdopt000018"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-t|<ndash/>target set a target version for JSON output. Defaults to latest supported. A value of 4.0.1 is converted to 40.1 internally due to float comparison and expected changed every bump of major/minor version</para></xrefdescription></xrefsect></para><para><xrefsect id="cmdopt_1_cmdopt000019"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>-!|<ndash/>report Summarize the current status of the internal nicknaes and pattern/collation coverage </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000020"><xreftitle>Commandline Options</xreftitle><xrefdescription><para><programlisting><codeline><highlight class="normal">java<sp/>-jar<sp/>vw4tools.jar<sp/>--nickname=switch44.zoneshow<sp/><sp/>--<ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c" kindref="member">report</ref></highlight></codeline>
 <codeline><highlight class="normal">(vw4tools)<sp/>parsed<sp/>0<sp/>zones,<sp/>2<sp/>aliases<sp/>via<sp/>Alias4Parser</highlight></codeline>
-<codeline><highlight class="normal">vw4tools<sp/>1.0-7</highlight></codeline>
+<codeline><highlight class="normal">vw4tools<sp/>1.0-8</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>5<sp/>total<sp/><ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4" kindref="member">entities</ref></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>4<sp/>leaf<sp/>nodes</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>2<sp/>orphans</highlight></codeline>
@@ -692,18 +483,17 @@
 <codeline><highlight class="normal"></highlight><highlight class="stringliteral">&quot;UberServer_44_HBA0&quot;</highlight><highlight class="normal"><sp/>--&gt;<sp/></highlight><highlight class="stringliteral">&quot;UberServer_44_hba0&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="stringliteral">&quot;UberServer_44_HBA0&quot;</highlight><highlight class="normal"><sp/>--&gt;<sp/></highlight><highlight class="stringliteral">&quot;UberServer_44&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
 </programlisting> </para></xrefdescription></xrefsect><xrefsect id="cmdopt_1_cmdopt000026"><xreftitle>Commandline Options</xreftitle><xrefdescription><para>in this example, two patterns ( &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; ) are loaded; when &quot;NetApp-123456&quot; is given as a checkpattern, each is tried in turn, so we see that &quot;([^-]+)-[^-]+$&quot; converts &quot;NetApp-123456&quot; to &quot;NetApp&quot;, which means a bunch of devices &quot;NetApp-123456&quot;, &quot;NetApp-123457&quot;, &quot;NetApp-ABCDEF&quot; would be child entities of a larger entity &quot;NetApp&quot;. In essence, all the NetApp-* are collected into the same contailer called &quot;NetApp&quot;. Similarly, &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; are tested against &quot;UberServer_44_hba0&quot; when the checkpattern is given, and we can see that &quot;([^-]+)-[^-]+$&quot; makes no difference to the value, but &quot;^(.*)_hba(\d+)$&quot; has the desired effect of chopping off the &quot;_hba#&quot; portion. </para></xrefdescription></xrefsect></para><para><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>need to check 3-decimal values such as &quot;-t 4.0.1.7&quot; (see also testsuite.at.in) </para></xrefdescription></xrefsect></para>        </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="970" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="970" bodyend="1199"/>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a6ffcb3b58a6bcea538f374321414a141" compoundref="VirtualWisdom4ClientTool_8java" startline="464" endline="490">VirtualWisdom4ClientTool.check</references>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="950" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="950" bodyend="1179"/>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a76d2b0133d83c43dfd8a19286ac55325" compoundref="Entity_8java" startline="158">Entity.description</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac3c495e48cdbca229137371be08ba04f" compoundref="VirtualWisdom4ClientTool_8java" startline="217">VirtualWisdom4ClientTool.entities</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="134" endline="148">VirtualWisdom4ClientTool.load</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="585" endline="639">VirtualWisdom4ClientTool.loadAndAbsorbFile</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2e5ab2ec8715ec815edcea74375a493c" compoundref="VirtualWisdom4ClientTool_8java" startline="505" endline="572">VirtualWisdom4ClientTool.loadAndRemoveFile</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac3c495e48cdbca229137371be08ba04f" compoundref="VirtualWisdom4ClientTool_8java" startline="214">VirtualWisdom4ClientTool.entities</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0d686f1044a2e8727b12e6e4921e0e8f" compoundref="VirtualWisdom4ClientTool_8java" startline="131" endline="145">VirtualWisdom4ClientTool.load</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="578" endline="632">VirtualWisdom4ClientTool.loadAndAbsorbFile</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2e5ab2ec8715ec815edcea74375a493c" compoundref="VirtualWisdom4ClientTool_8java" startline="498" endline="565">VirtualWisdom4ClientTool.loadAndRemoveFile</references>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a9a2326f35466e54c36c070829245c557" compoundref="Entity_8java" startline="146">Entity.name</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c" compoundref="VirtualWisdom4ClientTool_8java" startline="429" endline="432">VirtualWisdom4ClientTool.report</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" compoundref="VirtualWisdom4ClientTool_8java" startline="71" endline="82">VirtualWisdom4ClientTool.setTarget</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" compoundref="VirtualWisdom4ClientTool_8java" startline="100" endline="103">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool</references>
-        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a4ef055893be8838f513385e4c2f42700" compoundref="VirtualWisdom4ClientTool_8java" startline="105">VirtualWisdom4ClientTool.vwimport</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c" compoundref="VirtualWisdom4ClientTool_8java" startline="456" endline="459">VirtualWisdom4ClientTool.report</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" compoundref="VirtualWisdom4ClientTool_8java" startline="68" endline="79">VirtualWisdom4ClientTool.setTarget</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" compoundref="VirtualWisdom4ClientTool_8java" startline="97" endline="100">VirtualWisdom4ClientTool.VirtualWisdom4ClientTool</references>
+        <references refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a4ef055893be8838f513385e4c2f42700" compoundref="VirtualWisdom4ClientTool_8java" startline="102">VirtualWisdom4ClientTool.vwimport</references>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -751,8 +541,252 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="429" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="429" bodyend="432"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="456" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="456" bodyend="459"/>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3c095173af01126818c08d1f53219b69" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String touppercase</definition>
+        <argsstring>(String s)</argsstring>
+        <name>touppercase</name>
+        <param>
+          <type>String</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="228" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="228" bodyend="232"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void absorbPattern</definition>
+        <argsstring>(String pattern)</argsstring>
+        <name>absorbPattern</name>
+        <param>
+          <type>String</type>
+          <declname>pattern</declname>
+        </param>
+        <briefdescription>
+<para>Absorb a pattern for chunking together nickname patterns and execute it immediately on all current orphan LeafEntities. </para>        </briefdescription>
+        <detaileddescription>
+<para>The pattern given will be absorbed for the side-benefit of a user testing patterns against names using the <ndash/>checkpattern option. The pattern is also immediately executed, such that the following four cases occur for each orphan entity evaluated:</para><para><itemizedlist>
+<listitem><para>the resulting name is not an entity that exists in the permanent nor hold space; create a hold-space entity which adopts this orphan</para></listitem><listitem><para>the resulting name is an entity which does adopt this orphan; orphan is adopted by named entity</para></listitem><listitem><para>the resulting name is an entity which does not adopt this orphan; entity does not adopt this one nor does a new entity get created in hold space</para></listitem><listitem><para>the resulting name matches the current orphan entity; create a hold-space entity which adopts this orphan and suffixes its name</para></listitem></itemizedlist>
+</para><para>When complete, the &quot;hold&quot; space is evaluated to remove any &quot;parents&quot; for which there is only one child, thus eliminating lame pattern results before any next run</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pattern</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a String pattern to execute and absorb (into an internal array for use later) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="270" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="270" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36dd4301460f0cfb86fbdaf820324cbc" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void addMunger</definition>
+        <argsstring>(String munger)</argsstring>
+        <name>addMunger</name>
+        <param>
+          <type>String</type>
+          <declname>munger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="235" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="235" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
+        <definition>Entity entityAccepting</definition>
+        <argsstring>(Entity newguy)</argsstring>
+        <name>entityAccepting</name>
+        <param>
+          <type><ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref></type>
+          <declname>newguy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="442" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="442" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa0a47fb81ec7fd8f9d1d250ec7c24725" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String [] exercisePattern</definition>
+        <argsstring>(String alias)</argsstring>
+        <name>exercisePattern</name>
+        <param>
+          <type>String</type>
+          <declname>alias</declname>
+        </param>
+        <briefdescription>
+<para>Exercise all current chunking patterns against a given nickname. </para>        </briefdescription>
+        <detaileddescription>
+<para>Given a string assumed to be a hostname or alias, all patterns currently absorbed will be exercised to show the possible results in order they would be attempted. This is intended to allow in-situ pattern editing and verification rather than perfect knowledge of the regex system used.</para><para>As is assumed in the VW4 product, the regex is performed as: s/{pattern}/\1/ such that for a given pattern, the first capturing group is the result For example, given a pattern of &quot;^(.*).{5}$&quot;, the &quot;.{5}$&quot; matches the final 5 characters (5 wildcards before end-of-line), leaving the remainder within &quot;^(.*)&quot;. All but the final 5 characters are contained in that capture-grouping, so the result is all but the final 5 characters.</para><para>param alias a String nickname to exercise all patterns against </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="413" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="413" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aeb4c990279152389717ab187394330fa" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int finalizeEntities</definition>
+        <argsstring>()</argsstring>
+        <name>finalizeEntities</name>
+        <briefdescription>
+<para>Finalize absorbed Entities: for each entity, transfer from structured tree of Entities to vwimport array for writing. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>number of items finalized </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="756" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="756" bodyend="769"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae4499ee0125936e10dde278b4a18c289" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void report</definition>
+        <argsstring>()</argsstring>
+        <name>report</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="462" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="462" bodyend="483"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void usage</definition>
+        <argsstring>(String progname)</argsstring>
+        <name>usage</name>
+        <param>
+          <type>String</type>
+          <declname>progname</declname>
+        </param>
+        <briefdescription>
+<para>Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>progname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the program (args[0]) to print on a usage message </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="903" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="903" bodyend="935"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a91994d49298b59506ac70828b5eef62c" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void virtuoso4</definition>
+        <argsstring>(String hosturl)</argsstring>
+        <name>virtuoso4</name>
+        <param>
+          <type>String</type>
+          <declname>hosturl</declname>
+        </param>
+        <briefdescription>
+<para>Activate a Virtuoso4 curl-and-run on a target VW4 Appliance. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hosturl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name or ssh:// url to use </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="813" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="813" bodyend="895"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac920712c8aa23e3b84790e1ff7fb297c" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void writeOrderedTuples</definition>
+        <argsstring>(String name, EntitySelector sel)</argsstring>
+        <name>writeOrderedTuples</name>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="interfaceorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1_1EntitySelector" kindref="compound">EntitySelector</ref></type>
+          <declname>sel</declname>
+        </param>
+        <exceptions> throws java.io.IOException     </exceptions>
+        <briefdescription>
+<para>Export an &quot;OrderedTuples.csv&quot; file as a stopgap measure until proper JSON processing can be completed. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>filename to write </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional selector-method </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>java.io.IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>when PrintStream throws an exception </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="779" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="779" bodyend="805"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0ec044bae77579fea9b51e49c05ccbd3" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void writeOutputfile</definition>
+        <argsstring>(String filename)</argsstring>
+        <name>writeOutputfile</name>
+        <param>
+          <type>String</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Write an output file, finalizing from <ref refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4" kindref="member">entities()</ref> if required. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name of file to write </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="651" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="651" bodyend="749"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -760,41 +794,47 @@
     <detaileddescription>
 <para>The existence of these tools is not a judgement on VirtualWisdom4&apos;s proper Engineering; rather, an acceptance that a faster-response solution for the longer-tail of the normal curve is often helpful swapping QA delay for reduced customer friction.</para><para>As you&apos;d expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</para><para>Ad-Hoc content for this utility-stack may appear at <ulink url="http://fcfae.com/">http://fcfae.com/</ulink> </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="109">
+      <node id="122">
         <label>VirtualWisdom4ClientTool</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool"/>
-        <childnode refid="110" relation="usage">
+        <childnode refid="123" relation="usage">
           <edgelabel>vwimport</edgelabel>
         </childnode>
-        <childnode refid="111" relation="usage">
+        <childnode refid="124" relation="usage">
           <edgelabel>patterns</edgelabel>
         </childnode>
-        <childnode refid="112" relation="usage">
+        <childnode refid="125" relation="usage">
           <edgelabel>entities</edgelabel>
         </childnode>
-        <childnode refid="113" relation="usage">
+        <childnode refid="126" relation="usage">
           <edgelabel>wwndesc</edgelabel>
         </childnode>
+        <childnode refid="127" relation="usage">
+          <edgelabel>nameMungers</edgelabel>
+        </childnode>
       </node>
-      <node id="113">
+      <node id="126">
         <label>WWNDescription</label>
       </node>
-      <node id="112">
+      <node id="125">
         <label>TreeMap&lt; String, org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="111">
+      <node id="124">
         <label>Vector&lt; Pattern &gt;</label>
       </node>
-      <node id="110">
+      <node id="123">
         <label>VWImport</label>
       </node>
+      <node id="127">
+        <label>Vector&lt; Method &gt;</label>
+      </node>
     </collaborationgraph>
-    <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="63" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="62" bodyend="1200"/>
+    <location file="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" line="60" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/VirtualWisdom4ClientTool.java" bodystart="59" bodyend="1180"/>
     <listofallmembers>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad9a051ba608e7fcb9adac39bc3946058" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>_load</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36a7decd28b5e191bfe43c5562462785" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>_save</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>absorbPattern</name></member>
-      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a6ffcb3b58a6bcea538f374321414a141" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>check</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36dd4301460f0cfb86fbdaf820324cbc" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>addMunger</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac3c495e48cdbca229137371be08ba04f" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>entities</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>entities</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>entityAccepting</name></member>
@@ -804,6 +844,7 @@
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>loadAndAbsorbFile</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2e5ab2ec8715ec815edcea74375a493c" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>loadAndRemoveFile</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>main</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a30197048fc5e557c95a88879f1ce4791" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>nameMungers</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aaa7580a75c1bf3c122ce5b4c001517c2" prot="protected" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>patterns</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a09f298d19a33be899f5835657c747c5d" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>patterns</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afc3ee9b897e0757b6cd5c8289c9d4cc4" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>prettyJSON</name></member>
@@ -811,6 +852,7 @@
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae4499ee0125936e10dde278b4a18c289" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>report</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a119573b242d96a5e64a7d340bcf14aa8" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>save</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>setTarget</name></member>
+      <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3c095173af01126818c08d1f53219b69" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>touppercase</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae9ce7560cea6782a7e3662cd9155487a" prot="package" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>usage</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>VirtualWisdom4ClientTool</name></member>
       <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" prot="public" virt="non-virtual"><scope>org::smallfoot::vw4::VirtualWisdom4ClientTool</scope><name>VirtualWisdom4ClientTool</name></member>

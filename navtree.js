@@ -2,7 +2,9 @@ var NAVTREE =
 [
   [ "vw4tools", "index.html", [
     [ "JavaDoc API Markup for vw4tools", "index.html", null ],
-    [ "README", "md_htdocs_README.html", null ],
+    [ "Building", "md_htdocs_BUILDING.html", null ],
+    [ "Overview", "md_htdocs_OVERVIEW.html", null ],
+    [ "Running Java", "md_htdocs_RUNNING.html", null ],
     [ "Scripting Options", "scripts.html", "scripts" ],
     [ "JVM Options", "jvmopt.html", null ],
     [ "Todo List", "todo.html", null ],

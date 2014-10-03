@@ -14,7 +14,9 @@
         <xi:include href="namespaceorg_1_1smallfoot_1_1vw4.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </chapter>
         <xi:include href="mainpage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="md_htdocs_README.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="md_htdocs_BUILDING.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="md_htdocs_OVERVIEW.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="md_htdocs_RUNNING.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="scripts.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="jvmopt.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="todo.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -34,7 +36,10 @@
     </chapter>
     <chapter>
         <title>File Documentation</title>
+        <xi:include href="BUILDING_8dox.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="OVERVIEW_8dox.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="README_8dox.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="RUNNING_8dox.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="Entity_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="EntityArray_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="EntityFA_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

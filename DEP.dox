@@ -1,0 +1,12 @@
+@file
+@subpage dep
+@dot
+digraph Dependencies
+{
+"fasterxml::jackson" -> "vw4tools"
+"fibrechannel-parsers" -> "vw4tools"
+"java-getopt" -> "vw4tools"
+"wwndesc" -> "vw4tools"
+}
+@enddot
+

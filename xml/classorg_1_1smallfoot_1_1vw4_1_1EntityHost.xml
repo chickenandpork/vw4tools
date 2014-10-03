@@ -107,38 +107,45 @@
     <detaileddescription>
 <para>Be very careful: there is an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref>, and a VWImport::Entity </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="89">
+      <node id="100">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
       </node>
-      <node id="88">
+      <node id="99">
         <label>EntityHost</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost"/>
-        <childnode refid="89" relation="public-inheritance">
+        <childnode refid="100" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="93">
+      <node id="104">
+        <label>String</label>
+      </node>
+      <node id="105">
         <label>Vector&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="91">
+      <node id="102">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
-        <childnode refid="92" relation="usage">
+        <childnode refid="103" relation="usage">
           <edgelabel>parent</edgelabel>
         </childnode>
-        <childnode refid="93" relation="usage">
+        <childnode refid="104" relation="usage">
+          <edgelabel>name</edgelabel>
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="105" relation="usage">
           <edgelabel>children</edgelabel>
         </childnode>
       </node>
-      <node id="92">
+      <node id="103">
         <label>WeakReference&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="90">
+      <node id="101">
         <label>EntityHost</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost"/>
-        <childnode refid="91" relation="public-inheritance">
+        <childnode refid="102" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

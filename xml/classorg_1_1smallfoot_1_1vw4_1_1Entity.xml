@@ -21,7 +21,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="48" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="48" bodyend="-1"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" compoundref="VirtualWisdom4ClientTool_8java" startline="71" endline="82">VirtualWisdom4ClientTool.setTarget</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1adf6150f6553bb5d80b9c303817a94a9d" compoundref="VirtualWisdom4ClientTool_8java" startline="68" endline="79">VirtualWisdom4ClientTool.setTarget</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -51,7 +51,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="158" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="158" bodyend="-1"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a9a2326f35466e54c36c070829245c557" prot="protected" static="no" mutable="no">
         <type>String</type>
@@ -65,8 +65,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="146" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="146" bodyend="-1"/>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="585" endline="639">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="970" endline="1199">VirtualWisdom4ClientTool.main</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="578" endline="632">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa" compoundref="VirtualWisdom4ClientTool_8java" startline="950" endline="1179">VirtualWisdom4ClientTool.main</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1ab1bf14d6f0f0af84c30272b6eed5792f" prot="protected" static="no" mutable="no">
         <type>WeakReference&lt; <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref> &gt;</type>
@@ -411,7 +411,7 @@
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="165" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="165" bodyend="168"/>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a464a9940ad720e717c25422b41b7845b" compoundref="Entity_8java" startline="160" endline="163">Entity.description</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="585" endline="639">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="578" endline="632">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_1a670f83b1f0f39a20e0fe60597032a367" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -438,7 +438,7 @@
         </inbodydescription>
         <location file="/Users/allan.clark/src/vw4tools/java/Entity.java" line="153" column="1" bodyfile="/Users/allan.clark/src/vw4tools/java/Entity.java" bodystart="153" bodyend="156"/>
         <references refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1afa2149aced9d90555f788dfc81c23d15" compoundref="Entity_8java" startline="148" endline="151">Entity.name</references>
-        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="585" endline="639">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
+        <referencedby refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36539eb2d98fcdcedd7dc2088acfeef2" compoundref="VirtualWisdom4ClientTool_8java" startline="578" endline="632">VirtualWisdom4ClientTool.loadAndAbsorbFile</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="package-func">
@@ -515,56 +515,63 @@
     <detaileddescription>
 <para>I&apos;m not so sure how it&apos;ll unfold yet, but I intend to treat all hosts and hbas and storagecontrollers and iomodules as similar objects: things that can have children things. In the short term, be very careful: there is an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref>, and a VWImport::Entity </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="60">
+      <node id="67">
         <label>EntityHBA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA"/>
-        <childnode refid="58" relation="public-inheritance">
+        <childnode refid="65" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="59">
+      <node id="66">
         <label>EntityFA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityFA"/>
-        <childnode refid="58" relation="public-inheritance">
+        <childnode refid="65" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="57">
+      <node id="64">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
       </node>
-      <node id="58">
+      <node id="65">
         <label>Entity.LeafEntity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity"/>
-        <childnode refid="57" relation="public-inheritance">
+        <childnode refid="64" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="61">
+      <node id="68">
         <label>EntityArray</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray"/>
-        <childnode refid="57" relation="public-inheritance">
+        <childnode refid="64" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="62">
+      <node id="69">
         <label>EntityHost</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHost"/>
-        <childnode refid="57" relation="public-inheritance">
+        <childnode refid="64" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="65">
+      <node id="72">
+        <label>String</label>
+      </node>
+      <node id="73">
         <label>Vector&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="63">
+      <node id="70">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
-        <childnode refid="64" relation="usage">
+        <childnode refid="71" relation="usage">
           <edgelabel>parent</edgelabel>
         </childnode>
-        <childnode refid="65" relation="usage">
+        <childnode refid="72" relation="usage">
+          <edgelabel>name</edgelabel>
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="73" relation="usage">
           <edgelabel>children</edgelabel>
         </childnode>
       </node>
-      <node id="64">
+      <node id="71">
         <label>WeakReference&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
     </collaborationgraph>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="md_htdocs_RUNNING" kind="page">
+    <compoundname>md_htdocs_RUNNING</compoundname>
+    <title>Running Java</title>
+    <detaileddescription>
+<para>In this document, it is assumed &quot;java&quot; runs from the command prompt. In some cases, this isn&apos;t true. Windows users, for example, may need to change their usage, from: <verbatim>java -jar vw4tool.jar ...
+</verbatim></para><para>to: <verbatim>java.exe -jar vw4tool.jar ...
+</verbatim></para><para>In both cases, if the &quot;java&quot; (or java.exe) executable is not available on the user&apos;s &quot;path&quot; or list of locations wherein to find a binary/executable, the user will need to type the full pathname to the java executable.</para><para>Macintosh OSX users can simply type &quot;java&quot;: <verbatim>java -jar vw4tool.jar ...
+</verbatim></para><para>A UNIX (or unix-like) user may need to type /opt/local/bin/java or similar: <verbatim>/opt/local/bin/java -jar vw4tool.jar ...
+</verbatim></para><para>A Windows user may need to type a full pathname such as: <verbatim>&quot;C:\Program Files (x86)\Java\jre7\bin\java.exe&quot; -jar vw4tool.jar ...
+</verbatim></para><para>In all cases, where I type merely &quot;java&quot;, make sure you replace that with however the invocation details are for your platform.</para><para>To confirm you&apos;ve found a working Java Runtime Environment, use the &quot;help&quot; command to as vw4tool.jar what version it is: <verbatim>java -jar vw4tool.jar --help
+Usage: vw4tool -V|--version|-H|--help
+     : vw4tool --read &lt;filename&gt;|--input &lt;filename&gt; | -r &lt;filename&gt; | -i &lt;filename&gt;
+   ie: vw4tool --read import.json
+   ie: vw4tool -r import.json
+</verbatim></para><para>note: many commands have shorter versions. &quot;--version&quot; (with two &quot;-&quot;) is the same as &quot;-V&quot; (with one dash). Pay special attention to case. Uppercase &quot;N&quot; is different from lowercase &quot;n&quot;.</para><para><heading level="1">Common Usage </heading>
+</para><para><verbatim>java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oexample.json
+</verbatim></para><para>or <verbatim>java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oOrderedTuples.csv
+awk -f csv-to-json.awk OrderedTuples.csv &gt; example.json
+</verbatim></para><para>This is the most common usage, here as a reference. Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple &quot;-o&quot; options. Notice also that although in past, &quot;-o&quot; was &quot;cuddled&quot; to the filename after it (no spaces), but this has changed to make it easier and more forgiving to use. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

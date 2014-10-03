@@ -60,6 +60,16 @@
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>Vector&lt; Method &gt; nameMungers</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca">VirtualWisdom4ClientTool</link> (
 String xmlFile)</para>
                     </listitem>
@@ -69,14 +79,6 @@ String xmlFile)</para>
                 <itemizedlist>
                     <listitem>
                         <para> <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae">VirtualWisdom4ClientTool</link> (
-)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>boolean <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a6ffcb3b58a6bcea538f374321414a141">check</link> (
 )</para>
                     </listitem>
                 </itemizedlist>
@@ -186,8 +188,43 @@ String f)</para>
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>static void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa">main</link> (
+String args)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">report</link> (
+int orphans, int fostered, int total)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3c095173af01126818c08d1f53219b69">touppercase</link> (
+String s)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">absorbPattern</link> (
 String pattern)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36dd4301460f0cfb86fbdaf820324cbc">addMunger</link> (
+String munger)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -256,25 +293,6 @@ String filename)</para>
                 </itemizedlist>
             </para>
         </simplesect>
-        <simplesect>
-            <title></title>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>static void <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa">main</link> (
-String args)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>static String <link linkend="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">report</link> (
-int orphans, int fostered, int total)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-        </simplesect>
     <simplesect>
         <title>Brief Description</title>
 
@@ -288,7 +306,7 @@ int orphans, int fostered, int total)</para>
 <para>As you&apos;d expect, there is no support for this. If it breaks, you may choose to keep both pieces :)</para>
 
 <para>Ad-Hoc content for this utility-stack may appear at <link xlink:href="http://fcfae.com/">http://fcfae.com/</link> </para>
-                <para>Definition at line 63 of file VirtualWisdom4ClientTool.java</para>
+                <para>Definition at line 60 of file VirtualWisdom4ClientTool.java</para>
                 <para>The Documentation for this struct was generated from the following file: </para>
                 <para><itemizedlist><listitem><para>VirtualWisdom4ClientTool.java</para></listitem></itemizedlist></para>
         </simplesect>
@@ -322,18 +340,6 @@ int orphans, int fostered, int total)</para>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae">
                 <title>VirtualWisdom4ClientTool ()</title> <emphasis>Class Constructor with no initial file.</emphasis>
                 
-            </section>
-            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a6ffcb3b58a6bcea538f374321414a141">
-                <title>boolean check ()</title> <emphasis>self-check whether dependent components are available.</emphasis>
-                
-<para>This is beyond the benefits of build-time link verification and run-time linking, but checking the sanity of dependent parts. For example &#8211; and the only initial check &#8211; BouncyCastle may be available as a Provider (bcpkix) but may not load successfully for a number of fussy little reasons; I&apos;d like to be able to check each one and improve in-field diagnostics.</para>
-
-<para><formalpara><title>Returns: </title>
-
-<para>boolean: Am I sane? </para>
-</formalpara>
-</para>
-
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aa9ab77e799e869cf9da3d339e124f6c4">
                 <title>TreeMap&lt;String,Entity&gt; entities ()</title> <emphasis></emphasis>
@@ -571,6 +577,76 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
                 <title>VWImport vwimport ()</title> <emphasis></emphasis>
                 
             </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa">
+                <title>static void main (String args[])</title> <emphasis>Main function, as you can tell.</emphasis>
+                
+<para>this function merely parses the command-line to dispatch actions to the meat of the meal above. I&apos;m using an actual GetOpt because, yes, I&apos;m a UNIX/C hack, re-using 3-decades-old knowledge, but this also preserves both extensibility and the ability to use longopts in scripts as a way to self-document what the tool&apos;s doing.</para>
+
+<para>No real intelligence herein except the parse-and-redirect action.</para>
+
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>args</entry>
+                                <entry>
+<para>as you&apos;d expect, these are commandline arguments given when the jar is activated </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">
+                <title>static String report (int orphans, int fostered, int total)</title> <emphasis>Convenience function to sSummarize the current &quot;coverage&quot; or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.</emphasis>
+                
+<para><formalpara><title>Returns: </title>
+
+<para>formatted string showing summary in human-readable text </para>
+</formalpara>
+
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters</title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <tbody>
+                            <row>
+                                <entry>orphans</entry>
+                                <entry>
+<para>count of orphan entities (still lacking parent entities) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>fostered</entry>
+                                <entry>
+<para>count of entities accepted by parent entities </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>total</entry>
+                                <entry>
+<para>count of all entities in the system </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a3c095173af01126818c08d1f53219b69">
+                <title>static String touppercase (String s)</title> <emphasis></emphasis>
+                
+            </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aef7adefd80557ad76a8701f4e226118b">
                 <title>void absorbPattern (String pattern)</title> <emphasis>Absorb a pattern for chunking together nickname patterns and execute it
 immediately on all current orphan LeafEntities.</emphasis>
@@ -610,6 +686,10 @@ immediately on all current orphan LeafEntities.</emphasis>
                 </formalpara>
                 </para>
 
+            </section>
+            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a36dd4301460f0cfb86fbdaf820324cbc">
+                <title>void addMunger (String munger)</title> <emphasis></emphasis>
+                
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad6eb6d2fc33de64afa2871acddaa348d">
                 <title>Entity entityAccepting (Entity newguy)</title> <emphasis></emphasis>
@@ -745,72 +825,6 @@ immediately on all current orphan LeafEntities.</emphasis>
                                 <entry>filename</entry>
                                 <entry>
 <para>name of file to write </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                </formalpara>
-                </para>
-
-            </section>
-            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a75988cf84fc6ee7a2ebff36e363021aa">
-                <title>static void main (String args[])</title> <emphasis>Main function, as you can tell.</emphasis>
-                
-<para>this function merely parses the command-line to dispatch actions to the meat of the meal above. I&apos;m using an actual GetOpt because, yes, I&apos;m a UNIX/C hack, re-using 3-decades-old knowledge, but this also preserves both extensibility and the ability to use longopts in scripts as a way to self-document what the tool&apos;s doing.</para>
-
-<para>No real intelligence herein except the parse-and-redirect action.</para>
-
-<para>
-                <formalpara>
-                    <title/>
-                    <table frame="all">
-                        <title>Parameters</title>
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <tbody>
-                            <row>
-                                <entry>args</entry>
-                                <entry>
-<para>as you&apos;d expect, these are commandline arguments given when the jar is activated </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                </formalpara>
-                </para>
-
-            </section>
-            <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">
-                <title>static String report (int orphans, int fostered, int total)</title> <emphasis>Convenience function to sSummarize the current &quot;coverage&quot; or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.</emphasis>
-                
-<para><formalpara><title>Returns: </title>
-
-<para>formatted string showing summary in human-readable text </para>
-</formalpara>
-
-                <formalpara>
-                    <title/>
-                    <table frame="all">
-                        <title>Parameters</title>
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <tbody>
-                            <row>
-                                <entry>orphans</entry>
-                                <entry>
-<para>count of orphan entities (still lacking parent entities) </para>
-</entry>
-                            </row>
-                            <row>
-                                <entry>fostered</entry>
-                                <entry>
-<para>count of entities accepted by parent entities </para>
-</entry>
-                            </row>
-                            <row>
-                                <entry>total</entry>
-                                <entry>
-<para>count of all entities in the system </para>
 </entry>
                             </row>
                         </tbody>

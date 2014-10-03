@@ -1,4 +1,4 @@
 <map id="EntityFA" name="EntityFA">
-<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html" title="A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that lea..." alt="" coords="179,185,295,210"/>
-<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html" title="An Entity is the core mutable object used in the JSON import for VW4. " alt="" coords="210,107,264,133"/>
+<area shape="rect" id="node2" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity.html" title="A LeafEntity is the common ancestor of Storage FAs and Server HBAs; this is combined only so that lea..." alt="" coords="411,198,527,223"/>
+<area shape="rect" id="node3" href="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html" title="An Entity is the core mutable object used in the JSON import for VW4. " alt="" coords="359,121,413,146"/>
 </map>

@@ -1,0 +1,12 @@
+digraph "Entity.LeafEntity"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Entity.LeafEntity",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Entity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1Entity.html",tooltip="An Entity is the core mutable object used in the JSON import for VW4. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="EntityFA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1EntityFA.html",tooltip="An EntityFA is the representation of an Storage FA entity in the JSON import for VW4. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="EntityHBA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.html",tooltip="An EntityHBA is the representation of an HBA entity in the JSON import for VW4. "];
+}

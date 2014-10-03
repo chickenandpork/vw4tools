@@ -80,50 +80,60 @@
     <detaileddescription>
 <para>Be very careful: there is an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref>, and a VWImport::Entity </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="80">
+      <node id="90">
         <label>EntityHBA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA"/>
-        <childnode refid="81" relation="public-inheritance">
+        <childnode refid="91" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="82">
+      <node id="92">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
       </node>
-      <node id="81">
+      <node id="91">
         <label>Entity.LeafEntity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity"/>
-        <childnode refid="82" relation="public-inheritance">
+        <childnode refid="92" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="87">
+      <node id="97">
+        <label>String</label>
+      </node>
+      <node id="98">
         <label>Vector&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="83">
+      <node id="93">
         <label>EntityHBA</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA"/>
-        <childnode refid="84" relation="public-inheritance">
+        <childnode refid="94" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="85">
+      <node id="95">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
-        <childnode refid="86" relation="usage">
+        <childnode refid="96" relation="usage">
           <edgelabel>parent</edgelabel>
         </childnode>
-        <childnode refid="87" relation="usage">
+        <childnode refid="97" relation="usage">
+          <edgelabel>name</edgelabel>
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="98" relation="usage">
           <edgelabel>children</edgelabel>
         </childnode>
       </node>
-      <node id="86">
+      <node id="96">
         <label>WeakReference&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="84">
+      <node id="94">
         <label>Entity.LeafEntity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity_1_1LeafEntity"/>
-        <childnode refid="85" relation="public-inheritance">
+        <childnode refid="95" relation="public-inheritance">
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>wwn</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>

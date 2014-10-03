@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="DEP_8dox" kind="file">
+    <compoundname>DEP.dox</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>dep <dot> 
+digraph Dependencies
+{
+&quot;fasterxml::jackson&quot; -&gt; &quot;vw4tools&quot;
+&quot;fibrechannel-parsers&quot; -&gt; &quot;vw4tools&quot;
+&quot;java-getopt&quot; -&gt; &quot;vw4tools&quot;
+&quot;wwndesc&quot; -&gt; &quot;vw4tools&quot;
+}
+</dot> </para>    </detaileddescription>
+    <location file="/Users/allan.clark/src/vw4tools/htdocs/DEP.dox"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,46 @@
+In this document, it is assumed \char`\"{}java\char`\"{} runs from the command prompt. In some cases, this isn't true. Windows users, for example, may need to change their usage, from\+: \begin{DoxyVerb}java -jar vw4tool.jar ...
+\end{DoxyVerb}
+
+
+to\+: \begin{DoxyVerb}java.exe -jar vw4tool.jar ...
+\end{DoxyVerb}
+
+
+In both cases, if the \char`\"{}java\char`\"{} (or java.\+exe) executable is not available on the user's \char`\"{}path\char`\"{} or list of locations wherein to find a binary/executable, the user will need to type the full pathname to the java executable.
+
+Macintosh O\+S\+X users can simply type \char`\"{}java\char`\"{}\+: \begin{DoxyVerb}java -jar vw4tool.jar ...
+\end{DoxyVerb}
+
+
+A U\+N\+I\+X (or unix-\/like) user may need to type /opt/local/bin/java or similar\+: \begin{DoxyVerb}/opt/local/bin/java -jar vw4tool.jar ...
+\end{DoxyVerb}
+
+
+A Windows user may need to type a full pathname such as\+: \begin{DoxyVerb}"C:\Program Files (x86)\Java\jre7\bin\java.exe" -jar vw4tool.jar ...
+\end{DoxyVerb}
+
+
+In all cases, where I type merely \char`\"{}java\char`\"{}, make sure you replace that with however the invocation details are for your platform.
+
+To confirm you've found a working Java Runtime Environment, use the \char`\"{}help\char`\"{} command to as vw4tool.\+jar what version it is\+: \begin{DoxyVerb}java -jar vw4tool.jar --help
+Usage: vw4tool -V|--version|-H|--help
+     : vw4tool --read <filename>|--input <filename> | -r <filename> | -i <filename>
+   ie: vw4tool --read import.json
+   ie: vw4tool -r import.json
+\end{DoxyVerb}
+
+
+note\+: many commands have shorter versions. \char`\"{}-\/-\/version\char`\"{} (with two \char`\"{}-\/\char`\"{}) is the same as \char`\"{}-\/\+V\char`\"{} (with one dash). Pay special attention to case. Uppercase \char`\"{}\+N\char`\"{} is different from lowercase \char`\"{}n\char`\"{}.
+
+\section*{Common Usage }
+
+\begin{DoxyVerb}java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oexample.json
+\end{DoxyVerb}
+
+
+or \begin{DoxyVerb}java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oOrderedTuples.csv
+awk -f csv-to-json.awk OrderedTuples.csv > example.json
+\end{DoxyVerb}
+
+
+This is the most common usage, here as a reference. Notice that although this shows E\+I\+T\+H\+E\+R Ordered\+Tuples.\+csv or a J\+S\+O\+N file being created, both could be created by multiple \char`\"{}-\/o\char`\"{} options. Notice also that although in past, \char`\"{}-\/o\char`\"{} was \char`\"{}cuddled\char`\"{} to the filename after it (no spaces), but this has changed to make it easier and more forgiving to use. 

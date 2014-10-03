@@ -107,38 +107,45 @@
     <detaileddescription>
 <para>Be very careful: there is an <ref refid="classorg_1_1smallfoot_1_1vw4_1_1Entity" kindref="compound">Entity</ref>, and a VWImport::Entity </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="67">
+      <node id="75">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
       </node>
-      <node id="66">
+      <node id="74">
         <label>EntityArray</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray"/>
-        <childnode refid="67" relation="public-inheritance">
+        <childnode refid="75" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="71">
+      <node id="79">
+        <label>String</label>
+      </node>
+      <node id="80">
         <label>Vector&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="69">
+      <node id="77">
         <label>Entity</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1Entity"/>
-        <childnode refid="70" relation="usage">
+        <childnode refid="78" relation="usage">
           <edgelabel>parent</edgelabel>
         </childnode>
-        <childnode refid="71" relation="usage">
+        <childnode refid="79" relation="usage">
+          <edgelabel>name</edgelabel>
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
           <edgelabel>children</edgelabel>
         </childnode>
       </node>
-      <node id="70">
+      <node id="78">
         <label>WeakReference&lt; org.smallfoot.vw4.Entity &gt;</label>
       </node>
-      <node id="68">
+      <node id="76">
         <label>EntityArray</label>
         <link refid="classorg_1_1smallfoot_1_1vw4_1_1EntityArray"/>
-        <childnode refid="69" relation="public-inheritance">
+        <childnode refid="77" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

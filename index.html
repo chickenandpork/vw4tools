@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">1.0-7</span>
+   &#160;<span id="projectnumber">1.0-8</span>
    </div>
   </td>
  </tr>
@@ -62,70 +62,21 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">JavaDoc API Markup for vw4tools </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>vw4tools </h1>
-<p>Tools and utilities for VirtualWisdom4</p>
+<div class="textblock"><p>Tools and utilities for VirtualWisdom4</p>
 <p>At current, VW4Tools is a script or two, plus one big jar file. vw4tool.jar allows a user to import a text file in one of several formats and output an Entity import JSON for VirtualWisdom4.</p>
-<h1>Running Java </h1>
-<p>In this document, it is assumed "java" runs from the command prompt. In some cases, this isn't true. Windows users, for example, may need to change their usage, from: </p><pre class="fragment">java -jar vw4tool.jar ...
-</pre><p>to: </p><pre class="fragment">java.exe -jar vw4tool.jar ...
-</pre><p>In both cases, if the "java" (or java.exe) executable is not available on the user's "path" or list of locations wherein to find a binary/executable, the user will need to type the full pathname to the java executable.</p>
-<p>Macintosh OSX users can simply type "java": </p><pre class="fragment">java -jar vw4tool.jar ...
-</pre><p>A UNIX (or unix-like) user may need to type /opt/local/bin/java or similar: </p><pre class="fragment">/opt/local/bin/java -jar vw4tool.jar ...
-</pre><p>A Windows user may need to type a full pathname such as: </p><pre class="fragment">"C:\Program Files (x86)\Java\jre7\bin\java.exe" -jar vw4tool.jar ...
-</pre><p>In all cases, where I type merely "java", make sure you replace that with however the invocation details are for your platform.</p>
-<p>To confirm you've found a working Java Runtime Environment, use the "help" command to as vw4tool.jar what version it is: </p><pre class="fragment">java -jar vw4tool.jar --help
-Usage: vw4tool -V|--version|-H|--help
-     : vw4tool --read &lt;filename&gt;|--input &lt;filename&gt; | -r &lt;filename&gt; | -i &lt;filename&gt;
-   ie: vw4tool --read import.json
-   ie: vw4tool -r import.json
-</pre><p>note: many commands have shorter versions. "--version" (with two "-") is the same as "-V" (with one dash). Pay special attention to case. Uppercase "N" is different from lowercase "n".</p>
-<h1>Common Usage </h1>
-<pre class="fragment">java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oexample.json
-</pre><p>or </p><pre class="fragment">java -jar vw4tool.jar  -N localfile1.txt -N localfile2.txt -N localfile3.txt -oOrderedTuples.csv
-awk -f csv-to-json.awk OrderedTuples.csv &gt; example.json
-</pre><p>This is the most common usage, here as a reference. Notice that although this shows EITHER OrderedTuples.csv or a JSON file being created, both could be created by multiple "-o" options. Notice also that although in past, "-o" was "cuddled" to the filename after it (no spaces), but this has changed to make it easier and more forgiving to use.</p>
-<h1>Overview </h1>
-<p>In general, collection and conversion looks like the following diagram:</p>
+<p>VW4Tools is intentionally 100% opensource to both show the code a user may be running on a trusted server, and to emphasize that Support is also of the OpenSource variety (ie not by VI Support).</p>
 <div align="center">
-<img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
-<map name="dot_inline_dotgraph_1.map" id="dot_inline_dotgraph_1.map"></map>
+<img src="dot_inline_dotgraph_2.png" alt="dot_inline_dotgraph_2.png" border="0" usemap="#dot_inline_dotgraph_2.map"/>
+<map name="dot_inline_dotgraph_2.map" id="dot_inline_dotgraph_2.map"><area shape="poly" id="node1" href="http://chickenandpork.github.io/fibrechannel-parsers/index.html" title="fibrechannel&#45;parsers" alt="" coords="222,29,217,22,202,15,177,10,147,7,113,5,80,7,49,10,25,15,10,22,4,29,10,37,25,43,49,49,80,52,113,53,147,52,177,49,202,43,217,37"/></map>
 </div>
-<h1>Import of FTP or HTTP Data </h1>
-<p>VW4Tools uses the URLDataSource functionality to open a stream from a HTTP or FTP server; this means that the files it parses can be stored on a local filesystem, a FTP server, and an HTTP server as constant data, or can be the result of a CGI program on an HTTP server. Less common, a local file may also be mounted as a FUSE filesystem, allowing even "local" data to be generated like a CGI program.</p>
-<p>In order to draw a text stream from a FTP server or HTTP server, merely use a RFC-1738-compliant URL to indicate these two sources: </p><pre class="fragment">(ftp|http)://{user{:password@@}server{:port}/pathname/to/resource
-</pre><p>for example:</p>
-<p>(basic user/pass: user = scott, pass = T1ger, host = ftp.example.com, subdir = . , file = nicknames.txt </p><pre class="fragment">java -jar vw4tool.jar --nickname=ftp://scott:T1ger@@ftp.example.com/nicknames.txt
-</pre><p>(basic user/pass: user = scott, pass = T1ger, host = ftp.example.com, subdir = /users/local/ScottAdams/ , file = aliases.text </p><pre class="fragment">java -jar vw4tool.jar --nickname=ftp://scott:T1ger@@ftp.example.com/%2fusers/local/ScottAdams/aliases.text
-</pre><p>(basic user/pass: user = anonymous, pass = scott@uberserver.net, host = ftp.example.com, subdir = examples , file = aliases </p><pre class="fragment">java -jar vw4tool.jar -N ftp://anonymous:scott%2Fuberserver.net@@ftp.example.com/examples/aliases
-</pre><p>(basic http: host = www.example.com, subdir = . , file = aliases </p><pre class="fragment">java -jar vw4tool.jar --nickname=http://www.example.com/aliases
-</pre><p>(basic HTTP GET: host = www.example.com, subdir = . , path=/cgi-bin/fetch.cgi, some parameters </p><pre class="fragment">java -jar vw4tool.jar --nickname=http://www.example.com/cgi-bin/fetch.cgi?now=20140901&amp;realm=WEST&amp;group=production
-</pre><p>NOTE: "--nickname=" and "-N" are functionally identical; "--nickname=" may offer a slight beefit in more clearly self-documenting the behavior of the commandline option.</p>
-<h1>Import of Local Text File </h1>
-<p>The most common usage is local text files representing the metadata of the local environment. This is done by offering a RFC-1738-compliant local file URL: </p><pre class="fragment">file://pathname/to/resource
-</pre><p>Note that if the "file://" is not given, and no "protocol" (ie "file://") is given, vw4tool will warn you about this but try the local <a href="file://">file://</a> protocol prefix for you</p>
-<p>for example:</p>
-<p>(local file in subdir ./files/aliases) </p><pre class="fragment">java -jar vw4tool.jar --nickname=file://files/aliases
-java -jar vw4tool.jar --nickname=files/aliases
-</pre><p>(local file in subdir /Full/Path/files/aliases) </p><pre class="fragment">java -jar vw4tool.jar --nickname=file:///Full/Path/files/aliases
-java -jar vw4tool.jar --nickname=/Full/Path/files/aliases
-</pre><h1>Specifying Formats </h1>
-<p>The user doesn't need to speficy the format of a file; vw4tool will try the file at the same time across many different parsers and see which one can make sense of it. Unfortunately, the parsers cannot always chew through any user-interface codes (such as "press any key to continue") and preamble (the verbose text trash before the actual zone or aliases or such). Trimming that to a minimum offers a better chance of parsing the file.</p>
-<p>The corollary to this is that if a file doesn't seem to parse, yet it seems like it should, remove anything before or after the actual content, and confirm that it was collected in a non-interactive method. If the user ever needs to "press any key for more", chances are, the parsed result will be either partial, or none at all.</p>
-<h1>Multiple Inputs </h1>
-<p>These input formats can be mixed. For example </p><pre class="fragment">java -jar vw4tool.jar --nickname=http://www.example.com/cgi-bin/fetch.cgi?now=20140901&amp;realm=WEST&amp;group=production -N local.txt -N file:///Users/allanc/aliases.dad -N morefiles.txt
-</pre><h1>Outputs </h1>
-<p>vw4tool will either generate an OrderedTuples.csv file (if that specific filename is given on the "-o" option) or a json file (any other putput filename). Or both: </p><pre class="fragment">java -jar vw4tool.jar  -N local.txt -oOrderedTuples.csv -oexample.json
-</pre><p>NOTE: giving no filename used to send the output to stdout, but now requires a "-" to mean "yes, I meant that": </p><pre class="fragment">java -jar vw4tool.jar  -N local.txt -o -
-</pre><p>For this reason, the following two commands used to do different things, but are now equivalent: </p><pre class="fragment">java -jar vw4tool.jar  -N local.txt -oexample.json
-java -jar vw4tool.jar  -N local.txt -o example.json
-</pre><h1>Proprietary Intellectual Property </h1>
+<h1>Proprietary Intellectual Property </h1>
 <p>With the exception of samples/import01.json, all files and content are based on the same level of access to the product enjoyed by a customer. Implicitly, no private information is shared, all of this content (save the one file) is based on empirical discovery, and could change overnight. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Oct 1 2014 09:17:48 for vw4tools by
+    <li class="footer">Generated on Thu Oct 2 2014 17:49:59 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
