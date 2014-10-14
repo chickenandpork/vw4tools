@@ -233,24 +233,29 @@ public class VirtualWisdom4ClientTool
      */
     public static String touppercase(String s)
     {
-	if (null == s) return ""; else return s.toUpperCase();
+        if (null == s) return "";
+        else return s.toUpperCase();
     }
 
     Vector<Method> hostMungers = new Vector<Method> (1,1);
     void addMunger(String munger)
     {
-	if (null == munger) return;
+        if (null == munger) return;
 
-	else if (munger.equalsIgnoreCase("host:touppercase"))
-	{
-	    try {
-	    Class clazz = this.getClass();
-	    Class[] params = { String.class };
-	    Method M = clazz.getMethod("touppercase", params);
-	    hostMungers.add(M);
-	    }
-	    catch (NoSuchMethodException nsme) { nsme.printStackTrace(); }
-	}
+        else if (munger.equalsIgnoreCase("host:touppercase"))
+        {
+            try
+            {
+                Class clazz = this.getClass();
+                Class[] params = { String.class };
+                Method M = clazz.getMethod("touppercase", params);
+                hostMungers.add(M);
+            }
+            catch (NoSuchMethodException nsme)
+            {
+                nsme.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -298,14 +303,19 @@ public class VirtualWisdom4ClientTool
                         if (m.find())
                         {
                             String possibleName = m.group(1);
-			    for (Method M: hostMungers)
-			    {
-				if (verbose) System.out.println("pre-munge: calling "+M.getName()+" with \""+possibleName+"\"");
-				try {
-				possibleName = M.invoke(this,new Object[]{possibleName}).toString();
-				} catch (Exception e) { e.printStackTrace(); }
-				if (verbose) System.out.println("post-munge: called "+M.getName()+" gave \""+possibleName+"\"");
-			    }
+                            for (Method M: hostMungers)
+                            {
+                                if (verbose) System.out.println("pre-munge: calling "+M.getName()+" with \""+possibleName+"\"");
+                                try
+                                {
+                                    possibleName = M.invoke(this,new Object[] {possibleName}).toString();
+                                }
+                                catch (Exception e)
+                                {
+                                    e.printStackTrace();
+                                }
+                                if (verbose) System.out.println("post-munge: called "+M.getName()+" gave \""+possibleName+"\"");
+                            }
                             if (verbose) System.out.println("Analyzing "+work.name()+" with "+pattern+" possible: "+possibleName);
 
                             /* OK, orphan.  Which of the four cases are we? */
@@ -820,82 +830,95 @@ public class VirtualWisdom4ClientTool
     {
         SSHCLI cli = new SSHCLI();
 
-	/* because URL is more-or-less "constant" for non URLStreamHandler classes, we need to step through an iterative set of steps */
+        /* because URL is more-or-less "constant" for non URLStreamHandler classes, we need to step through an iterative set of steps */
 
-	/* first: make a base URL */
+        /* first: make a base URL */
 
-	    java.net.URL first = null;
-	try
-	{
-	    first = new java.net.URL(hosturl);
-	}
-	catch (java.net.MalformedURLException mue)
-	{
-	    /*
-	     * first fail:
-	     * 
-	     * 1) the ssh:// protocol might not be found
-	     * 2) hosturl might not be a URL
-	     *
-	     * so we test-build a ssh:// URL, and succeeding that, assume it's a host (somewhat unsafe, choosing facility over rock-hard-refusal)
-	     */
-	    try { first = new java.net.URL("ssh://localhost/"); } catch (java.net.MalformedURLException x) { System.out.println("Internal error: ssh:// protocol not found"); return ; }
+        java.net.URL first = null;
+        try
+        {
+            first = new java.net.URL(hosturl);
+        }
+        catch (java.net.MalformedURLException mue)
+        {
+            /*
+             * first fail:
+             *
+             * 1) the ssh:// protocol might not be found
+             * 2) hosturl might not be a URL
+             *
+             * so we test-build a ssh:// URL, and succeeding that, assume it's a host (somewhat unsafe, choosing facility over rock-hard-refusal)
+             */
+            try
+            {
+                first = new java.net.URL("ssh://localhost/");
+            }
+            catch (java.net.MalformedURLException x)
+            {
+                System.out.println("Internal error: ssh:// protocol not found");
+                return ;
+            }
 
-	    try
-	    {
-	        first = new java.net.URL("ssh://"+hosturl+"/");
-	    }
-	    catch (java.net.MalformedURLException mue2)
-	    {
-		/* second fail: not a functional URL */
-		System.out.println("Cannot create a proper URL from that data"); return ;
-	    }
+            try
+            {
+                first = new java.net.URL("ssh://"+hosturl+"/");
+            }
+            catch (java.net.MalformedURLException mue2)
+            {
+                /* second fail: not a functional URL */
+                System.out.println("Cannot create a proper URL from that data");
+                return ;
+            }
 
-	    if ((null == first.getUserInfo()) || (0 == first.getUserInfo().length()))
-	    try
-	    {
-	        first = new java.net.URL("ssh://visvc:@PW_VISVC@@"+hosturl+"/");
-	    }
-	    catch (java.net.MalformedURLException mue2)
-	    {
-		/* post-second fail: not a functional URL */
-		System.out.println("Cannot create a proper URL (injecting password) from that data"); return ;
-	    }
+            if ((null == first.getUserInfo()) || (0 == first.getUserInfo().length()))
+                try
+                {
+                    first = new java.net.URL("ssh://visvc:@PW_VISVC@@"+hosturl+"/");
+                }
+                catch (java.net.MalformedURLException mue2)
+                {
+                    /* post-second fail: not a functional URL */
+                    System.out.println("Cannot create a proper URL (injecting password) from that data");
+                    return ;
+                }
 
-	}
+        }
 
-	java.net.URL u;
-	try
-	{
-	    String commands[] = { 
-		"killall virtuoso4.py||true",
-		"rm -fr virtuoso4",
-		"curl "+System.getProperties().getProperty("vw4tools.urlVirtuoso4", "@URL_VIRTUOSO4@")+" | tar -xzf -",
-		"cd virtuoso4",
-		"./virtuoso4.py" };
+        java.net.URL u;
+        try
+        {
+            String commands[] =
+            {
+                "killall virtuoso4.py||true",
+                "rm -fr virtuoso4",
+                "curl "+System.getProperties().getProperty("vw4tools.urlVirtuoso4", "@URL_VIRTUOSO4@")+" | tar -xzf -",
+                "cd virtuoso4",
+                "./virtuoso4.py"
+            };
 
-	    String command = null;
-	    for (String s: commands)
-	    {
-		if (null == command)
-		    command = "";
-		else
-		    command += " && ";
+            String command = null;
+            for (String s: commands)
+            {
+                if (null == command)
+                    command = "";
+                else
+                    command += " && ";
 
-		command += s.replaceAll("!","\\!");
-	    }
+                command += s.replaceAll("!","\\!");
+            }
 
-	    /* OK, we have a URL.  Now we do the silly part: tear it apart to re-use it */
-	    u = new java.net.URL(first, command); 
-	}
-	catch (java.net.MalformedURLException mue)
-	{
-System.out.println("Internal MalformedURLException: cannot spec-convert "+first.toString()+" to append command: "+mue.getMessage()); return;
-	}
-	
-System.out.println("converted "+first.toString()+" to "+u.toString());
-System.out.println("user info: "+u.getUserInfo());
-	cli.exec(u.toString(), /* dryrun */ false);
+            /* OK, we have a URL.  Now we do the silly part: tear it apart to re-use it */
+            u = new java.net.URL(first, command);
+        }
+        catch (java.net.MalformedURLException mue)
+        {
+            System.out.println("Internal MalformedURLException: cannot spec-convert "+first.toString()+" to append command: "+mue.getMessage());
+            return;
+        }
+
+        System.out.println("converted "+first.toString()+" to "+u.toString());
+        System.out.println("user info: "+u.getUserInfo());
+        cli.exec(u.toString(), /* dryrun */ false);
 
         System.out.println("Virtuoso4: "+hosturl);
     }
@@ -1075,7 +1098,7 @@ System.out.println("user info: "+u.getUserInfo());
                 break;
 
             case 'M': /* add Munging rules */
-		m.addMunger(g.getOptarg());
+                m.addMunger(g.getOptarg());
                 break;
 
             case 'N': /* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */
