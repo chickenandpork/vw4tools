@@ -23,7 +23,8 @@ $(subdir).jar: ../java/@PACKAGE@.jar $(top_builddir)/depjars/json.jar @FCPARSERS
 
 if DO_JARSIGNER
 @PACKAGE@.jar: $(subdir).jar @WITHJAVAKEYSTORE@
-	cat /dev/null | @JARSIGNER@ -keystore @WITHJAVAKEYSTORE@ @JAVAKEYSTOREPASSSTRING@ -signedjar $@ $< vitools
+	@echo "jar-signing $@ using vitools key"
+	@cat /dev/null | @JARSIGNER@ -keystore @WITHJAVAKEYSTORE@ @JAVAKEYSTOREPASSSTRING@ -signedjar $@ $< vitools
 #@PACKAGE@
 
 else
