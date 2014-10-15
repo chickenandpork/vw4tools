@@ -962,6 +962,15 @@ vmax-18641-fa06a0,array,5000097201234554,vmax-18641-fa06a0
 vmax-18641-fa07a0,array,5000097201234558,vmax-18641-fa07a0
 ], [])
 
+dnl convert to testcase for Tab-Separated Variables (testing with spaces)
+AT_CHECK([tr ',' ' ' < mixedcase.csv | tee mixedcase.tsv], 0, [oracle10_hba0 host 21000024ff123456 oracle10_hba0
+oracle10_hba1 host 22000024ff123456 ORACLE10_hba1
+server44_hba0 host 10000000c9123456 server44_hba0
+server44_hba1 host 10000000c9123457 SERVER44_hba1
+vmax-18641-fa06a0 array 5000097201234554 vmax-18641-fa06a0
+vmax-18641-fa07a0 array 5000097201234558 vmax-18641-fa07a0
+], [])
+
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N 'uppercase.csv;nickname=3;wwn=2' --pattern="([[^_]]+)_hba[[0-9]]+$" -oOrderedTuples.csv -oresult.json], 0, [stdout], [stderr])
 
@@ -1110,6 +1119,17 @@ AT_CHECK([cat result.json], 0, [[{
   "version" : "1"
 }]], [])
 
+dnl same trick, but TSV data :)
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.showPattern=true -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N 'mixedcase.tsv;nickname=3;wwn=2' --munge=host:touppercase --pattern="([[^_]]+)_hba[[0-9]]+$" -oOrderedTuples.csv -oresult.json], 0, [stdout], [stderr])
+
+AT_CHECK([cat OrderedTuples.csv], 0, [ORACLE10,host,21000024ff123456,oracle10_hba0
+ORACLE10,host,22000024ff123456,ORACLE10_hba1
+SERVER44,host,10000000c9123456,server44_hba0
+SERVER44,host,10000000c9123457,SERVER44_hba1
+vmax-18641-fa06a0,array,5000097201234554,vmax-18641-fa06a0
+vmax-18641-fa07a0,array,5000097201234558,vmax-18641-fa07a0
+], [])
+
 AT_CLEANUP()
 
 
@@ -1161,7 +1181,8 @@ AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddi
 AT_CHECK([cat OrderedTuples.csv], 0, [Oracle01,host,10000000c9123456,Oracle01
 ], [])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [[(vw4tools) parsed 0 zones, 1 aliases via NicknameParser
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
+(vw4tools) parsed 0 zones, 1 aliases via NicknameParser
 (vw4tools) parsed 0 zones, 0 aliases via AliShowZoneParser
 (vw4tools) parsed 0 zones, 0 aliases via Alias4Parser
 (vw4tools) parsed 0 zones, 0 aliases via BNAZoneParser
@@ -1204,7 +1225,8 @@ AT_CHECK([cat OrderedTuples.csv], 0, [Oracle01,host,10000000c9123456,Oracle01
 oracle01_3457,host,10000000c9123457,oracle01_3457
 ], [])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [[(vw4tools) parsed 0 zones, 2 aliases via NicknameParser
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
+(vw4tools) parsed 0 zones, 2 aliases via NicknameParser
 (vw4tools) parsed 0 zones, 0 aliases via AliShowZoneParser
 (vw4tools) parsed 0 zones, 0 aliases via Alias4Parser
 (vw4tools) parsed 0 zones, 0 aliases via BNAZoneParser
