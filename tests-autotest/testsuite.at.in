@@ -220,7 +220,8 @@ AT_DATA([remove.csv], ["WWN",50:0A:09:85:98:12:34:56,justaName,Storage
 ])
 
 AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via Alias4Parser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'waiting for parser' stdout], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via Alias4Parser
 (@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
 
@@ -431,7 +432,8 @@ AT_CHECK([cat alias4file.json], 0, [[{
 }]], [])
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'waiting for parser' stdout], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
 
 AT_CHECK([cat alias4file.json], 0, [[{
