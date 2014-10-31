@@ -734,7 +734,6 @@ public class VirtualWisdom4ClientTool
                 (filename.equalsIgnoreCase("")) ||
                 (filename.equalsIgnoreCase("-"))  )
             {
-                System.err.println("NOTE: writing to stdout");
                 String o = (new com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);
                 System.out.println(o);
             }
