@@ -462,7 +462,7 @@ public class VirtualWisdom4ClientTool
 
 
     /**
-     * Convenience function to sSummarize the current "coverage" or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.
+     * Convenience function to summarize the current "coverage" or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.
      *
      * @return formatted string showing summary in human-readable text
      * @param orphans count of orphan entities (still lacking parent entities)

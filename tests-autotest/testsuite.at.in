@@ -23,6 +23,8 @@ dnl      ------
 
 AT_CHECK([if test x@JARSIGNER@ = xmissing ; then exit 77; fi])
 
+AT_CHECK([if test -n "@DO_JARSIGNER_TRUE@" ; then exit 77; fi])
+
 AT_CHECK([@JARSIGNER@ -verify $abs_top_builddir/convjars/@PACKAGE@.jar], 0, [stdout], [])
 AT_CHECK([grep ^jar stdout], 0, [jar verified.
 ], [])
@@ -99,7 +101,8 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,500a098598123456,Storag
 
 dnl bogus test converted to an actual test
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'waiting for parser' stdout], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
 ], [])
 
 AT_CHECK([cat alias4file.json], 0, [[{
@@ -276,7 +279,8 @@ Location: [Line : 24 , Column : 7]
 ]])
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseAddItem=VW4InvalidAddedParser -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.txt --nicknameout=alias4file.json], 0, [stdout], [stderr])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via VW4InvalidAddedParser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'waiting for parser' stdout], 0, [(@PACKAGE@) parsed 0 zones, 1 aliases via VW4InvalidAddedParser
 (@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
 adding bogushost to itemList reservedAliases
 adding bogushost2 to itemList reservedAliases
@@ -328,7 +332,8 @@ Location: [Line : 24 , Column : 7]
 ]])
 
 AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --removenicknames=remove.txt --nicknameout=alias4file.json], 0, [stdout], [stderr])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'waiting for parser' stdout], 0, [(@PACKAGE@) parsed 0 zones, 3 aliases via Alias4Parser
 (@PACKAGE@) parsed 0 zones, 3 aliases via VW4InvalidAddedParser
 ], [])
 
@@ -378,7 +383,8 @@ AT_DATA([alias4file.csv], ["WWN",50:0A:09:85:98:12:34:56,NetApp-123456,Storage
 
 dnl bogus test converted to an actual test
 AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -Ddebug.verboseTokenizer=Alias4Parser -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="([[^_]]+)_[[^_]]+$" --nickname=alias4file.csv --nicknameout=alias4file.json], 0, [stdout], [stderr])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout | tee copyout|sort -u], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'waiting for parser' stdout], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 ], [])
 
 AT_CHECK([cat alias4file.json], 0, [[{
@@ -477,7 +483,8 @@ AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddi
 ], [stderr])
 
 AT_CHECK([java -Dcompat.target=4.0.0 -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar --nickname=alias4file.csv --pattern="([[^-]]+)-[[^-]]+$" --report --nicknameout=alias4file.json -oOrphanEntities.csv], 0, [stdout], [stderr])
-AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
+AT_CHECK([grep -v 'parsed 0 zones, 0 aliases' stdout], 0, [stdout], [stderr])
+AT_CHECK([grep -v 'waiting for parser' stdout], 0, [(@PACKAGE@) parsed 0 zones, 2 aliases via Alias4Parser
 @PACKAGE@ @VERSION@-@BUILDID@
     5 total entities
     4 leaf nodes
@@ -754,7 +761,7 @@ vmax-18641-fa06a0,array,5000097201234554,vmax-18641-fa06a0
 vmax-18641-fa07a0,array,5000097201234558,vmax-18641-fa07a0
 ], [])
 
-AT_CHECK([cat result.json], 0, [[{
+AT_CHECK([sed -e 's@from.*samples@from samples@g' result.json], 0, [[{
   "entities" : [ {
     "description" : "21000024ff123456,oracle10_hba0 converted via DeviceAliasParser from /Users/allan.clark/src/vw4tools/samples/simple.devicealias",
     "edit_type" : "add",
@@ -811,7 +818,7 @@ vmax-18641-fa06a0,array,5000097201234554,vmax-18641-fa06a0
 vmax-18641-fa07a0,array,5000097201234558,vmax-18641-fa07a0
 ], [])
 
-AT_CHECK([cat result.json], 0, [[{
+AT_CHECK([sed -e 's@from.*samples@from samples@g' result.json], 0, [[{
   "entities" : [ {
     "child_entities" : {
       "add" : [ "oracle10_hba0", "oracle10_hba1" ]
@@ -1181,7 +1188,9 @@ AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddi
 AT_CHECK([cat OrderedTuples.csv], 0, [Oracle01,host,10000000c9123456,Oracle01
 ], [])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [stdout], [])
+
+AT_CHECK([grep -v 'waiting for parser to drain' stdout], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
 (vw4tools) parsed 0 zones, 1 aliases via NicknameParser
 (vw4tools) parsed 0 zones, 0 aliases via AliShowZoneParser
 (vw4tools) parsed 0 zones, 0 aliases via Alias4Parser
@@ -1225,7 +1234,9 @@ AT_CHECK([cat OrderedTuples.csv], 0, [Oracle01,host,10000000c9123456,Oracle01
 oracle01_3457,host,10000000c9123457,oracle01_3457
 ], [])
 
-AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
+AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [stdout], [])
+
+AT_CHECK([grep -v 'waiting for parser to drain' stdout], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
 (vw4tools) parsed 0 zones, 2 aliases via NicknameParser
 (vw4tools) parsed 0 zones, 0 aliases via AliShowZoneParser
 (vw4tools) parsed 0 zones, 0 aliases via Alias4Parser
