@@ -1,6 +1,6 @@
 nodist_pkgdata_DATA = @PACKAGE@.jar
 
-CONFIG_CLEAN_FILES = @PACKAGE@.jar
+CONFIG_CLEAN_FILES = @PACKAGE@.jar convjars.jar
 
 BUILDTMP=$(shell date +%s)
 
