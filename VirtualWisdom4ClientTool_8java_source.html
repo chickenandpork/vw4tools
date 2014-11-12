@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">vw4tools
-   &#160;<span id="projectnumber">1.0-12</span>
+   &#160;<span id="projectnumber">1.0-21</span>
    </div>
   </td>
  </tr>
@@ -531,7 +531,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;</div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">     * Convenience function to sSummarize the current &quot;coverage&quot; or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">     * Convenience function to summarize the current &quot;coverage&quot; or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.</span></div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment">     * @return formatted string showing summary in human-readable text</span></div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">     * @param orphans count of orphan entities (still lacking parent entities)</span></div>
@@ -563,7 +563,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;                }</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;            }</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        System.out.println(<span class="stringliteral">&quot;vw4tools 1.0-12&quot;</span>);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        System.out.println(<span class="stringliteral">&quot;vw4tools 1.0-21&quot;</span>);</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        System.out.println(report (orphans, fostered, total));</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    }</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;</div>
@@ -803,480 +803,479 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                (filename.equalsIgnoreCase(<span class="stringliteral">&quot;&quot;</span>)) ||</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                (filename.equalsIgnoreCase(<span class="stringliteral">&quot;-&quot;</span>))  )</div>
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;            {</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                System.err.println(<span class="stringliteral">&quot;NOTE: writing to stdout&quot;</span>);</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                String o = (<span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                System.out.println(o);</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;            }</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;            {</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                {</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                    mapper.writerWithDefaultPrettyPrinter().writeValue(<span class="keyword">new</span> File(filename), vwimport);</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                }</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                <span class="keywordflow">catch</span> (java.io.IOException ioe)</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                {</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                    System.out.println(<span class="stringliteral">&quot;IO Exception writing to &quot;</span>+filename+<span class="stringliteral">&quot;: &quot;</span>+ioe.getMessage());</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                }</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                <span class="comment">//JsonParseException,</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                <span class="comment">//JsonMappingException</span></div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;            }</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        }</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        <span class="keywordflow">catch</span> (JsonMappingException jme)</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        {</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;            System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;            System.out.println(jme.getMessage());</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        }</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        <span class="keywordflow">catch</span> (JsonProcessingException jpe)</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;        {</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        }</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    }</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment">     * Finalize absorbed Entities: for each entity, transfer from structured tree of Entities to vwimport array for writing</span></div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">     * @return number of items finalized</span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    <span class="keywordtype">int</span> finalizeEntities()</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;    {</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        Entity e;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;        <span class="keywordflow">for</span> (String s: <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().keySet())</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;            <span class="keywordflow">if</span> ( (null != s) &amp;&amp; (null != (e = <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().<span class="keyword">get</span>(s))) )</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                <span class="keywordflow">if</span> (e.isOrphan())       <span class="comment">/* tree-order transversal: having a parent means this entity will be written when the parent writes */</span></div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                    i += e.addTo(vwimport(), <span class="stringliteral">&quot;vw4tools-1.0-12&quot;</span>);</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;        <span class="comment">//System.out.println(&quot;transferred &quot;+i+&quot; entities from &quot;+entities().size()+&quot; entities, resulting in &quot;+vwimport().entities().size()+&quot; json entities&quot;);</span></div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;        <span class="keywordflow">return</span> i;</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    }</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">     * Export an &quot;OrderedTuples.csv&quot; file as a stopgap measure until proper JSON processing can be completed</span></div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment">     * @param name filename to write</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment">     * @param sel an optional selector-method</span></div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment">     * @throws java.io.IOException when PrintStream throws an exception</span></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    <span class="keywordtype">void</span> writeOrderedTuples(String name, EntitySelector sel) <span class="keywordflow">throws</span> java.io.IOException</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;    {</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        PrintStream fos = <span class="keyword">new</span> PrintStream(name);</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        Entity e;</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        <span class="keywordflow">for</span> (String s: <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().keySet())</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;            <span class="keywordflow">if</span> (null != (e = entities.get(s)))</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                <span class="keywordflow">if</span> ( (null == sel ) || (sel.select(e)) )</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                {</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;                    <span class="comment">/* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */</span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;                    <span class="keywordflow">if</span> (e instanceof EntityHBA)</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                    {</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;                        EntityHBA h = (EntityHBA) e;</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                        <span class="comment">/* name,type,WWPN[,customname] */</span></div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;                        fos.println(String.format(<span class="stringliteral">&quot;%s,%s,%s,%s&quot;</span>,h.parentName(),<span class="stringliteral">&quot;host&quot;</span>,h.wwn(),h.name()));</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;                    }</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e instanceof EntityFA)</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;                    {</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                        EntityFA h = (EntityFA) e;</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                        <span class="comment">/* name,type,WWPN[,customname] */</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                        fos.println(String.format(<span class="stringliteral">&quot;%s,%s,%s,%s&quot;</span>,h.parentName(),<span class="stringliteral">&quot;array&quot;</span>,h.wwn(),h.name()));</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;                    }</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;                }</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    }</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">     * Activate a Virtuoso4 curl-and-run on a target VW4 Appliance</span></div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">     * @param hosturl name or ssh:// url to use</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;    <span class="keywordtype">void</span> virtuoso4(String hosturl)</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    {</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;        SSHCLI cli = <span class="keyword">new</span> SSHCLI();</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;        <span class="comment">/* because URL is more-or-less &quot;constant&quot; for non URLStreamHandler classes, we need to step through an iterative set of steps */</span></div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;        <span class="comment">/* first: make a base URL */</span></div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;        java.net.URL first = null;</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        {</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;            first = <span class="keyword">new</span> java.net.URL(hosturl);</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;        }</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;        <span class="keywordflow">catch</span> (java.net.MalformedURLException mue)</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;        {</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment">             * first fail:</span></div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="comment">             *</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;<span class="comment">             * 1) the ssh:// protocol might not be found</span></div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="comment">             * 2) hosturl might not be a URL</span></div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;<span class="comment">             *</span></div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="comment">             * so we test-build a ssh:// URL, and succeeding that, assume it&#39;s a host (somewhat unsafe, choosing facility over rock-hard-refusal)</span></div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;            {</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;                first = <span class="keyword">new</span> java.net.URL(<span class="stringliteral">&quot;ssh://localhost/&quot;</span>);</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;            }</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;            <span class="keywordflow">catch</span> (java.net.MalformedURLException x)</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;            {</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;                System.out.println(<span class="stringliteral">&quot;Internal error: ssh:// protocol not found&quot;</span>);</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;                return ;</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;            }</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;            {</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;                first = <span class="keyword">new</span> java.net.URL(<span class="stringliteral">&quot;ssh://&quot;</span>+hosturl+<span class="stringliteral">&quot;/&quot;</span>);</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;            }</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;            <span class="keywordflow">catch</span> (java.net.MalformedURLException mue2)</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;            {</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                <span class="comment">/* second fail: not a functional URL */</span></div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                System.out.println(<span class="stringliteral">&quot;Cannot create a proper URL from that data&quot;</span>);</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                return ;</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;            }</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;            <span class="keywordflow">if</span> ((null == first.getUserInfo()) || (0 == first.getUserInfo().length()))</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;                <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                {</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                    first = <span class="keyword">new</span> java.net.URL(<span class="stringliteral">&quot;ssh://visvc:505v1svc@&quot;</span>+hosturl+<span class="stringliteral">&quot;/&quot;</span>);</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;                }</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;                <span class="keywordflow">catch</span> (java.net.MalformedURLException mue2)</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;                {</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                    <span class="comment">/* post-second fail: not a functional URL */</span></div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                    System.out.println(<span class="stringliteral">&quot;Cannot create a proper URL (injecting password) from that data&quot;</span>);</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;                    return ;</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                }</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;</div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;        }</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;        java.net.URL u;</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;        <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;        {</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;            String commands[] =</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;            {</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                <span class="stringliteral">&quot;killall virtuoso4.py||true&quot;</span>,</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                <span class="stringliteral">&quot;rm -fr virtuoso4&quot;</span>,</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;                <span class="stringliteral">&quot;curl &quot;</span>+System.getProperties().getProperty(<span class="stringliteral">&quot;vw4tools.urlVirtuoso4&quot;</span>, <span class="stringliteral">&quot;ftp://services:Letmein%21@ftp.vi.local/Nick/virtuoso4.tgz&quot;</span>)+<span class="stringliteral">&quot; | tar -xzf -&quot;</span>,</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;                <span class="stringliteral">&quot;cd virtuoso4&quot;</span>,</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;                <span class="stringliteral">&quot;./virtuoso4.py&quot;</span></div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;            };</div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;            String command = null;</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;            <span class="keywordflow">for</span> (String s: commands)</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;            {</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                <span class="keywordflow">if</span> (null == command)</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                    command = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;                    command += <span class="stringliteral">&quot; &amp;&amp; &quot;</span>;</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;                command += s.replaceAll(<span class="stringliteral">&quot;!&quot;</span>,<span class="stringliteral">&quot;\\!&quot;</span>);</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;            }</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;            <span class="comment">/* OK, we have a URL.  Now we do the silly part: tear it apart to re-use it */</span></div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;            u = <span class="keyword">new</span> java.net.URL(first, command);</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;        }</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;        <span class="keywordflow">catch</span> (java.net.MalformedURLException mue)</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;        {</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;            System.out.println(<span class="stringliteral">&quot;Internal MalformedURLException: cannot spec-convert &quot;</span>+first.toString()+<span class="stringliteral">&quot; to append command: &quot;</span>+mue.getMessage());</div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;        }</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;</div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;        System.out.println(<span class="stringliteral">&quot;converted &quot;</span>+first.toString()+<span class="stringliteral">&quot; to &quot;</span>+u.toString());</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;        System.out.println(<span class="stringliteral">&quot;user info: &quot;</span>+u.getUserInfo());</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;        cli.exec(u.toString(), <span class="comment">/* dryrun */</span> <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;        System.out.println(<span class="stringliteral">&quot;Virtuoso4: &quot;</span>+hosturl);</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;    }</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;<span class="comment">     * Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)</span></div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;<span class="comment">     * @param progname the name of the program (args[0]) to print on a usage message</span></div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;    <span class="keywordtype">void</span> usage(String progname)</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;    {</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;        System.out.println(<span class="stringliteral">&quot;Usage: &quot;</span>+progname+<span class="stringliteral">&quot; -V|--version|-H|--help&quot;</span>);</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; [ --target=4.0|4.0.1|4.0.2 ] --read &lt;filename&gt;|--input &lt;filename&gt; | -r &lt;filename&gt; | -i &lt;filename&gt;&quot;</span>);</div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --nickname=&lt;filename&gt;|-N&lt;filename&gt; | --removenicknames=&lt;filename&gt; | -i &lt;filename&gt;&quot;</span>);</div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --pattern=&lt;pattern&gt;|-P &lt;pattern&gt; [--pattern=...] --checkpattern=&lt;alias&gt;&quot;</span>);</div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --munge=uppercase|-M uppercase&quot;</span>);</div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;</div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;        System.out.println(<span class="stringliteral">&quot;   ie: &quot;</span>+progname+<span class="stringliteral">&quot; --read import.json&quot;</span>);</div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -r import.json&quot;</span>);</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -R existing.csv -o OrderedTuples.csv&quot;</span>);</div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -R existing.csv --pattern=\&quot;^([^-]+)-.*\&quot; --report -o OrderedTuples.csv -o OrphanEntities.csv&quot;</span>);</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;</div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;        System.out.println(<span class="stringliteral">&quot;\nCompatibility is currently set to: &quot;</span> + Entity.compatibilityVersion());</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;</div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;        System.out.println(<span class="stringliteral">&quot;\nA possible workflow could be:&quot;</span>);</div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;        System.out.println(<span class="stringliteral">&quot;1. collect all the text content: nickname=&quot;</span>);</div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow&quot;</span>);</div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;        System.out.println(<span class="stringliteral">&quot;2. see how it looks: report&quot;</span>);</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --report&quot;</span>);</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;        System.out.println(<span class="stringliteral">&quot;3. check out a pattern to see if it collects nicknames correctly: pattern=, checkpattern=&quot;</span>);</div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -P \&quot;^(.*)_FC(\\d)$\&quot; -p \&quot;server12_FC2\&quot; -p \&quot;server12_FC1\&quot; -p \&quot;server11_FC1\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;        System.out.println(<span class="stringliteral">&quot;\&quot;server12_FC2\&quot; --&gt; \&quot;server12\&quot;\n\&quot;server12_FC1\&quot; --&gt; \&quot;server12\&quot;\n\&quot;server11_FC1\&quot; --&gt; \&quot;server11\&quot;\n so this looks like two HBAs for server12, one for server11.  ok&quot;</span>);</div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;        System.out.println(<span class="stringliteral">&quot;4. add the pattern, see how it looks: report&quot;</span>);</div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; --report&quot;</span>);</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;        System.out.println(report (14, 33, 1011));</div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;        System.out.println(<span class="stringliteral">&quot;5. write it out to JSON&quot;</span>);</div>
-<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; -o customer.json&quot;</span>);</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;        System.out.println(<span class="stringliteral">&quot;6. try importing it; there are typically Invalid Entities (Orphans), save that error message\nie: saved as \&quot;invalid.txt\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; -R invalid.txt -o customer.json&quot;</span>);</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;        System.out.println(<span class="stringliteral">&quot;7. try importing it again.  A single WWN is bad?  write that to another file, exclude, and try a new JSON:&quot;</span>);</div>
-<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;        System.out.println(<span class="stringliteral">&quot;       echo &#39;10000000c9123456,\&quot;serverc9123456\&quot;&#39; &gt; manualskip.txt&quot;</span>);</div>
-<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; -R invalid.txt -R manualskip.txt -o customer.json&quot;</span>);</div>
-<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;    }</div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;</div>
-<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;<span class="comment">     * Main function, as you can tell.</span></div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="comment">     * this function merely parses the command-line to dispatch actions to the meat of the meal above.</span></div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;<span class="comment">     * I&#39;m using an actual GetOpt because, yes, I&#39;m a UNIX/C hack, re-using 3-decades-old knowledge,</span></div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;<span class="comment">     * but this also preserves both extensibility and the ability to use longopts in scripts as a</span></div>
-<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;<span class="comment">     * way to self-document what the tool&#39;s doing.</span></div>
-<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;<span class="comment">     * No real intelligence herein except the parse-and-redirect action.</span></div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;<span class="comment">     * @param args as you&#39;d expect, these are commandline arguments given when the jar is activated</span></div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00980"></a><span class="lineno"><a class="line" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">  980</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">main</a>(String args[])</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;    {</div>
-<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;        <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html">VirtualWisdom4ClientTool</a> m = <span class="keyword">new</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a7991b30b52ad4d408df3575abc9b57ae">VirtualWisdom4ClientTool</a>();</div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;</div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;        Vector&lt;LongOpt&gt; options = <span class="keyword">new</span> Vector(20,2);</div>
-<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;<span class="comment">        /**</span></div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;<span class="comment">         * Always always ALWAYS provide a quick reference and a version output</span></div>
-<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;<span class="comment">         *</span></div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;<span class="comment">         * @cmdopt -H|--help Show a simple help screen as a reminder of options which are understood by the application</span></div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;<span class="comment">         * @cmdopt @code java -jar vw4tools.jar --help @endcode</span></div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;<span class="comment">         *</span></div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;<span class="comment">         * @cmdopt -V|--version Show the current release version for reference</span></div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;<span class="comment">         * @cmdopt @code java -jar vw4tools.jar --version</span></div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;<span class="comment">         *  1.0-12 @endcode</span></div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;<span class="comment">         *</span></div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;<span class="comment">         * @cmdopt -n|--nicknameout={file} Output nicknames from internal store</span></div>
-<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;<span class="comment">         * @cmdopt -o|--output={file} Output nicknames from internal store</span></div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;<span class="comment">        * --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few &quot;magic&quot; filenames:</span></div>
-<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;<span class="comment">         *</span></div>
-<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;<span class="comment">         * @cmdopt 1. &lt;b&gt;schema.json&lt;/b&gt; will cause the current schema to be written</span></div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;<span class="comment">         * @cmdopt 2. &lt;b&gt;orderedtuples.csv&lt;/b&gt; will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</span></div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;<span class="comment">         * @cmdopt 3. &lt;b&gt;orphanentities.csv&lt;/b&gt; will cause a CSV to be written listing all orphan entities.  An &quot;Orphan Entity&quot; is an entity lacking a parent entity, such as an &quot;HBA Port&quot; without a &quot;host&quot; parent, or a &quot;iomodule&quot; without a parent &quot;storagearray&quot; entity.</span></div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;<span class="comment">         *</span></div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;<span class="comment">         * @cmdopt All other filename patterns will result in a JSON-formatted file</span></div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;<span class="comment">         *</span></div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;<span class="comment">               * @cmdopt -N|--nickname={file/uri} Import nicknames by parsing a text stream from various sources</span></div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;<span class="comment">               * @cmdopt @code java -jar vw4tools.jar --nickname=switch44.zoneshow</span></div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;<span class="comment">               * Parse results for AliShowZoneParser:</span></div>
-<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;<span class="comment">               * Zones: 44</span></div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;<span class="comment">               * Aliases: 112 (names with one or more WWPNs)</span></div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;<span class="comment">               * Aliases: 136 (name/WWPN tuples) @endcode</span></div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;<span class="comment">               * In this example, a zone file was parsed by the AliShowZoneParser resulting in 112</span></div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;<span class="comment">               * nicknames; due to duplicate nicknames, there are actually 136 unique WWPN/alias</span></div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;<span class="comment">               * tuples, which means that (136-112) 24 of the WWPNs have the same alias as other</span></div>
-<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;<span class="comment">               * WWPNs</span></div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;<span class="comment">               *</span></div>
-<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;<span class="comment">               * @cmdopt -i|--input import an existing JSON file for later editing</span></div>
-<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;<span class="comment">               * @cmdopt -r|--read import an existing JSON file for later editing</span></div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;<span class="comment">               * @cmdopt @code java -jar vw4tools.jar --read working.json @endcode</span></div>
-<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;<span class="comment">               *</span></div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;<span class="comment">               * @cmdopt -R|--remove Parse nicknames for removal from the internal nickname list</span></div>
-<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;<span class="comment">               * @cmdopt -R|--removenicknames Parse nicknames for removal from the internal nickname list</span></div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;<span class="comment">               *</span></div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;<span class="comment">               * @cmdopt -t|--target set a target version for JSON output.  Defaults to latest</span></div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;<span class="comment">           *     supported.  A value of 4.0.1 is converted to 40.1 internally due to float</span></div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;<span class="comment">           *     comparison and expected changed every bump of major/minor version</span></div>
-<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;<span class="comment">               *</span></div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;<span class="comment">               * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage</span></div>
-<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;<span class="comment">               * @cmdopt @code java -jar vw4tools.jar --nickname=switch44.zoneshow  --report</span></div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;<span class="comment">         * (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser</span></div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;<span class="comment">         * vw4tools 1.0-12</span></div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;<span class="comment">         *     5 total entities</span></div>
-<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;<span class="comment">         *     4 leaf nodes</span></div>
-<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;<span class="comment">         *     2 orphans</span></div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;<span class="comment">         * 50.00 % coverage @endcode</span></div>
-<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;<span class="comment">               */</span></div>
-<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;</div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;help&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;H&#39;</span>));</div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;version&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;V&#39;</span>));</div>
-<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;</div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;read&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;r&#39;</span>));</div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;input&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;i&#39;</span>));</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nickname&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;N&#39;</span>));</div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;remove&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;R&#39;</span>));</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;removenicknames&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;R&#39;</span>));</div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;report&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;!&#39;</span>));</div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;munge&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;M&#39;</span>));</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nicknameout&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;n&#39;</span>));</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;output&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;o&#39;</span>));</div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;pattern&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;P&#39;</span>));</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;checkpattern&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;p&#39;</span>));</div>
-<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;target&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;t&#39;</span>));</div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;</div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;virtuoso4&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;v&#39;</span>));</div>
-<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;</div>
-<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;test&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;T&#39;</span>));</div>
-<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;</div>
-<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;        <span class="comment">/* */</span>        <a class="code" href="namespaceorg.html">org</a>.<a class="code" href="namespaceorg_1_1smallfoot.html">smallfoot</a>.getopt.GetOpt        g = <span class="keyword">new</span> <a class="code" href="namespaceorg.html">org</a>.<a class="code" href="namespaceorg_1_1smallfoot.html">smallfoot</a>.getopt.GetOpt(<span class="stringliteral">&quot;vw4tool&quot;</span>, args, options);        <span class="comment">/* */</span></div>
-<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;        <span class="comment">/* *#/       gnu.getopt.Getopt          g = new gnu.getopt.Getopt(&quot;vw4tool&quot;, args, &quot;HVR:r:i:M:N:n:o:P:p:T:t:v:&quot;, options.toArray(new LongOpt[0]));        /#* */</span></div>
-<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;</div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;        <span class="keywordtype">int</span> c;</div>
-<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;        <span class="keywordflow">while</span> ((c = g.getopt()) != -1)</div>
-<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;        {</div>
-<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;            <span class="keywordflow">switch</span>(c)</div>
-<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;            {</div>
-<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;i&#39;</span>:   <span class="comment">/* fall-thru */</span></div>
-<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:   <span class="comment">// Read in a config file</span></div>
-<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;            {</div>
-<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f">load</a>(g.getOptarg());</div>
-<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;            }</div>
-<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;<span class="comment">            /**</span></div>
-<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;<span class="comment">             * @cmdopt -P|--pattern= is used to provide an &quot;aggregating pattern&quot; to collect Orphan Entities into a container.  An &quot;Orphan Entity&quot; is an entity which is not part of a larger device: an HBA not assigned to a host, or a FA not assigned to a storage array.  Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important.</span></div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;P&#39;</span>: <span class="comment">/* input chunking-pattern for host-combination and storage-combination */</span></div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;                m.absorbPattern(g.getOptarg());</div>
-<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;<span class="comment">            /**</span></div>
-<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;<span class="comment">             * @cmdopt -p|--checkpattern= is used to test an &quot;aggregating pattern&quot; against a certain nickname/alias.  Although Aggregating Patterns are evaluated immediately, they&#39;re stored for testing as well, so even though we&#39;re giving a test alias after the pattern, it&#39;ll evaluate all loaded patterns against the alias:</span></div>
-<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;<span class="comment">             * @cmdopt @code java -jar vw4tools.jar --pattern=&quot;([^-]+)-[^-]+$&quot; --checkpattern=NetApp-123456 --checkpattern=UberServer_44_HBA0</span></div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;<span class="comment">            * &quot;NetApp-123456&quot; --&gt; &quot;NetApp&quot;</span></div>
-<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;<span class="comment">            * &quot;UberServer_44_HBA0&quot; --&gt; &quot;UberServer_44_HBA0&quot; @endcode</span></div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;<span class="comment">            * @cmdopt in this example, the one pattern it tested against a new alias when the --checkpattern is encountered; if there were two patterns, each pattern would be tried to the checkpattern sample when seen:</span></div>
-<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;<span class="comment">            *</span></div>
-<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;<span class="comment">             * @cmdopt @code java -jar vw4tools.jar --pattern=&quot;([^-]+)-[^-]+$&quot; --pattern=&quot;^(.*)_hba(\d+)$&quot; --checkpattern=NetApp-123456 --checkpattern=UberServer_44_hba0</span></div>
-<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;<span class="comment">            * &quot;NetApp-123456&quot; --&gt; &quot;NetApp&quot;</span></div>
-<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;<span class="comment">            * &quot;NetApp-123456&quot; --&gt; &quot;NetApp-123456&quot;</span></div>
-<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;<span class="comment">            * &quot;UberServer_44_HBA0&quot; --&gt; &quot;UberServer_44_hba0&quot;</span></div>
-<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;<span class="comment">            * &quot;UberServer_44_HBA0&quot; --&gt; &quot;UberServer_44&quot; @endcode</span></div>
-<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;<span class="comment">            * @cmdopt in this example, two patterns ( &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; ) are loaded; when &quot;NetApp-123456&quot; is given as a checkpattern, each is tried in turn, so we see that &quot;([^-]+)-[^-]+$&quot; converts &quot;NetApp-123456&quot; to &quot;NetApp&quot;, which means a bunch of devices &quot;NetApp-123456&quot;, &quot;NetApp-123457&quot;, &quot;NetApp-ABCDEF&quot; would be child entities of a larger entity &quot;NetApp&quot;.  In essence, all the NetApp-* are collected into the same contailer called &quot;NetApp&quot;.  Similarly, &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; are tested against &quot;UberServer_44_hba0&quot; when the checkpattern is given, and we can see that &quot;([^-]+)-[^-]+$&quot; makes no difference to the value, but &quot;^(.*)_hba(\d+)$&quot; has the desired effect of chopping off the &quot;_hba#&quot; portion.</span></div>
-<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;<span class="comment">            */</span></div>
-<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;p&#39;</span>: <span class="comment">/* exercise chunking-pattern for given alias */</span></div>
-<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;                <span class="keywordflow">for</span> (String s: m.exercisePattern(g.getOptarg()))</div>
-<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;                    <span class="keywordflow">if</span> (null != s)</div>
-<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;                        System.out.println(<span class="stringliteral">&quot;\&quot;&quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;\&quot; --&gt; \&quot;&quot;</span>+s+<span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;</div>
-<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;M&#39;</span>: <span class="comment">/* add Munging rules */</span></div>
-<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;                m.addMunger(g.getOptarg());</div>
-<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;</div>
-<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>: <span class="comment">/* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */</span></div>
-<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a36539eb2d98fcdcedd7dc2088acfeef2">loadAndAbsorbFile</a>(g.getOptarg());</div>
-<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;</div>
-<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;R&#39;</span>: <span class="comment">/* read a list of Nicknames for removal using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */</span></div>
-<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a2e5ab2ec8715ec815edcea74375a493c">loadAndRemoveFile</a>(g.getOptarg());</div>
-<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;</div>
-<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;!&#39;</span>: <span class="comment">/* report */</span></div>
-<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae2ffed10ae7714400e64ba55620d5e5c">report</a>();</div>
-<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                String o = (<span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper()).writerWithDefaultPrettyPrinter().writeValueAsString(vwimport);</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                System.out.println(o);</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;            }</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;            {</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                com.fasterxml.jackson.databind.ObjectMapper mapper = <span class="keyword">new</span> com.fasterxml.jackson.databind.ObjectMapper();</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                {</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                    mapper.writerWithDefaultPrettyPrinter().writeValue(<span class="keyword">new</span> File(filename), vwimport);</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                }</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                <span class="keywordflow">catch</span> (java.io.IOException ioe)</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                {</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                    System.out.println(<span class="stringliteral">&quot;IO Exception writing to &quot;</span>+filename+<span class="stringliteral">&quot;: &quot;</span>+ioe.getMessage());</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                }</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                <span class="comment">//JsonParseException,</span></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                <span class="comment">//JsonMappingException</span></div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;            }</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;        }</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        <span class="keywordflow">catch</span> (JsonMappingException jme)</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        {</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;            System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonMappingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;            System.out.println(jme.getMessage());</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        }</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        <span class="keywordflow">catch</span> (JsonProcessingException jpe)</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        {</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            System.err.println(<span class="stringliteral">&quot;INTERNAL: A JsonProcessingException has occurred on output; this needs to be resolved by VI Services.\nPlease communicate the error, and any input text used, as well as the version (0.9-1) to VI Services&quot;</span>);</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;        }</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    }</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="comment">     * Finalize absorbed Entities: for each entity, transfer from structured tree of Entities to vwimport array for writing</span></div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment">     * @return number of items finalized</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;    <span class="keywordtype">int</span> finalizeEntities()</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    {</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        Entity e;</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        <span class="keywordflow">for</span> (String s: <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().keySet())</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;            <span class="keywordflow">if</span> ( (null != s) &amp;&amp; (null != (e = <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().<span class="keyword">get</span>(s))) )</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;                <span class="keywordflow">if</span> (e.isOrphan())       <span class="comment">/* tree-order transversal: having a parent means this entity will be written when the parent writes */</span></div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                    i += e.addTo(vwimport(), <span class="stringliteral">&quot;vw4tools-1.0-21&quot;</span>);</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        <span class="comment">//System.out.println(&quot;transferred &quot;+i+&quot; entities from &quot;+entities().size()+&quot; entities, resulting in &quot;+vwimport().entities().size()+&quot; json entities&quot;);</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;        <span class="keywordflow">return</span> i;</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    }</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">     * Export an &quot;OrderedTuples.csv&quot; file as a stopgap measure until proper JSON processing can be completed</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">     * @param name filename to write</span></div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment">     * @param sel an optional selector-method</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment">     * @throws java.io.IOException when PrintStream throws an exception</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    <span class="keywordtype">void</span> writeOrderedTuples(String name, EntitySelector sel) <span class="keywordflow">throws</span> java.io.IOException</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    {</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;        PrintStream fos = <span class="keyword">new</span> PrintStream(name);</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;        Entity e;</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;        <span class="keywordflow">for</span> (String s: <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">entities</a>().keySet())</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;            <span class="keywordflow">if</span> (null != (e = entities.get(s)))</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                <span class="keywordflow">if</span> ( (null == sel ) || (sel.select(e)) )</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                {</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                    <span class="comment">/* could be handled as merely (instanceof LeafEntity) but still need to print host/array text, more clear to keep separate */</span></div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;                    <span class="keywordflow">if</span> (e instanceof EntityHBA)</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;                    {</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                        EntityHBA h = (EntityHBA) e;</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;                        <span class="comment">/* name,type,WWPN[,customname] */</span></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                        fos.println(String.format(<span class="stringliteral">&quot;%s,%s,%s,%s&quot;</span>,h.parentName(),<span class="stringliteral">&quot;host&quot;</span>,h.wwn(),h.name()));</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;                    }</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e instanceof EntityFA)</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;                    {</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;                        EntityFA h = (EntityFA) e;</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                        <span class="comment">/* name,type,WWPN[,customname] */</span></div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                        fos.println(String.format(<span class="stringliteral">&quot;%s,%s,%s,%s&quot;</span>,h.parentName(),<span class="stringliteral">&quot;array&quot;</span>,h.wwn(),h.name()));</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                    }</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;                }</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    }</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment">     * Activate a Virtuoso4 curl-and-run on a target VW4 Appliance</span></div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment">     * @param hosturl name or ssh:// url to use</span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    <span class="keywordtype">void</span> virtuoso4(String hosturl)</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;    {</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;        SSHCLI cli = <span class="keyword">new</span> SSHCLI();</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;        <span class="comment">/* because URL is more-or-less &quot;constant&quot; for non URLStreamHandler classes, we need to step through an iterative set of steps */</span></div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;        <span class="comment">/* first: make a base URL */</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        java.net.URL first = null;</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;        <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        {</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;            first = <span class="keyword">new</span> java.net.URL(hosturl);</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        }</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;        <span class="keywordflow">catch</span> (java.net.MalformedURLException mue)</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;        {</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="comment">             * first fail:</span></div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment">             *</span></div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="comment">             * 1) the ssh:// protocol might not be found</span></div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;<span class="comment">             * 2) hosturl might not be a URL</span></div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="comment">             *</span></div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;<span class="comment">             * so we test-build a ssh:// URL, and succeeding that, assume it&#39;s a host (somewhat unsafe, choosing facility over rock-hard-refusal)</span></div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;            {</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;                first = <span class="keyword">new</span> java.net.URL(<span class="stringliteral">&quot;ssh://localhost/&quot;</span>);</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;            }</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;            <span class="keywordflow">catch</span> (java.net.MalformedURLException x)</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;            {</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;                System.out.println(<span class="stringliteral">&quot;Internal error: ssh:// protocol not found&quot;</span>);</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;                return ;</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;            }</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;            {</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;                first = <span class="keyword">new</span> java.net.URL(<span class="stringliteral">&quot;ssh://&quot;</span>+hosturl+<span class="stringliteral">&quot;/&quot;</span>);</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;            }</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;            <span class="keywordflow">catch</span> (java.net.MalformedURLException mue2)</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;            {</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;                <span class="comment">/* second fail: not a functional URL */</span></div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                System.out.println(<span class="stringliteral">&quot;Cannot create a proper URL from that data&quot;</span>);</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                return ;</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;            }</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;            <span class="keywordflow">if</span> ((null == first.getUserInfo()) || (0 == first.getUserInfo().length()))</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;                <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;                {</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                    first = <span class="keyword">new</span> java.net.URL(<span class="stringliteral">&quot;ssh://visvc:505v1svc@&quot;</span>+hosturl+<span class="stringliteral">&quot;/&quot;</span>);</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                }</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;                <span class="keywordflow">catch</span> (java.net.MalformedURLException mue2)</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;                {</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;                    <span class="comment">/* post-second fail: not a functional URL */</span></div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                    System.out.println(<span class="stringliteral">&quot;Cannot create a proper URL (injecting password) from that data&quot;</span>);</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                    return ;</div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;                }</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;        }</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;        java.net.URL u;</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;        <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;        {</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;            String commands[] =</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;            {</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                <span class="stringliteral">&quot;killall virtuoso4.py||true&quot;</span>,</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                <span class="stringliteral">&quot;rm -fr virtuoso4&quot;</span>,</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                <span class="stringliteral">&quot;curl &quot;</span>+System.getProperties().getProperty(<span class="stringliteral">&quot;vw4tools.urlVirtuoso4&quot;</span>, <span class="stringliteral">&quot;ftp://services:Letmein%21@ftp.vi.local/Nick/virtuoso4.tgz&quot;</span>)+<span class="stringliteral">&quot; | tar -xzf -&quot;</span>,</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;                <span class="stringliteral">&quot;cd virtuoso4&quot;</span>,</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;                <span class="stringliteral">&quot;./virtuoso4.py&quot;</span></div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;            };</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;            String command = null;</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;            <span class="keywordflow">for</span> (String s: commands)</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;            {</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;                <span class="keywordflow">if</span> (null == command)</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                    command = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                    command += <span class="stringliteral">&quot; &amp;&amp; &quot;</span>;</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;                command += s.replaceAll(<span class="stringliteral">&quot;!&quot;</span>,<span class="stringliteral">&quot;\\!&quot;</span>);</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;            }</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;            <span class="comment">/* OK, we have a URL.  Now we do the silly part: tear it apart to re-use it */</span></div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;            u = <span class="keyword">new</span> java.net.URL(first, command);</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;        }</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;        <span class="keywordflow">catch</span> (java.net.MalformedURLException mue)</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;        {</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;            System.out.println(<span class="stringliteral">&quot;Internal MalformedURLException: cannot spec-convert &quot;</span>+first.toString()+<span class="stringliteral">&quot; to append command: &quot;</span>+mue.getMessage());</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;        }</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;        System.out.println(<span class="stringliteral">&quot;converted &quot;</span>+first.toString()+<span class="stringliteral">&quot; to &quot;</span>+u.toString());</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;        System.out.println(<span class="stringliteral">&quot;user info: &quot;</span>+u.getUserInfo());</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;        cli.exec(u.toString(), <span class="comment">/* dryrun */</span> <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;        System.out.println(<span class="stringliteral">&quot;Virtuoso4: &quot;</span>+hosturl);</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    }</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;<span class="comment">     * Usage messages are useful to those of us with short memories as well (hey, I just need to add swap!)</span></div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;<span class="comment">     * @param progname the name of the program (args[0]) to print on a usage message</span></div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;    <span class="keywordtype">void</span> usage(String progname)</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;    {</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        System.out.println(<span class="stringliteral">&quot;Usage: &quot;</span>+progname+<span class="stringliteral">&quot; -V|--version|-H|--help&quot;</span>);</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; [ --target=4.0|4.0.1|4.0.2 ] --read &lt;filename&gt;|--input &lt;filename&gt; | -r &lt;filename&gt; | -i &lt;filename&gt;&quot;</span>);</div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --nickname=&lt;filename&gt;|-N&lt;filename&gt; | --removenicknames=&lt;filename&gt; | -i &lt;filename&gt;&quot;</span>);</div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --pattern=&lt;pattern&gt;|-P &lt;pattern&gt; [--pattern=...] --checkpattern=&lt;alias&gt;&quot;</span>);</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        System.out.println(<span class="stringliteral">&quot;     : &quot;</span>+progname+<span class="stringliteral">&quot; --munge=uppercase|-M uppercase&quot;</span>);</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;        System.out.println(<span class="stringliteral">&quot;   ie: &quot;</span>+progname+<span class="stringliteral">&quot; --read import.json&quot;</span>);</div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -r import.json&quot;</span>);</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -R existing.csv -o OrderedTuples.csv&quot;</span>);</div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -R existing.csv --pattern=\&quot;^([^-]+)-.*\&quot; --report -o OrderedTuples.csv -o OrphanEntities.csv&quot;</span>);</div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;</div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;        System.out.println(<span class="stringliteral">&quot;\nCompatibility is currently set to: &quot;</span> + Entity.compatibilityVersion());</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;        System.out.println(<span class="stringliteral">&quot;\nA possible workflow could be:&quot;</span>);</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;        System.out.println(<span class="stringliteral">&quot;1. collect all the text content: nickname=&quot;</span>);</div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow&quot;</span>);</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;        System.out.println(<span class="stringliteral">&quot;2. see how it looks: report&quot;</span>);</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --report&quot;</span>);</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;        System.out.println(<span class="stringliteral">&quot;3. check out a pattern to see if it collects nicknames correctly: pattern=, checkpattern=&quot;</span>);</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -P \&quot;^(.*)_FC(\\d)$\&quot; -p \&quot;server12_FC2\&quot; -p \&quot;server12_FC1\&quot; -p \&quot;server11_FC1\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;        System.out.println(<span class="stringliteral">&quot;\&quot;server12_FC2\&quot; --&gt; \&quot;server12\&quot;\n\&quot;server12_FC1\&quot; --&gt; \&quot;server12\&quot;\n\&quot;server11_FC1\&quot; --&gt; \&quot;server11\&quot;\n so this looks like two HBAs for server12, one for server11.  ok&quot;</span>);</div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;        System.out.println(<span class="stringliteral">&quot;4. add the pattern, see how it looks: report&quot;</span>);</div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; --report&quot;</span>);</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;        System.out.println(report (14, 33, 1011));</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;        System.out.println(<span class="stringliteral">&quot;5. write it out to JSON&quot;</span>);</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; -o customer.json&quot;</span>);</div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;        System.out.println(<span class="stringliteral">&quot;6. try importing it; there are typically Invalid Entities (Orphans), save that error message\nie: saved as \&quot;invalid.txt\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; -R invalid.txt -o customer.json&quot;</span>);</div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;        System.out.println(<span class="stringliteral">&quot;7. try importing it again.  A single WWN is bad?  write that to another file, exclude, and try a new JSON:&quot;</span>);</div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;        System.out.println(<span class="stringliteral">&quot;       echo &#39;10000000c9123456,\&quot;serverc9123456\&quot;&#39; &gt; manualskip.txt&quot;</span>);</div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;        System.out.println(<span class="stringliteral">&quot;       &quot;</span>+progname+<span class="stringliteral">&quot; -N somenicknames.csv -N morenicknames.dad -N andzones.zoneshow --pattern=\&quot;^(.*)_FC(\\d)$\&quot; -R invalid.txt -R manualskip.txt -o customer.json&quot;</span>);</div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;    }</div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;<span class="comment">     * Main function, as you can tell.</span></div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;<span class="comment">     * this function merely parses the command-line to dispatch actions to the meat of the meal above.</span></div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="comment">     * I&#39;m using an actual GetOpt because, yes, I&#39;m a UNIX/C hack, re-using 3-decades-old knowledge,</span></div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;<span class="comment">     * but this also preserves both extensibility and the ability to use longopts in scripts as a</span></div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;<span class="comment">     * way to self-document what the tool&#39;s doing.</span></div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;<span class="comment">     * No real intelligence herein except the parse-and-redirect action.</span></div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;<span class="comment">     * @param args as you&#39;d expect, these are commandline arguments given when the jar is activated</span></div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00979"></a><span class="lineno"><a class="line" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">  979</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">main</a>(String args[])</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;    {</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;        <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html">VirtualWisdom4ClientTool</a> m = <span class="keyword">new</span> <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a7991b30b52ad4d408df3575abc9b57ae">VirtualWisdom4ClientTool</a>();</div>
+<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;</div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;        Vector&lt;LongOpt&gt; options = <span class="keyword">new</span> Vector(20,2);</div>
+<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;<span class="comment">        /**</span></div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;<span class="comment">         * Always always ALWAYS provide a quick reference and a version output</span></div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;<span class="comment">         *</span></div>
+<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;<span class="comment">         * @cmdopt -H|--help Show a simple help screen as a reminder of options which are understood by the application</span></div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;<span class="comment">         * @cmdopt @code java -jar vw4tools.jar --help @endcode</span></div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;<span class="comment">         *</span></div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;<span class="comment">         * @cmdopt -V|--version Show the current release version for reference</span></div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;<span class="comment">         * @cmdopt @code java -jar vw4tools.jar --version</span></div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;<span class="comment">         *  1.0-21 @endcode</span></div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;<span class="comment">         *</span></div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;<span class="comment">         * @cmdopt -n|--nicknameout={file} Output nicknames from internal store</span></div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;<span class="comment">         * @cmdopt -o|--output={file} Output nicknames from internal store</span></div>
+<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;<span class="comment">        * --nicknameout and --output are currently functionally identical; they both cause the internal nickname/entity base to be written out as JSON with the exception of a few &quot;magic&quot; filenames:</span></div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;<span class="comment">         *</span></div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;<span class="comment">         * @cmdopt 1. &lt;b&gt;schema.json&lt;/b&gt; will cause the current schema to be written</span></div>
+<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;<span class="comment">         * @cmdopt 2. &lt;b&gt;orderedtuples.csv&lt;/b&gt; will cause an OrderedTuples.csv file to be written, suitable for post-processing via csv-to-json.awk but allowing a user to more easily edit CSV for fine-tuning</span></div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;<span class="comment">         * @cmdopt 3. &lt;b&gt;orphanentities.csv&lt;/b&gt; will cause a CSV to be written listing all orphan entities.  An &quot;Orphan Entity&quot; is an entity lacking a parent entity, such as an &quot;HBA Port&quot; without a &quot;host&quot; parent, or a &quot;iomodule&quot; without a parent &quot;storagearray&quot; entity.</span></div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;<span class="comment">         *</span></div>
+<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;<span class="comment">         * @cmdopt All other filename patterns will result in a JSON-formatted file</span></div>
+<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;<span class="comment">         *</span></div>
+<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;<span class="comment">               * @cmdopt -N|--nickname={file/uri} Import nicknames by parsing a text stream from various sources</span></div>
+<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;<span class="comment">               * @cmdopt @code java -jar vw4tools.jar --nickname=switch44.zoneshow</span></div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;<span class="comment">               * Parse results for AliShowZoneParser:</span></div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;<span class="comment">               * Zones: 44</span></div>
+<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;<span class="comment">               * Aliases: 112 (names with one or more WWPNs)</span></div>
+<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;<span class="comment">               * Aliases: 136 (name/WWPN tuples) @endcode</span></div>
+<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;<span class="comment">               * In this example, a zone file was parsed by the AliShowZoneParser resulting in 112</span></div>
+<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;<span class="comment">               * nicknames; due to duplicate nicknames, there are actually 136 unique WWPN/alias</span></div>
+<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;<span class="comment">               * tuples, which means that (136-112) 24 of the WWPNs have the same alias as other</span></div>
+<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;<span class="comment">               * WWPNs</span></div>
+<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;<span class="comment">               *</span></div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;<span class="comment">               * @cmdopt -i|--input import an existing JSON file for later editing</span></div>
+<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;<span class="comment">               * @cmdopt -r|--read import an existing JSON file for later editing</span></div>
+<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;<span class="comment">               * @cmdopt @code java -jar vw4tools.jar --read working.json @endcode</span></div>
+<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;<span class="comment">               *</span></div>
+<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;<span class="comment">               * @cmdopt -R|--remove Parse nicknames for removal from the internal nickname list</span></div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;<span class="comment">               * @cmdopt -R|--removenicknames Parse nicknames for removal from the internal nickname list</span></div>
+<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;<span class="comment">               *</span></div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;<span class="comment">               * @cmdopt -t|--target set a target version for JSON output.  Defaults to latest</span></div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;<span class="comment">           *     supported.  A value of 4.0.1 is converted to 40.1 internally due to float</span></div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;<span class="comment">           *     comparison and expected changed every bump of major/minor version</span></div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;<span class="comment">               *</span></div>
+<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;<span class="comment">               * @cmdopt -!|--report Summarize the current status of the internal nicknaes and pattern/collation coverage</span></div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;<span class="comment">               * @cmdopt @code java -jar vw4tools.jar --nickname=switch44.zoneshow  --report</span></div>
+<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;<span class="comment">         * (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser</span></div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;<span class="comment">         * vw4tools 1.0-21</span></div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;<span class="comment">         *     5 total entities</span></div>
+<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;<span class="comment">         *     4 leaf nodes</span></div>
+<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;<span class="comment">         *     2 orphans</span></div>
+<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;<span class="comment">         * 50.00 % coverage @endcode</span></div>
+<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;<span class="comment">               */</span></div>
+<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;</div>
+<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;help&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;H&#39;</span>));</div>
+<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;version&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;V&#39;</span>));</div>
+<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;</div>
+<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;read&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;r&#39;</span>));</div>
+<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;input&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;i&#39;</span>));</div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nickname&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;N&#39;</span>));</div>
+<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;remove&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;R&#39;</span>));</div>
+<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;removenicknames&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;R&#39;</span>));</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;report&quot;</span>, LongOpt.NO_ARGUMENT, null, <span class="charliteral">&#39;!&#39;</span>));</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;munge&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;M&#39;</span>));</div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;nicknameout&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;n&#39;</span>));</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;output&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;o&#39;</span>));</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;pattern&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;P&#39;</span>));</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;checkpattern&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;p&#39;</span>));</div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;target&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;t&#39;</span>));</div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;virtuoso4&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;v&#39;</span>));</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;</div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;        options.add(<span class="keyword">new</span> LongOpt(<span class="stringliteral">&quot;test&quot;</span>, LongOpt.REQUIRED_ARGUMENT, null, <span class="charliteral">&#39;T&#39;</span>));</div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;</div>
+<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;        <span class="comment">/* */</span>        <a class="code" href="namespaceorg.html">org</a>.<a class="code" href="namespaceorg_1_1smallfoot.html">smallfoot</a>.getopt.GetOpt        g = <span class="keyword">new</span> <a class="code" href="namespaceorg.html">org</a>.<a class="code" href="namespaceorg_1_1smallfoot.html">smallfoot</a>.getopt.GetOpt(<span class="stringliteral">&quot;vw4tool&quot;</span>, args, options);        <span class="comment">/* */</span></div>
+<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;        <span class="comment">/* *#/       gnu.getopt.Getopt          g = new gnu.getopt.Getopt(&quot;vw4tool&quot;, args, &quot;HVR:r:i:M:N:n:o:P:p:T:t:v:&quot;, options.toArray(new LongOpt[0]));        /#* */</span></div>
+<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;</div>
+<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;        <span class="keywordtype">int</span> c;</div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;        <span class="keywordflow">while</span> ((c = g.getopt()) != -1)</div>
+<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;        {</div>
+<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;            <span class="keywordflow">switch</span>(c)</div>
+<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;            {</div>
+<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;i&#39;</span>:   <span class="comment">/* fall-thru */</span></div>
+<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:   <span class="comment">// Read in a config file</span></div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;            {</div>
+<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f">load</a>(g.getOptarg());</div>
+<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;            }</div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;<span class="comment">            /**</span></div>
+<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;<span class="comment">             * @cmdopt -P|--pattern= is used to provide an &quot;aggregating pattern&quot; to collect Orphan Entities into a container.  An &quot;Orphan Entity&quot; is an entity which is not part of a larger device: an HBA not assigned to a host, or a FA not assigned to a storage array.  Aggregating Patterns are evaluated immediately, so their order amidst other command options to import or remove entities is important.</span></div>
+<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;P&#39;</span>: <span class="comment">/* input chunking-pattern for host-combination and storage-combination */</span></div>
+<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;                m.absorbPattern(g.getOptarg());</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;<span class="comment">            /**</span></div>
+<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;<span class="comment">             * @cmdopt -p|--checkpattern= is used to test an &quot;aggregating pattern&quot; against a certain nickname/alias.  Although Aggregating Patterns are evaluated immediately, they&#39;re stored for testing as well, so even though we&#39;re giving a test alias after the pattern, it&#39;ll evaluate all loaded patterns against the alias:</span></div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;<span class="comment">             * @cmdopt @code java -jar vw4tools.jar --pattern=&quot;([^-]+)-[^-]+$&quot; --checkpattern=NetApp-123456 --checkpattern=UberServer_44_HBA0</span></div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;<span class="comment">            * &quot;NetApp-123456&quot; --&gt; &quot;NetApp&quot;</span></div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;<span class="comment">            * &quot;UberServer_44_HBA0&quot; --&gt; &quot;UberServer_44_HBA0&quot; @endcode</span></div>
+<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;<span class="comment">            * @cmdopt in this example, the one pattern it tested against a new alias when the --checkpattern is encountered; if there were two patterns, each pattern would be tried to the checkpattern sample when seen:</span></div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;<span class="comment">            *</span></div>
+<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;<span class="comment">             * @cmdopt @code java -jar vw4tools.jar --pattern=&quot;([^-]+)-[^-]+$&quot; --pattern=&quot;^(.*)_hba(\d+)$&quot; --checkpattern=NetApp-123456 --checkpattern=UberServer_44_hba0</span></div>
+<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;<span class="comment">            * &quot;NetApp-123456&quot; --&gt; &quot;NetApp&quot;</span></div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;<span class="comment">            * &quot;NetApp-123456&quot; --&gt; &quot;NetApp-123456&quot;</span></div>
+<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;<span class="comment">            * &quot;UberServer_44_HBA0&quot; --&gt; &quot;UberServer_44_hba0&quot;</span></div>
+<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;<span class="comment">            * &quot;UberServer_44_HBA0&quot; --&gt; &quot;UberServer_44&quot; @endcode</span></div>
+<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;<span class="comment">            * @cmdopt in this example, two patterns ( &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; ) are loaded; when &quot;NetApp-123456&quot; is given as a checkpattern, each is tried in turn, so we see that &quot;([^-]+)-[^-]+$&quot; converts &quot;NetApp-123456&quot; to &quot;NetApp&quot;, which means a bunch of devices &quot;NetApp-123456&quot;, &quot;NetApp-123457&quot;, &quot;NetApp-ABCDEF&quot; would be child entities of a larger entity &quot;NetApp&quot;.  In essence, all the NetApp-* are collected into the same contailer called &quot;NetApp&quot;.  Similarly, &quot;([^-]+)-[^-]+$&quot; and &quot;^(.*)_hba(\d+)$&quot; are tested against &quot;UberServer_44_hba0&quot; when the checkpattern is given, and we can see that &quot;([^-]+)-[^-]+$&quot; makes no difference to the value, but &quot;^(.*)_hba(\d+)$&quot; has the desired effect of chopping off the &quot;_hba#&quot; portion.</span></div>
+<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;<span class="comment">            */</span></div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;p&#39;</span>: <span class="comment">/* exercise chunking-pattern for given alias */</span></div>
+<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;                <span class="keywordflow">for</span> (String s: m.exercisePattern(g.getOptarg()))</div>
+<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;                    <span class="keywordflow">if</span> (null != s)</div>
+<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;                        System.out.println(<span class="stringliteral">&quot;\&quot;&quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;\&quot; --&gt; \&quot;&quot;</span>+s+<span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;</div>
+<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;M&#39;</span>: <span class="comment">/* add Munging rules */</span></div>
+<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;                m.addMunger(g.getOptarg());</div>
+<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;</div>
+<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>: <span class="comment">/* input Nicknames using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */</span></div>
+<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a36539eb2d98fcdcedd7dc2088acfeef2">loadAndAbsorbFile</a>(g.getOptarg());</div>
+<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;</div>
+<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;R&#39;</span>: <span class="comment">/* read a list of Nicknames for removal using file://, ftp://, http:// via fibrechannel-parsers fcparsers.jar */</span></div>
+<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a2e5ab2ec8715ec815edcea74375a493c">loadAndRemoveFile</a>(g.getOptarg());</div>
+<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;</div>
+<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;!&#39;</span>: <span class="comment">/* report */</span></div>
+<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae2ffed10ae7714400e64ba55620d5e5c">report</a>();</div>
+<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;</div>
 <div class="line"><a name="l01115"></a><span class="lineno"> 1115</span>&#160;</div>
 <div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;</div>
-<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;</div>
-<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>: <span class="comment">/* output Nicknames as Entities to the given file */</span></div>
-<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;            <span class="comment">/* fall-thru */</span></div>
-<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;o&#39;</span>:   <span class="comment">// Write a config file out</span></div>
-<div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160;            {</div>
-<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;                m.writeOutputfile(g.getOptarg());</div>
-<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;            }</div>
-<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;</div>
-<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;<span class="comment">             * Testcase generation -- internal use only, used to create bogus internal content to test output format</span></div>
-<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>:   <span class="comment">// create internal content for export</span></div>
-<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;            {</div>
-<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;                <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample01&quot;</span>))</div>
-<div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;                {</div>
-<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;                    VWImport vwimport = <span class="keyword">new</span> VWImport();</div>
-<div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;                    VWImport.Entity e = <span class="keyword">new</span> VWImport.Entity();</div>
-<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;                    e.description = <span class="stringliteral">&quot;sample01 test entity&quot;</span>;</div>
-<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;                    e.edit_type = VWImport.Edit_Type.add;</div>
-<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;                    e.type = <span class="stringliteral">&quot;application&quot;</span>;</div>
-<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;                    e.name = <span class="stringliteral">&quot;sample01_itl&quot;</span>;</div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;                    e.itl_patterns = <span class="keyword">new</span> Vector&lt;VWImport.ITLPattern&gt;();</div>
-<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;                    VWImport.ITLPattern i = <span class="keyword">new</span> VWImport.ITLPattern();</div>
-<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;                    i.edit_type = VWImport.Edit_Type.add;</div>
-<div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;                    i.initiator = <span class="stringliteral">&quot;1000002590123456&quot;</span>;</div>
-<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;                    e.itl_patterns.add(i);</div>
-<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;                    vwimport.entities().add(e);</div>
-<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;                    System.err.println(vwimport.entities().size() + <span class="stringliteral">&quot; entities defined&quot;</span>);</div>
-<div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;</div>
-<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a4ef055893be8838f513385e4c2f42700">vwimport</a> = <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#acbeee875159f78e186965708e70dee94">vwimport</a>;</div>
-<div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;                }</div>
-<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample02&quot;</span>))</div>
-<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;                {</div>
-<div class="line"><a name="l01151"></a><span class="lineno"> 1151</span>&#160;                    <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a> n = <span class="keyword">new</span> EntityFA (<span class="stringliteral">&quot;sample_02&quot;</span>, <span class="stringliteral">&quot;10000000c9123456&quot;</span>);</div>
-<div class="line"><a name="l01152"></a><span class="lineno"> 1152</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample02 test FA&quot;</span>;</div>
-<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
-<div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;                }</div>
-<div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample03&quot;</span>))</div>
-<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;                {</div>
-<div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;                    <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a> n = <span class="keyword">new</span> EntityFA (<span class="stringliteral">&quot;NetApp 01 A&quot;</span>, <span class="stringliteral">&quot;500a098598123456&quot;</span>);</div>
-<div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test NetApp&quot;</span>;</div>
-<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
-<div class="line"><a name="l01160"></a><span class="lineno"> 1160</span>&#160;</div>
-<div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;                    n = <span class="keyword">new</span> EntityFA (<span class="stringliteral">&quot;NetApp 01 B&quot;</span>, <span class="stringliteral">&quot;500a098698123456&quot;</span>);</div>
-<div class="line"><a name="l01162"></a><span class="lineno"> 1162</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test NetApp&quot;</span>;</div>
-<div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
-<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;</div>
-<div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;                    n = <span class="keyword">new</span> EntityHBA (<span class="stringliteral">&quot;hba 02 A&quot;</span>, <span class="stringliteral">&quot;10000000c9123456&quot;</span>);</div>
-<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test HBA&quot;</span>;</div>
-<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
-<div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;</div>
-<div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;                    n = <span class="keyword">new</span> EntityHBA (<span class="stringliteral">&quot;hba 02 B&quot;</span>, <span class="stringliteral">&quot;10000000c9123457&quot;</span>);</div>
-<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test HBA&quot;</span>;</div>
-<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
-<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;                }</div>
-<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;                {</div>
-<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcase generation: Testcase \&quot;&quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;\&quot; is not understood&quot;</span>);</div>
-<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcases include: sample01, sample02&quot;</span>);</div>
-<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;                    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;                }</div>
-<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;            }</div>
-<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;</div>
-<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;v&#39;</span>:   <span class="comment">// activate a virtuoso4 curl-and-run on a target system</span></div>
-<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;                m.virtuoso4(g.getOptarg());</div>
-<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;<span class="comment">            /** @todo need to check 3-decimal values such as &quot;-t 4.0.1.7&quot; (see also testsuite.at.in) */</span></div>
-<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;t&#39;</span>:   <span class="comment">// convert to a target version to avoid giving the recipient more than it wants to handle</span></div>
-<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#adf6150f6553bb5d80b9c303817a94a9d">setTarget</a>(g.getOptarg());</div>
-<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;</div>
-<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;<span class="comment">             * Follows is the &quot;house-keeping&quot;: versions, usage, and the catch-all for bad options.</span></div>
-<div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;V&#39;</span>:   <span class="comment">// print the version and quit</span></div>
-<div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;            {</div>
-<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;                <span class="comment">/* *#/ System.out.println(&quot;1.0-12&quot;); /#* */</span></div>
-<div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;                <span class="comment">/* */</span> System.out.println(g.consistentVersion(<span class="stringliteral">&quot;1.0-12&quot;</span>)); <span class="comment">/* */</span></div>
-<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;            }</div>
-<div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;</div>
-<div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;?&#39;</span>:</div>
-<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;H&#39;</span>:</div>
-<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;                <span class="comment">/* *#/ m.usage(&quot;vw4tool&quot;); /#* */</span></div>
-<div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;                <span class="comment">/* */</span> m.usage(g.progname()); <span class="comment">/* */</span></div>
-<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;            }</div>
-<div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;        }</div>
-<div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;    }</div>
-<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;}</div>
+<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>: <span class="comment">/* output Nicknames as Entities to the given file */</span></div>
+<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;            <span class="comment">/* fall-thru */</span></div>
+<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;o&#39;</span>:   <span class="comment">// Write a config file out</span></div>
+<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;            {</div>
+<div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160;                m.writeOutputfile(g.getOptarg());</div>
+<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;            }</div>
+<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;</div>
+<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;<span class="comment">             * Testcase generation -- internal use only, used to create bogus internal content to test output format</span></div>
+<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>:   <span class="comment">// create internal content for export</span></div>
+<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;            {</div>
+<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;                <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample01&quot;</span>))</div>
+<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;                {</div>
+<div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;                    VWImport vwimport = <span class="keyword">new</span> VWImport();</div>
+<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;                    VWImport.Entity e = <span class="keyword">new</span> VWImport.Entity();</div>
+<div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;                    e.description = <span class="stringliteral">&quot;sample01 test entity&quot;</span>;</div>
+<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;                    e.edit_type = VWImport.Edit_Type.add;</div>
+<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;                    e.type = <span class="stringliteral">&quot;application&quot;</span>;</div>
+<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;                    e.name = <span class="stringliteral">&quot;sample01_itl&quot;</span>;</div>
+<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;                    e.itl_patterns = <span class="keyword">new</span> Vector&lt;VWImport.ITLPattern&gt;();</div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;                    VWImport.ITLPattern i = <span class="keyword">new</span> VWImport.ITLPattern();</div>
+<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;                    i.edit_type = VWImport.Edit_Type.add;</div>
+<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;                    i.initiator = <span class="stringliteral">&quot;1000002590123456&quot;</span>;</div>
+<div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;                    e.itl_patterns.add(i);</div>
+<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;                    vwimport.entities().add(e);</div>
+<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;                    System.err.println(vwimport.entities().size() + <span class="stringliteral">&quot; entities defined&quot;</span>);</div>
+<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;</div>
+<div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a4ef055893be8838f513385e4c2f42700">vwimport</a> = <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#acbeee875159f78e186965708e70dee94">vwimport</a>;</div>
+<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;                }</div>
+<div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample02&quot;</span>))</div>
+<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;                {</div>
+<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;                    <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a> n = <span class="keyword">new</span> EntityFA (<span class="stringliteral">&quot;sample_02&quot;</span>, <span class="stringliteral">&quot;10000000c9123456&quot;</span>);</div>
+<div class="line"><a name="l01151"></a><span class="lineno"> 1151</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample02 test FA&quot;</span>;</div>
+<div class="line"><a name="l01152"></a><span class="lineno"> 1152</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
+<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;                }</div>
+<div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g.getOptarg().equalsIgnoreCase (<span class="stringliteral">&quot;sample03&quot;</span>))</div>
+<div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;                {</div>
+<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;                    <a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html">Entity</a> n = <span class="keyword">new</span> EntityFA (<span class="stringliteral">&quot;NetApp 01 A&quot;</span>, <span class="stringliteral">&quot;500a098598123456&quot;</span>);</div>
+<div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test NetApp&quot;</span>;</div>
+<div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
+<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;</div>
+<div class="line"><a name="l01160"></a><span class="lineno"> 1160</span>&#160;                    n = <span class="keyword">new</span> EntityFA (<span class="stringliteral">&quot;NetApp 01 B&quot;</span>, <span class="stringliteral">&quot;500a098698123456&quot;</span>);</div>
+<div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test NetApp&quot;</span>;</div>
+<div class="line"><a name="l01162"></a><span class="lineno"> 1162</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
+<div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;</div>
+<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;                    n = <span class="keyword">new</span> EntityHBA (<span class="stringliteral">&quot;hba 02 A&quot;</span>, <span class="stringliteral">&quot;10000000c9123456&quot;</span>);</div>
+<div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test HBA&quot;</span>;</div>
+<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
+<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;</div>
+<div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;                    n = <span class="keyword">new</span> EntityHBA (<span class="stringliteral">&quot;hba 02 B&quot;</span>, <span class="stringliteral">&quot;10000000c9123457&quot;</span>);</div>
+<div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;                    n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">description</a> = <span class="stringliteral">&quot;sample03 test HBA&quot;</span>;</div>
+<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;                    m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ac3c495e48cdbca229137371be08ba04f">entities</a>().put(n.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a9a2326f35466e54c36c070829245c557">name</a>(), n);</div>
+<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;                }</div>
+<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;                {</div>
+<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcase generation: Testcase \&quot;&quot;</span>+g.getOptarg()+<span class="stringliteral">&quot;\&quot; is not understood&quot;</span>);</div>
+<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;                    System.err.println(<span class="stringliteral">&quot;testcases include: sample01, sample02&quot;</span>);</div>
+<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;                }</div>
+<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;            }</div>
+<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;</div>
+<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;v&#39;</span>:   <span class="comment">// activate a virtuoso4 curl-and-run on a target system</span></div>
+<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;                m.virtuoso4(g.getOptarg());</div>
+<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;<span class="comment">            /** @todo need to check 3-decimal values such as &quot;-t 4.0.1.7&quot; (see also testsuite.at.in) */</span></div>
+<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;t&#39;</span>:   <span class="comment">// convert to a target version to avoid giving the recipient more than it wants to handle</span></div>
+<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;                m.<a class="code" href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#adf6150f6553bb5d80b9c303817a94a9d">setTarget</a>(g.getOptarg());</div>
+<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;</div>
+<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;<span class="comment">             * Follows is the &quot;house-keeping&quot;: versions, usage, and the catch-all for bad options.</span></div>
+<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;V&#39;</span>:   <span class="comment">// print the version and quit</span></div>
+<div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;            {</div>
+<div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;                <span class="comment">/* *#/ System.out.println(&quot;1.0-21&quot;); /#* */</span></div>
+<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;                <span class="comment">/* */</span> System.out.println(g.consistentVersion(<span class="stringliteral">&quot;1.0-21&quot;</span>)); <span class="comment">/* */</span></div>
+<div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;            }</div>
+<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;</div>
+<div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;?&#39;</span>:</div>
+<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;H&#39;</span>:</div>
+<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;                <span class="comment">/* *#/ m.usage(&quot;vw4tool&quot;); /#* */</span></div>
+<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;                <span class="comment">/* */</span> m.usage(g.progname()); <span class="comment">/* */</span></div>
+<div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;            }</div>
+<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;        }</div>
+<div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;    }</div>
+<div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;}</div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a36539eb2d98fcdcedd7dc2088acfeef2"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a36539eb2d98fcdcedd7dc2088acfeef2">org.smallfoot.vw4.VirtualWisdom4ClientTool.loadAndAbsorbFile</a></div><div class="ttdeci">void loadAndAbsorbFile(String f)</div><div class="ttdoc">one-shot load a new file and absorb the contents: open the file and stream the contents at an array o...</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00594">VirtualWisdom4ClientTool.java:594</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a43a8de962936ee9d82e0a70eeb9b1db6"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a43a8de962936ee9d82e0a70eeb9b1db6">org.smallfoot.vw4.VirtualWisdom4ClientTool.wwndesc</a></div><div class="ttdeci">WWNDescription wwndesc()</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00222">VirtualWisdom4ClientTool.java:222</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a2e5ab2ec8715ec815edcea74375a493c"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a2e5ab2ec8715ec815edcea74375a493c">org.smallfoot.vw4.VirtualWisdom4ClientTool.loadAndRemoveFile</a></div><div class="ttdeci">void loadAndRemoveFile(String f)</div><div class="ttdoc">one-shot load a new file and remove the contents from the internal list of leafEntities (HBAs...</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00514">VirtualWisdom4ClientTool.java:514</a></div></div>
@@ -1291,7 +1290,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="ttc" id="namespaceorg_html"><div class="ttname"><a href="namespaceorg.html">org</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VWImport_html"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VWImport.html">VWImport</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_ad25ef6220eb54575157ab063bc63a0f0"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad25ef6220eb54575157ab063bc63a0f0">org.smallfoot.vw4.VirtualWisdom4ClientTool.xmlDocument</a></div><div class="ttdeci">org.w3c.dom.Document xmlDocument</div><div class="ttdoc">eventually used to hold an XML document when converting XML<–>JSON<–>XML </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00061">VirtualWisdom4ClientTool.java:61</a></div></div>
-<div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a75988cf84fc6ee7a2ebff36e363021aa"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">org.smallfoot.vw4.VirtualWisdom4ClientTool.main</a></div><div class="ttdeci">static void main(String args[])</div><div class="ttdoc">Main function, as you can tell. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00980">VirtualWisdom4ClientTool.java:980</a></div></div>
+<div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a75988cf84fc6ee7a2ebff36e363021aa"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a75988cf84fc6ee7a2ebff36e363021aa">org.smallfoot.vw4.VirtualWisdom4ClientTool.main</a></div><div class="ttdeci">static void main(String args[])</div><div class="ttdoc">Main function, as you can tell. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00979">VirtualWisdom4ClientTool.java:979</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_ad9a051ba608e7fcb9adac39bc3946058"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ad9a051ba608e7fcb9adac39bc3946058">org.smallfoot.vw4.VirtualWisdom4ClientTool._load</a></div><div class="ttdeci">void _load(String filename)</div><div class="ttdoc">Open a file. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00117">VirtualWisdom4ClientTool.java:117</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a09f298d19a33be899f5835657c747c5d"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a09f298d19a33be899f5835657c747c5d">org.smallfoot.vw4.VirtualWisdom4ClientTool.patterns</a></div><div class="ttdeci">Vector&lt; Pattern &gt; patterns()</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00208">VirtualWisdom4ClientTool.java:208</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_acbeee875159f78e186965708e70dee94"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#acbeee875159f78e186965708e70dee94">org.smallfoot.vw4.VirtualWisdom4ClientTool.vwimport</a></div><div class="ttdeci">VWImport vwimport()</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00103">VirtualWisdom4ClientTool.java:103</a></div></div>
@@ -1300,7 +1299,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_aa9ab77e799e869cf9da3d339e124f6c4"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#aa9ab77e799e869cf9da3d339e124f6c4">org.smallfoot.vw4.VirtualWisdom4ClientTool.entities</a></div><div class="ttdeci">TreeMap&lt; String, Entity &gt; entities()</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00215">VirtualWisdom4ClientTool.java:215</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_html_a670f83b1f0f39a20e0fe60597032a367"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a670f83b1f0f39a20e0fe60597032a367">org.smallfoot.vw4.Entity.setname</a></div><div class="ttdeci">void setname(String name)</div><div class="ttdoc">set the unique name of the entity: setter </div><div class="ttdef"><b>Definition:</b> <a href="Entity_8java_source.html#l00153">Entity.java:153</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a0d686f1044a2e8727b12e6e4921e0e8f"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a0d686f1044a2e8727b12e6e4921e0e8f">org.smallfoot.vw4.VirtualWisdom4ClientTool.load</a></div><div class="ttdeci">void load(String filename)</div><div class="ttdoc">Wrapper to just load the file, spitting out exceptions and stacks as they occur. </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00131">VirtualWisdom4ClientTool.java:131</a></div></div>
-<div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_ae2ffed10ae7714400e64ba55620d5e5c"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae2ffed10ae7714400e64ba55620d5e5c">org.smallfoot.vw4.VirtualWisdom4ClientTool.report</a></div><div class="ttdeci">static String report(int orphans, int fostered, int total)</div><div class="ttdoc">Convenience function to sSummarize the current "coverage" or efficiency of alias/nicknames onto curre...</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00472">VirtualWisdom4ClientTool.java:472</a></div></div>
+<div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_ae2ffed10ae7714400e64ba55620d5e5c"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#ae2ffed10ae7714400e64ba55620d5e5c">org.smallfoot.vw4.VirtualWisdom4ClientTool.report</a></div><div class="ttdeci">static String report(int orphans, int fostered, int total)</div><div class="ttdoc">Convenience function to summarize the current "coverage" or efficiency of alias/nicknames onto curren...</div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00472">VirtualWisdom4ClientTool.java:472</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA_html"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1EntityHBA.html">org.smallfoot.vw4.EntityHBA</a></div><div class="ttdoc">An EntityHBA is the representation of an HBA entity in the JSON import for VW4. </div><div class="ttdef"><b>Definition:</b> <a href="EntityHBA_8java_source.html#l00044">EntityHBA.java:44</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1Entity_html_a76d2b0133d83c43dfd8a19286ac55325"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1Entity.html#a76d2b0133d83c43dfd8a19286ac55325">org.smallfoot.vw4.Entity.description</a></div><div class="ttdeci">String description</div><div class="ttdoc">the description of the entity showing source </div><div class="ttdef"><b>Definition:</b> <a href="Entity_8java_source.html#l00158">Entity.java:158</a></div></div>
 <div class="ttc" id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_html_a4ef055893be8838f513385e4c2f42700"><div class="ttname"><a href="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool.html#a4ef055893be8838f513385e4c2f42700">org.smallfoot.vw4.VirtualWisdom4ClientTool.vwimport</a></div><div class="ttdeci">VWImport vwimport</div><div class="ttdoc">singleton list of JSON-writable objects accessed through vwimport() </div><div class="ttdef"><b>Definition:</b> <a href="VirtualWisdom4ClientTool_8java_source.html#l00102">VirtualWisdom4ClientTool.java:102</a></div></div>
@@ -1319,7 +1318,7 @@ $(document).ready(function(){initNavTree('VirtualWisdom4ClientTool_8java_source.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="VirtualWisdom4ClientTool_8java.html">VirtualWisdom4ClientTool.java</a></li>
-    <li class="footer">Generated on Wed Oct 15 2014 08:12:30 for vw4tools by
+    <li class="footer">Generated on Wed Nov 12 2014 08:55:13 for vw4tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

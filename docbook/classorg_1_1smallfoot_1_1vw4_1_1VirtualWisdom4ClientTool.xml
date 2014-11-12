@@ -605,7 +605,7 @@ storagecontroller(s) or hosts as resulting from absorbtion patterns</emphasis>
 
             </section>
             <section xml:id="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ae2ffed10ae7714400e64ba55620d5e5c">
-                <title>static String report (int orphans, int fostered, int total)</title> <emphasis>Convenience function to sSummarize the current &quot;coverage&quot; or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.</emphasis>
+                <title>static String report (int orphans, int fostered, int total)</title> <emphasis>Convenience function to summarize the current &quot;coverage&quot; or efficiency of alias/nicknames onto current entities as human-readable text; useful to show whether the patterns used to aggregate leaf-entities into upper-layer entities are being effective at all.</emphasis>
                 
 <para><formalpara><title>Returns: </title>
 
