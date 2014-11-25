@@ -56,6 +56,15 @@ static String {\bf touppercase} (String s)
 V\+W\+Import {\bf vwimport} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a4ef055893be8838f513385e4c2f42700}
 
 \begin{DoxyCompactList}\small\item\em singleton list of J\+S\+O\+N-\/writable objects accessed through \doxyref{vwimport()}{p.}{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_acbeee875159f78e186965708e70dee94} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries D\+U\+P\+E\+\_\+\+R\+E\+L\+A\+X} =1\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_abb9fbe970ac8cf566f8972624b78006b}
+
+\item 
+static int {\bfseries D\+U\+P\+E\+\_\+\+U\+N\+I\+Q\+U\+E} =0\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_a2387eb1e23bd25f988712faa97059f28}
+
+\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -71,6 +80,9 @@ V\+W\+Import {\bf vwimport} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
+\item 
+int {\bfseries dupe\+Policy} = D\+U\+P\+E\+\_\+\+U\+N\+I\+Q\+U\+E\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ad89c231bbdbf83bbe40c1c8320d24393}
+
 \item 
 Tree\+Map$<$ String, {\bf Entity} $>$ {\bf entities} = null\label{classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_ac3c495e48cdbca229137371be08ba04f}
 
@@ -279,7 +291,7 @@ one-\/shot load a new file and absorb the contents\+: open the file and stream t
 \end{DoxySeeAlso}
 
 
-Definition at line 594 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 597 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -323,7 +335,7 @@ Working on only the leaf entities, this uses the parser array to parse an input 
 \end{DoxySeeAlso}
 
 
-Definition at line 514 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 517 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -367,7 +379,7 @@ java -jar vw4tools.jar --help
 \item[{\bf Commandline Options}]
 \begin{DoxyCode}
 java -jar vw4tools.jar --version
- 1.0-21 
+ 1.0-23 
 \end{DoxyCode}
 \end{DoxyRefDesc}
 
@@ -442,7 +454,7 @@ java -jar vw4tools.jar --read working.json
 \begin{DoxyCode}
 java -jar vw4tools.jar --nickname=switch44.zoneshow  --report
 (vw4tools) parsed 0 zones, 2 aliases via Alias4Parser
-vw4tools 1.0-21
+vw4tools 1.0-23
     5 total entities
     4 leaf nodes
     2 orphans
@@ -489,7 +501,7 @@ vw4tools 1.0-21
 \item[{\bf Todo}]need to check 3-\/decimal values such as \char`\"{}-\/t 4.\+0.\+1.\+7\char`\"{} (see also testsuite.\+at.\+in) \end{DoxyRefDesc}
 
 
-Definition at line 979 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 988 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -570,7 +582,7 @@ formatted string showing summary in human-\/readable text
 \end{DoxyParams}
 
 
-Definition at line 472 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 475 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 
@@ -662,7 +674,7 @@ uppercase variant of given string
 \end{DoxyReturn}
 
 
-Definition at line 234 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 237 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 \index{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}!vwimport@{vwimport}}
 \index{vwimport@{vwimport}!org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool@{org\+::smallfoot\+::vw4\+::\+Virtual\+Wisdom4\+Client\+Tool}}
@@ -694,7 +706,7 @@ wwndesc
 \end{DoxyReturn}
 
 
-Definition at line 222 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
+Definition at line 225 of file Virtual\+Wisdom4\+Client\+Tool.\+java.
 
 
 

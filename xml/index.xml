@@ -65,9 +65,12 @@
   <compound refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool" kind="class"><name>org::smallfoot::vw4::VirtualWisdom4ClientTool</name>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad25ef6220eb54575157ab063bc63a0f0" kind="variable"><name>xmlDocument</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a4ef055893be8838f513385e4c2f42700" kind="variable"><name>vwimport</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ad89c231bbdbf83bbe40c1c8320d24393" kind="variable"><name>dupePolicy</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1ac3c495e48cdbca229137371be08ba04f" kind="variable"><name>entities</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1aaa7580a75c1bf3c122ce5b4c001517c2" kind="variable"><name>patterns</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1afb3f7acf97044713e2aa55c921c5cdb2" kind="variable"><name>wwndesc</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1abb9fbe970ac8cf566f8972624b78006b" kind="variable"><name>DUPE_RELAX</name></member>
+    <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a2387eb1e23bd25f988712faa97059f28" kind="variable"><name>DUPE_UNIQUE</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a30e04ce49a0f6dc789b89b68f10e06b7" kind="variable"><name>hostMungers</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a0f1b4c518fafff8a296bb632e57655ca" kind="function"><name>VirtualWisdom4ClientTool</name></member>
     <member refid="classorg_1_1smallfoot_1_1vw4_1_1VirtualWisdom4ClientTool_1a7991b30b52ad4d408df3575abc9b57ae" kind="function"><name>VirtualWisdom4ClientTool</name></member>
