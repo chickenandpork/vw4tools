@@ -814,8 +814,7 @@ AT_CHECK([sed -e 's@from.*samples@from samples@g' result.json], 0, [[{
     "wwn" : "5000097201234558"
   } ],
   "version" : "1"
-}
-]], [])
+}]], [])
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N abs_top_srcdir/samples/simple.devicealias --pattern="([[^_]]+)_hba[[0-9]]+$" -oOrderedTuples.csv -oresult.json], 0, [stdout], [stderr])
 
@@ -888,8 +887,7 @@ AT_CHECK([sed -e 's@from.*samples@from samples@g' result.json], 0, [[{
     "wwn" : "5000097201234558"
   } ],
   "version" : "1"
-}
-]], [])
+}]], [])
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N 'OrderedTuples.csv;nickname=3;wwn=2' --pattern="([[^_]]+)_hba[[0-9]]+$" -oresult.json], 0, [stdout], [stderr])
 
