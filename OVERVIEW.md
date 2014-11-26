@@ -75,7 +75,7 @@ for example:
     java -jar vw4tool.jar --nickname=http://www.example.com/cgi-bin/fetch.cgi?now=20140901&realm=WEST&group=production
 
 
-NOTE: "--nickname=" and "-N" are functionally identical; "--nickname=" may offer a slight beefit in more clearly self-documenting the behavior of the commandline option.
+NOTE: "--nickname=" and "-N" are functionally identical; "--nickname=" may offer a slight benefit in more clearly self-documenting the behavior of the commandline option.
 
 
 
@@ -105,7 +105,7 @@ for example:
 Specifying Formats
 ==================
 
-The user doesn't need to speficy the format of a file; vw4tool will try the file at the same time across many different parsers and see which one can make sense of it.  Unfortunately, the parsers cannot always chew through any user-interface codes (such as "press any key to continue") and preamble (the verbose text trash before the actual zone or aliases or such).  Trimming that to a minimum offers a better chance of parsing the file.
+The user doesn't need to specify the format of a file; vw4tool will try the file at the same time across many different parsers and see which one can make sense of it.  Unfortunately, the parsers cannot always chew through any user-interface codes (such as "press any key to continue") and preamble (the verbose text trash before the actual zone or aliases or such).  Trimming that to a minimum offers a better chance of parsing the file.
 
 The corollary to this is that if a file doesn't seem to parse, yet it seems like it should, remove anything before or after the actual content, and confirm that it was collected in a non-interactive method.  If the user ever needs to "press any key for more", chances are, the parsed result will be either partial, or none at all.
 
