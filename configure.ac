@@ -362,6 +362,24 @@ AC_ARG_WITH(sudopostmove,
 AM_CONDITIONAL(DO_SUDOPOSTMOVE, test "$WITH_SUDOPOSTMOVE" != no)
 AC_SUBST([SUDOPOSTMOVE], ${WITH_SUDOPOSTMOVE})
 
+AC_ARG_WITH(ftppostmove,
+[AS_HELP_STRING([--with-ftppostmove],[Enable ftpbased post-build move of a convenience jarfile; default=disabled])],
+[
+    case "$withval" in
+        "no")  WITH_FTPPOSTMOVE=no  ;;
+        *) WITH_FTPPOSTMOVE="$withval";
+	    FCTRANSFERJAR=$((rpm -ql fctransfer-java 2>/dev/null|grep -v 'is not installed' ; locate fctransfer.jar) | grep -v .workdir| head -1)
+	    VER_FCTRANSFERJAR=$(java -jar ${FCTRANSFERJAR} -V) || VER_FCTRANSFERJAR=""
+		;;
+    esac
+],
+[
+    WITH_FTPPOSTMOVE=no
+])
+AM_CONDITIONAL(DO_FTPPOSTMOVE, test "$WITH_FTPPOSTMOVE" != no -a -n "${VER_FCTRANSFERJAR}" )
+AC_SUBST([FTPPOSTMOVE], ${WITH_FTPPOSTMOVE})
+AC_SUBST([FCTRANSFERJAR], ${FCTRANSFERJAR})
+
 
 
 AC_CONFIG_FILES(Makefile
