@@ -28,3 +28,9 @@ else
 @PACKAGE@.jar: $(subdir).jar
 	cp $< $@
 endif
+
+if DO_FTPPOSTMOVE
+install-data-hook:
+	java -jar @FCTRANSFERJAR@ -U @FTPPOSTMOVE@ -u @PACKAGE@.jar
+endif
+

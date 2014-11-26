@@ -108,9 +108,6 @@ if DO_SUDOPOSTMOVE
 	@test -n "$(DIRTYOK)" || git diff --cached --exit-code || { echo "###################### staged uncommitted changes: git commit"; exit 1; }
 	mv $$(rpm --eval '%{_srcrpmdir}')/@PACKAGE@-$$(rpm --qf '%{VERSION}\n' -q --specfile @PACKAGE@.spec |head -1)-$$(rpm --qf '%{RELEASE}\n' -q --specfile @PACKAGE@.spec |head -1).src.rpm @SUDOPOSTMOVE@
 endif   DO_SUDOPOSTMOVE
-if DO_FTPPOSTMOVE
-	java -jar @FCTRANSFERJAR@ -U @FTPPOSTMOVE@ -u @PACKAGE@.jar
-endif
 
 
 rpm: dist-bzip2
