@@ -87,6 +87,9 @@ AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="^(.*)_(h
 "Oracle01_hba0" --> "Oracle01"
 ], [stderr])
 
+AT_CHECK([java -jar $abs_top_builddir/convjars/@PACKAGE@.jar --pattern="^(.*)$" --checkpattern=Server1], 0, ["Server1" --> "Server1"
+], [stderr])
+
 AT_CLEANUP()
 
 
@@ -811,7 +814,8 @@ AT_CHECK([sed -e 's@from.*samples@from samples@g' result.json], 0, [[{
     "wwn" : "5000097201234558"
   } ],
   "version" : "1"
-}]], [])
+}
+]], [])
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N abs_top_srcdir/samples/simple.devicealias --pattern="([[^_]]+)_hba[[0-9]]+$" -oOrderedTuples.csv -oresult.json], 0, [stdout], [stderr])
 
@@ -884,7 +888,8 @@ AT_CHECK([sed -e 's@from.*samples@from samples@g' result.json], 0, [[{
     "wwn" : "5000097201234558"
   } ],
   "version" : "1"
-}]], [])
+}
+]], [])
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N 'OrderedTuples.csv;nickname=3;wwn=2' --pattern="([[^_]]+)_hba[[0-9]]+$" -oresult.json], 0, [stdout], [stderr])
 
@@ -1195,7 +1200,8 @@ AT_CHECK([cat OrderedTuples.csv], 0, [Oracle01,host,10000000c9123456,Oracle01
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [stdout], [])
 
-AT_CHECK([grep -v 'waiting for parser to drain' stdout], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
+AT_CHECK([grep -v 'waiting for parser to drain' stdout], 0, [[(vw4tools) parsed 0 zones, 0 aliases via SwappedNicknameParser
+(vw4tools) parsed 0 zones, 0 aliases via TSVParser
 (vw4tools) parsed 0 zones, 1 aliases via NicknameParser
 (vw4tools) parsed 0 zones, 0 aliases via AliShowZoneParser
 (vw4tools) parsed 0 zones, 0 aliases via Alias4Parser
@@ -1241,7 +1247,8 @@ oracle01_3457,host,10000000c9123457,oracle01_3457
 
 AT_CHECK([java -Ddebug.silentTimeout=@NOVERTIMEOUTWARNING@ -jar $abs_top_builddir/convjars/@PACKAGE@.jar -N nicknamefile.csv -o -], 0, [stdout], [])
 
-AT_CHECK([grep -v 'waiting for parser to drain' stdout], 0, [[(vw4tools) parsed 0 zones, 0 aliases via TSVParser
+AT_CHECK([grep -v 'waiting for parser to drain' stdout], 0, [[(vw4tools) parsed 0 zones, 0 aliases via SwappedNicknameParser
+(vw4tools) parsed 0 zones, 0 aliases via TSVParser
 (vw4tools) parsed 0 zones, 2 aliases via NicknameParser
 (vw4tools) parsed 0 zones, 0 aliases via AliShowZoneParser
 (vw4tools) parsed 0 zones, 0 aliases via Alias4Parser
