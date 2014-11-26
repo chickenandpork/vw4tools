@@ -1192,7 +1192,7 @@ public class VirtualWisdom4ClientTool
              */
             case 'V':   // print the version and quit
             {
-                /* *@DO_GETOPTJAR_FALSE@/ System.out.println("@VERSION@-@BUILDID@"); /@DO_GETOPTJAR_FALSE@* */
+                /* *@DO_GETOPTJAR_FALSE@/ System.out.println("vw4tool version @VERSION@-@BUILDID@"); /@DO_GETOPTJAR_FALSE@* */
                 /* *@DO_GETOPTJAR_TRUE@/ System.out.println(g.consistentVersion("@VERSION@-@BUILDID@")); /@DO_GETOPTJAR_TRUE@* */
                 return;
             }
