@@ -596,7 +596,7 @@ public class VirtualWisdom4ClientTool
         ZoneParser p = null;
         java.util.Properties prop = System.getProperties();
 
-        for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ true, prop), "@PACKAGE@", /* ZParser(s) verbose */ true, prop) )); x--)
+        for (int x = 3; (0 < x ) && (null == (p = FCParser.loadFile(FCParser.openSource(f, /* FCParser verbose */ false, prop), "@PACKAGE@", /* ZParser(s) verbose */ false, prop) )); x--)
             System.out.println("retrying: reading "+f);
 
         Entity e = null;

@@ -28,7 +28,3 @@ else
 @PACKAGE@.jar: $(subdir).jar
 	cp $< $@
 endif
-if DO_FTPPOSTMOVE
-	java -jar @FCTRANSFERJAR@ -U @FTPPOSTMOVE@ -u @PACKAGE@.jar
-endif
-

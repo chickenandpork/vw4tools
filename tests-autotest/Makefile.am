@@ -14,7 +14,7 @@ clean-local:
 	test ! -f '$(TESTSUITE)' || $(SHELL) '$(TESTSUITE)' --clean
 
 AUTOTEST = $(AUTOM4TE) --language=autotest
-$(TESTSUITE): $(srcdir)/testsuite.at $(srcdir)/package.m4
+$(TESTSUITE): $(abs_builddir)/testsuite.at $(srcdir)/package.m4
 	@echo Making $@...
 	$(AUTOTEST) -I $(srcdir)/$(subdir) $@.at -o $@.tmp && mv $@.tmp $@
 
