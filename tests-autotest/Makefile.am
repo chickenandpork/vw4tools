@@ -14,7 +14,7 @@ clean-local:
 	test ! -f '$(TESTSUITE)' || $(SHELL) '$(TESTSUITE)' --clean
 
 AUTOTEST = $(AUTOM4TE) --language=autotest
-$(TESTSUITE): $(abs_builddir)/testsuite.at $(srcdir)/package.m4
+$(TESTSUITE): $(abs_builddir)/testsuite.at $(abs_builddir)/package.m4
 	@echo Making $@...
 	$(AUTOTEST) -I $(srcdir)/$(subdir) $< -o $@.tmp && mv $@.tmp $@
 
@@ -22,7 +22,7 @@ atconfig: $(top_builddir)/config.status
 	cd $(top_builddir) && \
 	  $(SHELL) ./config.status $(subdir)/$@
 
-$(srcdir)/package.m4: $(top_srcdir)/configure.ac
+$(abs_builddir)/package.m4: $(top_srcdir)/configure.ac
 	@echo Making $@...
 	@{						\
 	  echo 'm4_define([abs_top_srcdir],      [$(abs_top_srcdir)])'; \
@@ -31,5 +31,5 @@ $(srcdir)/package.m4: $(top_srcdir)/configure.ac
 	  echo 'm4_define([AT_PACKAGE_VERSION],   [@PACKAGE_VERSION@])'; \
 	  echo 'm4_define([AT_PACKAGE_STRING],    [@PACKAGE_STRING@])'; \
 	  echo 'm4_define([AT_PACKAGE_BUGREPORT], [@PACKAGE_BUGREPORT@])'; \
-	} >$(srcdir)/package.m4
+	} >$@
 
