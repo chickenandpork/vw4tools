@@ -36,13 +36,6 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>int dupePolicy</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
                         <para>TreeMap&lt; String, Entity &gt; entities<para><emphasis>local singleton array accessed from entities()</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
@@ -58,23 +51,6 @@
                 <itemizedlist>
                     <listitem>
                         <para>WWNDescription wwndesc<para><emphasis>local singleton array accessed from wwndesc()</emphasis></para></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-        </simplesect>
-        <simplesect>
-            <title></title>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>static int DUPE_RELAX</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>static int DUPE_UNIQUE</para>
                     </listitem>
                 </itemizedlist>
             </para>
