@@ -16,7 +16,7 @@ clean-local:
 AUTOTEST = $(AUTOM4TE) --language=autotest
 $(TESTSUITE): $(abs_builddir)/testsuite.at $(abs_builddir)/package.m4
 	@echo Making $@...
-	$(AUTOTEST) -I $(srcdir)/$(subdir) $< -o $@.tmp && mv $@.tmp $@
+	$(AUTOTEST) -I $(srcdir)/$(subdir) $< -o $@.tmp && sed -e "s/diff -u/diff -u -I '^$$'/g"  $@.tmp > $@
 
 atconfig: $(top_builddir)/config.status
 	cd $(top_builddir) && \
