@@ -106,7 +106,7 @@ srpm: distcheck
 if DO_SUDOPOSTMOVE
 	@test -n "$(DIRTYOK)" || git diff --exit-code || { echo "###################### unstaged changes: git commit -a"; exit 1; }
 	@test -n "$(DIRTYOK)" || git diff --cached --exit-code || { echo "###################### staged uncommitted changes: git commit"; exit 1; }
-	mv $$(rpm --eval '%{_srcrpmdir}')/@PACKAGE@-$$(rpm --qf '%{VERSION}\n' -q --specfile @PACKAGE@.spec |head -1)-$$(rpm --qf '%{RELEASE}\n' -q --specfile @PACKAGE@.spec |head -1).src.rpm @SUDOPOSTMOVE@
+	mv -f $$(rpm --eval '%{_srcrpmdir}')/@PACKAGE@-$$(rpm --qf '%{VERSION}\n' -q --specfile @PACKAGE@.spec |head -1)-$$(rpm --qf '%{RELEASE}\n' -q --specfile @PACKAGE@.spec |head -1).src.rpm @SUDOPOSTMOVE@
 endif   DO_SUDOPOSTMOVE
 
 
