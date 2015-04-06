@@ -94,15 +94,44 @@ if FETCH_FOP
 BUILT_SOURCES += $(DOCBOOKDIR)/fo/docbook.xsl fop.jar
 endif FETCH_FOP
 
-java-getopt-1.0.13.jar:
+if FETCH_GETOPTJAR
+JARS += getopt.jar
+
+# getopt.jar includes both org.smallfoot.getopt and gnu.getopt
+
+getopt.jar:
 	test -f $${TMPDIR-/tmp}/$(@F) && cp $${TMPDIR-/tmp}/$(@F) $@ || true
-	test -f $@ || wget -O $@ http://download.java.net/maven/2/gnu/getopt/java-getopt/1.0.13/$(@F) || curl -Lo $@ http://download.java.net/maven/2/gnu/getopt/java-getopt/1.0.13/$(@F)
+	test -f $@ || wget -O $@ http://chickenandpork.github.io/wwndesc/$(@F) || curl -Lo $@ http://chickenandpork.github.io/wwndesc/$(@F)
 	test -f $${TMPDIR-/tmp}/$(@F) || cp $@ $${TMPDIR-/tmp}/$(@F)
+endif
+
+if FETCH_WWNDESC
+JARS += wwndesc.jar
+
+# getopt.jar includes both org.smallfoot.getopt and gnu.getopt
+
+wwndesc.jar:
+	test -f $${TMPDIR-/tmp}/$(@F) && cp $${TMPDIR-/tmp}/$(@F) $@ || true
+	test -f $@ || wget -O $@ http://chickenandpork.github.io/wwndesc/$(@F) || curl -Lo $@ http://chickenandpork.github.io/wwndesc/$(@F)
+	test -f $${TMPDIR-/tmp}/$(@F) || cp $@ $${TMPDIR-/tmp}/$(@F)
+endif
+
+if FETCH_FCPARSERS
+JARS += fcparsers.jar
+
+# getopt.jar includes both org.smallfoot.getopt and gnu.getopt
+
+fcparsers.jar:
+	test -f $${TMPDIR-/tmp}/$(@F) && cp $${TMPDIR-/tmp}/$(@F) $@ || true
+	test -f $@ || wget -O $@ http://chickenandpork.github.io/fibrechannel-parsers/$(@F) || curl -Lo $@ http://chickenandpork.github.io/fibrechannel-parsers/$(@F)
+	test -f $${TMPDIR-/tmp}/$(@F) || cp $@ $${TMPDIR-/tmp}/$(@F)
+endif
+
 
 # catch that case of downloading content, the website claims it's sending content, but it's really sending a "hi, the content is over here, behind this ad..." webpage
 
 check-local: $(JARS)
-	for i in $^; do jar tf $$i >/dev/null || exit 1; done
+	for i in $^; do jar tf $$i >/dev/null || { echo "fail: $$i"; exit 1; }; done
 
 clean-local:
 	rm -f $(JSON_JARS)

@@ -268,10 +268,11 @@ AC_ARG_WITH(getoptplus,
 ],
 [
 AC_MSG_CHECKING([for getopt.jar])
-    WITH_GETOPTJAR=$((locate getopt.jar) | grep -v .workdir | head -1) ;
+    WITH_GETOPTJAR=$((locate getopt.jar; echo $(pwd)/depjars/getopt.jar) | grep -v .workdir| head -1) ;
 AC_MSG_RESULT([${WITH_GETOPTJAR}])
 ])
 AM_CONDITIONAL(DO_GETOPTJAR, test "x$WITH_GETOPTJAR" != x)
+AM_CONDITIONAL(FETCH_GETOPTJAR, test "x$WITH_GETOPTJAR" = "x${PWD}/depjars/getopt.jar")
 AC_SUBST([GETOPTJAR], ${WITH_GETOPTJAR})
 
 
@@ -286,7 +287,7 @@ AC_ARG_WITH(fcparsers,
 ],
 [
 AC_MSG_CHECKING([for fcparsers.jar])
-    WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null|grep -v 'is not installed'; locate fcparsers.jar) | grep -v .workdir| head -1) ;
+    WITH_FCPARSERS=$((rpm -ql fcparsers-java 2>/dev/null|grep -v 'is not installed'; locate fcparsers.jar; echo $(pwd)/depjars/fcparsers.jar) | grep -v .workdir| head -1) ;
 AC_MSG_RESULT([${WITH_FCPARSERS}])
 ])
 AM_CONDITIONAL(DO_FCPARSERSJAR, test "$WITH_FCPARSERS" != no)
@@ -294,6 +295,7 @@ AC_SUBST([FCPARSERSJAR], ${WITH_FCPARSERS})
 AC_MSG_CHECKING([fcparsers.jar version])
 VER_FCPARSERS=$(java -jar ${FCPARSERSJAR} --version)
 AC_MSG_RESULT([${VER_FCPARSERS}])
+AM_CONDITIONAL(FETCH_FCPARSERS, test "x$WITH_FCPARSERS" = "x${PWD}/depjars/fcparsers.jar")
 AC_SUBST([VER_FCPARSERS], ${VER_FCPARSERS})
 
 
@@ -308,7 +310,7 @@ AC_ARG_WITH(wwndesc,
 ],
 [
 AC_MSG_CHECKING([for wwndesc.jar])
-    WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null|grep -v 'is not installed'; locate wwndesc.jar) | grep -v .workdir| head -1) ;
+    WITH_WWNDESC=$((rpm -ql wwndesc-java 2>/dev/null|grep -v 'is not installed'; locate wwndesc.jar; echo $(pwd)/depjars/wwndesc.jar) | grep -v .workdir| head -1) ;
 AC_MSG_RESULT([${WITH_WWNDESC}])
 ])
 AM_CONDITIONAL(DO_WWNDESCJAR, test "$WITH_WWNDESC" != no)
@@ -316,7 +318,8 @@ AC_SUBST([WWNDESCJAR], ${WITH_WWNDESC})
 AC_MSG_CHECKING([wwndesc.jar version])
 VER_WWNDESC=$(java -jar ${WWNDESCJAR} --version)
 AC_MSG_RESULT([${VER_WWNDESC}])
-AC_SUBST([VER_FCPARSERS], ${VER_FCPARSERS})
+AM_CONDITIONAL(FETCH_WWNDESC, test "x$WITH_WWNDESC" = "x${PWD}/depjars/wwndesc.jar")
+AC_SUBST([VER_WWNDESC], ${VER_WWNDESC})
 
 
 AC_MSG_CHECKING([for user-defined specific testcase])
